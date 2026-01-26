@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - Yoga App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body class="admin-page">
+    <!-- Navbar -->
+    <nav class="navbar admin-navbar">
+      <div class="navbar-container">
+        <a href="admin.html" class="logo">🔧 Admin Panel</a>
+
+        <div class="nav-menu">
+          <a href="dashboard.html" class="nav-link">Voir le site</a>
+        </div>
+
+        <div class="nav-actions">
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Changer de thème"
+          >
+            <span class="theme-icon">🌙</span>
+          </button>
+          <button
+            id="logout-btn"
+            class="btn-logout"
+            aria-label="Se déconnecter"
+          >
+            <span>Déconnexion</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="admin-container">
+      <header class="admin-header">
+        <h1>Gestion des Séances</h1>
+        <button id="new-session-btn" class="btn-primary btn-large">
+          ➕ Nouvelle Séance
+        </button>
+      </header>
+
+      <!-- Search Bar -->
+      <div class="admin-search">
+        <input
+          type="text"
+          id="search-sessions"
+          placeholder="Rechercher une séance..."
+          class="search-input"
+        />
+      </div>
+
+      <!-- Sessions Table -->
+      <div class="sessions-table-container">
+        <table class="sessions-table">
+          <thead>
+            <tr>
+              <th>Titre</th>
+              <th>Niveau</th>
+              <th>Durée</th>
+              <th>Type</th>
+              <th>Postures</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="sessions-table-body">
+            <!-- Sessions will be inserted here -->
+          </tbody>
+        </table>
+        <div id="empty-table" class="empty-state" style="display: none">
+          <div class="empty-icon">📋</div>
+          <p>Aucune séance trouvée</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal Create/Edit Session -->
+    <div id="session-modal" class="modal" style="display: none">
+      <div class="modal-content modal-large">
+        <!-- Step 1: General Info -->
+        <div id="step-1" class="modal-step">
+          <div class="modal-header">
+            <h2 id="modal-title">Nouvelle Séance</h2>
+            <button class="modal-close" id="close-modal">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="session-title">Titre *</label>
+              <input
+                type="text"
+                id="session-title"
+                class="form-input"
+                placeholder="Ex: Réveil en douceur"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="session-description">Description *</label>
+              <textarea
+                id="session-description"
+                class="form-textarea"
+                rows="3"
+                placeholder="Décrivez la séance..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="session-duration">Durée (minutes) *</label>
+                <input
+                  type="number"
+                  id="session-duration"
+                  class="form-input"
+                  min="5"
+                  max="120"
+                  placeholder="30"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="session-level">Niveau *</label>
+                <select id="session-level" class="form-select" required>
+                  <option value="">Choisir...</option>
+                  <option value="beginner">Débutant</option>
+                  <option value="intermediate">Intermédiaire</option>
+                  <option value="advanced">Avancé</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="session-type">Type *</label>
+                <select id="session-type" class="form-select" required>
+                  <option value="">Choisir...</option>
+                  <option value="hatha">Hatha</option>
+                  <option value="vinyasa">Vinyasa</option>
+                  <option value="yin">Yin</option>
+                  <option value="flow">Flow</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  <input
+                    type="checkbox"
+                    id="session-premium"
+                    class="form-checkbox"
+                  />
+                  Séance Premium
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Objectifs</label>
+              <div class="checkbox-group">
+                <label>
+                  <input
+                    type="checkbox"
+                    value="détente"
+                    class="goal-checkbox"
+                  />
+                  Détente
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    value="mobilité"
+                    class="goal-checkbox"
+                  />
+                  Mobilité
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    value="renforcement"
+                    class="goal-checkbox"
+                  />
+                  Renforcement
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    value="énergie"
+                    class="goal-checkbox"
+                  />
+                  Énergie
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn-secondary" id="cancel-btn">Annuler</button>
+            <button class="btn-primary" id="next-step-btn">Suivant →</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Poses -->
+        <div id="step-2" class="modal-step" style="display: none">
+          <div class="modal-header">
+            <h2>Postures de la séance</h2>
+            <button class="modal-close" id="close-modal-2">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div class="poses-header">
+              <p class="text-secondary">
+                Ajoutez les postures dans l'ordre d'exécution
+              </p>
+              <button class="btn-secondary btn-small" id="add-pose-btn">
+                ➕ Ajouter une posture
+              </button>
+            </div>
+
+            <div id="poses-list" class="poses-list">
+              <!-- Poses will be inserted here -->
+            </div>
+
+            <div id="empty-poses" class="empty-poses">
+              <p>Aucune posture ajoutée</p>
+              <small>Cliquez sur "Ajouter une posture" pour commencer</small>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn-secondary" id="prev-step-btn">
+              ← Précédent
+            </button>
+            <button class="btn-primary" id="save-session-btn">
+              💾 Enregistrer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-modal" class="modal" style="display: none">
+      <div class="modal-content modal-small">
+        <div class="modal-header">
+          <h2>Confirmer la suppression</h2>
+          <button class="modal-close" id="close-delete-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Êtes-vous sûr de vouloir supprimer cette séance ?</p>
+          <p class="text-danger">
+            <strong>Cette action est irréversible.</strong>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary" id="cancel-delete-btn">Annuler</button>
+          <button class="btn-danger" id="confirm-delete-btn">Supprimer</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

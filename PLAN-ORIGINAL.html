@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plan Original - Application Yoga</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+        line-height: 1.8;
+        background: #f5f5f5;
+        color: #333;
+      }
+      .container {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #2d5a3d;
+        border-bottom: 3px solid #7ba585;
+        padding-bottom: 15px;
+      }
+      h2 {
+        color: #4a7056;
+        margin-top: 30px;
+      }
+      .section {
+        margin: 25px 0;
+        padding: 20px;
+        background: #f9faf9;
+        border-left: 4px solid #7ba585;
+        border-radius: 4px;
+      }
+      ul {
+        line-height: 2;
+      }
+      li {
+        margin: 10px 0;
+      }
+      .highlight {
+        background: #e8f5e9;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-weight: 500;
+      }
+      .note {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+      code {
+        background: #e8e8e8;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🧘 Plan Original - Application YogaFlow</h1>
+
+      <div class="note">
+        <strong>Note:</strong> Ce document archive le plan original de
+        l'application de yoga créée avec toutes les fonctionnalités demandées.
+      </div>
+
+      <div class="section">
+        <h2>📋 Fonctionnalités Clés</h2>
+        <ul>
+          <li>
+            <span class="highlight">Accueil</span> - Page d'entrée apaisante
+            avec séance du jour et accès rapides
+          </li>
+          <li>
+            <span class="highlight">Séances</span> - Catalogue filtrable
+            (niveau, durée, objectif, type)
+          </li>
+          <li>
+            <span class="highlight">Lecteur de séance</span> - Timer, postures,
+            transitions fluides
+          </li>
+          <li>
+            <span class="highlight">Respiration guidée</span> - Exercices animés
+            (cohérence cardiaque, etc.)
+          </li>
+          <li>
+            <span class="highlight">Philosophie</span> - Mini-articles sur le
+            yoga
+          </li>
+          <li>
+            <span class="highlight">Progression</span> - Suivi personnel sans
+            pression
+          </li>
+          <li>
+            <span class="highlight">Dashboard Admin</span> - Ajout de séances en
+            2 clics
+          </li>
+          <li>
+            <span class="highlight">Thème clair/sombre</span> - Bouton en haut à
+            droite
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🎨 Design</h2>
+        <ul>
+          <li>
+            <strong>Palette:</strong> tons naturels (vert sauge, beige, blanc
+            cassé)
+          </li>
+          <li><strong>Typographie:</strong> élégante et épurée</li>
+          <li><strong>Animations:</strong> douces et fluides</li>
+          <li><strong>Responsive:</strong> Mobile-first</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>📦 Entités Créées</h2>
+        <ul>
+          <li><code>entities/Session</code></li>
+          <li><code>entities/User Progress</code></li>
+          <li><code>entities/Article</code></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🏗️ Structure de l'Application</h2>
+        <ul>
+          <li>
+            <strong>Accueil</strong> — Hero apaisant, accès rapide aux séances
+          </li>
+          <li>
+            <strong>Séances</strong> — Liste filtrable avec tous les critères
+          </li>
+          <li>
+            <strong>Lecteur de séance</strong> — Timer, transitions fluides
+          </li>
+          <li><strong>Respiration</strong> — Animations guidées</li>
+          <li><strong>Apprentissage</strong> — Articles philosophie</li>
+          <li><strong>Progression</strong> — Statistiques personnelles</li>
+          <li><strong>Admin</strong> — Ajout de séances en 2 clics</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>📄 Pages Créées</h2>
+        <ul>
+          <li><code>Layout</code></li>
+          <li><code>Home Page</code></li>
+          <li><code>sessions/Session Card</code></li>
+          <li><code>sessions/Session Filters</code></li>
+          <li><code>Sessions Page</code></li>
+          <li><code>Session Player Page</code></li>
+          <li><code>Breathing Page</code></li>
+          <li><code>Learn Page</code></li>
+          <li><code>Progress Page</code></li>
+          <li><code>Admin Page</code></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>✨ Fonctionnalités Implémentées</h2>
+        <ul>
+          <li>
+            🌙 <strong>Mode clair/sombre</strong> (bouton en haut à droite)
+          </li>
+          <li>📱 <strong>Design responsive</strong> mobile-first</li>
+          <li>
+            🔐 <strong>Comptes utilisateurs</strong> avec suivi de progression
+          </li>
+          <li>✨ <strong>Animations fluides</strong> (Framer Motion)</li>
+          <li>🎨 <strong>Palette sage/crème</strong> élégante</li>
+          <li>
+            📊 <strong>4 séances de yoga</strong> créées avec postures complètes
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🎯 Exercices de Respiration</h2>
+        <ul>
+          <li><strong>Cohérence cardiaque</strong> — Respiration équilibrée</li>
+          <li><strong>4-6</strong> — Technique d'apaisement</li>
+          <li><strong>Carrée</strong> — Respiration structurée</li>
+          <li><strong>Énergisante</strong> — Réveil du corps</li>
+        </ul>
+      </div>
+
+      <div class="note">
+        <strong>🎯 Vision du Projet:</strong><br />
+        Créer une application de yoga complète et élégante avec :
+        <ul style="margin-top: 10px">
+          <li>Accès rapide aux séances du jour</li>
+          <li>Filtrage avancé des séances</li>
+          <li>Lecteur avec timer et transitions</li>
+          <li>Exercices de respiration guidés</li>
+          <li>Articles de philosophie yoga</li>
+          <li>Suivi de progression personnalisé</li>
+          <li>Dashboard admin simplifié</li>
+          <li>Thème adaptatif clair/sombre</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🛠️ Technologies Mentionnées</h2>
+        <ul>
+          <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+          <li><strong>Animations:</strong> Framer Motion</li>
+          <li><strong>Design:</strong> Responsive mobile-first</li>
+          <li><strong>Couleurs:</strong> Vert sauge, beige, blanc cassé</li>
+        </ul>
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 2px solid #e0e0e0" />
+
+      <p style="text-align: center; color: #999; font-size: 14px">
+        📅 Document créé le 23 janvier 2026<br />
+        Plan original de l'application YogaFlow
+      </p>
+    </div>
+  </body>
+</html>

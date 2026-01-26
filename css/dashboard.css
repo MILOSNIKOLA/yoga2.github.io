@@ -1,0 +1,591 @@
+/* ========================================
+   DASHBOARD NAVBAR
+   ======================================== */
+
+.dashboard-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: var(--bg-primary);
+  border-bottom: 2px solid var(--border);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: nowrap;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.navbar-logo:hover {
+  color: var(--accent);
+}
+
+.logo-icon {
+  font-size: 1.5rem;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navbar-link:hover {
+  color: var(--accent);
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.navbar-link:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle-nav {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--text-primary);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.theme-toggle-nav:hover {
+  background: var(--bg-secondary);
+}
+
+.btn-logout {
+  background: transparent;
+  border: 2px solid var(--border);
+  padding: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-logout:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+/* Mobile navbar */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-container {
+    padding: 1rem;
+  }
+}
+
+/* ========================================
+   DASHBOARD STYLES
+   ======================================== */
+
+.dashboard-container {
+  min-height: 100vh;
+  padding: 100px 20px 100px;
+  background: var(--bg-secondary);
+}
+
+.dashboard-header {
+  margin-bottom: 3rem;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  margin: 1rem 0 0.5rem;
+  color: var(--text-primary);
+}
+
+.dashboard-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   STATS GRID
+   ======================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background: var(--bg-primary);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  border: 2px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   STREAK MESSAGE
+   ======================================== */
+.streak-message {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--accent-light) 0%,
+    var(--bg-primary) 100%
+  );
+  padding: 2rem;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  border: 2px solid var(--border);
+}
+
+.streak-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.streak-text {
+  flex: 1;
+}
+
+.streak-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.streak-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+.dashboard-section {
+  margin-bottom: 3rem;
+}
+
+.dashboard-section .section-title {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+/* ========================================
+   RECENT SESSIONS
+   ======================================== */
+.recent-sessions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.session-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.session-item:hover {
+  border-color: var(--accent);
+  transform: translateX(5px);
+}
+
+.session-item-info {
+  flex: 1;
+}
+
+.session-item-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.session-item-date {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.session-item-duration {
+  padding: 0.5rem 1rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.empty-message {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 3rem;
+  background: var(--bg-primary);
+  border-radius: 16px;
+  border: 2px dashed var(--border);
+}
+
+/* ========================================
+   WEEK CHART
+   ======================================== */
+.week-chart {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: var(--bg-primary);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  min-height: 200px;
+}
+
+.week-day {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.week-bar-container {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.week-bar {
+  width: 100%;
+  max-width: 50px;
+  background: var(--accent);
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s ease;
+  min-height: 4px;
+}
+
+.week-bar:hover {
+  background: var(--accent-hover);
+  transform: scaleY(1.05);
+}
+
+.week-bar.empty {
+  background: var(--border);
+  opacity: 0.5;
+}
+
+.week-day-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+/* ========================================
+   CONTINUE PRACTICE SECTION
+   ======================================== */
+.continue-practice {
+  background: var(--bg-primary);
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.continue-practice:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+}
+
+.continue-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.continue-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.continue-content {
+  flex: 1;
+}
+
+.continue-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.continue-description {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.continue-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.continue-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.continue-badge.beginner {
+  background: rgba(52, 211, 153, 0.2);
+  color: #10b981;
+}
+
+.continue-badge.intermediate {
+  background: rgba(251, 191, 36, 0.2);
+  color: #f59e0b;
+}
+
+.continue-badge.advanced {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.continue-action {
+  flex-shrink: 0;
+}
+
+.continue-action .btn {
+  padding: 0.75rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .continue-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .continue-meta {
+    justify-content: center;
+  }
+}
+
+.week-day-count {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   DASHBOARD ACTIONS
+   ======================================== */
+.dashboard-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+/* ========================================
+   ACCOUNT SECTION
+   ======================================== */
+.account-card {
+  background: var(--bg-primary);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.account-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.account-info:last-child {
+  border-bottom: none;
+}
+
+.account-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.account-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.free {
+  background: var(--border);
+  color: var(--text-secondary);
+}
+
+.status-badge.premium {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+}
+
+.account-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .dashboard-title {
+    font-size: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .streak-message {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .week-chart {
+    padding: 1.5rem 1rem;
+  }
+
+  .week-bar-container {
+    height: 100px;
+  }
+
+  .session-item {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .dashboard-actions {
+    flex-direction: column;
+  }
+
+  .dashboard-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .week-chart {
+    gap: 0.5rem;
+  }
+
+  .week-day-label {
+    font-size: 0.75rem;
+  }
+}

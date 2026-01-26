@@ -1,0 +1,288 @@
+/* ========================================
+   RESPIRATION PAGE STYLES
+   ======================================== */
+
+.breathing-container {
+  min-height: 100vh;
+  padding: 60px 20px 100px;
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start) 0%,
+    var(--gradient-end) 100%
+  );
+}
+
+.breathing-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.breathing-subtitle {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+}
+
+/* ========================================
+   BREATHING TYPE SELECTOR
+   ======================================== */
+.breathing-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.breath-type-btn {
+  background: var(--bg-primary);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.breath-type-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+}
+
+.breath-type-btn.active {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.breath-type-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.breath-type-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.breath-type-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   BREATHING CIRCLE
+   ======================================== */
+.breathing-circle-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 3rem auto;
+}
+
+.breathing-circle {
+  width: 100%;
+  height: 100%;
+}
+
+.circle-bg {
+  stroke: var(--border);
+}
+
+.circle-main {
+  fill: var(--accent);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.circle-main.inhale {
+  animation: breatheIn 5s ease-in-out infinite;
+}
+
+.circle-main.exhale {
+  animation: breatheOut 5s ease-in-out infinite;
+}
+
+@keyframes breatheIn {
+  0%,
+  100% {
+    r: 70;
+    opacity: 0.3;
+  }
+  50% {
+    r: 85;
+    opacity: 0.6;
+  }
+}
+
+@keyframes breatheOut {
+  0%,
+  100% {
+    r: 85;
+    opacity: 0.6;
+  }
+  50% {
+    r: 70;
+    opacity: 0.3;
+  }
+}
+
+/* Instruction overlay */
+.breathing-instruction {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.instruction-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  animation: fadeInOut 1s ease-in-out infinite;
+}
+
+.instruction-count {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   CONTROLS
+   ======================================== */
+.breathing-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+/* ========================================
+   OPTIONS
+   ======================================== */
+.breathing-options {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.option-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text-primary);
+  user-select: none;
+}
+
+.option-toggle input[type="checkbox"] {
+  width: 48px;
+  height: 24px;
+  appearance: none;
+  background: var(--border);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.option-toggle input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+.option-toggle input[type="checkbox"]:checked {
+  background: var(--accent);
+}
+
+.option-toggle input[type="checkbox"]:checked::before {
+  transform: translateX(24px);
+}
+
+/* ========================================
+   STATS
+   ======================================== */
+.breathing-stats {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .breathing-title {
+    font-size: 2rem;
+  }
+
+  .breathing-subtitle {
+    font-size: 1rem;
+  }
+
+  .breathing-circle-container {
+    width: 250px;
+    height: 250px;
+  }
+
+  .instruction-text {
+    font-size: 1.25rem;
+  }
+
+  .instruction-count {
+    font-size: 2.5rem;
+  }
+
+  .breathing-selector {
+    grid-template-columns: 1fr;
+  }
+}

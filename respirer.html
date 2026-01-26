@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Exercices de respiration guidée - Yoga App"
+    />
+    <title>Respiration - Yoga App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/respiration.css" />
+  </head>
+  <body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <svg
+        class="sun-icon"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon hidden"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+
+    <!-- Back Link -->
+    <div class="container" style="padding-top: 40px">
+      <a href="index.html" class="back-link">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Retour
+      </a>
+    </div>
+
+    <!-- Breathing Section -->
+    <section class="breathing-container">
+      <div class="container">
+        <h1 class="breathing-title">Respiration guidée</h1>
+        <p class="breathing-subtitle">Prenez quelques instants pour respirer</p>
+
+        <!-- Breathing Type Selector -->
+        <div class="breathing-selector">
+          <button class="breath-type-btn active" data-type="coherence">
+            <div class="breath-type-icon">❤️</div>
+            <div class="breath-type-name">Cohérence cardiaque</div>
+            <div class="breath-type-desc">5s inspire / 5s expire</div>
+          </button>
+
+          <button class="breath-type-btn" data-type="box">
+            <div class="breath-type-icon">📦</div>
+            <div class="breath-type-name">Box Breathing</div>
+            <div class="breath-type-desc">4s chaque phase</div>
+          </button>
+
+          <button class="breath-type-btn" data-type="478">
+            <div class="breath-type-icon">😌</div>
+            <div class="breath-type-name">4-7-8</div>
+            <div class="breath-type-desc">Relaxation profonde</div>
+          </button>
+
+          <button class="breath-type-btn" data-type="energize">
+            <div class="breath-type-icon">⚡</div>
+            <div class="breath-type-name">Énergisant</div>
+            <div class="breath-type-desc">3s inspire / 6s expire</div>
+          </button>
+        </div>
+
+        <!-- Breathing Circle -->
+        <div class="breathing-circle-container">
+          <svg class="breathing-circle" viewBox="0 0 200 200">
+            <circle
+              class="circle-bg"
+              cx="100"
+              cy="100"
+              r="90"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              opacity="0.2"
+            />
+            <circle
+              class="circle-main"
+              cx="100"
+              cy="100"
+              r="70"
+              fill="var(--accent-light)"
+              opacity="0.3"
+            />
+          </svg>
+
+          <div class="breathing-instruction">
+            <div class="instruction-text" id="instruction-text">Prêt</div>
+            <div class="instruction-count" id="instruction-count"></div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="breathing-controls">
+          <button id="start-breath-btn" class="btn btn-primary btn-large">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Commencer
+          </button>
+
+          <button id="stop-breath-btn" class="btn btn-outline btn-large hidden">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <rect x="6" y="4" width="4" height="16"></rect>
+              <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+            Arrêter
+          </button>
+        </div>
+
+        <!-- Options -->
+        <div class="breathing-options">
+          <label class="option-toggle">
+            <input type="checkbox" id="sound-toggle" checked />
+            <span>Son activé</span>
+          </label>
+
+          <label class="option-toggle">
+            <input type="checkbox" id="vibration-toggle" />
+            <span>Vibrations</span>
+          </label>
+        </div>
+
+        <!-- Stats -->
+        <div class="breathing-stats">
+          <div class="stat-item">
+            <div class="stat-label">Cycles complétés</div>
+            <div class="stat-value" id="cycles-count">0</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Temps total</div>
+            <div class="stat-value" id="total-time">0:00</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2026 Yoga App. Respirez, tout simplement.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/breathing.js"></script>
+  </body>
+</html>

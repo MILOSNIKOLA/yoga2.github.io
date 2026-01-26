@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription - Yoga App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+  </head>
+  <body class="auth-page">
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <svg
+        class="sun-icon"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon hidden"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+
+    <div class="auth-container">
+      <div class="auth-card">
+        <!-- Back Button -->
+        <a href="index.html" class="back-link">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Retour
+        </a>
+
+        <!-- Logo / Title -->
+        <div class="auth-header">
+          <h1>Créer un compte</h1>
+          <p>Commencez votre voyage vers le bien-être</p>
+        </div>
+
+        <!-- Register Form -->
+        <form id="register-form" class="auth-form">
+          <div class="form-group">
+            <label for="name">Prénom</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autocomplete="given-name"
+              placeholder="Marie"
+              minlength="2"
+              maxlength="50"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="votre@email.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              autocomplete="new-password"
+              placeholder="••••••••"
+              minlength="8"
+            />
+            <small class="form-hint"
+              >Minimum 8 caractères, incluant majuscule et chiffre</small
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password">Confirmer le mot de passe</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              required
+              autocomplete="new-password"
+              placeholder="••••••••"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="level">Votre niveau</label>
+            <select id="level" name="level" required>
+              <option value="">Choisissez votre niveau</option>
+              <option value="beginner">Débutant - Je découvre le yoga</option>
+              <option value="intermediate">
+                Intermédiaire - Je pratique régulièrement
+              </option>
+              <option value="advanced">
+                Avancé - Je pratique depuis longtemps
+              </option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label class="checkbox-label">
+              <input type="checkbox" id="terms" name="terms" required />
+              <span
+                >J'accepte les
+                <a href="#" class="link">conditions d'utilisation</a></span
+              >
+            </label>
+          </div>
+
+          <!-- Error Message -->
+          <div id="error-message" class="error-message hidden"></div>
+
+          <!-- Success Message -->
+          <div id="success-message" class="success-message hidden"></div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="btn btn-primary btn-block"
+            id="submit-btn"
+          >
+            Créer mon compte
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="auth-divider">
+          <span>ou</span>
+        </div>
+
+        <!-- Login Link -->
+        <p class="auth-footer">
+          Déjà un compte ?
+          <a href="login.html" class="link">Se connecter</a>
+        </p>
+      </div>
+
+      <!-- Decorative Quote -->
+      <div class="auth-quote">
+        <blockquote>
+          "Vous ne pouvez pas arrêter les vagues, mais vous pouvez apprendre à
+          surfer."
+        </blockquote>
+      </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+      // Handle register form submission
+      document
+        .getElementById("register-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const submitBtn = document.getElementById("submit-btn");
+          const errorMessage = document.getElementById("error-message");
+          const successMessage = document.getElementById("success-message");
+
+          // Get form data
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirm-password").value;
+          const level = document.getElementById("level").value;
+
+          // Loading state
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Création...";
+          errorMessage.classList.add("hidden");
+          successMessage.classList.add("hidden");
+
+          // Validate passwords match
+          if (password !== confirmPassword) {
+            errorMessage.textContent = "Les mots de passe ne correspondent pas";
+            errorMessage.classList.remove("hidden");
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Créer mon compte";
+            return;
+          }
+
+          try {
+            await register(email, password, name, level);
+
+            // Success
+            successMessage.textContent =
+              "Compte créé avec succès ! Redirection...";
+            successMessage.classList.remove("hidden");
+
+            // Redirect after 1 second
+            setTimeout(() => {
+              window.location.href = "dashboard.html";
+            }, 1000);
+          } catch (error) {
+            // Show error
+            errorMessage.textContent = error.message;
+            errorMessage.classList.remove("hidden");
+
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Créer mon compte";
+          }
+        });
+
+      // Real-time password validation
+      document.getElementById("password").addEventListener("input", (e) => {
+        const password = e.target.value;
+        const hint = e.target.nextElementSibling;
+
+        if (
+          password.length >= 8 &&
+          /[A-Z]/.test(password) &&
+          /[0-9]/.test(password)
+        ) {
+          hint.style.color = "var(--success)";
+          hint.textContent = "✓ Mot de passe fort";
+        } else {
+          hint.style.color = "var(--text-secondary)";
+          hint.textContent =
+            "Minimum 8 caractères, incluant majuscule et chiffre";
+        }
+      });
+    </script>
+  </body>
+</html>

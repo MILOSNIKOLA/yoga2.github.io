@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ma Progression - Yoga App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/progress.css" />
+  </head>
+  <body class="progress-page">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="dashboard.html" class="logo">🧘‍♀️ Yoga App</a>
+
+        <div class="nav-menu">
+          <a href="sessions.html" class="nav-link">Séances</a>
+          <a href="respirer.html" class="nav-link">Respiration</a>
+          <a href="progress.html" class="nav-link active">Progression</a>
+          <a href="learning.html" class="nav-link">Apprentissage</a>
+        </div>
+
+        <div class="nav-actions">
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Changer de thème"
+          >
+            <span class="theme-icon">🌙</span>
+          </button>
+          <button
+            id="logout-btn"
+            class="btn-logout"
+            aria-label="Se déconnecter"
+          >
+            <span>Déconnexion</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="progress-container">
+      <!-- Header -->
+      <header class="progress-header">
+        <h1>Ma Progression</h1>
+        <div class="period-toggle">
+          <button class="period-btn active" data-period="7">7 jours</button>
+          <button class="period-btn" data-period="30">30 jours</button>
+          <button class="period-btn" data-period="all">Tout</button>
+        </div>
+      </header>
+
+      <!-- Stats Cards -->
+      <section class="stats-section">
+        <div class="stat-card">
+          <div class="stat-icon">📊</div>
+          <div class="stat-info">
+            <div class="stat-label">Séances complétées</div>
+            <div class="stat-value" id="total-sessions">0</div>
+            <div class="stat-evolution" id="sessions-evolution">
+              +0 cette période
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">⏱️</div>
+          <div class="stat-info">
+            <div class="stat-label">Temps total</div>
+            <div class="stat-value" id="total-time">0h</div>
+            <div class="stat-evolution" id="time-evolution">
+              +0h cette période
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🔥</div>
+          <div class="stat-info">
+            <div class="stat-label">Série actuelle</div>
+            <div class="stat-value" id="current-streak">0</div>
+            <div class="stat-evolution">jours consécutifs</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🏆</div>
+          <div class="stat-info">
+            <div class="stat-label">Meilleure série</div>
+            <div class="stat-value" id="best-streak">0</div>
+            <div class="stat-evolution">jours consécutifs</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Activity Graph -->
+      <section class="graph-section">
+        <div class="section-header">
+          <h2>Activité</h2>
+          <button id="export-btn" class="btn-secondary">
+            📥 Exporter mes données
+          </button>
+        </div>
+        <div class="graph-container">
+          <canvas id="activity-chart"></canvas>
+        </div>
+      </section>
+
+      <!-- Timeline -->
+      <section class="timeline-section">
+        <h2>Séances récentes</h2>
+        <div class="timeline" id="timeline-container">
+          <!-- Timeline items will be inserted here -->
+        </div>
+        <div id="empty-timeline" class="empty-state" style="display: none">
+          <div class="empty-icon">📊</div>
+          <p>Aucune séance complétée pour le moment</p>
+          <a href="sessions.html" class="btn-primary">Commencer une séance</a>
+        </div>
+      </section>
+
+      <!-- Goals Section (Optional) -->
+      <section class="goals-section">
+        <h2>Objectif hebdomadaire</h2>
+        <div class="goal-card">
+          <div class="goal-header">
+            <span class="goal-label">3 séances par semaine</span>
+            <span class="goal-progress-text" id="goal-progress-text">0/3</span>
+          </div>
+          <div class="progress-bar">
+            <div
+              class="progress-fill"
+              id="goal-progress-fill"
+              style="width: 0%"
+            ></div>
+          </div>
+          <p class="goal-message" id="goal-message">Continuez comme ça !</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/progress.js"></script>
+  </body>
+</html>

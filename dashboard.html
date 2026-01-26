@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mon espace - Yoga App" />
+    <title>Mon espace - Yoga App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="dashboard-navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">
+          <span class="logo-icon">🧘</span>
+          <span class="logo-text">Yoga App</span>
+        </a>
+        <div class="navbar-menu">
+          <a href="sessions.html" class="navbar-link">Séances</a>
+          <a href="respirer.html" class="navbar-link">Respiration</a>
+          <a href="progress.html" class="navbar-link">Progression</a>
+          <a href="learning.html" class="navbar-link">Apprentissage</a>
+        </div>
+        <div class="navbar-actions">
+          <button
+            id="theme-toggle"
+            class="theme-toggle-nav"
+            aria-label="Toggle theme"
+          >
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon hidden"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button id="logout-btn" class="btn-logout" aria-label="Déconnexion">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Theme Toggle Button (old position, kept for mobile) -->
+    <button
+      id="theme-toggle-mobile"
+      class="theme-toggle"
+      aria-label="Toggle theme"
+      style="display: none"
+    >
+      <svg
+        class="sun-icon"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon hidden"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+      <div class="container">
+        <!-- Header -->
+        <div class="dashboard-header">
+          <a href="index.html" class="back-link">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Retour
+          </a>
+          <h1 class="dashboard-title">Mon espace</h1>
+          <p class="dashboard-subtitle" id="welcome-message">
+            Bienvenue sur votre espace
+          </p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">🧘</div>
+            <div class="stat-value" id="total-sessions">0</div>
+            <div class="stat-label">Séances pratiquées</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">⏱️</div>
+            <div class="stat-value" id="total-minutes">0</div>
+            <div class="stat-label">Minutes de pratique</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🔥</div>
+            <div class="stat-value" id="current-streak">0</div>
+            <div class="stat-label">Jours consécutifs</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">✨</div>
+            <div class="stat-value" id="this-week">0</div>
+            <div class="stat-label">Cette semaine</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🎯</div>
+            <div class="stat-value" id="user-level">Débutant</div>
+            <div class="stat-label">Niveau</div>
+          </div>
+        </div>
+
+        <!-- Streak Message -->
+        <div class="streak-message" id="streak-message">
+          <div class="streak-icon">💫</div>
+          <div class="streak-text">
+            <p class="streak-title">Continuez ainsi !</p>
+            <p class="streak-desc">
+              Chaque moment compte, pas besoin d'être parfait.
+            </p>
+          </div>
+        </div>
+
+        <!-- Continue Practice -->
+        <section class="dashboard-section">
+          <h2 class="section-title">Continuer ma pratique</h2>
+          <div class="continue-practice" id="continue-practice">
+            <!-- Will be populated by JS -->
+          </div>
+        </section>
+
+        <!-- Recent Sessions -->
+        <section class="dashboard-section">
+          <h2 class="section-title">Séances récentes</h2>
+          <div class="recent-sessions" id="recent-sessions">
+            <p class="empty-message">
+              Aucune séance enregistrée pour le moment
+            </p>
+          </div>
+        </section>
+
+        <!-- Weekly Chart -->
+        <section class="dashboard-section">
+          <h2 class="section-title">Votre semaine</h2>
+          <div class="week-chart" id="week-chart">
+            <!-- Will be populated by JS -->
+          </div>
+        </section>
+
+        <!-- Actions -->
+        <div class="dashboard-actions">
+          <a href="sessions.html" class="btn btn-primary btn-large">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="10 8 16 12 10 16 10 8"></polygon>
+            </svg>
+            Nouvelle séance
+          </a>
+          <a href="respirer.html" class="btn btn-outline btn-large">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              ></path>
+            </svg>
+            Respiration
+          </a>
+        </div>
+
+        <!-- Account Section -->
+        <section class="dashboard-section">
+          <h2 class="section-title">Compte</h2>
+          <div class="account-card">
+            <div class="account-info">
+              <div class="account-label">Email</div>
+              <div class="account-value" id="user-email">-</div>
+            </div>
+            <div class="account-info">
+              <div class="account-label">Membre depuis</div>
+              <div class="account-value" id="member-since">-</div>
+            </div>
+            <div class="account-info">
+              <div class="account-label">Statut</div>
+              <div class="account-value">
+                <span id="premium-status" class="status-badge">Gratuit</span>
+              </div>
+            </div>
+          </div>
+          <div class="account-actions">
+            <button id="logout-btn" class="btn btn-outline">Déconnexion</button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

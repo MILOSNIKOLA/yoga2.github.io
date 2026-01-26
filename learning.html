@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apprentissage - Yoga App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/learning.css" />
+  </head>
+  <body class="learning-page">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="dashboard.html" class="logo">🧘‍♀️ Yoga App</a>
+
+        <div class="nav-menu">
+          <a href="sessions.html" class="nav-link">Séances</a>
+          <a href="respirer.html" class="nav-link">Respiration</a>
+          <a href="progress.html" class="nav-link">Progression</a>
+          <a href="learning.html" class="nav-link active">Apprentissage</a>
+        </div>
+
+        <div class="nav-actions">
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Changer de thème"
+          >
+            <span class="theme-icon">🌙</span>
+          </button>
+          <button
+            id="logout-btn"
+            class="btn-logout"
+            aria-label="Se déconnecter"
+          >
+            <span>Déconnexion</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="learning-container">
+      <!-- Hero -->
+      <header class="learning-hero">
+        <h1>Comprendre le yoga</h1>
+        <p>
+          Approfondissez votre pratique avec des articles courts et inspirants
+        </p>
+      </header>
+
+      <!-- Search and Filters -->
+      <div class="learning-controls">
+        <input
+          type="text"
+          id="search-articles"
+          class="search-input"
+          placeholder="Rechercher un article..."
+        />
+        <select id="filter-category" class="filter-select">
+          <option value="all">Toutes les catégories</option>
+          <option value="bases">Bases du yoga</option>
+          <option value="pranayama">Respiration (Pranayama)</option>
+          <option value="philosophie">Philosophie</option>
+          <option value="asanas">Postures (Asanas)</option>
+          <option value="meditation">Méditation</option>
+        </select>
+      </div>
+
+      <!-- Articles Grid -->
+      <section class="articles-grid" id="articles-grid">
+        <!-- Articles will be inserted here -->
+      </section>
+
+      <!-- Empty State -->
+      <div id="empty-articles" class="empty-state" style="display: none">
+        <div class="empty-icon">📚</div>
+        <p>Aucun article trouvé</p>
+      </div>
+    </main>
+
+    <!-- Article Modal -->
+    <div id="article-modal" class="modal" style="display: none">
+      <div class="modal-content article-modal-content">
+        <div class="modal-header">
+          <div class="article-header-info">
+            <h2 id="article-title"></h2>
+            <div class="article-meta">
+              <span id="article-category" class="category-badge"></span>
+              <span id="article-read-time"></span>
+            </div>
+          </div>
+          <button class="modal-close" id="close-article-modal">&times;</button>
+        </div>
+        <div class="modal-body article-body">
+          <div id="article-content"></div>
+          <div class="article-footer">
+            <p class="article-author">Par l'équipe Yoga App</p>
+            <button id="mark-as-read-btn" class="btn-secondary">
+              ✓ Marquer comme lu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/learning.js"></script>
+  </body>
+</html>

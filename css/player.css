@@ -1,0 +1,364 @@
+/* ========================================
+   SESSION PLAYER STYLES
+   ======================================== */
+
+.player-container {
+  min-height: 100vh;
+  padding: 40px 20px 100px;
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start) 0%,
+    var(--gradient-end) 100%
+  );
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--accent);
+  transform: translateX(-5px);
+}
+
+/* ========================================
+   SESSION INFO
+   ======================================== */
+.session-info {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.session-info .session-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.session-meta {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.session-level,
+.session-duration {
+  padding: 0.5rem 1rem;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   TIMER CIRCLE
+   ======================================== */
+.timer-container {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 3rem auto;
+}
+
+.timer-circle {
+  width: 100%;
+  height: 100%;
+}
+
+.timer-bg {
+  stroke: var(--border);
+}
+
+.timer-progress {
+  stroke: var(--accent);
+  transition: stroke-dashoffset 1s linear;
+  stroke-linecap: round;
+}
+
+.timer-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.pose-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.time-display {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.pose-number {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   POSE INSTRUCTIONS
+   ======================================== */
+.pose-instructions {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: var(--bg-primary);
+  border-radius: 16px;
+  text-align: center;
+  border: 2px solid var(--border);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pose-instructions p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ========================================
+   PLAYER CONTROLS
+   ======================================== */
+.player-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+/* ========================================
+   AUDIO CONTROL
+   ======================================== */
+.audio-control {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.option-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text-primary);
+  user-select: none;
+}
+
+.option-toggle input[type="checkbox"] {
+  width: 48px;
+  height: 24px;
+  appearance: none;
+  background: var(--border);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.option-toggle input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+.option-toggle input[type="checkbox"]:checked {
+  background: var(--accent);
+}
+
+.option-toggle input[type="checkbox"]:checked::before {
+  transform: translateX(24px);
+}
+
+/* ========================================
+   COMPLETION MODAL
+   ======================================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: var(--bg-primary);
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: slideUp 0.4s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.modal-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.modal-content p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.modal-stats {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.modal-stat {
+  text-align: center;
+}
+
+.modal-stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.modal-stat-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .session-info .session-title {
+    font-size: 1.5rem;
+  }
+
+  .timer-container {
+    width: 280px;
+    height: 280px;
+  }
+
+  .pose-name {
+    font-size: 1.25rem;
+  }
+
+  .time-display {
+    font-size: 3rem;
+  }
+
+  .pose-instructions p {
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    padding: 2rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-stats {
+    gap: 2rem;
+  }
+
+  .modal-stat-value {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timer-container {
+    width: 240px;
+    height: 240px;
+  }
+
+  .time-display {
+    font-size: 2.5rem;
+  }
+
+  .player-controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .player-controls .btn {
+    width: 100%;
+  }
+}

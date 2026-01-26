@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Séances de yoga - Yoga App" />
+    <title>Séances - Yoga App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/sessions.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="dashboard-navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">
+          <span class="logo-icon">🧘</span>
+          <span class="logo-text">Yoga App</span>
+        </a>
+        <div class="navbar-menu">
+          <a href="sessions.html" class="navbar-link active">Séances</a>
+          <a href="respirer.html" class="navbar-link">Respiration</a>
+          <a href="progress.html" class="navbar-link">Progression</a>
+          <a href="learning.html" class="navbar-link">Apprentissage</a>
+        </div>
+        <div class="navbar-actions">
+          <button
+            id="theme-toggle"
+            class="theme-toggle-nav"
+            aria-label="Toggle theme"
+          >
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon hidden"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <a href="dashboard.html" class="btn-profile" aria-label="Mon profil">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="sessions-hero">
+      <div class="container">
+        <h1 class="hero-title">Trouvez votre séance idéale</h1>
+        <p class="hero-subtitle">Filtrez par niveau, durée ou objectif</p>
+      </div>
+    </section>
+
+    <!-- Filters Bar (Sticky) -->
+    <div class="filters-container">
+      <div class="container">
+        <div class="filters-bar">
+          <!-- Search Box -->
+          <div class="filter-group search-group">
+            <svg
+              class="search-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input
+              type="text"
+              id="search-input"
+              class="search-input"
+              placeholder="Rechercher une séance..."
+            />
+          </div>
+
+          <!-- Level Filter -->
+          <div class="filter-group">
+            <select id="level-filter" class="filter-select">
+              <option value="">Tous les niveaux</option>
+              <option value="beginner">Débutant</option>
+              <option value="intermediate">Intermédiaire</option>
+              <option value="advanced">Avancé</option>
+            </select>
+          </div>
+
+          <!-- Duration Filter -->
+          <div class="filter-group">
+            <select id="duration-filter" class="filter-select">
+              <option value="">Toutes les durées</option>
+              <option value="5-10">5-10 min</option>
+              <option value="10-20">10-20 min</option>
+              <option value="20-45">20-45 min</option>
+              <option value="45+">45+ min</option>
+            </select>
+          </div>
+
+          <!-- Type Filter -->
+          <div class="filter-group">
+            <select id="type-filter" class="filter-select">
+              <option value="">Tous les types</option>
+              <option value="hatha">Hatha</option>
+              <option value="vinyasa">Vinyasa</option>
+              <option value="yin">Yin</option>
+              <option value="flow">Flow</option>
+            </select>
+          </div>
+
+          <!-- Goal Filter -->
+          <div class="filter-group">
+            <select id="goal-filter" class="filter-select">
+              <option value="">Tous les objectifs</option>
+              <option value="détente">Détente</option>
+              <option value="mobilité">Mobilité</option>
+              <option value="renforcement">Renforcement</option>
+              <option value="énergie">Énergie</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Results Count -->
+        <div class="results-info">
+          <p id="results-count" class="results-count">
+            Chargement des séances...
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sessions Grid -->
+    <section class="sessions-section">
+      <div class="container">
+        <div id="sessions-grid" class="sessions-grid">
+          <!-- Sessions will be loaded here -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state hidden">
+          <div class="empty-icon">🔍</div>
+          <h3 class="empty-title">Aucune séance trouvée</h3>
+          <p class="empty-text">
+            Essayez d'ajuster vos filtres pour trouver d'autres séances
+          </p>
+          <button id="reset-filters" class="btn btn-primary">
+            Réinitialiser les filtres
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/sessions.js"></script>
+  </body>
+</html>

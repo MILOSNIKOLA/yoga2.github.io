@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Player de séance - Yoga App" />
+    <title>Séance - Yoga App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/player.css" />
+  </head>
+  <body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <svg
+        class="sun-icon"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon hidden"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+
+    <!-- Player Container -->
+    <div class="player-container">
+      <div class="container">
+        <!-- Back Link -->
+        <a href="index.html" class="back-link">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          Retour
+        </a>
+
+        <!-- Session Info -->
+        <div class="session-info" id="session-info">
+          <h1 class="session-title" id="player-session-title">Chargement...</h1>
+          <div class="session-meta">
+            <span class="session-level" id="player-session-level"></span>
+            <span class="session-duration" id="player-session-duration"></span>
+          </div>
+        </div>
+
+        <!-- Timer Circle -->
+        <div class="timer-container">
+          <svg class="timer-circle" viewBox="0 0 200 200">
+            <circle
+              class="timer-bg"
+              cx="100"
+              cy="100"
+              r="85"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="8"
+              opacity="0.2"
+            />
+            <circle
+              id="timer-progress"
+              class="timer-progress"
+              cx="100"
+              cy="100"
+              r="85"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="8"
+              stroke-dasharray="534"
+              stroke-dashoffset="534"
+              transform="rotate(-90 100 100)"
+            />
+          </svg>
+
+          <div class="timer-content">
+            <div class="pose-name" id="pose-name">Prêt à commencer</div>
+            <div class="time-display" id="time-display">0:00</div>
+            <div class="pose-number" id="pose-number"></div>
+          </div>
+        </div>
+
+        <!-- Pose Instructions -->
+        <div class="pose-instructions" id="pose-instructions">
+          <p>Préparez-vous pour votre séance</p>
+        </div>
+
+        <!-- Player Controls -->
+        <div class="player-controls">
+          <button id="start-btn" class="btn btn-primary btn-large">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Commencer
+          </button>
+
+          <button id="pause-btn" class="btn btn-outline btn-large hidden">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <rect x="6" y="4" width="4" height="16"></rect>
+              <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+            Pause
+          </button>
+
+          <button id="resume-btn" class="btn btn-primary btn-large hidden">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Reprendre
+          </button>
+
+          <button id="stop-btn" class="btn btn-text hidden">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <rect x="5" y="5" width="14" height="14"></rect>
+            </svg>
+            Arrêter
+          </button>
+        </div>
+
+        <!-- Audio Control -->
+        <div class="audio-control">
+          <label class="option-toggle">
+            <input type="checkbox" id="audio-toggle" checked />
+            <span>Son de transition</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Completion Modal -->
+    <div id="completion-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-icon">🎉</div>
+        <h2>Séance terminée !</h2>
+        <p>Félicitations pour ce moment que vous vous êtes accordé.</p>
+        <div class="modal-stats">
+          <div class="modal-stat">
+            <div class="modal-stat-value" id="modal-duration">0 min</div>
+            <div class="modal-stat-label">Durée</div>
+          </div>
+          <div class="modal-stat">
+            <div class="modal-stat-value" id="modal-poses">0</div>
+            <div class="modal-stat-label">Postures</div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
+          <a href="sessions.html" class="btn btn-outline">Autres séances</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/player.js"></script>
+  </body>
+</html>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion - Yoga App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+  </head>
+  <body class="auth-page">
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <svg
+        class="sun-icon"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon hidden"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+
+    <div class="auth-container">
+      <div class="auth-card">
+        <!-- Back Button -->
+        <a href="index.html" class="back-link">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Retour
+        </a>
+
+        <!-- Logo / Title -->
+        <div class="auth-header">
+          <h1>Bienvenue</h1>
+          <p>Connectez-vous pour continuer votre pratique</p>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="votre@email.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              autocomplete="current-password"
+              placeholder="••••••••"
+            />
+          </div>
+
+          <div class="form-row">
+            <label class="checkbox-label">
+              <input type="checkbox" id="remember" name="remember" />
+              <span>Se souvenir de moi</span>
+            </label>
+            <a href="#" class="link">Mot de passe oublié ?</a>
+          </div>
+
+          <!-- Error Message -->
+          <div id="error-message" class="error-message hidden"></div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="btn btn-primary btn-block"
+            id="submit-btn"
+          >
+            Se connecter
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="auth-divider">
+          <span>ou</span>
+        </div>
+
+        <!-- Register Link -->
+        <p class="auth-footer">
+          Pas encore de compte ?
+          <a href="register.html" class="link">Créer un compte</a>
+        </p>
+      </div>
+
+      <!-- Decorative Quote -->
+      <div class="auth-quote">
+        <blockquote>
+          "Le yoga est un voyage vers soi-même, à travers soi-même."
+        </blockquote>
+      </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+      // Handle login form submission
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const submitBtn = document.getElementById("submit-btn");
+          const errorMessage = document.getElementById("error-message");
+
+          // Get form data
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const remember = document.getElementById("remember").checked;
+
+          // Loading state
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Connexion...";
+          errorMessage.classList.add("hidden");
+
+          try {
+            await login(email, password, remember);
+
+            // Success - redirect to dashboard
+            window.location.href = "dashboard.html";
+          } catch (error) {
+            // Show error
+            errorMessage.textContent = error.message;
+            errorMessage.classList.remove("hidden");
+
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Se connecter";
+          }
+        });
+    </script>
+  </body>
+</html>
