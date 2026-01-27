@@ -30,6 +30,18 @@ function loadSessions() {
 
   if (sessions) {
     allSessions = JSON.parse(sessions);
+
+    // Vérifier si l'utilisateur est connecté
+    const userId =
+      sessionStorage.getItem("userId") || localStorage.getItem("userId");
+    const isLoggedIn = !!userId;
+
+    // Si non connecté, limiter à 15% des sessions (environ 5 sessions sur 30)
+    if (!isLoggedIn) {
+      const limitedCount = Math.ceil(allSessions.length * 0.15);
+      allSessions = allSessions.slice(0, limitedCount);
+    }
+
     filteredSessions = [...allSessions];
   } else {
     console.error("Aucune séance trouvée dans localStorage");
@@ -169,6 +181,29 @@ function renderSessions(sessions) {
     .map((session) => createSessionCard(session))
     .join("");
 
+  // Ajouter la carte de connexion si non connecté
+  const userId =
+    sessionStorage.getItem("userId") || localStorage.getItem("userId");
+  const isLoggedIn = !!userId;
+
+  if (!isLoggedIn) {
+    const loginCard = `
+      <div class="session-card-full login-prompt-card">
+        <div class="session-card-body" style="padding: 3rem; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+          <h3 class="session-card-title">Accédez à toutes les séances</h3>
+          <p class="session-card-description" style="margin-bottom: 1.5rem;">
+            Connectez-vous pour débloquer l'accès à toutes les séances disponibles
+          </p>
+          <a href="login.html" class="session-card-button" style="display: inline-block; text-decoration: none;">
+            Se connecter
+          </a>
+        </div>
+      </div>
+    `;
+    grid.innerHTML += loginCard;
+  }
+
   // Add click listeners to cards
   sessions.forEach((session) => {
     const card = document.getElementById(`session-${session.id}`);
@@ -217,10 +252,26 @@ function createSessionCard(session) {
         .join("")
     : "";
 
+  // Emoji par type de séance
+  const iconMap = {
+    hatha: "🕉️",
+    vinyasa: "🌊",
+    yin: "🌙",
+    flow: "💨",
+    pilates: "💪",
+    pranayama: "🌬️",
+    meditation: "🧠",
+    restoration: "🌿",
+    power: "⚡",
+    acro: "🤝",
+  };
+
+  const sessionIcon = iconMap[session.type] || "🧘‍♀️";
+
   return `
     <div id="session-${session.id}" class="session-card-full">
       <div class="session-card-header">
-        <div class="session-icon">🧘‍♀️</div>
+        <div class="session-icon">${sessionIcon}</div>
         <div class="session-duration">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <circle cx="12" cy="12" r="10"></circle>

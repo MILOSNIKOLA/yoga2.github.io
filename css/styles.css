@@ -219,14 +219,15 @@ a:hover {
 
 .hero-title {
   font-size: 3.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   color: var(--text-primary);
   animation: fadeInUp 0.8s ease;
+  margin-top: -5rem;
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   color: var(--text-secondary);
   animation: fadeInUp 1s ease;
 }
@@ -273,6 +274,7 @@ a:hover {
   justify-content: center;
   flex-wrap: wrap;
   animation: fadeInUp 1.4s ease;
+  margin-top: 2rem;
 }
 
 #auth-section .btn {
@@ -343,7 +345,7 @@ a:hover {
 }
 
 .btn-text {
-  background:#2d3748;
+  background: #ffffff;
   color: var(--text-secondary);
   /* border: none; */
   padding: 0.5rem 1rem;
@@ -352,7 +354,7 @@ a:hover {
 
 .btn-text:hover {
   color: var(--accent);
-
+  background: var(--bg-hover);
   transform: translateY(-2px);
 }
 
@@ -382,6 +384,164 @@ a:hover {
 .features {
   padding: 100px 20px;
   background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.features::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  animation: slideshow 200s ease-in-out 5s infinite;
+  z-index: 0;
+  transition: background-image 5s ease-in-out;
+}
+
+@keyframes slideshow {
+  0% {
+    background-image: url("../img/y1.jpg");
+  }
+  4.54% {
+    background-image: url("../img/y1.jpg");
+  }
+  4.55% {
+    background-image: url("../img/y2.jpg");
+  }
+  9.09% {
+    background-image: url("../img/y2.jpg");
+  }
+  9.10% {
+    background-image: url("../img/y3.jpg");
+  }
+  13.63% {
+    background-image: url("../img/y3.jpg");
+  }
+  13.64% {
+    background-image: url("../img/y4.jpg");
+  }
+  18.18% {
+    background-image: url("../img/y4.jpg");
+  }
+  18.19% {
+    background-image: url("../img/y5.jpg");
+  }
+  22.72% {
+    background-image: url("../img/y5.jpg");
+  }
+  22.73% {
+    background-image: url("../img/y6.jpg");
+  }
+  27.27% {
+    background-image: url("../img/y6.jpg");
+  }
+  27.28% {
+    background-image: url("../img/y7.jpg");
+  }
+  31.81% {
+    background-image: url("../img/y7.jpg");
+  }
+  31.82% {
+    background-image: url("../img/y8.jpg");
+  }
+  36.36% {
+    background-image: url("../img/y8.jpg");
+  }
+  36.37% {
+    background-image: url("../img/y9.jpg");
+  }
+  40.90% {
+    background-image: url("../img/y9.jpg");
+  }
+  40.91% {
+    background-image: url("../img/y10.jpg");
+  }
+  45.45% {
+    background-image: url("../img/y10.jpg");
+  }
+  45.46% {
+    background-image: url("../img/y11.jpg");
+  }
+  49.99% {
+    background-image: url("../img/y11.jpg");
+  }
+  50% {
+    background-image: url("../img/y12.jpg");
+  }
+  54.54% {
+    background-image: url("../img/y12.jpg");
+  }
+  54.55% {
+    background-image: url("../img/y13.jpg");
+  }
+  59.09% {
+    background-image: url("../img/y13.jpg");
+  }
+  59.10% {
+    background-image: url("../img/y14.jpg");
+  }
+  63.63% {
+    background-image: url("../img/y14.jpg");
+  }
+  63.64% {
+    background-image: url("../img/y15.jpg");
+  }
+  68.18% {
+    background-image: url("../img/y15.jpg");
+  }
+  68.19% {
+    background-image: url("../img/y16.jpg");
+  }
+  72.72% {
+    background-image: url("../img/y16.jpg");
+  }
+  72.73% {
+    background-image: url("../img/y17.jpg");
+  }
+  77.27% {
+    background-image: url("../img/y17.jpg");
+  }
+  77.28% {
+    background-image: url("../img/y18.jpg");
+  }
+  81.81% {
+    background-image: url("../img/y18.jpg");
+  }
+  81.82% {
+    background-image: url("../img/y19.jpg");
+  }
+  86.36% {
+    background-image: url("../img/y19.jpg");
+  }
+  86.37% {
+    background-image: url("../img/y20.jpg");
+  }
+  90.90% {
+    background-image: url("../img/y20.jpg");
+  }
+  90.91% {
+    background-image: url("../img/y21.jpg");
+  }
+  95.45% {
+    background-image: url("../img/y21.jpg");
+  }
+  95.46% {
+    background-image: url("../img/y22.jpg");
+  }
+  100% {
+    background-image: url("../img/y22.jpg");
+  }
+}
+
+.features .container {
+  position: relative;
+  z-index: 1;
 }
 
 .section-title {
@@ -405,6 +565,25 @@ a:hover {
   text-align: center;
   transition: all 0.3s ease;
   border: 2px solid var(--border);
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.feature-card::after {
+  content: "📖";
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.2rem;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover::after {
+  opacity: 1;
 }
 
 .feature-card:nth-child(1) {
@@ -474,24 +653,14 @@ a:hover {
 }
 
 .session-card {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   border-radius: 20px;
+  border: 2px solid var(--border);
   overflow: hidden;
   transition: all 0.3s ease;
-  border: 2px solid var(--border);
   cursor: pointer;
-}
-
-.session-card:nth-child(1) {
-  background: linear-gradient(135deg, #f5f0ff 0%, var(--bg-secondary) 100%);
-}
-
-.session-card:nth-child(2) {
-  background: linear-gradient(135deg, #f0f9ff 0%, var(--bg-secondary) 100%);
-}
-
-.session-card:nth-child(3) {
-  background: linear-gradient(135deg, #fff8f0 0%, var(--bg-secondary) 100%);
+  display: flex;
+  flex-direction: column;
 }
 
 .session-card:hover {
@@ -501,13 +670,35 @@ a:hover {
 }
 
 .session-image {
+  position: relative;
   width: 100%;
   height: 200px;
   background: var(--gradient-start);
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+  overflow: hidden;
+}
+
+.session-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.session-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--text-primary);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), transparent 35%);
 }
 
 .session-content {

@@ -72,6 +72,16 @@ function loadPopularSessions() {
   });
 }
 
+function getSessionImageUrl(title) {
+  const query = encodeURIComponent(title.toLowerCase());
+  return `https://source.unsplash.com/800x600/?yoga,${query}`;
+}
+
+function getFallbackImageUrl(title) {
+  const query = encodeURIComponent(title.toLowerCase());
+  return `https://source.unsplash.com/800x600/?relaxation,${query}`;
+}
+
 function createSessionCard(session) {
   const levelLabels = {
     beginner: "Débutant",
@@ -83,9 +93,15 @@ function createSessionCard(session) {
     ? '<span class="free-badge">Gratuit</span>'
     : '<span class="premium-badge">Premium</span>';
 
+  const imageUrl = getSessionImageUrl(session.title);
+  const fallbackUrl = getFallbackImageUrl(session.title);
+
   return `
         <div class="session-card" data-session-id="${session.id}">
-            <div class="session-image">🧘‍♀️</div>
+            <div class="session-image">
+                <img src="${imageUrl}" alt="${session.title}" loading="lazy" onerror="this.src='${fallbackUrl}'; this.onerror=function(){this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');};" />
+                <span class="session-fallback hidden" aria-hidden="true">🧘‍♀️</span>
+            </div>
             <div class="session-content">
                 <div class="session-header">
                     <div class="badges">
@@ -239,7 +255,7 @@ function initializeSampleData() {
       },
       {
         id: crypto.randomUUID(),
-        title: "Yoga pour le dos",
+        title: "Mobilité du dos",
         description: "Soulagez les tensions et renforcez votre dos",
         duration: 20,
         level: "beginner",
@@ -320,6 +336,484 @@ function initializeSampleData() {
             duration: 120,
             instructions: "Debout, respirez profondément.",
           },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Pilates et force",
+        description: "Renforcement musculaire profond avec Pilates",
+        duration: 25,
+        level: "intermediate",
+        type: "flow",
+        free: false,
+        objectives: ["renforcement"],
+        poses: [
+          {
+            name: "Crunches",
+            duration: 60,
+            instructions: "Abdominaux contrôlés.",
+          },
+          {
+            name: "Superman",
+            duration: 45,
+            instructions: "Allongé, bras et jambes levés.",
+          },
+          {
+            name: "Planche latérale",
+            duration: 60,
+            instructions: "Corps aligné.",
+          },
+          { name: "Pont", duration: 60, instructions: "Soulevez les hanches." },
+          { name: "Relaxation", duration: 180, instructions: "Récupération." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Détente du soir - sommeil",
+        description: "Préparez votre corps au sommeil réparateur",
+        duration: 20,
+        level: "beginner",
+        type: "yin",
+        free: true,
+        objectives: ["détente", "sommeil"],
+        poses: [
+          { name: "Jambes en l'air", duration: 120, instructions: "Allongé." },
+          {
+            name: "Papillon",
+            duration: 150,
+            instructions: "Détente profonde.",
+          },
+          { name: "Torsion", duration: 120, instructions: "Libération." },
+          { name: "Savasana", duration: 300, instructions: "Sommeil profond." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Hatha classique 45 min",
+        description: "Pratique complète et équilibrée",
+        duration: 45,
+        level: "intermediate",
+        type: "hatha",
+        free: true,
+        objectives: ["équilibre", "force"],
+        poses: [
+          { name: "Échauffement", duration: 300, instructions: "Préparation." },
+          { name: "Guerriers", duration: 600, instructions: "Force." },
+          { name: "Flexions", duration: 300, instructions: "Mobilité." },
+          { name: "Relaxation", duration: 300, instructions: "Récupération." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Flow puissant - Avancé",
+        description: "Enchaînement dynamique pour les yogis expérimentés",
+        duration: 50,
+        level: "advanced",
+        type: "vinyasa",
+        free: false,
+        objectives: ["renforcement", "énergie"],
+        poses: [
+          {
+            name: "Salutations soleil",
+            duration: 300,
+            instructions: "Dynamique.",
+          },
+          { name: "Équilibres", duration: 600, instructions: "Concentration." },
+          { name: "Inversions", duration: 300, instructions: "Courage." },
+          { name: "Récupération", duration: 180, instructions: "Intégration." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Relaxation des yeux",
+        description: "Reposez vos yeux et votre esprit",
+        duration: 12,
+        level: "beginner",
+        type: "yin",
+        free: true,
+        objectives: ["détente", "repos"],
+        poses: [
+          { name: "Palming", duration: 180, instructions: "Reposez vos yeux." },
+          {
+            name: "Voyages mentaux",
+            duration: 300,
+            instructions: "Relaxation.",
+          },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Nidra - Sommeil profond",
+        description: "Méditation guidée pour la relaxation profonde",
+        duration: 30,
+        level: "beginner",
+        type: "yin",
+        free: true,
+        objectives: ["détente", "sommeil"],
+        poses: [
+          {
+            name: "Positionnement",
+            duration: 60,
+            instructions: "Installation.",
+          },
+          { name: "Nidra", duration: 1800, instructions: "Sommeil yogique." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Respiration & Pranayama",
+        description: "Techniques de respiration pour calmer l'esprit",
+        duration: 15,
+        level: "beginner",
+        type: "hatha",
+        free: true,
+        objectives: ["calme", "détente"],
+        poses: [
+          {
+            name: "Respiration nosale",
+            duration: 300,
+            instructions: "Équilibrage.",
+          },
+          {
+            name: "Respiration abdominale",
+            duration: 300,
+            instructions: "Calme.",
+          },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Flexibilité progressive",
+        description: "Augmentez votre amplitude de mouvement",
+        duration: 35,
+        level: "intermediate",
+        type: "hatha",
+        free: true,
+        objectives: ["mobilité"],
+        poses: [
+          {
+            name: "Grandes ouvertures",
+            duration: 600,
+            instructions: "Progressive.",
+          },
+          { name: "Étirements", duration: 600, instructions: "Relaxation." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Énergisant quotidien",
+        description: "Activez votre corps et esprit",
+        duration: 20,
+        level: "intermediate",
+        type: "flow",
+        free: false,
+        objectives: ["énergie", "renforcement"],
+        poses: [
+          { name: "Dynamique", duration: 600, instructions: "Puissance." },
+          { name: "Finition", duration: 300, instructions: "Énergisant." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Méditation guidée",
+        description: "Calmer l'esprit et cultiver la conscience",
+        duration: 18,
+        level: "beginner",
+        type: "yin",
+        free: true,
+        objectives: ["calme", "focus"],
+        poses: [
+          { name: "Assise", duration: 60, instructions: "Positionnement." },
+          { name: "Méditation", duration: 900, instructions: "Conscience." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Mobilité cervicale",
+        description: "Soulagez les tensions du cou et des épaules",
+        duration: 15,
+        level: "beginner",
+        type: "hatha",
+        free: true,
+        objectives: ["soulagement", "mobilité"],
+        poses: [
+          {
+            name: "Mobilité cou",
+            duration: 300,
+            instructions: "Doux mouvements.",
+          },
+          { name: "Épaules", duration: 300, instructions: "Relâchement." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Ouverture des hanches",
+        description: "Ouvrez vos hanches et relâchez les tensions",
+        duration: 28,
+        level: "intermediate",
+        type: "hatha",
+        free: true,
+        objectives: ["mobilité", "soulagement"],
+        poses: [
+          {
+            name: "Ouvertures progressives",
+            duration: 600,
+            instructions: "Étapes.",
+          },
+          { name: "Relaxation", duration: 300, instructions: "Repos." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Force intense",
+        description: "Yoga intensif pour la force et l'endurance",
+        duration: 40,
+        level: "advanced",
+        type: "vinyasa",
+        free: false,
+        objectives: ["renforcement", "énergie"],
+        poses: [
+          { name: "Enchaînement", duration: 900, instructions: "Puissant." },
+          { name: "Repos", duration: 300, instructions: "Récupération." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Récupération post-accouchement",
+        description: "Retrouvez votre corps après l'accouchement",
+        duration: 22,
+        level: "beginner",
+        type: "hatha",
+        free: true,
+        objectives: ["renforcement", "récupération"],
+        poses: [
+          {
+            name: "Doux mouvements",
+            duration: 300,
+            instructions: "Récupération.",
+          },
+          { name: "Respiration", duration: 300, instructions: "Calme." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Préparation à la grossesse",
+        description: "Préparez votre corps à la grossesse",
+        duration: 24,
+        level: "beginner",
+        type: "hatha",
+        free: true,
+        objectives: ["mobilité", "préparation"],
+        poses: [
+          { name: "Adaptations", duration: 300, instructions: "Sécurité." },
+          { name: "Respiration", duration: 300, instructions: "Préparation." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Acro - Duo connecté",
+        description: "Yoga en duo - amusant et connecteur",
+        duration: 35,
+        level: "intermediate",
+        type: "flow",
+        free: false,
+        objectives: ["renforcement", "connexion"],
+        poses: [
+          { name: "Partenariat", duration: 600, instructions: "Ensemble." },
+          { name: "Poses duos", duration: 600, instructions: "Confiance." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Alignement mural",
+        description: "Utilisez le mur pour des poses mieux alignées",
+        duration: 26,
+        level: "intermediate",
+        type: "hatha",
+        free: true,
+        objectives: ["alignement", "force"],
+        poses: [
+          { name: "Appuis muraux", duration: 600, instructions: "Support." },
+          { name: "Étirements", duration: 300, instructions: "Ouverture." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Postures assises",
+        description: "Pratique complète depuis une chaise",
+        duration: 17,
+        level: "beginner",
+        type: "hatha",
+        free: true,
+        objectives: ["mobilité", "accessibilité"],
+        poses: [
+          { name: "Assis", duration: 300, instructions: "Accessible." },
+          { name: "Étirements", duration: 300, instructions: "Flexibilité." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Force des pieds",
+        description: "Renforcez et étirez vos pieds et chevilles",
+        duration: 13,
+        level: "beginner",
+        type: "hatha",
+        free: true,
+        objectives: ["mobilité", "force"],
+        poses: [
+          { name: "Mobilité", duration: 300, instructions: "Souplesse." },
+          { name: "Renforcement", duration: 300, instructions: "Force." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Mobilité des poignets",
+        description: "Protégez vos poignets et améliorez la mobilité",
+        duration: 11,
+        level: "beginner",
+        type: "hatha",
+        free: true,
+        objectives: ["mobilité", "prévention"],
+        poses: [
+          { name: "Rotations", duration: 300, instructions: "Mobilité." },
+          { name: "Renforcement", duration: 300, instructions: "Stabilité." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Force des mains",
+        description: "Renforcement et détente des mains et bras",
+        duration: 14,
+        level: "beginner",
+        type: "hatha",
+        free: true,
+        objectives: ["force", "flexibilité"],
+        poses: [
+          { name: "Mobilité main", duration: 300, instructions: "Souplesse." },
+          { name: "Force bras", duration: 300, instructions: "Renforcement." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Relief articulaire",
+        description: "Pratique douce pour soulager les articulations",
+        duration: 23,
+        level: "beginner",
+        type: "yin",
+        free: true,
+        objectives: ["soulagement", "mobilité"],
+        poses: [
+          {
+            name: "Mouvements doux",
+            duration: 600,
+            instructions: "Progressif.",
+          },
+          { name: "Relaxation", duration: 300, instructions: "Soulagement." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Relief migraines",
+        description: "Techniques pour prévenir et soulager les migraines",
+        duration: 19,
+        level: "beginner",
+        type: "yin",
+        free: true,
+        objectives: ["soulagement", "prévention"],
+        poses: [
+          { name: "Inversions douces", duration: 400, instructions: "Relief." },
+          { name: "Relaxation", duration: 400, instructions: "Repos." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Stimulation digestive",
+        description: "Stimulez votre système digestif avec le yoga",
+        duration: 16,
+        level: "beginner",
+        type: "hatha",
+        free: true,
+        objectives: ["digestion", "santé"],
+        poses: [
+          { name: "Torsions", duration: 300, instructions: "Stimulation." },
+          { name: "Flexions", duration: 300, instructions: "Activation." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Boost immunitaire",
+        description: "Booste ton système immunitaire",
+        duration: 27,
+        level: "intermediate",
+        type: "flow",
+        free: true,
+        objectives: ["santé", "énergie"],
+        poses: [
+          { name: "Dynamique", duration: 600, instructions: "Activation." },
+          { name: "Respiration", duration: 300, instructions: "Immunité." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Libération émotionnelle",
+        description: "Libérez vos émotions et trouvez l'équilibre",
+        duration: 32,
+        level: "intermediate",
+        type: "hatha",
+        free: true,
+        objectives: ["émotions", "bien-être"],
+        poses: [
+          {
+            name: "Poses ouvertes",
+            duration: 600,
+            instructions: "Libération.",
+          },
+          { name: "Récupération", duration: 300, instructions: "Intégration." },
+        ],
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        title: "Rire et joie",
+        description: "Yoga ludique pour le bien-être et la joie",
+        duration: 21,
+        level: "beginner",
+        type: "flow",
+        free: true,
+        objectives: ["joie", "bien-être"],
+        poses: [
+          {
+            name: "Exercices du rire",
+            duration: 300,
+            instructions: "Amusant.",
+          },
+          { name: "Respiration", duration: 300, instructions: "Joie." },
         ],
         createdAt: new Date().toISOString(),
       },
