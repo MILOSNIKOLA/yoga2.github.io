@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Politique de Confidentialité - Yoga App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      .legal-page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        line-height: 1.8;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-bottom: 2rem;
+        font-weight: 500;
+        transition: opacity 0.3s;
+      }
+
+      .back-link:hover {
+        opacity: 0.8;
+      }
+
+      .legal-container {
+        background: var(--card-bg, white);
+        padding: 3rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .legal-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+      }
+
+      .legal-meta {
+        color: var(--secondary-text, #666);
+        margin-bottom: 2rem;
+        font-style: italic;
+      }
+
+      .legal-intro {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: var(--section-bg, #f5f5f5);
+        border-left: 4px solid var(--primary-color);
+        border-radius: 4px;
+      }
+
+      .legal-page h2 {
+        font-size: 1.5rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+
+      .legal-page p {
+        margin-bottom: 1rem;
+      }
+
+      .legal-page ul {
+        margin: 1rem 0;
+        padding-left: 2rem;
+      }
+
+      .legal-page li {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Language Toggle Button */
+      #language-toggle {
+        position: fixed;
+        top: 20px;
+        right: 80px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: white;
+        border: 2px solid var(--primary-color);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        transition: all 0.3s;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      #language-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      #language-toggle svg {
+        border-radius: 50%;
+      }
+
+      /* Theme Toggle Button */
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--card-bg);
+        border: 2px solid var(--primary-color);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        transition: all 0.3s;
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1);
+      }
+
+      .theme-toggle svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .theme-toggle .hidden {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .legal-page {
+          padding: 2rem 1rem;
+        }
+
+        .legal-container {
+          padding: 2rem 1.5rem;
+        }
+
+        .legal-title {
+          font-size: 1.8rem;
+        }
+
+        #language-toggle {
+          top: 10px;
+          right: 60px;
+        }
+
+        .theme-toggle {
+          top: 10px;
+          right: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Language Toggle Button -->
+    <button id="language-toggle" aria-label="Change language">
+      <svg width="32" height="24" viewBox="0 0 32 24">
+        <rect width="32" height="24" fill="#012169" />
+        <path d="M0 0 L32 24 M32 0 L0 24" stroke="#FFF" stroke-width="4" />
+        <path d="M0 0 L32 24 M32 0 L0 24" stroke="#C8102E" stroke-width="2.5" />
+        <path d="M16 0 V24 M0 12 H32" stroke="#FFF" stroke-width="8" />
+        <path d="M16 0 V24 M0 12 H32" stroke="#C8102E" stroke-width="5" />
+      </svg>
+    </button>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <svg
+        class="sun-icon"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon hidden"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+
+    <main class="legal-page">
+      <a href="index.html" class="back-link" data-i18n="common.backHome">
+        ← Retour à l'accueil
+      </a>
+
+      <div class="legal-container">
+        <h1 class="legal-title" data-i18n="privacy.title">
+          Politique de Confidentialité – Yoga App
+        </h1>
+        <p class="legal-meta" data-i18n="privacy.lastUpdate">
+          Dernière mise à jour : 27 janvier 2026
+        </p>
+
+        <p class="legal-intro" data-i18n="privacy.intro">
+          La présente Politique de Confidentialité a pour objet d'informer les
+          utilisateurs de l'application et du site Yoga App des modalités de
+          collecte, de traitement et de protection de leurs données
+          personnelles, conformément au Règlement (UE) 2016/679 du Parlement
+          européen et du Conseil du 27 avril 2016 (RGPD) et à la législation
+          française en vigueur.
+        </p>
+
+        <h2 data-i18n="privacy.section1.title">1. Responsable du traitement</h2>
+        <p data-i18n="privacy.section1.content">
+          Le responsable du traitement des données personnelles est Yoga App,
+          éditeur de l'application et du site web. Toute question relative aux
+          données personnelles peut être adressée via les moyens de contact
+          indiqués sur le site.
+        </p>
+
+        <h2 data-i18n="privacy.section2.title">
+          2. Données personnelles collectées
+        </h2>
+        <p data-i18n="privacy.section2.intro">
+          Yoga App est susceptible de collecter les catégories de données
+          suivantes :
+        </p>
+        <ul data-i18n="privacy.section2.list">
+          <li>données d'identification (nom, prénom, adresse e-mail),</li>
+          <li>
+            données de connexion et d'utilisation (adresse IP, type de
+            navigateur, logs),
+          </li>
+          <li>
+            préférences utilisateur liées aux séances de yoga et de respiration.
+          </li>
+        </ul>
+        <p data-i18n="privacy.section2.outro">
+          Aucune donnée sensible au sens de l'article 9 du RGPD n'est collectée
+          sans consentement explicite.
+        </p>
+
+        <h2 data-i18n="privacy.section3.title">3. Finalités du traitement</h2>
+        <p data-i18n="privacy.section3.intro">
+          Les données personnelles sont collectées pour les finalités suivantes
+          :
+        </p>
+        <ul data-i18n="privacy.section3.list">
+          <li>fourniture et gestion des services proposés par Yoga App,</li>
+          <li>personnalisation de l'expérience utilisateur,</li>
+          <li>amélioration continue de l'application,</li>
+          <li>sécurité, prévention de la fraude et des abus,</li>
+          <li>communication avec l'utilisateur concernant le service.</li>
+        </ul>
+
+        <h2 data-i18n="privacy.section4.title">4. Base légale du traitement</h2>
+        <p data-i18n="privacy.section4.intro">
+          Les traitements effectués reposent sur :
+        </p>
+        <ul data-i18n="privacy.section4.list">
+          <li>l'exécution du contrat liant l'utilisateur à Yoga App,</li>
+          <li>le consentement explicite de l'utilisateur,</li>
+          <li>
+            l'intérêt légitime de Yoga App à assurer la sécurité et
+            l'amélioration du service,
+          </li>
+          <li>le respect des obligations légales.</li>
+        </ul>
+
+        <h2 data-i18n="privacy.section5.title">5. Destinataires des données</h2>
+        <p data-i18n="privacy.section5.content">
+          Les données personnelles sont destinées exclusivement à Yoga App.
+          Elles peuvent être transmises à des prestataires techniques agissant
+          en tant que sous-traitants, conformément à l'article 28 du RGPD, et
+          uniquement pour les besoins du service.
+        </p>
+
+        <h2 data-i18n="privacy.section6.title">
+          6. Transfert des données hors Union européenne
+        </h2>
+        <p data-i18n="privacy.section6.content">
+          Aucun transfert de données personnelles hors de l'Union européenne
+          n'est effectué. Dans le cas contraire, Yoga App s'engage à mettre en
+          place des garanties appropriées conformément au RGPD.
+        </p>
+
+        <h2 data-i18n="privacy.section7.title">7. Durée de conservation</h2>
+        <p data-i18n="privacy.section7.content">
+          Les données personnelles sont conservées pendant une durée strictement
+          nécessaire aux finalités pour lesquelles elles ont été collectées,
+          sauf obligations légales imposant une durée de conservation plus
+          longue.
+        </p>
+
+        <h2 data-i18n="privacy.section8.title">8. Sécurité des données</h2>
+        <p data-i18n="privacy.section8.content">
+          Yoga App met en œuvre des mesures techniques et organisationnelles
+          appropriées afin de garantir un niveau de sécurité adapté au risque,
+          notamment contre l'accès non autorisé, la perte, l'altération ou la
+          divulgation des données.
+        </p>
+
+        <h2 data-i18n="privacy.section9.title">9. Droits des utilisateurs</h2>
+        <p data-i18n="privacy.section9.intro">
+          Conformément au RGPD, l'utilisateur dispose des droits suivants :
+        </p>
+        <ul data-i18n="privacy.section9.list">
+          <li>droit d'accès (article 15),</li>
+          <li>droit de rectification (article 16),</li>
+          <li>droit à l'effacement (article 17),</li>
+          <li>droit à la limitation du traitement (article 18),</li>
+          <li>droit d'opposition (article 21),</li>
+          <li>droit à la portabilité des données (article 20).</li>
+        </ul>
+        <p data-i18n="privacy.section9.outro">
+          Ces droits peuvent être exercés à tout moment en contactant Yoga App.
+        </p>
+
+        <h2 data-i18n="privacy.section10.title">10. Réclamation</h2>
+        <p data-i18n="privacy.section10.content">
+          L'utilisateur dispose du droit d'introduire une réclamation auprès de
+          l'autorité de contrôle compétente, notamment la CNIL (France).
+        </p>
+
+        <h2 data-i18n="privacy.section11.title">11. Cookies</h2>
+        <p data-i18n="privacy.section11.content">
+          Yoga App utilise des cookies et technologies similaires afin d'assurer
+          le bon fonctionnement du site et d'analyser l'audience. L'utilisateur
+          peut gérer ou refuser les cookies via les paramètres de son
+          navigateur.
+        </p>
+
+        <h2 data-i18n="privacy.section12.title">
+          12. Modification de la politique
+        </h2>
+        <p data-i18n="privacy.section12.content">
+          Yoga App se réserve le droit de modifier la présente Politique de
+          Confidentialité à tout moment. La version en vigueur est celle publiée
+          sur le site à la date de consultation.
+        </p>
+      </div>
+    </main>
+
+    <script src="js/translations.js"></script>
+    <script src="js/universal-language.js"></script>
+    <script src="js/footer-loader.js"></script>
+    <script src="js/theme.js"></script>
+  </body>
+</html>

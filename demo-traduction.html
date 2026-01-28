@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Démo - Système de Traduction</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <style>
+      .demo-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 40px;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .demo-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: var(--accent-primary);
+      }
+      .demo-subtitle {
+        color: var(--text-secondary);
+        margin-bottom: 30px;
+      }
+      .demo-section {
+        margin: 30px 0;
+        padding: 20px;
+        background: var(--bg-primary);
+        border-radius: 8px;
+      }
+      .demo-section h3 {
+        color: var(--accent-primary);
+        margin-bottom: 15px;
+      }
+      .demo-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .info-box {
+        background: var(--accent-primary);
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+      .code-box {
+        background: #2d2d2d;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+        margin: 15px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Language Toggle Button -->
+    <button
+      id="language-toggle"
+      class="language-toggle"
+      aria-label="Changer de langue"
+    >
+      <svg
+        class="flag-icon"
+        data-lang="fr"
+        width="32"
+        height="24"
+        viewBox="0 0 32 24"
+      >
+        <rect width="10.67" height="24" fill="#002395" />
+        <rect x="10.67" width="10.67" height="24" fill="#FFFFFF" />
+        <rect x="21.33" width="10.67" height="24" fill="#ED2939" />
+      </svg>
+    </button>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <svg
+        class="sun-icon"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon hidden"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+
+    <div class="demo-container">
+      <h1 class="demo-title" data-i18n="hero.title">
+        Prenez 15 minutes pour vous
+      </h1>
+      <p class="demo-subtitle" data-i18n="hero.subtitle">
+        Retrouvez calme et bien-être à travers des séances de yoga guidées
+      </p>
+
+      <div class="info-box">
+        <strong>🌍 Système de Traduction Multi-Langues</strong><br />
+        Cliquez sur le drapeau en haut à gauche pour changer de langue : 🇫🇷
+        Français → 🇷🇸 Serbe → 🇬🇧 Anglais
+      </div>
+
+      <div class="demo-section">
+        <h3>Exemples de Traductions</h3>
+
+        <h4 data-i18n="features.understand.title">Comprendre</h4>
+        <p data-i18n="features.understand.desc">
+          Théorie, intentions et respiration expliquées simplement
+        </p>
+
+        <h4 data-i18n="features.practice.title">Pratiquer</h4>
+        <p data-i18n="features.practice.desc">
+          Séances guidées adaptées à votre niveau et votre temps
+        </p>
+
+        <h4 data-i18n="features.progress.title">Progresser</h4>
+        <p data-i18n="features.progress.desc">
+          Suivez votre régularité et célébrez vos moments
+        </p>
+      </div>
+
+      <div class="demo-section">
+        <h3>Boutons Traduits</h3>
+        <div class="demo-buttons">
+          <button class="btn btn-primary" data-i18n="auth.login">
+            Se connecter
+          </button>
+          <button class="btn btn-secondary" data-i18n="auth.register">
+            Créer un compte
+          </button>
+          <button class="btn btn-outline" data-i18n="auth.dashboard">
+            Mon espace
+          </button>
+          <button class="btn btn-text" data-i18n="auth.logout">
+            Déconnexion
+          </button>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>💡 Comment ça marche ?</h3>
+        <p><strong>1. Attribut data-i18n</strong></p>
+        <div class="code-box">
+          &lt;h1 data-i18n="hero.title"&gt;Prenez 15 minutes pour
+          vous&lt;/h1&gt;
+        </div>
+
+        <p><strong>2. Objet de traductions (JavaScript)</strong></p>
+        <div class="code-box">
+          const translations = { fr: { "hero.title": "Prenez 15 minutes pour
+          vous" }, sr: { "hero.title": "Odvojite 15 minuta za sebe" }, en: {
+          "hero.title": "Take 15 Minutes for Yourself" } };
+        </div>
+
+        <p><strong>3. Sauvegarde automatique</strong></p>
+        <p>
+          La langue choisie est sauvegardée dans <code>localStorage</code>, donc
+          elle persiste entre les sessions.
+        </p>
+
+        <p><strong>4. Changement sans rechargement</strong></p>
+        <p>Tout le contenu change instantanément sans recharger la page !</p>
+      </div>
+
+      <div class="demo-section">
+        <h3>🔧 Fichiers modifiés</h3>
+        <ul>
+          <li>
+            <strong>index.html</strong> - Ajout des attributs
+            <code>data-i18n</code>
+          </li>
+          <li>
+            <strong>js/language.js</strong> - Système de traduction complet
+          </li>
+          <li>
+            <strong>css/styles.css</strong> - Styles pour le bouton de langue
+            (déjà existant)
+          </li>
+        </ul>
+      </div>
+
+      <div class="demo-section">
+        <h3>🎯 Fonctionnalités</h3>
+        <ul>
+          <li>✅ 3 langues : Français, Serbe, Anglais</li>
+          <li>✅ Changement instantané sans rechargement</li>
+          <li>✅ Sauvegarde de la préférence dans localStorage</li>
+          <li>✅ Drapeaux animés pour chaque langue</li>
+          <li>✅ Ordre cyclique : FR → SR → EN → FR...</li>
+          <li>✅ Attribut <code>lang</code> mis à jour automatiquement</li>
+          <li>✅ Extensible : ajoutez facilement de nouvelles traductions</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <strong>🚀 Retourner à la page d'accueil</strong><br />
+        <a href="index.html" style="color: white; text-decoration: underline">
+          Voir le site complet avec traductions
+        </a>
+      </div>
+    </div>
+
+    <script src="js/language.js"></script>
+    <script src="js/theme.js"></script>
+  </body>
+</html>

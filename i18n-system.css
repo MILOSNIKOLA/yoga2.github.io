@@ -1,0 +1,275 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════
+ * STYLES POUR LE SYSTÈME DE TRADUCTION GÉNÉRIQUE
+ * ═══════════════════════════════════════════════════════════════════════
+ * 
+ * Version: 2.0.0
+ * Compatible avec tous les sites web
+ * 
+ * ═══════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BOUTON DE CHANGEMENT DE LANGUE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.i18n-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+
+  /* Style du bouton */
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+
+  /* Centrage du contenu */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Curseur */
+  cursor: pointer;
+
+  /* Transitions */
+  transition: all 0.3s ease;
+
+  /* Ombre */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.i18n-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  border-color: #4caf50;
+}
+
+.i18n-toggle:active {
+  transform: scale(0.95);
+}
+
+.i18n-toggle:focus {
+  outline: 2px solid #4caf50;
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ICÔNE DU DRAPEAU
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.i18n-toggle .flag-icon {
+  width: 32px;
+  height: 24px;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   VARIATIONS DE POSITION
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Position en haut à gauche */
+.i18n-toggle.top-left {
+  top: 20px;
+  left: 20px;
+  right: auto;
+}
+
+/* Position en bas à droite */
+.i18n-toggle.bottom-right {
+  top: auto;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* Position en bas à gauche */
+.i18n-toggle.bottom-left {
+  top: auto;
+  bottom: 20px;
+  left: 20px;
+  right: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   VARIANTE: MENU DÉROULANT
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.i18n-dropdown {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.i18n-dropdown select {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.i18n-dropdown select:hover {
+  border-color: #4caf50;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.i18n-dropdown select:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THÈME SOMBRE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+[data-theme="dark"] .i18n-toggle,
+.dark-theme .i18n-toggle {
+  background: #2d2d2d;
+  border-color: #404040;
+}
+
+[data-theme="dark"] .i18n-toggle:hover,
+.dark-theme .i18n-toggle:hover {
+  background: #3d3d3d;
+  border-color: #4caf50;
+}
+
+[data-theme="dark"] .i18n-dropdown select,
+.dark-theme .i18n-dropdown select {
+  background: #2d2d2d;
+  color: #ffffff;
+  border-color: #404040;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE - MOBILE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .i18n-toggle {
+    width: 48px;
+    height: 48px;
+    top: 15px;
+    right: 15px;
+  }
+
+  .i18n-toggle .flag-icon {
+    width: 28px;
+    height: 21px;
+  }
+
+  .i18n-dropdown {
+    top: 15px;
+    right: 15px;
+  }
+
+  .i18n-dropdown select {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.i18n-toggle {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Animation lors du changement de langue */
+.i18n-changing [data-i18n] {
+  animation: textFade 0.3s ease;
+}
+
+@keyframes textFade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   VARIANTE: BOUTON AVEC TEXTE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.i18n-toggle-with-text {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 20px;
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.i18n-toggle-with-text:hover {
+  border-color: #4caf50;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.i18n-toggle-with-text .flag-icon {
+  width: 24px;
+  height: 18px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   UTILITAIRES
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Cache les éléments non traduits */
+.i18n-hide {
+  display: none !important;
+}
+
+/* Affiche seulement pour une langue spécifique */
+[lang="fr"] .i18n-only-en,
+[lang="fr"] .i18n-only-sr,
+[lang="sr"] .i18n-only-fr,
+[lang="sr"] .i18n-only-en,
+[lang="en"] .i18n-only-fr,
+[lang="en"] .i18n-only-sr {
+  display: none !important;
+}

@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Système de Traduction Universel</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #7c3aed;
+        --text-color: #1a1a1a;
+        --bg-color: #ffffff;
+        --card-bg: #f9fafb;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      /* Language Toggle */
+      #language-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: white;
+        border: 3px solid var(--primary-color);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        transition: all 0.3s;
+        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+      }
+
+      #language-toggle:hover {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+      }
+
+      #language-toggle svg {
+        border-radius: 50%;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* Header */
+      .header {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 16px;
+        margin-bottom: 3rem;
+      }
+
+      .header h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      /* Test Sections */
+      .test-section {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        border-left: 4px solid var(--primary-color);
+      }
+
+      .test-section h2 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .test-section h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      .test-section ul {
+        margin: 1rem 0;
+        padding-left: 2rem;
+      }
+
+      .test-section li {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Buttons */
+      .button-group {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+
+      button {
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        background: var(--primary-color);
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+      }
+
+      /* Form */
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+
+      /* Status */
+      .status {
+        background: #f0fdf4;
+        border: 2px solid #22c55e;
+        color: #166534;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .status::before {
+        content: "✓";
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      /* Debug Panel */
+      .debug-panel {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.9);
+        color: #00ff00;
+        padding: 1rem;
+        border-radius: 8px;
+        font-family: "Courier New", monospace;
+        font-size: 0.85rem;
+        max-width: 300px;
+        z-index: 999;
+      }
+
+      .debug-panel h4 {
+        color: #00ffff;
+        margin-bottom: 0.5rem;
+      }
+
+      .debug-item {
+        margin: 0.3rem 0;
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        #language-toggle {
+          top: 10px;
+          right: 10px;
+          width: 40px;
+          height: 40px;
+        }
+
+        .debug-panel {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Language Toggle Button -->
+    <button id="language-toggle" aria-label="Change language">
+      <svg width="32" height="24" viewBox="0 0 32 24">
+        <rect width="32" height="24" fill="#012169" />
+        <path d="M0 0 L32 24 M32 0 L0 24" stroke="#FFF" stroke-width="4" />
+        <path d="M0 0 L32 24 M32 0 L0 24" stroke="#C8102E" stroke-width="2.5" />
+        <path d="M16 0 V24 M0 12 H32" stroke="#FFF" stroke-width="8" />
+        <path d="M16 0 V24 M0 12 H32" stroke="#C8102E" stroke-width="5" />
+      </svg>
+    </button>
+
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <h1 data-i18n="home.hero.title">Prenez 15 minutes pour vous</h1>
+        <p data-i18n="home.hero.subtitle">
+          Retrouvez calme et bien-être à travers des séances de yoga guidées
+        </p>
+      </div>
+
+      <!-- Test Section 1: Privacy Content -->
+      <div class="test-section">
+        <h2 data-i18n="privacy.title">
+          Politique de Confidentialité – Yoga App
+        </h2>
+        <p data-i18n="privacy.lastUpdate">
+          Dernière mise à jour : 27 janvier 2026
+        </p>
+        <p data-i18n="privacy.intro">
+          La présente Politique de Confidentialité a pour objet d'informer les
+          utilisateurs de l'application et du site Yoga App des modalités de
+          collecte, de traitement et de protection de leurs données
+          personnelles, conformément au Règlement (UE) 2016/679 du Parlement
+          européen et du Conseil du 27 avril 2016 (RGPD) et à la législation
+          française en vigueur.
+        </p>
+
+        <h3 data-i18n="privacy.section1.title">1. Responsable du traitement</h3>
+        <p data-i18n="privacy.section1.content">
+          Le responsable du traitement des données personnelles est Yoga App,
+          éditeur de l'application et du site web.
+        </p>
+
+        <h3 data-i18n="privacy.section2.title">
+          2. Données personnelles collectées
+        </h3>
+        <p data-i18n="privacy.section2.intro">
+          Yoga App est susceptible de collecter les catégories de données
+          suivantes :
+        </p>
+        <ul data-i18n="privacy.section2.list">
+          <li>données d'identification (nom, prénom, adresse e-mail),</li>
+          <li>
+            données de connexion et d'utilisation (adresse IP, type de
+            navigateur, logs),
+          </li>
+          <li>
+            préférences utilisateur liées aux séances de yoga et de respiration.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Test Section 2: Home Content -->
+      <div class="test-section">
+        <h2 data-i18n="home.features.title">Un yoga fait pour vous</h2>
+
+        <div class="button-group">
+          <button data-i18n="home.auth.login">Se connecter</button>
+          <button data-i18n="home.auth.register">Créer un compte</button>
+          <button data-i18n="home.auth.demo">Demo</button>
+        </div>
+
+        <h3 data-i18n="home.features.understand.title">Comprendre</h3>
+        <p data-i18n="home.features.understand.desc">
+          Théorie, intentions et respiration expliquées simplement
+        </p>
+
+        <h3 data-i18n="home.features.practice.title">Pratiquer</h3>
+        <p data-i18n="home.features.practice.desc">
+          Séances guidées adaptées à votre niveau et votre temps
+        </p>
+
+        <h3 data-i18n="home.features.progress.title">Progresser</h3>
+        <p data-i18n="home.features.progress.desc">
+          Suivez votre régularité et célébrez vos moments
+        </p>
+      </div>
+
+      <!-- Test Section 3: Form Inputs -->
+      <div class="test-section">
+        <h2>Test des Placeholders</h2>
+
+        <div class="form-group">
+          <input
+            type="text"
+            data-i18n-placeholder="home.hero.title"
+            placeholder="Prenez 15 minutes pour vous"
+          />
+        </div>
+
+        <div class="form-group">
+          <input type="email" placeholder="Votre email" />
+        </div>
+
+        <div class="form-group">
+          <textarea rows="4" placeholder="Votre message..."></textarea>
+        </div>
+      </div>
+
+      <!-- Test Section 4: Common Elements -->
+      <div class="test-section">
+        <h2>Éléments Communs</h2>
+        <p>
+          <a href="index.html" data-i18n="common.backHome"
+            >← Retour à l'accueil</a
+          >
+        </p>
+
+        <div class="button-group">
+          <button data-i18n="home.cta.button">Créer mon compte gratuit</button>
+          <button data-i18n="home.sessions.viewAll">
+            Voir toutes les séances
+          </button>
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="status">
+        <span
+          >Système de traduction universel activé ! Cliquez sur le drapeau pour
+          changer de langue.</span
+        >
+      </div>
+    </div>
+
+    <!-- Debug Panel -->
+    <div class="debug-panel">
+      <h4>🔍 Debug Info</h4>
+      <div class="debug-item">Langue: <span id="debug-lang">fr</span></div>
+      <div class="debug-item">Elements: <span id="debug-count">0</span></div>
+      <div class="debug-item">
+        Status: <span id="debug-status">⏳ Loading...</span>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/universal-language.js"></script>
+
+    <!-- Debug Script -->
+    <script>
+      // Mettre à jour le panneau de debug
+      function updateDebugPanel() {
+        const lang = languageSystem.getCurrentLanguage();
+        const count = document.querySelectorAll("[data-i18n]").length;
+
+        document.getElementById("debug-lang").textContent = lang.toUpperCase();
+        document.getElementById("debug-count").textContent = count;
+        document.getElementById("debug-status").textContent = "✅ Active";
+
+        console.log(`
+╔════════════════════════════════════════╗
+║   SYSTÈME DE TRADUCTION UNIVERSEL      ║
+╠════════════════════════════════════════╣
+║ Langue actuelle : ${lang.toUpperCase()}                 ║
+║ Éléments traduits : ${count}                ║
+║ Status : Actif                         ║
+╚════════════════════════════════════════╝
+        `);
+      }
+
+      // Surveiller les changements de langue
+      const originalSetLanguage =
+        languageSystem.setLanguage.bind(languageSystem);
+      languageSystem.setLanguage = function (lang) {
+        const result = originalSetLanguage(lang);
+        updateDebugPanel();
+        return result;
+      };
+
+      // Surveiller les clics sur le bouton
+      document
+        .getElementById("language-toggle")
+        ?.addEventListener("click", () => {
+          setTimeout(updateDebugPanel, 100);
+        });
+
+      // Initial update
+      setTimeout(updateDebugPanel, 500);
+    </script>
+  </body>
+</html>

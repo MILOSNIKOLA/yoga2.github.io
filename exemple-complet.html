@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemple Complet - Système i18n Générique</title>
+
+    <!-- Styles du système de traduction -->
+    <link rel="stylesheet" href="i18n-system.css" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        padding: 60px 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: #667eea;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+      }
+
+      .section {
+        margin: 30px 0;
+        padding: 25px;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border-left: 4px solid #667eea;
+      }
+
+      .section h2 {
+        color: #667eea;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background: #667eea;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #5568d3;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      }
+
+      .btn-secondary {
+        background: #764ba2;
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        background: #663a8f;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(118, 75, 162, 0.4);
+      }
+
+      .form-group {
+        margin: 15px 0;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #555;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .info-box {
+        background: #e3f2fd;
+        border: 2px solid #2196f3;
+        padding: 20px;
+        border-radius: 12px;
+        margin: 25px 0;
+      }
+
+      .info-box h3 {
+        color: #1976d2;
+        margin-bottom: 10px;
+      }
+
+      .code-inline {
+        background: #f5f5f5;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        font-size: 0.9em;
+        color: #d63384;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-card h3 {
+        color: #667eea;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 2px solid #e0e0e0;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Bouton de changement de langue -->
+    <button
+      id="language-toggle"
+      class="i18n-toggle"
+      aria-label="Changer de langue"
+    ></button>
+
+    <div class="container">
+      <!-- En-tête -->
+      <h1 data-i18n="page.title">Système de Traduction Universel</h1>
+      <p class="subtitle" data-i18n="page.subtitle">
+        Un système complet pour ajouter le multilingue à n'importe quel site web
+      </p>
+
+      <!-- Section Info -->
+      <div class="info-box">
+        <h3 data-i18n="info.title">🌍 Comment tester ?</h3>
+        <p data-i18n="info.description">
+          Cliquez sur le drapeau en haut à droite pour changer de langue. Tous
+          les textes changent instantanément sans recharger la page !
+        </p>
+      </div>
+
+      <!-- Section Fonctionnalités -->
+      <div class="section">
+        <h2 data-i18n="features.title">Fonctionnalités Principales</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3 data-i18n="features.multilang.title">🌐 Multi-langues</h3>
+            <p data-i18n="features.multilang.desc">
+              Support de plusieurs langues facilement configurable
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3 data-i18n="features.instant.title">⚡ Instantané</h3>
+            <p data-i18n="features.instant.desc">
+              Changement de langue sans rechargement de page
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3 data-i18n="features.save.title">💾 Sauvegarde</h3>
+            <p data-i18n="features.save.desc">
+              La préférence est mémorisée entre les sessions
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Formulaire -->
+      <div class="section">
+        <h2 data-i18n="form.title">Exemple de Formulaire</h2>
+        <form>
+          <div class="form-group">
+            <label data-i18n="form.name.label">Nom complet</label>
+            <input type="text" data-i18n-placeholder="form.name.placeholder" />
+          </div>
+          <div class="form-group">
+            <label data-i18n="form.email.label">Adresse e-mail</label>
+            <input
+              type="email"
+              data-i18n-placeholder="form.email.placeholder"
+            />
+          </div>
+          <div class="form-group">
+            <label data-i18n="form.message.label">Votre message</label>
+            <input
+              type="text"
+              data-i18n-placeholder="form.message.placeholder"
+            />
+          </div>
+          <div class="buttons">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              data-i18n="form.submit"
+            >
+              Envoyer
+            </button>
+            <button
+              type="reset"
+              class="btn btn-secondary"
+              data-i18n="form.reset"
+            >
+              Réinitialiser
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Section Boutons -->
+      <div class="section">
+        <h2 data-i18n="actions.title">Actions Rapides</h2>
+        <div class="buttons">
+          <button class="btn btn-primary" data-i18n="actions.start">
+            Commencer
+          </button>
+          <button class="btn btn-secondary" data-i18n="actions.learn">
+            En savoir plus
+          </button>
+          <button class="btn btn-primary" data-i18n="actions.contact">
+            Nous contacter
+          </button>
+          <button class="btn btn-secondary" data-i18n="actions.demo">
+            Voir la démo
+          </button>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <p data-i18n="footer.copyright">© 2026 - Système i18n Générique</p>
+        <p data-i18n="footer.rights">Tous droits réservés</p>
+      </footer>
+    </div>
+
+    <!-- Script du système de traduction -->
+    <script src="i18n-system.js"></script>
+
+    <!-- Configuration et initialisation -->
+    <script>
+      // Configuration des langues et traductions
+      const i18n = new I18nSystem({
+        defaultLang: "fr",
+        toggleButtonId: "language-toggle",
+
+        // Définition des langues
+        languages: {
+          fr: {
+            code: "fr",
+            name: "Français",
+            flag: FLAGS.fr,
+          },
+          sr: {
+            code: "sr",
+            name: "Српски",
+            flag: FLAGS.sr,
+          },
+          en: {
+            code: "en",
+            name: "English",
+            flag: FLAGS.en,
+          },
+        },
+
+        // Traductions
+        translations: {
+          fr: {
+            // Page
+            page: {
+              title: "Système de Traduction Universel",
+              subtitle:
+                "Un système complet pour ajouter le multilingue à n'importe quel site web",
+            },
+
+            // Info
+            info: {
+              title: "🌍 Comment tester ?",
+              description:
+                "Cliquez sur le drapeau en haut à droite pour changer de langue. Tous les textes changent instantanément sans recharger la page !",
+            },
+
+            // Fonctionnalités
+            features: {
+              title: "Fonctionnalités Principales",
+              multilang: {
+                title: "🌐 Multi-langues",
+                desc: "Support de plusieurs langues facilement configurable",
+              },
+              instant: {
+                title: "⚡ Instantané",
+                desc: "Changement de langue sans rechargement de page",
+              },
+              save: {
+                title: "💾 Sauvegarde",
+                desc: "La préférence est mémorisée entre les sessions",
+              },
+            },
+
+            // Formulaire
+            form: {
+              title: "Exemple de Formulaire",
+              name: {
+                label: "Nom complet",
+                placeholder: "Entrez votre nom",
+              },
+              email: {
+                label: "Adresse e-mail",
+                placeholder: "vous@exemple.com",
+              },
+              message: {
+                label: "Votre message",
+                placeholder: "Écrivez votre message ici...",
+              },
+              submit: "Envoyer",
+              reset: "Réinitialiser",
+            },
+
+            // Actions
+            actions: {
+              title: "Actions Rapides",
+              start: "Commencer",
+              learn: "En savoir plus",
+              contact: "Nous contacter",
+              demo: "Voir la démo",
+            },
+
+            // Footer
+            footer: {
+              copyright: "© 2026 - Système i18n Générique",
+              rights: "Tous droits réservés",
+            },
+
+            // Aria
+            aria: {
+              language: "Changer de langue",
+            },
+          },
+
+          sr: {
+            // Page
+            page: {
+              title: "Универзални Систем Превођења",
+              subtitle:
+                "Комплетан систем за додавање вишејезичности на било који веб сајт",
+            },
+
+            // Info
+            info: {
+              title: "🌍 Како тестирати?",
+              description:
+                "Кликните на заставу у горњем десном углу да промените језик. Сви текстови се мењају тренутно без поновног учитавања странице!",
+            },
+
+            // Fonctionnalités
+            features: {
+              title: "Главне Функционалности",
+              multilang: {
+                title: "🌐 Више језика",
+                desc: "Подршка за више језика која се лако конфигурише",
+              },
+              instant: {
+                title: "⚡ Тренутно",
+                desc: "Промена језика без поновног учитавања странице",
+              },
+              save: {
+                title: "💾 Чување",
+                desc: "Преференција се памти између сесија",
+              },
+            },
+
+            // Formulaire
+            form: {
+              title: "Пример Форме",
+              name: {
+                label: "Пуно име",
+                placeholder: "Унесите ваше име",
+              },
+              email: {
+                label: "Имејл адреса",
+                placeholder: "vi@primer.com",
+              },
+              message: {
+                label: "Ваша порука",
+                placeholder: "Напишите вашу поруку овде...",
+              },
+              submit: "Пошаљи",
+              reset: "Ресетуј",
+            },
+
+            // Actions
+            actions: {
+              title: "Брзе Акције",
+              start: "Почни",
+              learn: "Сазнај више",
+              contact: "Контактирајте нас",
+              demo: "Погледај демо",
+            },
+
+            // Footer
+            footer: {
+              copyright: "© 2026 - Генерички i18n Систем",
+              rights: "Сва права задржана",
+            },
+
+            // Aria
+            aria: {
+              language: "Промените језик",
+            },
+          },
+
+          en: {
+            // Page
+            page: {
+              title: "Universal Translation System",
+              subtitle:
+                "A complete system to add multilingual support to any website",
+            },
+
+            // Info
+            info: {
+              title: "🌍 How to test?",
+              description:
+                "Click on the flag in the top right corner to change the language. All texts change instantly without reloading the page!",
+            },
+
+            // Features
+            features: {
+              title: "Main Features",
+              multilang: {
+                title: "🌐 Multi-language",
+                desc: "Support for multiple easily configurable languages",
+              },
+              instant: {
+                title: "⚡ Instant",
+                desc: "Language change without page reload",
+              },
+              save: {
+                title: "💾 Save",
+                desc: "Preference is remembered between sessions",
+              },
+            },
+
+            // Form
+            form: {
+              title: "Form Example",
+              name: {
+                label: "Full name",
+                placeholder: "Enter your name",
+              },
+              email: {
+                label: "Email address",
+                placeholder: "you@example.com",
+              },
+              message: {
+                label: "Your message",
+                placeholder: "Write your message here...",
+              },
+              submit: "Send",
+              reset: "Reset",
+            },
+
+            // Actions
+            actions: {
+              title: "Quick Actions",
+              start: "Get Started",
+              learn: "Learn More",
+              contact: "Contact Us",
+              demo: "View Demo",
+            },
+
+            // Footer
+            footer: {
+              copyright: "© 2026 - Generic i18n System",
+              rights: "All rights reserved",
+            },
+
+            // Aria
+            aria: {
+              language: "Change language",
+            },
+          },
+        },
+
+        // Callback lors du changement de langue
+        onLanguageChange: (lang, langConfig) => {
+          console.log(`Langue changée vers: ${langConfig.name} (${lang})`);
+        },
+      });
+    </script>
+  </body>
+</html>

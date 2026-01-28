@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Traduction</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+      .test-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+      h1 {
+        color: #667eea;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      .flag-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: white;
+        border: none;
+        padding: 15px;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .flag-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      }
+      .test-section {
+        margin: 25px 0;
+        padding: 20px;
+        background: #f7f7f7;
+        border-radius: 12px;
+        border-left: 4px solid #667eea;
+      }
+      .test-label {
+        font-size: 12px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+      .test-value {
+        font-size: 18px;
+        color: #333;
+        font-weight: bold;
+      }
+      .buttons-test {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      }
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.2s;
+      }
+      .btn-primary {
+        background: #667eea;
+        color: white;
+      }
+      .btn-primary:hover {
+        background: #5568d3;
+        transform: translateY(-2px);
+      }
+      .status-box {
+        background: #e8f5e9;
+        border: 2px solid #4caf50;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+        text-align: center;
+      }
+      .status-icon {
+        font-size: 40px;
+        margin-bottom: 10px;
+      }
+      .current-lang {
+        display: inline-block;
+        background: #667eea;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      code {
+        background: #2d2d2d;
+        color: #f8f8f2;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      id="language-toggle"
+      class="flag-button"
+      aria-label="Changer de langue"
+    >
+      <svg
+        class="flag-icon"
+        data-lang="fr"
+        width="32"
+        height="24"
+        viewBox="0 0 32 24"
+      >
+        <rect width="10.67" height="24" fill="#002395" />
+        <rect x="10.67" width="10.67" height="24" fill="#FFFFFF" />
+        <rect x="21.33" width="10.67" height="24" fill="#ED2939" />
+      </svg>
+    </button>
+
+    <div class="test-container">
+      <h1>🧪 Test du Système de Traduction</h1>
+
+      <div class="status-box">
+        <div class="status-icon">✅</div>
+        <div><strong>Système actif</strong></div>
+        <div>
+          Langue actuelle :
+          <span class="current-lang" id="current-lang-display">fr</span>
+        </div>
+      </div>
+
+      <div class="test-section">
+        <div class="test-label">🏠 Hero Title</div>
+        <div class="test-value" data-i18n="hero.title">
+          Prenez 15 minutes pour vous
+        </div>
+        <div style="margin-top: 10px; font-size: 12px; color: #999">
+          Clé: <code>hero.title</code>
+        </div>
+      </div>
+
+      <div class="test-section">
+        <div class="test-label">📝 Hero Subtitle</div>
+        <div class="test-value" data-i18n="hero.subtitle">
+          Retrouvez calme et bien-être à travers des séances de yoga guidées
+        </div>
+        <div style="margin-top: 10px; font-size: 12px; color: #999">
+          Clé: <code>hero.subtitle</code>
+        </div>
+      </div>
+
+      <div class="test-section">
+        <div class="test-label">🔘 Boutons d'authentification</div>
+        <div class="buttons-test">
+          <button class="btn btn-primary" data-i18n="auth.login">
+            Se connecter
+          </button>
+          <button class="btn btn-primary" data-i18n="auth.register">
+            Créer un compte
+          </button>
+          <button class="btn btn-primary" data-i18n="auth.logout">
+            Déconnexion
+          </button>
+        </div>
+      </div>
+
+      <div class="test-section">
+        <div class="test-label">📚 Features</div>
+        <div style="margin-bottom: 10px">
+          <strong data-i18n="features.understand.title">Comprendre</strong> -
+          <span data-i18n="features.understand.desc"
+            >Théorie, intentions et respiration expliquées simplement</span
+          >
+        </div>
+        <div style="margin-bottom: 10px">
+          <strong data-i18n="features.practice.title">Pratiquer</strong> -
+          <span data-i18n="features.practice.desc"
+            >Séances guidées adaptées à votre niveau et votre temps</span
+          >
+        </div>
+        <div>
+          <strong data-i18n="features.progress.title">Progresser</strong> -
+          <span data-i18n="features.progress.desc"
+            >Suivez votre régularité et célébrez vos moments</span
+          >
+        </div>
+      </div>
+
+      <div class="test-section">
+        <div class="test-label">📊 Informations Techniques</div>
+        <div style="font-size: 14px; line-height: 1.8">
+          <strong>Langue dans HTML:</strong> <code id="html-lang-attr">fr</code
+          ><br />
+          <strong>Langue dans localStorage:</strong>
+          <code id="local-storage-lang">fr</code><br />
+          <strong>Ordre des langues:</strong> <code>fr → sr → en</code><br />
+          <strong>Total traductions:</strong> <code>20+ clés × 3 langues</code>
+        </div>
+      </div>
+
+      <div class="test-section">
+        <div class="test-label">🎯 Instructions</div>
+        <ol style="padding-left: 20px; line-height: 2">
+          <li>Cliquez sur le drapeau en haut à droite</li>
+          <li>Observez tous les textes changer</li>
+          <li>Le drapeau change aussi (FR → SR → EN)</li>
+          <li>Rechargez la page → la langue est conservée</li>
+          <li>Ouvrez la console pour voir les logs</li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px">
+        <button class="btn btn-primary" onclick="location.href = 'index.html'">
+          🏠 Retour à l'accueil
+        </button>
+        <button
+          class="btn btn-primary"
+          onclick="location.href = 'demo-traduction.html'"
+          style="background: #764ba2"
+        >
+          📖 Voir la démo complète
+        </button>
+      </div>
+    </div>
+
+    <script src="js/language.js"></script>
+    <script>
+      // Mise à jour des infos techniques en temps réel
+      function updateTechnicalInfo() {
+        const htmlLang = document.documentElement.lang;
+        const localStorageLang =
+          localStorage.getItem("preferred-language") || "fr";
+
+        document.getElementById("html-lang-attr").textContent = htmlLang;
+        document.getElementById("local-storage-lang").textContent =
+          localStorageLang;
+        document.getElementById("current-lang-display").textContent =
+          localStorageLang;
+      }
+
+      // Observer les changements de langue
+      const originalSetLanguage = window.setLanguage;
+      window.setLanguage = function (lang) {
+        originalSetLanguage(lang);
+        updateTechnicalInfo();
+      };
+
+      // Initialisation
+      document.addEventListener("DOMContentLoaded", updateTechnicalInfo);
+    </script>
+  </body>
+</html>

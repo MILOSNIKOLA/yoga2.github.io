@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contactez-nous - Yoga App" />
+    <title>Contact - Yoga App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <style>
+      .contact-page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 120px 20px 60px;
+        background: var(--bg-primary);
+      }
+
+      .contact-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .contact-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .contact-subtitle {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+      }
+
+      .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .contact-info {
+        background: var(--bg-secondary);
+        padding: 2rem;
+        border-radius: 20px;
+        border: 2px solid var(--border);
+      }
+
+      .contact-info h3 {
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-secondary);
+      }
+
+      .contact-item svg {
+        flex-shrink: 0;
+        stroke: var(--accent);
+        margin-top: 0.25rem;
+      }
+
+      .contact-item-content h4 {
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+      }
+
+      .contact-item-content p {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .contact-form-container {
+        background: var(--bg-secondary);
+        padding: 2rem;
+        border-radius: 20px;
+        border: 2px solid var(--border);
+      }
+
+      .contact-form h3 {
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+        font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        font-size: 1rem;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        transition: all 0.3s ease;
+        font-family: inherit;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+      }
+
+      .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .back-link:hover {
+        color: var(--accent-hover);
+      }
+
+      .success-message {
+        display: none;
+        padding: 1rem;
+        background: rgba(52, 211, 153, 0.1);
+        border: 2px solid #34d399;
+        border-radius: 12px;
+        color: #10b981;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .success-message.show {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .contact-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Language Toggle Button -->
+    <button
+      id="language-toggle"
+      class="language-toggle"
+      aria-label="Change language"
+    >
+      <svg
+        class="flag-icon"
+        data-lang="en"
+        width="32"
+        height="24"
+        viewBox="0 0 32 24"
+      >
+        <rect width="32" height="24" fill="#012169" />
+        <path d="M0 0 L32 24 M32 0 L0 24" stroke="#FFF" stroke-width="4" />
+        <path d="M0 0 L32 24 M32 0 L0 24" stroke="#C8102E" stroke-width="2.5" />
+        <path d="M16 0 V24 M0 12 H32" stroke="#FFF" stroke-width="8" />
+        <path d="M16 0 V24 M0 12 H32" stroke="#C8102E" stroke-width="5" />
+      </svg>
+    </button>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <svg
+        class="sun-icon"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon hidden"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+
+    <main class="contact-page">
+      <a href="index.html" class="back-link">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Retour à l'accueil
+      </a>
+
+      <div class="contact-header">
+        <h1 class="contact-title">Contactez-nous</h1>
+        <p class="contact-subtitle">
+          Une question ? Une suggestion ? Notre équipe est là pour vous aider
+        </p>
+      </div>
+
+      <div class="contact-content">
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h3>Nos coordonnées</h3>
+
+          <div class="contact-item">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <div class="contact-item-content">
+              <h4>Email</h4>
+              <p>support@yogaapp.com</p>
+              <p>Pour toute question générale</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            <div class="contact-item-content">
+              <h4>Téléphone</h4>
+              <p>+33 (0)1 23 45 67 89</p>
+              <p>Du lundi au vendredi, 9h-18h</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <div class="contact-item-content">
+              <h4>Adresse</h4>
+              <p>123 Rue du Bien-être</p>
+              <p>75000 Paris, France</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <div class="contact-item-content">
+              <h4>Horaires</h4>
+              <p>Lundi - Vendredi : 9h - 18h</p>
+              <p>Weekend : Fermé</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-container">
+          <h3>Envoyez-nous un message</h3>
+
+          <div id="success-message" class="success-message">
+            ✓ Votre message a été envoyé avec succès ! Nous vous répondrons dans
+            les plus brefs délais.
+          </div>
+
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="name">Nom complet *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Jean Dupont"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="jean.dupont@example.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Sujet *</label>
+              <select id="subject" name="subject" required>
+                <option value="">Sélectionnez un sujet</option>
+                <option value="support">Support technique</option>
+                <option value="billing">Facturation</option>
+                <option value="feature">Suggestion de fonctionnalité</option>
+                <option value="content">Question sur le contenu</option>
+                <option value="partnership">Partenariat</option>
+                <option value="other">Autre</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Décrivez votre demande..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              Envoyer le message
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer will be loaded dynamically -->
+    <script src="js/footer-loader.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+      // Contact form handling
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value,
+          };
+
+          // In a real application, you would send this data to a server
+          console.log("Form submitted:", formData);
+
+          // Show success message
+          document.getElementById("success-message").classList.add("show");
+
+          // Reset form
+          this.reset();
+
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            document.getElementById("success-message").classList.remove("show");
+          }, 5000);
+        });
+    </script>
+  </body>
+</html>
