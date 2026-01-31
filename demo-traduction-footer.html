@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Démonstration Système de Traduction - Footer Yoga App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <style>
+      /* Styles spécifiques pour la démo */
+      body {
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .demo-header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 40px;
+        border-radius: 12px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .demo-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .demo-header p {
+        font-size: 1.2rem;
+        opacity: 0.95;
+      }
+
+      .demo-controls {
+        background: var(--bg-secondary);
+        padding: 30px;
+        border-radius: 12px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .demo-controls h2 {
+        margin-bottom: 20px;
+        color: var(--primary-color);
+      }
+
+      .language-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      .lang-btn {
+        padding: 15px 30px;
+        border: 2px solid var(--primary-color);
+        background: white;
+        color: var(--primary-color);
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .lang-btn:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .lang-btn.active {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .info-box {
+        background: #e3f2fd;
+        border-left: 4px solid #2196f3;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+
+      .info-box h3 {
+        color: #1976d2;
+        margin-bottom: 10px;
+      }
+
+      .info-box code {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+      }
+
+      .footer-demo {
+        margin-top: auto;
+        background: var(--bg-secondary);
+        border-radius: 12px 12px 0 0;
+        overflow: hidden;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .stats-bar {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        background: var(--bg-primary);
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+
+      .stat-item {
+        flex: 1;
+        text-align: center;
+        padding: 15px;
+        background: var(--bg-secondary);
+        border-radius: 8px;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-top: 5px;
+      }
+
+      @media (max-width: 768px) {
+        .demo-header h1 {
+          font-size: 1.8rem;
+        }
+
+        .language-buttons {
+          flex-direction: column;
+        }
+
+        .stats-bar {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- En-tête de démonstration -->
+    <div class="demo-header">
+      <h1>🌍 Démonstration Interactive</h1>
+      <p>Système de Traduction Multilingue - Footer Dynamique</p>
+    </div>
+
+    <!-- Contrôles de démonstration -->
+    <div class="demo-controls">
+      <h2>🎮 Panneau de Contrôle</h2>
+
+      <div class="language-buttons">
+        <button class="lang-btn active" data-lang="fr">🇫🇷 Français</button>
+        <button class="lang-btn" data-lang="sr">🇷🇸 Српски (Serbe)</button>
+        <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-number" id="element-count">14</div>
+          <div class="stat-label">Éléments traduits</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Langues supportées</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="current-lang-display">FR</div>
+          <div class="stat-label">Langue active</div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h3>💡 Comment ça marche ?</h3>
+        <p>
+          Cliquez sur un bouton de langue pour voir le footer se traduire
+          <strong>instantanément</strong>
+          sans rechargement de page. Chaque élément est identifié par un
+          attribut
+          <code>data-i18n="footer.section.key"</code> qui est résolu dans un
+          objet JavaScript centralisé.
+        </p>
+        <p style="margin-top: 10px">
+          <strong>Technologie :</strong> 100% JavaScript Vanilla • Zéro
+          bibliothèque externe • Performance optimale
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer à traduire (inclus via footer-loader.js) -->
+    <div class="footer-demo" id="footer-container">
+      <!-- Le footer sera chargé ici -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/footer-loader.js"></script>
+
+    <script>
+      // Script de démonstration
+      document.addEventListener("DOMContentLoaded", () => {
+        // Attacher les événements aux boutons de démo
+        const langButtons = document.querySelectorAll(".lang-btn");
+
+        langButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const targetLang = button.getAttribute("data-lang");
+
+            // Retirer la classe active de tous les boutons
+            langButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Ajouter la classe active au bouton cliqué
+            button.classList.add("active");
+
+            // Changer la langue
+            if (window.translatePage) {
+              window.translatePage(targetLang);
+
+              // Mettre à jour l'affichage
+              document.getElementById("current-lang-display").textContent =
+                targetLang.toUpperCase();
+
+              // Sauvegarder la préférence
+              localStorage.setItem("language", targetLang);
+
+              // Animation de feedback
+              button.style.transform = "scale(0.95)";
+              setTimeout(() => {
+                button.style.transform = "";
+              }, 100);
+            }
+          });
+        });
+
+        // Initialiser avec la langue sauvegardée
+        const savedLang = localStorage.getItem("language") || "fr";
+        const savedButton = document.querySelector(
+          `[data-lang="${savedLang}"]`,
+        );
+        if (savedButton) {
+          savedButton.classList.add("active");
+          langButtons.forEach((btn) => {
+            if (btn !== savedButton) btn.classList.remove("active");
+          });
+        }
+        document.getElementById("current-lang-display").textContent =
+          savedLang.toUpperCase();
+
+        // Compter les éléments avec data-i18n dans le footer
+        setTimeout(() => {
+          const footerElements = document.querySelectorAll(
+            ".footer [data-i18n]",
+          );
+          document.getElementById("element-count").textContent =
+            footerElements.length;
+        }, 500);
+      });
+    </script>
+  </body>
+</html>

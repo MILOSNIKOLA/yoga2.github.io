@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Contactez-nous - Yoga App" />
-    <title>Contact - Yoga App</title>
+    <meta
+      name="description"
+      content="Contactez-nous - Yoga App"
+      data-i18n-attr-content="contact.metaDescription"
+    />
+    <title data-i18n="contact.pageTitle">Contact - Yoga App</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/themes.css" />
     <style>
@@ -169,25 +173,30 @@
     <button
       id="language-toggle"
       class="language-toggle"
-      aria-label="Change language"
+      data-i18n-aria-label="common.aria.language"
+      aria-label="Changer de langue"
     >
       <svg
         class="flag-icon"
-        data-lang="en"
+        data-lang="fr"
         width="32"
         height="24"
         viewBox="0 0 32 24"
+        aria-hidden="true"
       >
-        <rect width="32" height="24" fill="#012169" />
-        <path d="M0 0 L32 24 M32 0 L0 24" stroke="#FFF" stroke-width="4" />
-        <path d="M0 0 L32 24 M32 0 L0 24" stroke="#C8102E" stroke-width="2.5" />
-        <path d="M16 0 V24 M0 12 H32" stroke="#FFF" stroke-width="8" />
-        <path d="M16 0 V24 M0 12 H32" stroke="#C8102E" stroke-width="5" />
+        <rect width="10.67" height="24" fill="#002395" />
+        <rect x="10.67" width="10.67" height="24" fill="#FFFFFF" />
+        <rect x="21.33" width="10.67" height="24" fill="#ED2939" />
       </svg>
     </button>
 
     <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+    <button
+      id="theme-toggle"
+      class="theme-toggle"
+      data-i18n-aria-label="common.aria.theme"
+      aria-label="Changer le thème"
+    >
       <svg
         class="sun-icon"
         width="24"
@@ -229,12 +238,14 @@
         >
           <path d="M19 12H5M12 19l-7-7 7-7" />
         </svg>
-        Retour à l'accueil
+        <span data-i18n="contact.back">Retour à l'accueil</span>
       </a>
 
       <div class="contact-header">
-        <h1 class="contact-title">Contactez-nous</h1>
-        <p class="contact-subtitle">
+        <h1 class="contact-title" data-i18n="contact.header.title">
+          Contactez-nous
+        </h1>
+        <p class="contact-subtitle" data-i18n="contact.header.subtitle">
           Une question ? Une suggestion ? Notre équipe est là pour vous aider
         </p>
       </div>
@@ -242,7 +253,7 @@
       <div class="contact-content">
         <!-- Contact Information -->
         <div class="contact-info">
-          <h3>Nos coordonnées</h3>
+          <h3 data-i18n="contact.info.title">Nos coordonnées</h3>
 
           <div class="contact-item">
             <svg
@@ -258,9 +269,11 @@
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
             <div class="contact-item-content">
-              <h4>Email</h4>
+              <h4 data-i18n="contact.info.email.title">Email</h4>
               <p>support@yogaapp.com</p>
-              <p>Pour toute question générale</p>
+              <p data-i18n="contact.info.email.desc">
+                Pour toute question générale
+              </p>
             </div>
           </div>
 
@@ -277,9 +290,11 @@
               ></path>
             </svg>
             <div class="contact-item-content">
-              <h4>Téléphone</h4>
+              <h4 data-i18n="contact.info.phone.title">Téléphone</h4>
               <p>+33 (0)1 23 45 67 89</p>
-              <p>Du lundi au vendredi, 9h-18h</p>
+              <p data-i18n="contact.info.phone.desc">
+                Du lundi au vendredi, 9h-18h
+              </p>
             </div>
           </div>
 
@@ -295,7 +310,7 @@
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
             <div class="contact-item-content">
-              <h4>Adresse</h4>
+              <h4 data-i18n="contact.info.address.title">Adresse</h4>
               <p>123 Rue du Bien-être</p>
               <p>75000 Paris, France</p>
             </div>
@@ -313,69 +328,117 @@
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
             <div class="contact-item-content">
-              <h4>Horaires</h4>
-              <p>Lundi - Vendredi : 9h - 18h</p>
-              <p>Weekend : Fermé</p>
+              <h4 data-i18n="contact.info.hours.title">Horaires</h4>
+              <p data-i18n="contact.info.hours.weekdays">
+                Lundi - Vendredi : 9h - 18h
+              </p>
+              <p data-i18n="contact.info.hours.weekend">Weekend : Fermé</p>
             </div>
           </div>
         </div>
 
         <!-- Contact Form -->
         <div class="contact-form-container">
-          <h3>Envoyez-nous un message</h3>
+          <h3 data-i18n="contact.form.title">Envoyez-nous un message</h3>
 
-          <div id="success-message" class="success-message">
+          <div
+            id="success-message"
+            class="success-message"
+            data-i18n="contact.form.success"
+          >
             ✓ Votre message a été envoyé avec succès ! Nous vous répondrons dans
             les plus brefs délais.
           </div>
 
           <form id="contact-form" class="contact-form">
             <div class="form-group">
-              <label for="name">Nom complet *</label>
+              <label for="name" data-i18n="contact.form.name"
+                >Nom complet *</label
+              >
               <input
                 type="text"
                 id="name"
                 name="name"
                 required
                 placeholder="Jean Dupont"
+                data-i18n-placeholder="contact.form.namePlaceholder"
               />
             </div>
 
             <div class="form-group">
-              <label for="email">Email *</label>
+              <label for="email" data-i18n="contact.form.email">Email *</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 required
                 placeholder="jean.dupont@example.com"
+                data-i18n-placeholder="contact.form.emailPlaceholder"
               />
             </div>
 
             <div class="form-group">
-              <label for="subject">Sujet *</label>
+              <label for="subject" data-i18n="contact.form.subject"
+                >Sujet *</label
+              >
               <select id="subject" name="subject" required>
-                <option value="">Sélectionnez un sujet</option>
-                <option value="support">Support technique</option>
-                <option value="billing">Facturation</option>
-                <option value="feature">Suggestion de fonctionnalité</option>
-                <option value="content">Question sur le contenu</option>
-                <option value="partnership">Partenariat</option>
-                <option value="other">Autre</option>
+                <option value="" data-i18n="contact.form.subjectPlaceholder">
+                  Sélectionnez un sujet
+                </option>
+                <option
+                  value="support"
+                  data-i18n="contact.form.subjects.support"
+                >
+                  Support technique
+                </option>
+                <option
+                  value="billing"
+                  data-i18n="contact.form.subjects.billing"
+                >
+                  Facturation
+                </option>
+                <option
+                  value="feature"
+                  data-i18n="contact.form.subjects.feature"
+                >
+                  Suggestion de fonctionnalité
+                </option>
+                <option
+                  value="content"
+                  data-i18n="contact.form.subjects.content"
+                >
+                  Question sur le contenu
+                </option>
+                <option
+                  value="partnership"
+                  data-i18n="contact.form.subjects.partnership"
+                >
+                  Partenariat
+                </option>
+                <option value="other" data-i18n="contact.form.subjects.other">
+                  Autre
+                </option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="message">Message *</label>
+              <label for="message" data-i18n="contact.form.message"
+                >Message *</label
+              >
               <textarea
                 id="message"
                 name="message"
                 required
                 placeholder="Décrivez votre demande..."
+                data-i18n-placeholder="contact.form.messagePlaceholder"
               ></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              data-i18n="contact.form.submit"
+            >
               <svg
                 width="20"
                 height="20"
@@ -394,8 +457,8 @@
     </main>
 
     <!-- Footer will be loaded dynamically -->
+    <script src="js/i18n-manager.js"></script>
     <script src="js/footer-loader.js"></script>
-    <script src="js/language.js"></script>
     <script src="js/theme.js"></script>
     <script>
       // Contact form handling

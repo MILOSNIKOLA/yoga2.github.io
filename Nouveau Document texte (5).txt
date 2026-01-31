@@ -1,0 +1,159 @@
+Créer un form pour taper les todos
+
+Ajouter sur le dom ce qui est tapé dans le form à la validation du form
+Supprimer un todo lorsque l'on click dessus (.remove())
+
+Stocker dans le local storage la liste
+
+Consulter le local storage au lancement de l'application pour rajouter
+les todos
+
+
+
+
+je suis développeur full stack qui est penche sur front-end .un développeur web capable de réaliser la programmation d’un site ou d'une application web à la fois en front-end et back-end. Il dispose ainsi de compétences variées lui permettant de travailler sur chaque étape d'un projet de création allant du développement à la production
+
+https://www.youtube.com/watch?v=8w2US4D1qlo
+
+https://screenapp.io/
+
+je code une application web , je voudrais tu te met dans la tete de prof de yoga et que m'aide pour construire site web , application qui tourne sur yoga, enseignement de yago . comme ca je pourrais de mon coté la developpé , le codé car je suis un dev front end. Fais moi un prompt :
+Très bien. Je vais me positionner comme professeur de yoga expérimenté, avec une logique pédagogique claire, tout en parlant le langage utile à un développeur front-end. L’objectif est que tu puisses transformer facilement cette vision en features concrètes, composants UI et flux applicatifs.
+
+
+1. Vision pédagogique (point de vue prof de yoga)
+Un bon site / une bonne application de yoga doit répondre à 4 besoins fondamentaux de l’élève :
+Comprendre (théorie, intentions, respiration)
+Pratiquer (séances guidées, routines)
+Progresser (niveau, régularité, suivi)
+Ressentir (calme, confiance, bien-être)
+👉 Tout le produit doit tourner autour de ces piliers.
+
+
+2. Structure globale de l’application (mental model)
+A. Accueil – “Entrer dans la pratique”
+Objectif yoga : apaiser, rassurer, donner envie.
+Contenu
+Phrase d’intention (ex : “Prenez 15 minutes pour vous”)
+Accès rapide à :
+Séance du jour
+Respiration rapide
+Étirement doux
+Côté front
+Hero simple
+CTA clairs
+Zéro surcharge visuelle
+
+
+B. Séances de yoga (cœur de l’app)
+Objectif yoga : guider le corps sans confusion.
+1. Filtres pédagogiques
+Un élève pense comme ça :
+“Je suis débutant”
+“J’ai mal au dos”
+“Je suis stressé”
+“Je n’ai que 10 minutes”
+Filtres recommandés
+Niveau : débutant / intermédiaire / avancé
+Durée : 5 – 10 – 20 – 45 min
+Objectif :
+Détente
+Mobilité
+Renforcement
+Respiration
+Type :
+Hatha
+Vinyasa
+Yin
+Flow doux
+👉 Très important : pas de jargon excessif.
+
+
+2. Fiche séance (UX clé)
+Chaque séance doit répondre à ces questions :
+À quoi sert cette séance ?
+Pour qui est-elle faite ?
+Que vais-je ressentir après ?
+Structure
+Titre clair
+Durée
+Niveau
+Objectif (1 phrase max)
+Liste des postures (optionnel)
+Bouton “Commencer”
+
+
+C. Le déroulé d’une séance (expérience prof)
+Objectif yoga : rythme, respiration, présence.
+Séquence idéale
+Préparation (respiration lente)
+Échauffement
+Postures principales
+Retour au calme
+Relaxation finale
+Côté dev
+Timer précis
+Transitions fluides
+Pause / reprise fiable
+Mode plein écran
+
+
+D. Respiration (section sous-estimée mais essentielle)
+Objectif yoga : calmer le mental.
+Exercices simples
+Cohérence cardiaque
+Respiration 4-6
+Respiration carrée
+UI
+Animation lente
+Texte minimal
+Son optionnel
+👉 C’est une feature “waouh” facile à valoriser.
+
+
+E. Apprentissage & philosophie
+Objectif yoga : donner du sens à la pratique.
+Contenu court
+Qu’est-ce que le yoga ?
+Pourquoi respirer par le nez ?
+Pourquoi la lenteur est importante ?
+Format
+Cartes
+Mini articles
+2 minutes de lecture max
+
+
+F. Progression de l’élève
+Objectif yoga : motivation sans pression.
+Indicateurs sains
+Jours pratiqués
+Temps total
+Séances complétées
+Séries de régularité (streaks doux)
+⚠️ Pas de compétition. Pas de “performance”.
+
+
+3. Ton & identité (important pour le contenu)
+En tant que prof de yoga :
+Langage calme
+Positif
+Inclusif
+Non culpabilisant
+❌ “Tu dois…”
+✅ “Tu peux…”
+
+
+4. Ce que tu peux développer en priorité (roadmap réaliste)
+MVP conseillé
+Accueil simple
+Liste de séances filtrables
+Lecteur de séance avec timer
+Respiration guidée
+Historique basique,peux :
+me proposer l’architecture front complète (pages, composants, state)
+M’aider à écrire le contenu exact (textes prof de yoga prêts à intégrer)
+Définir une UX mobile-first
+m’aider à transformer chaque idée en feature technique claire
+Dis-moi simplement :
+👉 web only ou web + mobile ? les deux,
+👉 avec comptes utilisateurs ?, avec les niveau easy 2min , mediam 5min, hard 10min, extremehard 20min en plus adapter dans le monde de yaga. chanque niveaux a deux exercices gratuit , reste payant. tu ferais en bien les exercices , ou on utilisent en 2026
