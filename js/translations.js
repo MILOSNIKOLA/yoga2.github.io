@@ -184,6 +184,42 @@ const SITE_TRANSLATIONS = {
           "Rejoignez des milliers de personnes qui ont trouvé leur équilibre",
         button: "Créer mon compte gratuit",
       },
+      newsletter: {
+        title: "Restez informé",
+        description:
+          "Recevez nos conseils de yoga et nos nouvelles séances chaque semaine",
+        placeholder: "Votre email",
+        subscribe: "S'abonner",
+      },
+    },
+
+    // ═══════════════════════════════════════════════════════════════════
+    // FOOTER - Traductions complètes
+    // ═══════════════════════════════════════════════════════════════════
+    footer: {
+      brand: {
+        title: "Yoga App",
+        tagline: "Votre compagnon de pratique au quotidien",
+      },
+      explore: {
+        title: "Explorer",
+        sessions: "Séances",
+        breathing: "Respiration",
+        learning: "Apprendre",
+      },
+      account: {
+        title: "Compte",
+        login: "Connexion",
+        register: "Inscription",
+        dashboard: "Mon espace",
+      },
+      legal: {
+        title: "Légal",
+        privacy: "Confidentialité",
+        terms: "CGU",
+        contact: "Contact",
+      },
+      copyright: "2026 Yoga App. Tous droits réservés.",
     },
   },
 
@@ -349,6 +385,41 @@ const SITE_TRANSLATIONS = {
           "Придружите се хиљадама људи који су пронашли своју равнотежу",
         button: "Направите бесплатан налог",
       },
+      newsletter: {
+        title: "Останите информисани",
+        description: "Примите наше савете за јогу и нове сесије сваке недеље",
+        placeholder: "Ваш имејл",
+        subscribe: "Пријавите се",
+      },
+    },
+
+    // ═══════════════════════════════════════════════════════════════════
+    // FOOTER - Преводи
+    // ═══════════════════════════════════════════════════════════════════
+    footer: {
+      brand: {
+        title: "Yoga App",
+        tagline: "Ваш свакодневни пратилац у пракси",
+      },
+      explore: {
+        title: "Истражите",
+        sessions: "Сесије",
+        breathing: "Дисање",
+        learning: "Учити",
+      },
+      account: {
+        title: "Налог",
+        login: "Пријава",
+        register: "Регистрација",
+        dashboard: "Мој простор",
+      },
+      legal: {
+        title: "Правно",
+        privacy: "Приватност",
+        terms: "Услови коришћења",
+        contact: "Контакт",
+      },
+      copyright: "© 2026 Yoga App. Сва права задржана.",
     },
   },
 
@@ -513,6 +584,41 @@ const SITE_TRANSLATIONS = {
         description: "Join thousands who have found their balance",
         button: "Create My Free Account",
       },
+      newsletter: {
+        title: "Stay Informed",
+        description: "Receive our yoga tips and new sessions every week",
+        placeholder: "Your email",
+        subscribe: "Subscribe",
+      },
+    },
+
+    // ═══════════════════════════════════════════════════════════════════
+    // FOOTER - Translations
+    // ═══════════════════════════════════════════════════════════════════
+    footer: {
+      brand: {
+        title: "Yoga App",
+        tagline: "Your daily practice companion",
+      },
+      explore: {
+        title: "Explore",
+        sessions: "Sessions",
+        breathing: "Breathing",
+        learning: "Learn",
+      },
+      account: {
+        title: "Account",
+        login: "Login",
+        register: "Sign Up",
+        dashboard: "My Space",
+      },
+      legal: {
+        title: "Legal",
+        privacy: "Privacy",
+        terms: "Terms of Service",
+        contact: "Contact",
+      },
+      copyright: "© 2026 Yoga App. All rights reserved.",
     },
   },
 };

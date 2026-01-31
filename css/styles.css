@@ -665,18 +665,117 @@ a:hover {
 }
 
 /* ========================================
+   NEWSLETTER SECTION
+   ======================================== */
+.newsletter-section {
+  padding: 100px 20px;
+  text-align: center;
+  background: var(--bg-primary);
+}
+
+.newsletter-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.newsletter-description {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.newsletter-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.newsletter-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.newsletter-form button {
+  padding: 0.875rem 2rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .newsletter-title {
+    font-size: 2rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-input {
+    width: 100%;
+  }
+}
+
+/* ========================================
    FOOTER
    ======================================== */
 .footer {
   background: var(--bg-secondary);
-  padding: 60px 20px 30px;
+}
+
+/* Footer container layout (flex uniquement ici) */
+.footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3rem;
 }
 
 .footer-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
+  align-items: stretch;
+  align-content: start;
+  justify-items: stretch;
+  width: 100%;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
 }
 
 .footer-section h4 {
@@ -706,6 +805,12 @@ a:hover {
   padding-top: 2rem;
   border-top: 1px solid var(--border);
   color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .footer .container {
+    gap: 2rem;
+  }
 }
 
 /* ========================================

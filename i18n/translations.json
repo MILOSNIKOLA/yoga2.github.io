@@ -1,0 +1,1580 @@
+{
+  "fr": {
+    "common": {
+      "aria": {
+        "language": "Changer de langue",
+        "theme": "Changer le thème",
+        "logout": "Déconnexion",
+        "profile": "Mon profil",
+        "close": "Fermer"
+      },
+      "nav": {
+        "sessions": "Séances",
+        "breathing": "Respiration",
+        "progress": "Progression",
+        "learning": "Apprentissage"
+      },
+      "back": "Retour"
+    },
+    "hero": {
+      "title": "Prenez 15 minutes pour vous",
+      "subtitle": "Retrouvez calme et bien-être à travers des séances de yoga guidées",
+      "daily": "Séance du jour",
+      "breathing": "Respiration rapide",
+      "gentle": "Étirement doux"
+    },
+    "auth": {
+      "login": "Se connecter",
+      "register": "Créer un compte",
+      "demo": "Demo",
+      "dashboard": "Mon espace",
+      "logout": "Déconnexion",
+      "divider": "ou",
+      "fields": {
+        "email": "Email",
+        "password": "Mot de passe",
+        "firstName": "Prénom"
+      },
+      "placeholders": {
+        "email": "votre@email.com",
+        "password": "••••••••",
+        "firstName": "Marie"
+      },
+      "loginPage": {
+        "title": "Connexion - Yoga App",
+        "header": {
+          "title": "Bienvenue",
+          "subtitle": "Connectez-vous pour continuer votre pratique"
+        },
+        "remember": "Se souvenir de moi",
+        "forgot": "Mot de passe oublié ?",
+        "noAccount": "Pas encore de compte ?",
+        "quote": "\"Le yoga est un voyage vers soi-même, à travers soi-même.\"",
+        "loading": "Connexion..."
+      },
+      "registerPage": {
+        "title": "Inscription - Yoga App",
+        "header": {
+          "title": "Créer un compte",
+          "subtitle": "Commencez votre voyage vers le bien-être"
+        },
+        "passwordHint": "Minimum 8 caractères, incluant majuscule et chiffre",
+        "passwordStrong": "✓ Mot de passe fort",
+        "confirmPassword": "Confirmer le mot de passe",
+        "levelLabel": "Votre niveau",
+        "level": {
+          "placeholder": "Choisissez votre niveau",
+          "beginner": "Débutant - Je découvre le yoga",
+          "intermediate": "Intermédiaire - Je pratique régulièrement",
+          "advanced": "Avancé - Je pratique depuis longtemps"
+        },
+        "acceptPrefix": "J'accepte les",
+        "terms": "conditions d'utilisation",
+        "submit": "Créer mon compte",
+        "hasAccount": "Déjà un compte ?",
+        "quote": "\"Vous ne pouvez pas arrêter les vagues, mais vous pouvez apprendre à surfer.\"",
+        "loading": "Création...",
+        "passwordMismatch": "Les mots de passe ne correspondent pas",
+        "success": "Compte créé avec succès ! Redirection..."
+      }
+    },
+    "features": {
+      "title": "Un yoga fait pour vous",
+      "understand": {
+        "title": "Comprendre",
+        "desc": "Théorie, intentions et respiration expliquées simplement"
+      },
+      "practice": {
+        "title": "Pratiquer",
+        "desc": "Séances guidées adaptées à votre niveau et votre temps"
+      },
+      "progress": {
+        "title": "Progresser",
+        "desc": "Suivez votre régularité et célébrez vos moments"
+      },
+      "feel": {
+        "title": "Ressentir",
+        "desc": "Calme, confiance et bien-être à portée de main"
+      }
+    },
+    "yoga": {
+      "title": "Qu'est-ce que le yoga ?",
+      "intro": "Le yoga est une pratique ancienne qui unit le corps, l'esprit et la respiration",
+      "benefit1": {
+        "title": "Réduction du stress",
+        "desc": "Apaisez votre esprit et trouvez la paix intérieure"
+      },
+      "benefit2": {
+        "title": "Flexibilité accrue",
+        "desc": "Améliorez votre souplesse et votre mobilité"
+      },
+      "benefit3": {
+        "title": "Force physique",
+        "desc": "Renforcez vos muscles en douceur"
+      }
+    },
+    "breathing": {
+      "pageTitle": "Respiration - Yoga App",
+      "metaDescription": "Exercices de respiration guidée - Yoga App",
+      "title": "Respiration guidée",
+      "subtitle": "Prenez quelques instants pour respirer",
+      "types": {
+        "coherence": {
+          "title": "Cohérence cardiaque",
+          "desc": "5s inspire / 5s expire"
+        },
+        "box": {
+          "title": "Box Breathing",
+          "desc": "4s chaque phase"
+        },
+        "478": {
+          "title": "4-7-8",
+          "desc": "Relaxation profonde"
+        },
+        "energize": {
+          "title": "Énergisant",
+          "desc": "3s inspire / 6s expire"
+        }
+      },
+      "instruction": {
+        "ready": "Prêt"
+      },
+      "actions": {
+        "start": "Commencer",
+        "stop": "Arrêter"
+      },
+      "options": {
+        "sound": "Son activé",
+        "vibration": "Vibrations"
+      },
+      "stats": {
+        "cycles": "Cycles complétés",
+        "totalTime": "Temps total"
+      }
+    },
+    "contact": {
+      "pageTitle": "Contact - Yoga App",
+      "metaDescription": "Contactez-nous - Yoga App",
+      "back": "Retour à l'accueil",
+      "header": {
+        "title": "Contactez-nous",
+        "subtitle": "Une question ? Une suggestion ? Notre équipe est là pour vous aider"
+      },
+      "info": {
+        "title": "Nos coordonnées",
+        "email": {
+          "title": "Email",
+          "desc": "Pour toute question générale"
+        },
+        "phone": {
+          "title": "Téléphone",
+          "desc": "Du lundi au vendredi, 9h-18h"
+        },
+        "address": {
+          "title": "Adresse"
+        },
+        "hours": {
+          "title": "Horaires",
+          "weekdays": "Lundi - Vendredi : 9h - 18h",
+          "weekend": "Weekend : Fermé"
+        }
+      },
+      "form": {
+        "title": "Envoyez-nous un message",
+        "success": "✓ Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.",
+        "name": "Nom complet *",
+        "email": "Email *",
+        "subject": "Sujet *",
+        "message": "Message *",
+        "namePlaceholder": "Jean Dupont",
+        "emailPlaceholder": "jean.dupont@example.com",
+        "subjectPlaceholder": "Sélectionnez un sujet",
+        "messagePlaceholder": "Décrivez votre demande...",
+        "subjects": {
+          "support": "Support technique",
+          "billing": "Facturation",
+          "feature": "Suggestion de fonctionnalité",
+          "content": "Question sur le contenu",
+          "partnership": "Partenariat",
+          "other": "Autre"
+        },
+        "submit": "Envoyer le message"
+      }
+    },
+    "sessions": {
+      "title": "Séances populaires",
+      "viewAll": "Voir toutes les séances",
+      "pageTitle": "Séances - Yoga App",
+      "metaDescription": "Séances de yoga - Yoga App",
+      "hero": {
+        "title": "Trouvez votre séance idéale",
+        "subtitle": "Filtrez par niveau, durée ou objectif"
+      },
+      "search": {
+        "placeholder": "Rechercher une séance..."
+      },
+      "filter": {
+        "level": {
+          "all": "Tous les niveaux",
+          "beginner": "Débutant",
+          "intermediate": "Intermédiaire",
+          "advanced": "Avancé"
+        },
+        "duration": {
+          "all": "Toutes les durées"
+        },
+        "type": {
+          "all": "Tous les types"
+        },
+        "goal": {
+          "all": "Tous les objectifs",
+          "relaxation": "Détente",
+          "mobility": "Mobilité",
+          "strength": "Renforcement",
+          "energy": "Énergie"
+        }
+      },
+      "results": {
+        "loading": "Chargement des séances..."
+      },
+      "empty": {
+        "title": "Aucune séance trouvée",
+        "text": "Essayez d'ajuster vos filtres pour trouver d'autres séances",
+        "reset": "Réinitialiser les filtres"
+      }
+    },
+    "dashboard": {
+      "pageTitle": "Mon espace - Yoga App",
+      "metaDescription": "Mon espace - Yoga App",
+      "header": {
+        "title": "Mon espace",
+        "subtitle": "Bienvenue sur votre espace"
+      },
+      "stats": {
+        "sessions": "Séances pratiquées",
+        "minutes": "Minutes de pratique",
+        "streak": "Jours consécutifs",
+        "week": "Cette semaine",
+        "level": {
+          "label": "Niveau",
+          "beginner": "Débutant"
+        }
+      },
+      "streak": {
+        "title": "Continuez ainsi !",
+        "desc": "Chaque moment compte, pas besoin d'être parfait."
+      },
+      "section": {
+        "continue": "Continuer ma pratique",
+        "recent": "Séances récentes",
+        "week": "Votre semaine",
+        "account": "Compte"
+      },
+      "actions": {
+        "newSession": "Nouvelle séance"
+      },
+      "empty": {
+        "recent": "Aucune séance enregistrée pour le moment"
+      },
+      "account": {
+        "email": "Email",
+        "memberSince": "Membre depuis",
+        "status": "Statut",
+        "free": "Gratuit"
+      }
+    },
+    "progress": {
+      "pageTitle": "Ma Progression - Yoga App",
+      "header": {
+        "title": "Ma Progression"
+      },
+      "period": {
+        "7": "7 jours",
+        "30": "30 jours",
+        "all": "Tout"
+      },
+      "stats": {
+        "completed": "Séances complétées",
+        "totalTime": "Temps total",
+        "currentStreak": "Série actuelle",
+        "bestStreak": "Meilleure série",
+        "streakDays": "jours consécutifs",
+        "evolution": {
+          "sessions": "+0 cette période",
+          "time": "+0h cette période"
+        }
+      },
+      "graph": {
+        "title": "Activité",
+        "export": "📥 Exporter mes données"
+      },
+      "timeline": {
+        "title": "Séances récentes",
+        "empty": "Aucune séance complétée pour le moment",
+        "cta": "Commencer une séance"
+      },
+      "goals": {
+        "title": "Objectif hebdomadaire",
+        "label": "3 séances par semaine",
+        "message": "Continuez comme ça !"
+      }
+    },
+    "learning": {
+      "pageTitle": "Apprentissage - Yoga App",
+      "hero": {
+        "title": "Comprendre le yoga",
+        "subtitle": "Approfondissez votre pratique avec des articles courts et inspirants"
+      },
+      "search": {
+        "placeholder": "Rechercher un article..."
+      },
+      "filter": {
+        "all": "Toutes les catégories",
+        "bases": "Bases du yoga",
+        "pranayama": "Respiration (Pranayama)",
+        "philosophie": "Philosophie",
+        "asanas": "Postures (Asanas)",
+        "meditation": "Méditation"
+      },
+      "empty": {
+        "articles": "Aucun article trouvé"
+      },
+      "modal": {
+        "author": "Par l'équipe Yoga App",
+        "markRead": "✓ Marquer comme lu"
+      }
+    },
+    "sessions": {
+      "title": "Séances populaires",
+      "viewAll": "Voir toutes les séances",
+      "pageTitle": "Séances - Yoga App",
+      "metaDescription": "Séances de yoga - Yoga App",
+      "hero": {
+        "title": "Trouvez votre séance idéale",
+        "subtitle": "Filtrez par niveau, durée ou objectif"
+      },
+      "search": {
+        "placeholder": "Rechercher une séance..."
+      },
+      "filter": {
+        "level": {
+          "all": "Tous les niveaux",
+          "beginner": "Débutant",
+          "intermediate": "Intermédiaire",
+          "advanced": "Avancé"
+        },
+        "duration": {
+          "all": "Toutes les durées"
+        },
+        "type": {
+          "all": "Tous les types"
+        },
+        "goal": {
+          "all": "Tous les objectifs",
+          "relaxation": "Détente",
+          "mobility": "Mobilité",
+          "strength": "Renforcement",
+          "energy": "Énergie"
+        }
+      },
+      "results": {
+        "loading": "Chargement des séances..."
+      },
+      "empty": {
+        "title": "Aucune séance trouvée",
+        "text": "Essayez d'ajuster vos filtres pour trouver d'autres séances",
+        "reset": "Réinitialiser les filtres"
+      }
+    },
+    "home": {
+      "cta": {
+        "title": "Commencez votre voyage aujourd'hui",
+        "description": "Rejoignez des milliers de personnes qui ont trouvé leur équilibre",
+        "button": "Créer mon compte gratuit"
+      }
+    },
+    "newsletter": {
+      "title": "Restez informé",
+      "description": "Recevez nos conseils de yoga et nos nouvelles séances chaque semaine",
+      "placeholder": "Votre email",
+      "subscribe": "S'abonner"
+    },
+    "footer": {
+      "brand": {
+        "title": "Yoga App",
+        "tagline": "Votre compagnon de pratique au quotidien"
+      },
+      "explore": {
+        "title": "Explorer",
+        "sessions": "Séances",
+        "breathing": "Respiration",
+        "learning": "Apprendre"
+      },
+      "account": {
+        "title": "Compte",
+        "login": "Connexion",
+        "register": "Inscription",
+        "dashboard": "Mon espace"
+      },
+      "legal": {
+        "title": "Légal",
+        "privacy": "Confidentialité",
+        "terms": "CGU",
+        "contact": "Contact"
+      },
+      "copyright": "&copy; 2026 Yoga App. Tous droits réservés."
+    },
+    "legal": {
+      "privacy": {
+        "title": "Politique de Confidentialité – Yoga App",
+        "metaDescription": "Politique de confidentialité - Yoga App",
+        "lastUpdate": "Dernière mise à jour : 27 janvier 2026",
+        "intro": "La présente Politique de Confidentialité a pour objet d'informer les utilisateurs de l'application et du site Yoga App des modalités de collecte, de traitement et de protection de leurs données personnelles, conformément au Règlement (UE) 2016/679 du Parlement européen et du Conseil du 27 avril 2016 (RGPD) et à la législation française en vigueur.",
+        "section1": "1. Responsable du traitement",
+        "section1Text": "Le responsable du traitement des données personnelles est Yoga App, éditeur de l'application et du site web. Toute question relative aux données personnelles peut être adressée via les moyens de contact indiqués sur le site.",
+        "section2": "2. Données personnelles collectées",
+        "section2Intro": "Yoga App est susceptible de collecter les catégories de données suivantes :",
+        "section2Item1": "données d'identification (nom, prénom, adresse e-mail),",
+        "section2Item2": "données de connexion et d'utilisation (adresse IP, type de navigateur, logs),",
+        "section2Item3": "préférences utilisateur liées aux séances de yoga et de respiration.",
+        "section2Outro": "Aucune donnée sensible au sens de l'article 9 du RGPD n'est collectée sans consentement explicite.",
+        "section3": "3. Finalités du traitement",
+        "section3Intro": "Les données personnelles sont collectées pour les finalités suivantes :",
+        "section3Item1": "fourniture et gestion des services proposés par Yoga App,",
+        "section3Item2": "personnalisation de l'expérience utilisateur,",
+        "section3Item3": "amélioration continue de l'application,",
+        "section3Item4": "sécurité, prévention de la fraude et des abus,",
+        "section3Item5": "communication avec l'utilisateur concernant le service.",
+        "section4": "4. Base légale du traitement",
+        "section4Intro": "Les traitements effectués reposent sur :",
+        "section4Item1": "l'exécution du contrat liant l'utilisateur à Yoga App,",
+        "section4Item2": "le consentement explicite de l'utilisateur,",
+        "section4Item3": "l'intérêt légitime de Yoga App à assurer la sécurité et l'amélioration du service,",
+        "section4Item4": "le respect des obligations légales.",
+        "section5": "5. Destinataires des données",
+        "section5Text": "Les données personnelles sont destinées exclusivement à Yoga App. Elles peuvent être transmises à des prestataires techniques agissant en tant que sous-traitants, conformément à l'article 28 du RGPD, et uniquement pour les besoins du service.",
+        "section6": "6. Transfert des données hors Union européenne",
+        "section6Text": "Aucun transfert de données personnelles hors de l'Union européenne n'est effectué. Dans le cas contraire, Yoga App s'engage à mettre en place des garanties appropriées conformément au RGPD.",
+        "section7": "7. Durée de conservation",
+        "section7Text": "Les données personnelles sont conservées pendant une durée strictement nécessaire aux finalités pour lesquelles elles ont été collectées, sauf obligations légales imposant une durée de conservation plus longue.",
+        "section8": "8. Sécurité des données",
+        "section8Text": "Yoga App met en œuvre des mesures techniques et organisationnelles appropriées afin de garantir un niveau de sécurité adapté au risque, notamment contre l'accès non autorisé, la perte, l'altération ou la divulgation des données.",
+        "section9": "9. Droits des utilisateurs",
+        "section9Intro": "Conformément au RGPD, l'utilisateur dispose des droits suivants :",
+        "section9Item1": "droit d'accès (article 15),",
+        "section9Item2": "droit de rectification (article 16),",
+        "section9Item3": "droit à l'effacement (article 17),",
+        "section9Item4": "droit à la limitation du traitement (article 18),",
+        "section9Item5": "droit d'opposition (article 21),",
+        "section9Item6": "droit à la portabilité des données (article 20).",
+        "section9Outro": "Ces droits peuvent être exercés à tout moment en contactant Yoga App.",
+        "section10": "10. Réclamation",
+        "section10Text": "L'utilisateur dispose du droit d'introduire une réclamation auprès de l'autorité de contrôle compétente, notamment la CNIL (France).",
+        "section11": "11. Cookies",
+        "section11Text": "Yoga App utilise des cookies et technologies similaires afin d'assurer le bon fonctionnement du site et d'analyser l'audience. L'utilisateur peut gérer ou refuser les cookies via les paramètres de son navigateur.",
+        "section12": "12. Modification de la politique",
+        "section12Text": "Yoga App se réserve le droit de modifier la présente Politique de Confidentialité à tout moment. La version en vigueur est celle publiée sur le site à la date de consultation."
+      },
+      "terms": {
+        "title": "Conditions Générales d'Utilisation – Yoga App",
+        "metaDescription": "Conditions Générales d'Utilisation - Yoga App",
+        "lastUpdate": "Dernière mise à jour : 27 janvier 2026",
+        "section1": "1. Objet",
+        "section1Text": "Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») ont pour objet de définir les modalités et conditions d'accès et d'utilisation de Yoga App (ci-après « la Plateforme »). En accédant à la Plateforme, vous acceptez sans réserve les CGU.",
+        "section2": "2. Définitions",
+        "section2Item1Label": "Utilisateur",
+        "section2Item1": "toute personne accédant à la Plateforme.",
+        "section2Item2Label": "Compte",
+        "section2Item2": "espace personnel permettant d'accéder aux fonctionnalités.",
+        "section2Item3Label": "Contenu",
+        "section2Item3": "textes, vidéos, sons, images et données disponibles sur la Plateforme.",
+        "section2Item4Label": "Services",
+        "section2Item4": "ensemble des fonctionnalités offertes, gratuites ou payantes.",
+        "section3": "3. Accès et compte",
+        "section3_1": "3.1 Création de compte",
+        "section3_1Text": "Certaines fonctionnalités requièrent la création d'un compte. Vous vous engagez à fournir des informations exactes, à les maintenir à jour et à préserver la confidentialité de vos identifiants. Toute activité réalisée via votre compte est réputée vous être imputable.",
+        "section3_2": "3.2 Éligibilité",
+        "section3_2Item1": "Être âgé d'au moins 16 ans et juridiquement capable.",
+        "section3_2Item2": "Ne pas avoir été suspendu ou banni précédemment.",
+        "section4": "4. Services et abonnements",
+        "section4_1": "4.1 Formules",
+        "section4_1Item1Label": "Gratuit",
+        "section4_1Item1": "accès limité à un ensemble de contenus.",
+        "section4_1Item2Label": "Premium",
+        "section4_1Item2": "accès élargi aux contenus et fonctionnalités avancées.",
+        "section4_2": "4.2 Paiement",
+        "section4_2Item1": "Facturation mensuelle ou annuelle, renouvellement automatique sauf résiliation.",
+        "section4_2Item2": "Traitement des paiements via prestataires conformes aux standards de sécurité.",
+        "section4_2Item3": "Évolution des tarifs avec préavis raisonnable.",
+        "section4_3": "4.3 Rétractation",
+        "section4_3Text": "Un droit de rétractation peut s'appliquer selon la législation en vigueur. En cas d'activation immédiate des services numériques, ce droit peut être limité ou non applicable.",
+        "section5": "5. Utilisation de la Plateforme",
+        "section5_1": "5.1 Bon usage",
+        "section5_1Item1": "Usage personnel et non commercial, respectueux des lois.",
+        "section5_1Item2": "Respect des droits de propriété intellectuelle et des règles de la communauté.",
+        "section5_2": "5.2 Interdictions",
+        "section5_2Item1": "Partage non autorisé d'identifiants ou accès frauduleux.",
+        "section5_2Item2": "Extraction massive de données, reverse engineering ou contournement des mesures techniques.",
+        "section5_2Item3": "Publication de contenus illicites, diffamatoires, violents ou discriminatoires.",
+        "section6": "6. Contenus et propriété intellectuelle",
+        "section6Text": "La Plateforme et ses contenus (textes, vidéos, sons, images, marques, logos) sont protégés par le droit de la propriété intellectuelle. Toute reproduction, représentation ou usage non autorisé est interdit. Les contenus utilisateurs publiés doivent respecter les lois et n'octroyent aucun droit de propriété à l'Utilisateur sur la Plateforme.",
+        "section7": "7. Données personnelles et sécurité",
+        "section7Text": "Le traitement des données est décrit dans notre Politique de Confidentialité. Nous mettons en œuvre des mesures de sécurité raisonnables. L'Utilisateur s'engage à protéger ses identifiants et à nous signaler tout accès non autorisé.",
+        "section8": "8. Support, disponibilité et modifications",
+        "section8Item1": "La Plateforme peut être temporairement indisponible pour maintenance ou mise à jour.",
+        "section8Item2": "Le périmètre des services peut évoluer pour améliorer l'expérience ou la conformité.",
+        "section8Item3": "Un support est proposé dans des délais raisonnables.",
+        "section9": "9. Responsabilité",
+        "section9Text": "Yoga App ne saurait être tenue responsable des dommages indirects, pertes de données, interruptions de service ou conséquences liées à un usage non conforme. L'Utilisateur demeure responsable de son état de santé et de l'adaptation de la pratique à sa condition.",
+        "section10": "10. Suspension et résiliation",
+        "section10Text": "En cas de violation des CGU ou de comportement abusif, nous pouvons suspendre ou résilier l'accès à la Plateforme, sans préjudice des recours éventuels. L'Utilisateur peut résilier à tout moment via les paramètres de son compte.",
+        "section11": "11. Modifications des CGU",
+        "section11Text": "Les CGU peuvent être modifiées pour des motifs légaux, techniques ou opérationnels. La version en vigueur est celle publiée sur cette page à la date indiquée.",
+        "section12": "12. Droit applicable et juridiction",
+        "section12Text": "Les présentes CGU sont régies par le droit français, indépendamment du lieu de résidence de l'Utilisateur. Tout litige relatif à leur interprétation, application ou exécution sera soumis à la juridiction des tribunaux de Paris, France. En cas de litige, les parties s'engagent d'abord à rechercher une résolution amiable.",
+        "section13": "13. Avertissements de santé",
+        "section13_1": "13.1 Déclaration importante",
+        "section13_1Title": "⚠ Important – Consultation professionnelle recommandée :",
+        "section13_1Item1": "Le contenu proposé sur la Plateforme (séances, exercices, conseils) est à titre informatif et de bien-être uniquement.",
+        "section13_1Item2": "Il ne remplace en aucun cas l'avis, le diagnostic ou le traitement d'un professionnel de santé qualifié (médecin, kinésithérapeute, ostéopathe, etc.).",
+        "section13_1Item3": "Avant toute pratique régulière de yoga, consultez un professionnel de santé, particulièrement si vous avez :",
+        "section13_1Item3a": "Des problèmes ou antécédents de santé (cardiaque, spinal, articulaire, etc.)",
+        "section13_1Item3b": "Une grossesse en cours ou récente",
+        "section13_1Item3c": "Des blessures, douleurs chroniques ou récentes",
+        "section13_1Item3d": "Suivi un traitement ou intervention chirurgicale récente",
+        "section13_1Item3e": "Prise de médicaments affectant l'équilibre ou la mobilité",
+        "section13_1Item4": "L'Utilisateur demeure seul responsable de son état de santé et de la décision de pratiquer ou non. Yoga App ne peut en aucun cas être tenue responsable des conséquences liées à la pratique du yoga.",
+        "section13_2": "13.2 Prévention et arrêt immédiat",
+        "section13_2Text": "Si vous ressentez une douleur anormale, un malaise, une fatigue excessive ou tout symptôme alarmant durant ou après une séance, arrêtez immédiatement et consultez un professionnel de santé.",
+        "section14": "14. Adresse et contact",
+        "section14Text": "Yoga App | Siège social : 75000 Paris, France | Pour toute question ou réclamation, utilisez la page Contact ou envoyez un email à support@yogaapp.com.",
+        "section15": "15. Divisibilité",
+        "section15Text": "Si une disposition des présentes CGU est jugée invalide, illégale ou inapplicable par une juridiction compétente, cette disposition sera supprimée et les autres dispositions resteront pleinement en vigueur."
+      }
+    }
+  },
+  "en": {
+    "common": {
+      "aria": {
+        "language": "Change language",
+        "theme": "Toggle theme",
+        "logout": "Log out",
+        "profile": "My profile",
+        "close": "Close"
+      },
+      "nav": {
+        "sessions": "Sessions",
+        "breathing": "Breathing",
+        "progress": "Progress",
+        "learning": "Learning"
+      },
+      "back": "Back"
+    },
+    "hero": {
+      "title": "Take 15 minutes for yourself",
+      "subtitle": "Find calm and well-being through guided yoga sessions",
+      "daily": "Daily session",
+      "breathing": "Quick breathing",
+      "gentle": "Gentle stretching"
+    },
+    "auth": {
+      "login": "Log in",
+      "register": "Create an account",
+      "demo": "Demo",
+      "dashboard": "My space",
+      "logout": "Log out",
+      "divider": "or",
+      "fields": {
+        "email": "Email",
+        "password": "Password",
+        "firstName": "First name"
+      },
+      "placeholders": {
+        "email": "your@email.com",
+        "password": "••••••••",
+        "firstName": "Emma"
+      },
+      "loginPage": {
+        "title": "Login - Yoga App",
+        "header": {
+          "title": "Welcome",
+          "subtitle": "Log in to continue your practice"
+        },
+        "remember": "Remember me",
+        "forgot": "Forgot password?",
+        "noAccount": "Don't have an account?",
+        "quote": "\"Yoga is a journey to the self, through the self.\"",
+        "loading": "Logging in..."
+      },
+      "registerPage": {
+        "title": "Sign up - Yoga App",
+        "header": {
+          "title": "Create an account",
+          "subtitle": "Start your journey to well-being"
+        },
+        "passwordHint": "Minimum 8 characters, including an uppercase and a number",
+        "passwordStrong": "✓ Strong password",
+        "confirmPassword": "Confirm password",
+        "levelLabel": "Your level",
+        "level": {
+          "placeholder": "Choose your level",
+          "beginner": "Beginner - I'm discovering yoga",
+          "intermediate": "Intermediate - I practice regularly",
+          "advanced": "Advanced - I have practiced for a long time"
+        },
+        "acceptPrefix": "I accept the",
+        "terms": "terms of use",
+        "submit": "Create my account",
+        "hasAccount": "Already have an account?",
+        "quote": "\"You can't stop the waves, but you can learn to surf.\"",
+        "loading": "Creating...",
+        "passwordMismatch": "Passwords do not match",
+        "success": "Account created successfully! Redirecting..."
+      }
+    },
+    "features": {
+      "title": "Yoga made for you",
+      "understand": {
+        "title": "Understand",
+        "desc": "Theory, intentions and breathing explained simply"
+      },
+      "practice": {
+        "title": "Practice",
+        "desc": "Guided sessions adapted to your level and your time"
+      },
+      "progress": {
+        "title": "Progress",
+        "desc": "Track your consistency and celebrate your moments"
+      },
+      "feel": {
+        "title": "Feel",
+        "desc": "Calm, confidence and well-being within reach"
+      }
+    },
+    "yoga": {
+      "title": "What is yoga?",
+      "intro": "Yoga is an ancient practice that unites body, mind and breath",
+      "benefit1": {
+        "title": "Stress reduction",
+        "desc": "Calm your mind and find inner peace"
+      },
+      "benefit2": {
+        "title": "Increased flexibility",
+        "desc": "Improve your flexibility and mobility"
+      },
+      "benefit3": {
+        "title": "Physical strength",
+        "desc": "Strengthen your muscles gently"
+      }
+    },
+    "breathing": {
+      "pageTitle": "Breathing - Yoga App",
+      "metaDescription": "Guided breathing exercises - Yoga App",
+      "title": "Guided breathing",
+      "subtitle": "Take a moment to breathe",
+      "types": {
+        "coherence": {
+          "title": "Heart coherence",
+          "desc": "5s inhale / 5s exhale"
+        },
+        "box": {
+          "title": "Box Breathing",
+          "desc": "4s each phase"
+        },
+        "478": {
+          "title": "4-7-8",
+          "desc": "Deep relaxation"
+        },
+        "energize": {
+          "title": "Energizing",
+          "desc": "3s inhale / 6s exhale"
+        }
+      },
+      "instruction": {
+        "ready": "Ready"
+      },
+      "actions": {
+        "start": "Start",
+        "stop": "Stop"
+      },
+      "options": {
+        "sound": "Sound on",
+        "vibration": "Vibration"
+      },
+      "stats": {
+        "cycles": "Completed cycles",
+        "totalTime": "Total time"
+      }
+    },
+    "contact": {
+      "pageTitle": "Contact - Yoga App",
+      "metaDescription": "Contact us - Yoga App",
+      "back": "Back to home",
+      "header": {
+        "title": "Contact us",
+        "subtitle": "A question? A suggestion? Our team is here to help"
+      },
+      "info": {
+        "title": "Our contact details",
+        "email": {
+          "title": "Email",
+          "desc": "For any general question"
+        },
+        "phone": {
+          "title": "Phone",
+          "desc": "Monday to Friday, 9am-6pm"
+        },
+        "address": {
+          "title": "Address"
+        },
+        "hours": {
+          "title": "Hours",
+          "weekdays": "Monday - Friday: 9am - 6pm",
+          "weekend": "Weekend: Closed"
+        }
+      },
+      "form": {
+        "title": "Send us a message",
+        "success": "✓ Your message has been sent successfully! We will reply as soon as possible.",
+        "name": "Full name *",
+        "email": "Email *",
+        "subject": "Subject *",
+        "message": "Message *",
+        "namePlaceholder": "Jane Doe",
+        "emailPlaceholder": "jane.doe@example.com",
+        "subjectPlaceholder": "Select a subject",
+        "messagePlaceholder": "Describe your request...",
+        "subjects": {
+          "support": "Technical support",
+          "billing": "Billing",
+          "feature": "Feature suggestion",
+          "content": "Content question",
+          "partnership": "Partnership",
+          "other": "Other"
+        },
+        "submit": "Send message"
+      }
+    },
+    "sessions": {
+      "title": "Popular sessions",
+      "viewAll": "View all sessions",
+      "pageTitle": "Sessions - Yoga App",
+      "metaDescription": "Yoga sessions - Yoga App",
+      "hero": {
+        "title": "Find your ideal session",
+        "subtitle": "Filter by level, duration or goal"
+      },
+      "search": {
+        "placeholder": "Search for a session..."
+      },
+      "filter": {
+        "level": {
+          "all": "All levels",
+          "beginner": "Beginner",
+          "intermediate": "Intermediate",
+          "advanced": "Advanced"
+        },
+        "duration": {
+          "all": "All durations"
+        },
+        "type": {
+          "all": "All types"
+        },
+        "goal": {
+          "all": "All goals",
+          "relaxation": "Relaxation",
+          "mobility": "Mobility",
+          "strength": "Strength",
+          "energy": "Energy"
+        }
+      },
+      "results": {
+        "loading": "Loading sessions..."
+      },
+      "empty": {
+        "title": "No sessions found",
+        "text": "Try adjusting your filters to find other sessions",
+        "reset": "Reset filters"
+      }
+    },
+    "dashboard": {
+      "pageTitle": "My space - Yoga App",
+      "metaDescription": "My space - Yoga App",
+      "header": {
+        "title": "My space",
+        "subtitle": "Welcome to your space"
+      },
+      "stats": {
+        "sessions": "Sessions completed",
+        "minutes": "Minutes practiced",
+        "streak": "Consecutive days",
+        "week": "This week",
+        "level": {
+          "label": "Level",
+          "beginner": "Beginner"
+        }
+      },
+      "streak": {
+        "title": "Keep it up!",
+        "desc": "Every moment counts, no need to be perfect."
+      },
+      "section": {
+        "continue": "Continue my practice",
+        "recent": "Recent sessions",
+        "week": "Your week",
+        "account": "Account"
+      },
+      "actions": {
+        "newSession": "New session"
+      },
+      "empty": {
+        "recent": "No sessions recorded yet"
+      },
+      "account": {
+        "email": "Email",
+        "memberSince": "Member since",
+        "status": "Status",
+        "free": "Free"
+      }
+    },
+    "progress": {
+      "pageTitle": "My Progress - Yoga App",
+      "header": {
+        "title": "My Progress"
+      },
+      "period": {
+        "7": "7 days",
+        "30": "30 days",
+        "all": "All"
+      },
+      "stats": {
+        "completed": "Sessions completed",
+        "totalTime": "Total time",
+        "currentStreak": "Current streak",
+        "bestStreak": "Best streak",
+        "streakDays": "consecutive days",
+        "evolution": {
+          "sessions": "+0 this period",
+          "time": "+0h this period"
+        }
+      },
+      "graph": {
+        "title": "Activity",
+        "export": "📥 Export my data"
+      },
+      "timeline": {
+        "title": "Recent sessions",
+        "empty": "No sessions completed yet",
+        "cta": "Start a session"
+      },
+      "goals": {
+        "title": "Weekly goal",
+        "label": "3 sessions per week",
+        "message": "Keep it up!"
+      }
+    },
+    "learning": {
+      "pageTitle": "Learning - Yoga App",
+      "hero": {
+        "title": "Understand yoga",
+        "subtitle": "Deepen your practice with short, inspiring articles"
+      },
+      "search": {
+        "placeholder": "Search for an article..."
+      },
+      "filter": {
+        "all": "All categories",
+        "bases": "Yoga basics",
+        "pranayama": "Breathing (Pranayama)",
+        "philosophie": "Philosophy",
+        "asanas": "Postures (Asanas)",
+        "meditation": "Meditation"
+      },
+      "empty": {
+        "articles": "No articles found"
+      },
+      "modal": {
+        "author": "By the Yoga App team",
+        "markRead": "✓ Mark as read"
+      }
+    },
+    "home": {
+      "cta": {
+        "title": "Start your journey today",
+        "description": "Join thousands of people who have found their balance",
+        "button": "Create my free account"
+      }
+    },
+    "newsletter": {
+      "title": "Stay informed",
+      "description": "Receive our yoga tips and new sessions every week",
+      "placeholder": "Your email",
+      "subscribe": "Subscribe"
+    },
+    "footer": {
+      "brand": {
+        "title": "Yoga App",
+        "tagline": "Your daily practice companion"
+      },
+      "explore": {
+        "title": "Explore",
+        "sessions": "Sessions",
+        "breathing": "Breathing",
+        "learning": "Learn"
+      },
+      "account": {
+        "title": "Account",
+        "login": "Log in",
+        "register": "Sign up",
+        "dashboard": "My space"
+      },
+      "legal": {
+        "title": "Legal",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Use",
+        "contact": "Contact"
+      },
+      "copyright": "&copy; 2026 Yoga App. All rights reserved."
+    },
+    "legal": {
+      "privacy": {
+        "title": "Privacy Policy – Yoga App",
+        "metaDescription": "Privacy Policy - Yoga App",
+        "lastUpdate": "Last updated: 27 January 2026",
+        "intro": "This Privacy Policy is intended to inform users of the Yoga App application and website of the methods and conditions for collecting, processing and protecting their personal data, in accordance with Regulation (EU) 2016/679 of the European Parliament and Council of 27 April 2016 (GDPR) and applicable French law.",
+        "section1": "1. Data Controller",
+        "section1Text": "The data controller is Yoga App, publisher of the application and website. Any questions regarding personal data may be addressed through the contact methods indicated on the site.",
+        "section2": "2. Personal Data Collected",
+        "section2Intro": "Yoga App may collect the following categories of data:",
+        "section2Item1": "identification data (name, first name, email address),",
+        "section2Item2": "connection and usage data (IP address, browser type, logs),",
+        "section2Item3": "user preferences related to yoga and breathing sessions.",
+        "section2Outro": "No sensitive data within the meaning of Article 9 of the GDPR is collected without explicit consent.",
+        "section3": "3. Purposes of Processing",
+        "section3Intro": "Personal data is collected for the following purposes:",
+        "section3Item1": "provision and management of services offered by Yoga App,",
+        "section3Item2": "personalization of user experience,",
+        "section3Item3": "continuous improvement of the application,",
+        "section3Item4": "security, fraud prevention and abuse prevention,",
+        "section3Item5": "communication with the user regarding the service.",
+        "section4": "4. Legal Basis for Processing",
+        "section4Intro": "Processing is based on:",
+        "section4Item1": "the execution of the contract binding the user to Yoga App,",
+        "section4Item2": "the explicit consent of the user,",
+        "section4Item3": "the legitimate interest of Yoga App in ensuring security and service improvement,",
+        "section4Item4": "compliance with legal obligations.",
+        "section5": "5. Recipients of Data",
+        "section5Text": "Personal data is intended exclusively for Yoga App. It may be transmitted to technical service providers acting as data processors, in accordance with Article 28 of the GDPR, and only for the purposes of the service.",
+        "section6": "6. Transfer of Data Outside the European Union",
+        "section6Text": "No transfer of personal data outside the European Union is carried out. If necessary, Yoga App undertakes to implement appropriate safeguards in accordance with the GDPR.",
+        "section7": "7. Data Retention Period",
+        "section7Text": "Personal data is retained for a period strictly necessary for the purposes for which it was collected, unless longer retention periods are required by law.",
+        "section8": "8. Data Security",
+        "section8Text": "Yoga App implements appropriate technical and organizational measures to ensure a level of security appropriate to the risk, including protection against unauthorized access, loss, alteration or disclosure of data.",
+        "section9": "9. User Rights",
+        "section9Intro": "In accordance with the GDPR, the user has the following rights:",
+        "section9Item1": "right of access (Article 15),",
+        "section9Item2": "right to rectification (Article 16),",
+        "section9Item3": "right to erasure (Article 17),",
+        "section9Item4": "right to restrict processing (Article 18),",
+        "section9Item5": "right to object (Article 21),",
+        "section9Item6": "right to data portability (Article 20).",
+        "section9Outro": "These rights may be exercised at any time by contacting Yoga App.",
+        "section10": "10. Complaint",
+        "section10Text": "The user has the right to lodge a complaint with the competent supervisory authority, in particular the CNIL (France).",
+        "section11": "11. Cookies",
+        "section11Text": "Yoga App uses cookies and similar technologies to ensure proper operation of the site and analyze audience. Users can manage or refuse cookies through their browser settings.",
+        "section12": "12. Policy Modification",
+        "section12Text": "Yoga App reserves the right to modify this Privacy Policy at any time. The current version is the one published on the site at the date of consultation."
+      },
+      "terms": {
+        "title": "Terms of Use – Yoga App",
+        "metaDescription": "Terms of Use - Yoga App",
+        "lastUpdate": "Last updated: 27 January 2026",
+        "section1": "1. Purpose",
+        "section1Text": "These Terms of Use (hereinafter \"Terms\") are intended to define the methods and conditions of access and use of Yoga App (hereinafter \"the Platform\"). By accessing the Platform, you accept these Terms without reservation.",
+        "section2": "2. Definitions",
+        "section2Item1Label": "User",
+        "section2Item1": "any person accessing the Platform.",
+        "section2Item2Label": "Account",
+        "section2Item2": "personal space allowing access to features.",
+        "section2Item3Label": "Content",
+        "section2Item3": "texts, videos, sounds, images and data available on the Platform.",
+        "section2Item4Label": "Services",
+        "section2Item4": "all features offered, free or paid.",
+        "section3": "3. Access and Account",
+        "section3_1": "3.1 Account Creation",
+        "section3_1Text": "Certain features require account creation. You agree to provide accurate information, keep it up to date, and maintain the confidentiality of your credentials. Any activity carried out through your account is presumed to be attributed to you.",
+        "section3_2": "3.2 Eligibility",
+        "section3_2Item1": "Be at least 16 years old and legally capable.",
+        "section3_2Item2": "Not previously been suspended or banned.",
+        "section4": "4. Services and Subscriptions",
+        "section4_1": "4.1 Plans",
+        "section4_1Item1Label": "Free",
+        "section4_1Item1": "limited access to a set of content.",
+        "section4_1Item2Label": "Premium",
+        "section4_1Item2": "expanded access to content and advanced features.",
+        "section4_2": "4.2 Payment",
+        "section4_2Item1": "Monthly or annual billing, automatic renewal except upon cancellation.",
+        "section4_2Item2": "Payment processing through providers compliant with security standards.",
+        "section4_2Item3": "Tariff changes with reasonable notice.",
+        "section4_3": "4.3 Withdrawal",
+        "section4_3Text": "A right of withdrawal may apply under applicable law. In case of immediate activation of digital services, this right may be limited or not applicable.",
+        "section5": "5. Platform Use",
+        "section5_1": "5.1 Good Use",
+        "section5_1Item1": "Personal and non-commercial use, respectful of the law.",
+        "section5_1Item2": "Respect for intellectual property rights and community rules.",
+        "section5_2": "5.2 Prohibitions",
+        "section5_2Item1": "Unauthorized sharing of credentials or fraudulent access.",
+        "section5_2Item2": "Massive data extraction, reverse engineering or circumvention of technical measures.",
+        "section5_2Item3": "Publication of unlawful, defamatory, violent or discriminatory content.",
+        "section6": "6. Content and Intellectual Property",
+        "section6Text": "The Platform and its content (texts, videos, sounds, images, brands, logos) are protected by intellectual property law. Any reproduction, representation or unauthorized use is prohibited. User content published must comply with the law and does not grant any property rights to the User on the Platform.",
+        "section7": "7. Personal Data and Security",
+        "section7Text": "Data processing is described in our Privacy Policy. We implement reasonable security measures. The User agrees to protect their credentials and inform us of any unauthorized access.",
+        "section8": "8. Support, Availability and Changes",
+        "section8Item1": "The Platform may be temporarily unavailable for maintenance or updates.",
+        "section8Item2": "The scope of services may evolve to improve experience or compliance.",
+        "section8Item3": "Support is provided within reasonable timeframes.",
+        "section9": "9. Liability",
+        "section9Text": "Yoga App cannot be held responsible for indirect damages, data loss, service interruptions or consequences related to non-compliant use. The User remains responsible for their health condition and the adaptation of practice to their condition.",
+        "section10": "10. Suspension and Termination",
+        "section10Text": "In case of violation of the Terms or abusive behavior, we may suspend or terminate access to the Platform, without prejudice to any possible remedies. The User may terminate at any time through their account settings.",
+        "section11": "11. Modification of Terms",
+        "section11Text": "The Terms may be modified for legal, technical or operational reasons. The current version is the one published on this page at the indicated date.",
+        "section12": "12. Applicable Law and Jurisdiction",
+        "section12Text": "These Terms are governed by French law, regardless of the User's place of residence. Any dispute relating to their interpretation, application or execution shall be subject to the jurisdiction of the courts of Paris, France. In case of dispute, the parties first undertake to seek an amicable resolution.",
+        "section13": "13. Health Warnings",
+        "section13_1": "13.1 Important Declaration",
+        "section13_1Title": "⚠ Important – Professional consultation recommended:",
+        "section13_1Item1": "The content offered on the Platform (sessions, exercises, advice) is for informational and wellness purposes only.",
+        "section13_1Item2": "It does not replace in any way the advice, diagnosis or treatment of a qualified health professional (doctor, physiotherapist, osteopath, etc.).",
+        "section13_1Item3": "Before any regular yoga practice, consult a health professional, especially if you have:",
+        "section13_1Item3a": "Health problems or history (cardiac, spinal, joint, etc.)",
+        "section13_1Item3b": "Current or recent pregnancy",
+        "section13_1Item3c": "Recent injuries, chronic or recent pain",
+        "section13_1Item3d": "Undergone recent treatment or surgery",
+        "section13_1Item3e": "Taking medications affecting balance or mobility",
+        "section13_1Item4": "The User remains solely responsible for their health condition and the decision to practice or not. Yoga App cannot in any way be held responsible for the consequences of practicing yoga.",
+        "section13_2": "13.2 Prevention and Immediate Stop",
+        "section13_2Text": "If you experience abnormal pain, discomfort, excessive fatigue or any alarming symptoms during or after a session, stop immediately and consult a health professional.",
+        "section14": "14. Address and Contact",
+        "section14Text": "Yoga App | Headquarters: 75000 Paris, France | For any questions or complaints, use the Contact page or send an email to support@yogaapp.com.",
+        "section15": "15. Severability",
+        "section15Text": "If any provision of these Terms is found invalid, illegal or unenforceable by a competent court, that provision will be deleted and the other provisions will remain fully in force."
+      }
+    }
+  },
+  "sr": {
+    "common": {
+      "aria": {
+        "language": "Promenite jezik",
+        "theme": "Promenite temu",
+        "logout": "Odjava",
+        "profile": "Moj profil",
+        "close": "Zatvori"
+      },
+      "nav": {
+        "sessions": "Sesije",
+        "breathing": "Disanje",
+        "progress": "Napredak",
+        "learning": "Učenje"
+      },
+      "back": "Nazad"
+    },
+    "hero": {
+      "title": "Odvojte 15 minuta za sebe",
+      "subtitle": "Pronađite mir i dobrobit kroz vođene yoga sesije",
+      "daily": "Sesija dana",
+      "breathing": "Brzo disanje",
+      "gentle": "Nežno istezanje"
+    },
+    "auth": {
+      "login": "Prijavite se",
+      "register": "Napravite nalog",
+      "demo": "Demo",
+      "dashboard": "Moj prostor",
+      "logout": "Odjavite se",
+      "divider": "ili",
+      "fields": {
+        "email": "Email",
+        "password": "Lozinka",
+        "firstName": "Ime"
+      },
+      "placeholders": {
+        "email": "vas@email.com",
+        "password": "••••••••",
+        "firstName": "Mila"
+      },
+      "loginPage": {
+        "title": "Prijava - Yoga App",
+        "header": {
+          "title": "Dobrodošli",
+          "subtitle": "Prijavite se da nastavite svoju praksu"
+        },
+        "remember": "Zapamti me",
+        "forgot": "Zaboravili ste lozinku?",
+        "noAccount": "Nemate nalog?",
+        "quote": "\"Joga je putovanje ka sebi, kroz sebe.\"",
+        "loading": "Prijavljivanje..."
+      },
+      "registerPage": {
+        "title": "Registracija - Yoga App",
+        "header": {
+          "title": "Napravite nalog",
+          "subtitle": "Započnite svoje putovanje ka blagostanju"
+        },
+        "passwordHint": "Minimum 8 karaktera, uključujući veliko slovo i broj",
+        "passwordStrong": "✓ Jaka lozinka",
+        "confirmPassword": "Potvrdite lozinku",
+        "levelLabel": "Vaš nivo",
+        "level": {
+          "placeholder": "Izaberite svoj nivo",
+          "beginner": "Početnik - Upoznajem jogu",
+          "intermediate": "Srednji - Vežbam redovno",
+          "advanced": "Napredni - Vežbam dugo"
+        },
+        "acceptPrefix": "Prihvatam",
+        "terms": "uslove korišćenja",
+        "submit": "Napravite moj nalog",
+        "hasAccount": "Već imate nalog?",
+        "quote": "\"Ne možete zaustaviti talase, ali možete naučiti da surfujete.\"",
+        "loading": "Kreiranje...",
+        "passwordMismatch": "Lozinke se ne podudaraju",
+        "success": "Nalog je uspešno kreiran! Preusmeravanje..."
+      }
+    },
+    "features": {
+      "title": "Joga napravljena za vas",
+      "understand": {
+        "title": "Razumevanje",
+        "desc": "Teorija, namere i disanje objašnjeni jednostavno"
+      },
+      "practice": {
+        "title": "Vežbanje",
+        "desc": "Vođene sesije prilagođene vašem nivou i vremenu"
+      },
+      "progress": {
+        "title": "Napredovanje",
+        "desc": "Pratite svoju redovnost i proslavljajte svoje trenutke"
+      },
+      "feel": {
+        "title": "Osećanje",
+        "desc": "Mir, pouzdanje i dobrobit na dohvat ruke"
+      }
+    },
+    "yoga": {
+      "title": "Šta je joga?",
+      "intro": "Joga je drevna praksa koja ujedinjuje telo, um i disanje",
+      "benefit1": {
+        "title": "Smanjenje stresa",
+        "desc": "Umirujte svoj um i pronađite unutarnji mir"
+      },
+      "benefit2": {
+        "title": "Povećana fleksibilnost",
+        "desc": "Poboljšajte svoju fleksibilnost i mobilnost"
+      },
+      "benefit3": {
+        "title": "Fizička snaga",
+        "desc": "Jačajte svoje mišiće nežno"
+      }
+    },
+    "breathing": {
+      "pageTitle": "Disanje - Yoga App",
+      "metaDescription": "Vođene vežbe disanja - Yoga App",
+      "title": "Vođeno disanje",
+      "subtitle": "Odvojite trenutak da dišete",
+      "types": {
+        "coherence": {
+          "title": "Srčana koherencija",
+          "desc": "5s udah / 5s izdah"
+        },
+        "box": {
+          "title": "Box disanje",
+          "desc": "4s svaka faza"
+        },
+        "478": {
+          "title": "4-7-8",
+          "desc": "Duboka relaksacija"
+        },
+        "energize": {
+          "title": "Energizujuće",
+          "desc": "3s udah / 6s izdah"
+        }
+      },
+      "instruction": {
+        "ready": "Spremno"
+      },
+      "actions": {
+        "start": "Pokreni",
+        "stop": "Zaustavi"
+      },
+      "options": {
+        "sound": "Zvuk uključen",
+        "vibration": "Vibracija"
+      },
+      "stats": {
+        "cycles": "Završeni ciklusi",
+        "totalTime": "Ukupno vreme"
+      }
+    },
+    "contact": {
+      "pageTitle": "Kontakt - Yoga App",
+      "metaDescription": "Kontaktirajte nas - Yoga App",
+      "back": "Nazad na početnu",
+      "header": {
+        "title": "Kontaktirajte nas",
+        "subtitle": "Imate pitanje? Predlog? Naš tim je tu da pomogne"
+      },
+      "info": {
+        "title": "Naši kontakti",
+        "email": {
+          "title": "Email",
+          "desc": "Za sva opšta pitanja"
+        },
+        "phone": {
+          "title": "Telefon",
+          "desc": "Ponedeljak–petak, 9–18h"
+        },
+        "address": {
+          "title": "Adresa"
+        },
+        "hours": {
+          "title": "Radno vreme",
+          "weekdays": "Ponedeljak - Petak: 9h - 18h",
+          "weekend": "Vikend: Zatvoreno"
+        }
+      },
+      "form": {
+        "title": "Pošaljite nam poruku",
+        "success": "✓ Vaša poruka je uspešno poslata! Odgovorićemo u najkraćem roku.",
+        "name": "Puno ime *",
+        "email": "Email *",
+        "subject": "Tema *",
+        "message": "Poruka *",
+        "namePlaceholder": "Petar Petrović",
+        "emailPlaceholder": "petar.petrovic@example.com",
+        "subjectPlaceholder": "Izaberite temu",
+        "messagePlaceholder": "Opišite vaš zahtev...",
+        "subjects": {
+          "support": "Tehnička podrška",
+          "billing": "Naplata",
+          "feature": "Predlog funkcionalnosti",
+          "content": "Pitanje o sadržaju",
+          "partnership": "Partnerstvo",
+          "other": "Ostalo"
+        },
+        "submit": "Pošalji poruku"
+      }
+    },
+    "sessions": {
+      "title": "Popularne sesije",
+      "viewAll": "Pogledajte sve sesije",
+      "pageTitle": "Sesije - Yoga App",
+      "metaDescription": "Joga sesije - Yoga App",
+      "hero": {
+        "title": "Pronađite idealnu sesiju",
+        "subtitle": "Filtrirajte po nivou, trajanju ili cilju"
+      },
+      "search": {
+        "placeholder": "Pretraži sesiju..."
+      },
+      "filter": {
+        "level": {
+          "all": "Svi nivoi",
+          "beginner": "Početnik",
+          "intermediate": "Srednji",
+          "advanced": "Napredni"
+        },
+        "duration": {
+          "all": "Sva trajanja"
+        },
+        "type": {
+          "all": "Svi tipovi"
+        },
+        "goal": {
+          "all": "Svi ciljevi",
+          "relaxation": "Opuštanje",
+          "mobility": "Mobilnost",
+          "strength": "Jačanje",
+          "energy": "Energija"
+        }
+      },
+      "results": {
+        "loading": "Učitavanje sesija..."
+      },
+      "empty": {
+        "title": "Nema pronađenih sesija",
+        "text": "Pokušajte da prilagodite filtere da biste pronašli druge sesije",
+        "reset": "Resetuj filtere"
+      }
+    },
+    "dashboard": {
+      "pageTitle": "Moj prostor - Yoga App",
+      "metaDescription": "Moj prostor - Yoga App",
+      "header": {
+        "title": "Moj prostor",
+        "subtitle": "Dobrodošli u svoj prostor"
+      },
+      "stats": {
+        "sessions": "Odrađene sesije",
+        "minutes": "Minuti vežbanja",
+        "streak": "Uzastopni dani",
+        "week": "Ove nedelje",
+        "level": {
+          "label": "Nivo",
+          "beginner": "Početnik"
+        }
+      },
+      "streak": {
+        "title": "Samo tako!",
+        "desc": "Svaki trenutak je važan, ne morate biti savršeni."
+      },
+      "section": {
+        "continue": "Nastavi sa vežbom",
+        "recent": "Skorašnje sesije",
+        "week": "Vaša nedelja",
+        "account": "Nalog"
+      },
+      "actions": {
+        "newSession": "Nova sesija"
+      },
+      "empty": {
+        "recent": "Još nema zabeleženih sesija"
+      },
+      "account": {
+        "email": "Email",
+        "memberSince": "Član od",
+        "status": "Status",
+        "free": "Besplatno"
+      }
+    },
+    "progress": {
+      "pageTitle": "Moj napredak - Yoga App",
+      "header": {
+        "title": "Moj napredak"
+      },
+      "period": {
+        "7": "7 dana",
+        "30": "30 dana",
+        "all": "Sve"
+      },
+      "stats": {
+        "completed": "Završene sesije",
+        "totalTime": "Ukupno vreme",
+        "currentStreak": "Trenutni niz",
+        "bestStreak": "Najbolji niz",
+        "streakDays": "uzastopni dani",
+        "evolution": {
+          "sessions": "+0 u ovom periodu",
+          "time": "+0h u ovom periodu"
+        }
+      },
+      "graph": {
+        "title": "Aktivnost",
+        "export": "📥 Izvezi moje podatke"
+      },
+      "timeline": {
+        "title": "Skorašnje sesije",
+        "empty": "Još nema završenih sesija",
+        "cta": "Započni sesiju"
+      },
+      "goals": {
+        "title": "Nedeljni cilj",
+        "label": "3 sesije nedeljno",
+        "message": "Samo tako!"
+      }
+    },
+    "learning": {
+      "pageTitle": "Učenje - Yoga App",
+      "hero": {
+        "title": "Razumevanje joge",
+        "subtitle": "Produbite svoju praksu kratkim i inspirativnim člancima"
+      },
+      "search": {
+        "placeholder": "Pretraži članak..."
+      },
+      "filter": {
+        "all": "Sve kategorije",
+        "bases": "Osnove joge",
+        "pranayama": "Disanje (Pranajama)",
+        "philosophie": "Filozofija",
+        "asanas": "Položaji (Asane)",
+        "meditation": "Meditacija"
+      },
+      "empty": {
+        "articles": "Nijedan članak nije pronađen"
+      },
+      "modal": {
+        "author": "Od Yoga App tima",
+        "markRead": "✓ Obeleži kao pročitano"
+      }
+    },
+    "home": {
+      "cta": {
+        "title": "Započnite svoje putovanje danas",
+        "description": "Pridružite se hiljadama ljudi koji su pronašli svoj balans",
+        "button": "Napravite moj besplatni nalog"
+      }
+    },
+    "newsletter": {
+      "title": "Ostanite informisani",
+      "description": "Primajte naše yoga savete i nove sesije svake nedelje",
+      "placeholder": "Vaš email",
+      "subscribe": "Prijavite se"
+    },
+    "footer": {
+      "brand": {
+        "title": "Yoga App",
+        "tagline": "Vaš dnevni partner za vežbanje"
+      },
+      "explore": {
+        "title": "Istražite",
+        "sessions": "Sesije",
+        "breathing": "Disanje",
+        "learning": "Učite"
+      },
+      "account": {
+        "title": "Nalog",
+        "login": "Prijavite se",
+        "register": "Registrujte se",
+        "dashboard": "Moj prostor"
+      },
+      "legal": {
+        "title": "Pravni",
+        "privacy": "Politika privatnosti",
+        "terms": "Uslovi korišćenja",
+        "contact": "Kontakt"
+      },
+      "copyright": "&copy; 2026 Yoga App. Sva prava zadržana."
+    },
+    "legal": {
+      "privacy": {
+        "title": "Politika privatnosti – Yoga App",
+        "metaDescription": "Politika privatnosti - Yoga App",
+        "lastUpdate": "Zadnja ažuriranja: 27. januar 2026",
+        "intro": "Ova Politika privatnosti ima za cilj da informiše korisnike aplikacije i vebsajta Yoga App o načinima i uslovima prikupljanja, obrade i zaštite njihovih ličnih podataka, u skladu sa Uredbom (EU) 2016/679 Evropskog parlamenta i Vijeća od 27. aprila 2016. (GDPR) i primenjivim zakonima.",
+        "section1": "1. Odgovoran za obradu",
+        "section1Text": "Odgovoran za obradu ličnih podataka je Yoga App, izdavač aplikacije i vebsajta. Bilo koja pitanja u vezi sa ličnim podacima mogu biti prosleđena putem kontaktnih sredstava navedenih na vebsajtu.",
+        "section2": "2. Prikupljeni lični podaci",
+        "section2Intro": "Yoga App može prikupljati sledeće kategorije podataka:",
+        "section2Item1": "podaci za identifikaciju (ime, prezime, e-mail adresa),",
+        "section2Item2": "podaci o konekciji i korišćenju (IP adresa, tip pregledača, logovi),",
+        "section2Item3": "preferencije korisnika vezane za yoga sesije i vežbe disanja.",
+        "section2Outro": "Nijedan osetljiv podatak u smislu člana 9 GDPR nije prikupljen bez eksplicitne saglasnosti.",
+        "section3": "3. Svrhe obrade",
+        "section3Intro": "Lični podaci se prikupljaju za sledeće svrhe:",
+        "section3Item1": "pružanje i upravljanje uslugama koje nudi Yoga App,",
+        "section3Item2": "personalizacija iskustva korisnika,",
+        "section3Item3": "neprekinuto poboljšanje aplikacije,",
+        "section3Item4": "bezbednost, sprečavanje prijevare i zloupotrebе,",
+        "section3Item5": "komunikacija sa korisnikom u vezi sa uslugом.",
+        "section4": "4. Pravna osnova obrade",
+        "section4Intro": "Obrada se zasniva na:",
+        "section4Item1": "izvršavanju ugovora koji vezuje korisnika sa Yoga App,",
+        "section4Item2": "eksplicitnoj saglasnosti korisnika,",
+        "section4Item3": "legitimnom interesu Yoga App da obezbedi bezbednost i poboljšanje usluge,",
+        "section4Item4": "usaglašavanju sa zakonskim obavezama.",
+        "section5": "5. Primaoci podataka",
+        "section5Text": "Lični podaci su namenjeni isključivo za Yoga App. Mogu biti prosleđeni tehničkim pružaocima usluga koji deluju kao obrađivači podataka, u skladu sa članom 28 GDPR, i samo u svrhe usluge.",
+        "section6": "6. Transfer podataka izvan Evropske unije",
+        "section6Text": "Nema prenosa ličnih podataka izvan Evropske unije. Ako je potrebno, Yoga App se obavezuje da primeni odgovarajuće zaštite u skladu sa GDPR.",
+        "section7": "7. Período čuvanja podataka",
+        "section7Text": "Lični podaci se čuvaju dok je to neophodno za svrhe za koje su prikupljeni, osim ako zakoni zahtevaju duže čuvanje.",
+        "section8": "8. Bezbednost podataka",
+        "section8Text": "Yoga App primenjuje odgovarajuće tehničke i organizacione mere da obezbedi nivo bezbednosti odgovarajući riziku, uključujući zaštitu od neovlašćenog pristupa, gubitka, izmene ili otkrivanja podataka.",
+        "section9": "9. Korisnička prava",
+        "section9Intro": "U skladu sa GDPR, korisnik ima sledeca prava:",
+        "section9Item1": "pravo na pristup (član 15),",
+        "section9Item2": "pravo na ispravku (član 16),",
+        "section9Item3": "pravo na brisanje (član 17),",
+        "section9Item4": "pravo na ograničenje obrade (član 18),",
+        "section9Item5": "pravo na prigovor (član 21),",
+        "section9Item6": "pravo na prenosivost podataka (član 20).",
+        "section9Outro": "Ova prava mogu biti ostvarena u bilo kom vremenu kontaktiranjem Yoga App.",
+        "section10": "10. Pritužba",
+        "section10Text": "Korisnik ima pravo da podnese pritužbu nadležnom organu za nadzor, naročito CNIL (Francuska).",
+        "section11": "11. Kolačići",
+        "section11Text": "Yoga App koristi kolačiće i slične tehnologije da obezbedi pravilno funkcionisanje vebsajta i analizira publiku. Korisnici mogu upravljati ili odbiti kolačiće kroz postavke svog pregledača.",
+        "section12": "12. Izmena politike",
+        "section12Text": "Yoga App zadržava pravo da izmeni ovu Politiku privatnosti u bilo kom vremenu. Trenutna verzija je ona objavljena na vebsajtu na datu konsultovanja."
+      },
+      "terms": {
+        "title": "Uslovi korišćenja – Yoga App",
+        "metaDescription": "Uslovi korišćenja - Yoga App",
+        "lastUpdate": "Zadnja ažuriranja: 27. januar 2026",
+        "section1": "1. Predmet",
+        "section1Text": "Ovi Uslovi korišćenja (u nastavku \"Uslovi\") imaju za cilj da definišu načine i uslove pristupa i korišćenja Yoga App (u nastavku \"Platforma\"). Pristupom Platformi, prihvatate ove Uslove bez rezerve.",
+        "section2": "2. Definicije",
+        "section2Item1Label": "Korisnik",
+        "section2Item1": "bilo koja osoba koja pristupa Platformi.",
+        "section2Item2Label": "Nalog",
+        "section2Item2": "lični prostor koji omogućava pristup mogućnostima.",
+        "section2Item3Label": "Sadržaj",
+        "section2Item3": "tekstovi, videi, zvukovi, slike i podaci dostupni na Platformi.",
+        "section2Item4Label": "Usluge",
+        "section2Item4": "sve mogućnosti koje se nudi, besplatne ili plaćene.",
+        "section3": "3. Pristup i nalog",
+        "section3_1": "3.1 Kreiranje naloga",
+        "section3_1Text": "Neke mogućnosti zahtevaju kreiranje naloga. Saglašavate se da dostavite tačne podatke, da ih ažurirate i čuvate poverljivost svojih pristupnih podataka. Svaka aktivnost obavljena preko vašeg naloga smatra se vašom.",
+        "section3_2": "3.2 Prihvatljivost",
+        "section3_2Item1": "Biti najmanje 16 godina i legalno sposoban.",
+        "section3_2Item2": "Nije prethodno suspendovan niti zabranjen.",
+        "section4": "4. Usluge i pretplate",
+        "section4_1": "4.1 Planovi",
+        "section4_1Item1Label": "Besplatno",
+        "section4_1Item1": "ograničen pristup grupi sadržaja.",
+        "section4_1Item2Label": "Premium",
+        "section4_1Item2": "prošireni pristup sadržaju i naprednim mogućnostima.",
+        "section4_2": "4.2 Plaćanje",
+        "section4_2Item1": "Mesečna ili godišnja naplata, automatski obnovljenje osim otkazivanja.",
+        "section4_2Item2": "Obrada plaćanja kroz pružaoce u skladu sa standardima bezbednosti.",
+        "section4_2Item3": "Promene tarifa sa razumnom napovešću.",
+        "section4_3": "4.3 Povlačenje",
+        "section4_3Text": "Pravo povlačenja može primenjivati prema primenljivom zakonu. U slučaju neposredne aktivacije digitalnih usluga, ovo pravo može biti ograničeno ili se ne primenjuje.",
+        "section5": "5. Korišćenje Platforme",
+        "section5_1": "5.1 Dobar korisnik",
+        "section5_1Item1": "Lično i nekomerciјalno korišćenje, u skladu sa zakonom.",
+        "section5_1Item2": "Poštovanje prava intelektualnog vlasništva i pravila zajednice.",
+        "section5_2": "5.2 Zabrane",
+        "section5_2Item1": "Neovlašćeno deljenje pristupnih podataka ili prevalni pristup.",
+        "section5_2Item2": "Masovnu ekstrakciju podataka, obrnuto inženjerstvo ili zaobilaženje tehničkih mera.",
+        "section5_2Item3": "Objavljivanje nezakonitог, klevetničkog, nasilnog ili diskriminatornog sadržaja.",
+        "section6": "6. Sadržaj i intelektualno vlasništvo",
+        "section6Text": "Platforma i njen sadržaj (tekstovi, videi, zvukovi, slike, marke, logoi) zaštićeni su zakonima o intelektualnom vlasništvu. Bilo koja reprodukcija, predstavljanje ili neovlašćeno korišćenje je zabranjeno. Sadržaj korisnika koji se objavljuje mora biti usklađen sa zakonom i ne daje nikakva prava vlasništva Korisniku na Platformi.",
+        "section7": "7. Lični podaci i bezbednost",
+        "section7Text": "Obrada podataka je opisana u našoj Politici privatnosti. Primenjujemo razumne mere bezbednosti. Korisnik se obavezuje da štiti svoje pristupne podatke i nas obavesti o bilo kom neovlašćenom pristupu.",
+        "section8": "8. Podrška, dostupnost i izmene",
+        "section8Item1": "Platforma može biti privremeno nedostupna zbog održavanja ili ažuriranja.",
+        "section8Item2": "Obim usluga može evoluirati kako bi se poboljšalo iskustvo ili usaglašenost.",
+        "section8Item3": "Podrška je dostupna u razumnom vremenu.",
+        "section9": "9. Odgovornost",
+        "section9Text": "Yoga App ne može biti odgovorna za indirektne štete, gubitak podataka, prekide usluge ili posledice vezane sa neusklađenim korišćenjem. Korisnik ostaje odgovoran za svoje zdravstveno stanje i prilagođenost prakse njegovom stanju.",
+        "section10": "10. Suspenzija i otkazivanje",
+        "section10Text": "U slučaju narušavanja Uslova ili zloupotrebe, možemo suspendovati ili otkazati pristup Platformi, bez predrasude na moguća sredstva. Korisnik može otkazati u bilo kom vremenu kroz postavke svog naloga.",
+        "section11": "11. Izmena Uslova",
+        "section11Text": "Uslovi mogu biti izmenjeni iz zakonskih, tehničkih ili operativnih razloga. Trenutna verzija je ona objavljena na ovoj stranici na navedeni datum.",
+        "section12": "12. Primenjivi zakon i nadležnost",
+        "section12Text": "Ovi Uslovi se upravljaju francuskim zakonom, nezavisno od boravišta Korisnika. Bilo koji spor u vezi sa njihovom interpretacijom, primenom ili izvršavanjem biće podložan nadležnosti sudova u Parizu, Francuska. U slučaju spora, strane se prvo obavezuju da traže mirno rešenje.",
+        "section13": "13. Upozorenja o zdravlju",
+        "section13_1": "13.1 Važna izjava",
+        "section13_1Title": "⚠ Važno – Preporučuje se konsultacija sa stručnjakom:",
+        "section13_1Item1": "Sadržaj ponuđen na Platformi (sesije, vežbe, savet) je samo u informativne i wellness svrhe.",
+        "section13_1Item2": "Ne zamenjuje ni na koji način savet, dijagnozu ili tretman kvalifikovanog zdravstvenog stručnjaka (lekar, fizioterapeut, osteopata, itd.).",
+        "section13_1Item3": "Pre bilo kakve redovne yoga prakse, konsultujte se sa zdravstvenim stručnjakom, naročito ako imate:",
+        "section13_1Item3a": "Zdravstvene probleme ili istoriju (kardijalne, spinalnu, zglobnu, itd.)",
+        "section13_1Item3b": "Trenutnu ili nedavnu trudnoću",
+        "section13_1Item3c": "Nedavne povrede, hronične ili nedavne bolove",
+        "section13_1Item3d": "Prošle kroz nedavnu terapiju ili hirušku intervenciju",
+        "section13_1Item3e": "Uzimanje lekova koji utiču na ravnotežu ili mobilnost",
+        "section13_1Item4": "Korisnik ostaje isključivo odgovoran za svoje zdravstveno stanje i odluku da prakticira ili ne. Yoga App ne može biti odgovorna za posledice yoga prakse.",
+        "section13_2": "13.2 Prevencija i neposredno zaustavljanje",
+        "section13_2Text": "Ako osećate nenormalni bol, nelagodnost, preteru umor ili bilo koji alarmantan simptom tokom ili posle sesije, odmah zaustavite i konsultujte se sa zdravstvenim stručnjakom.",
+        "section14": "14. Adresa i kontakt",
+        "section14Text": "Yoga App | Sedište: 75000 Pariz, Francuska | Za bilo koja pitanja ili pritužbe, koristite stranicu Kontakt ili pošaljite e-mail na support@yogaapp.com.",
+        "section15": "15. Razdvojenost",
+        "section15Text": "Ako se bilo koja odredba ovih Uslova smatra nevalidnom, nezakonitom ili ne-primenjivom od strane nadležnog suda, ta odredba će biti izbrisana i ostale odredbe ostaju u punoj snazi."
+      }
+    }
+  }
+}
