@@ -156,6 +156,13 @@ class I18nSystem {
     if (Object.keys(this.translations).length > 0) {
       this.applyTranslations();
       this.updateFlagDisplay();
+
+      // Dispatcher un événement personnalisé pour notifier les autres scripts
+      const event = new CustomEvent("languageChanged", {
+        detail: { language: lang },
+      });
+      document.dispatchEvent(event);
+
       this.log(`✅ Langue changée: ${lang}`);
     }
   }

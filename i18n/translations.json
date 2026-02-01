@@ -213,6 +213,10 @@
       "search": {
         "placeholder": "Rechercher une séance..."
       },
+      "badges": {
+        "free": "Gratuit",
+        "premium": "Premium"
+      },
       "filter": {
         "level": {
           "all": "Tous les niveaux",
@@ -767,6 +771,10 @@
       "search": {
         "placeholder": "Search for a session..."
       },
+      "badges": {
+        "free": "Free",
+        "premium": "Premium"
+      },
       "filter": {
         "level": {
           "all": "All levels",
@@ -1278,6 +1286,10 @@
       },
       "search": {
         "placeholder": "Pretraži sesiju..."
+      },
+      "badges": {
+        "free": "Besplatno",
+        "premium": "Premium"
       },
       "filter": {
         "level": {
