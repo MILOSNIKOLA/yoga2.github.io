@@ -3,39 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="auth.loginPage.title">Connexion - Yoga App</title>
+    <title>Connexion - Yoga App</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/themes.css" />
   </head>
   <body class="auth-page">
-    <!-- Language Toggle Button -->
-    <button
-      id="language-toggle"
-      class="language-toggle"
-      data-i18n-aria-label="common.aria.language"
-      aria-label="Changer de langue"
-    >
-      <svg
-        class="flag-icon"
-        data-lang="fr"
-        width="32"
-        height="24"
-        viewBox="0 0 32 24"
-        aria-hidden="true"
-      >
-        <rect width="10.67" height="24" fill="#002395" />
-        <rect x="10.67" width="10.67" height="24" fill="#FFFFFF" />
-        <rect x="21.33" width="10.67" height="24" fill="#ED2939" />
-      </svg>
-    </button>
-
     <!-- Theme Toggle Button -->
-    <button
-      id="theme-toggle"
-      class="theme-toggle"
-      data-i18n-aria-label="common.aria.theme"
-      aria-label="Changer le thème"
-    >
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
       <svg
         class="sun-icon"
         width="24"
@@ -80,21 +54,19 @@
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
-          <span data-i18n="common.back">Retour</span>
+          Retour
         </a>
 
         <!-- Logo / Title -->
         <div class="auth-header">
-          <h1 data-i18n="auth.loginPage.header.title">Bienvenue</h1>
-          <p data-i18n="auth.loginPage.header.subtitle">
-            Connectez-vous pour continuer votre pratique
-          </p>
+          <h1>Bienvenue</h1>
+          <p>Connectez-vous pour continuer votre pratique</p>
         </div>
 
         <!-- Login Form -->
         <form id="login-form" class="auth-form">
           <div class="form-group">
-            <label for="email" data-i18n="auth.fields.email">Email</label>
+            <label for="email">Email</label>
             <input
               type="email"
               id="email"
@@ -102,14 +74,11 @@
               required
               autocomplete="email"
               placeholder="votre@email.com"
-              data-i18n-placeholder="auth.placeholders.email"
             />
           </div>
 
           <div class="form-group">
-            <label for="password" data-i18n="auth.fields.password">
-              Mot de passe
-            </label>
+            <label for="password">Mot de passe</label>
             <input
               type="password"
               id="password"
@@ -117,20 +86,15 @@
               required
               autocomplete="current-password"
               placeholder="••••••••"
-              data-i18n-placeholder="auth.placeholders.password"
             />
           </div>
 
           <div class="form-row">
             <label class="checkbox-label">
               <input type="checkbox" id="remember" name="remember" />
-              <span data-i18n="auth.loginPage.remember"
-                >Se souvenir de moi</span
-              >
+              <span>Se souvenir de moi</span>
             </label>
-            <a href="#" class="link" data-i18n="auth.loginPage.forgot">
-              Mot de passe oublié ?
-            </a>
+            <a href="#" class="link">Mot de passe oublié ?</a>
           </div>
 
           <!-- Error Message -->
@@ -141,7 +105,6 @@
             type="submit"
             class="btn btn-primary btn-block"
             id="submit-btn"
-            data-i18n="auth.login"
           >
             Se connecter
           </button>
@@ -149,33 +112,26 @@
 
         <!-- Divider -->
         <div class="auth-divider">
-          <span data-i18n="auth.divider">ou</span>
+          <span>ou</span>
         </div>
 
         <!-- Register Link -->
         <p class="auth-footer">
-          <span data-i18n="auth.loginPage.noAccount"
-            >Pas encore de compte ?</span
-          >
-          <a href="register.html" class="link" data-i18n="auth.register"
-            >Créer un compte</a
-          >
+          Pas encore de compte ?
+          <a href="register.html" class="link">Créer un compte</a>
         </p>
       </div>
 
       <!-- Decorative Quote -->
       <div class="auth-quote">
         <blockquote>
-          <span data-i18n="auth.loginPage.quote">
-            "Le yoga est un voyage vers soi-même, à travers soi-même."
-          </span>
+          "Le yoga est un voyage vers soi-même, à travers soi-même."
         </blockquote>
       </div>
     </div>
 
     <!-- Footer will be loaded dynamically -->
     <!-- <script src="js/footer-loader.js"></script> -->
-    <script src="js/i18n-manager.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/auth.js"></script>
     <script>
@@ -193,16 +149,9 @@
           const password = document.getElementById("password").value;
           const remember = document.getElementById("remember").checked;
 
-          const t = (key, fallback) => {
-            if (window.i18n && typeof i18n.getTranslation === "function") {
-              return i18n.getTranslation(key) || fallback;
-            }
-            return fallback;
-          };
-
           // Loading state
           submitBtn.disabled = true;
-          submitBtn.textContent = t("auth.loginPage.loading", "Connexion...");
+          submitBtn.textContent = "Connexion...";
           errorMessage.classList.add("hidden");
 
           try {
@@ -217,7 +166,7 @@
 
             // Reset button
             submitBtn.disabled = false;
-            submitBtn.textContent = t("auth.login", "Se connecter");
+            submitBtn.textContent = "Se connecter";
           }
         });
     </script>

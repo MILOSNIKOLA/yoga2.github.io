@@ -3,12 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Séances de yoga - Yoga App"
-      data-i18n-attr-content="sessions.metaDescription"
-    />
-    <title data-i18n="sessions.pageTitle">Séances - Yoga App</title>
+    <meta name="description" content="Séances de yoga - Yoga App" />
+    <title>Séances - Yoga App</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/themes.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
@@ -23,56 +19,16 @@
           <span class="logo-text">Yoga App</span>
         </a>
         <div class="navbar-menu">
-          <a
-            href="sessions.html"
-            class="navbar-link active"
-            data-i18n="common.nav.sessions"
-            >Séances</a
-          >
-          <a
-            href="respirer.html"
-            class="navbar-link"
-            data-i18n="common.nav.breathing"
-            >Respiration</a
-          >
-          <a
-            href="progress.html"
-            class="navbar-link"
-            data-i18n="common.nav.progress"
-            >Progression</a
-          >
-          <a
-            href="learning.html"
-            class="navbar-link"
-            data-i18n="common.nav.learning"
-            >Apprentissage</a
-          >
+          <a href="sessions.html" class="navbar-link active">Séances</a>
+          <a href="respirer.html" class="navbar-link">Respiration</a>
+          <a href="progress.html" class="navbar-link">Progression</a>
+          <a href="learning.html" class="navbar-link">Apprentissage</a>
         </div>
         <div class="navbar-actions">
           <button
-            id="language-toggle"
-            class="language-toggle"
-            data-i18n-aria-label="common.aria.language"
-            aria-label="Changer de langue"
-          >
-            <svg
-              class="flag-icon"
-              data-lang="fr"
-              width="32"
-              height="24"
-              viewBox="0 0 32 24"
-              aria-hidden="true"
-            >
-              <rect width="10.67" height="24" fill="#002395" />
-              <rect x="10.67" width="10.67" height="24" fill="#FFFFFF" />
-              <rect x="21.33" width="10.67" height="24" fill="#ED2939" />
-            </svg>
-          </button>
-          <button
             id="theme-toggle"
             class="theme-toggle-nav"
-            data-i18n-aria-label="common.aria.theme"
-            aria-label="Changer le thème"
+            aria-label="Toggle theme"
           >
             <svg
               class="sun-icon"
@@ -103,12 +59,7 @@
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
           </button>
-          <a
-            href="dashboard.html"
-            class="btn-profile"
-            data-i18n-aria-label="common.aria.profile"
-            aria-label="Mon profil"
-          >
+          <a href="dashboard.html" class="btn-profile" aria-label="Mon profil">
             <svg
               width="20"
               height="20"
@@ -127,12 +78,8 @@
     <!-- Hero Section -->
     <section class="sessions-hero">
       <div class="container">
-        <h1 class="hero-title" data-i18n="sessions.hero.title">
-          Trouvez votre séance idéale
-        </h1>
-        <p class="hero-subtitle" data-i18n="sessions.hero.subtitle">
-          Filtrez par niveau, durée ou objectif
-        </p>
+        <h1 class="hero-title">Trouvez votre séance idéale</h1>
+        <p class="hero-subtitle">Filtrez par niveau, durée ou objectif</p>
       </div>
     </section>
 
@@ -158,43 +105,23 @@
               id="search-input"
               class="search-input"
               placeholder="Rechercher une séance..."
-              data-i18n-placeholder="sessions.search.placeholder"
             />
           </div>
 
           <!-- Level Filter -->
           <div class="filter-group">
             <select id="level-filter" class="filter-select">
-              <option value="" data-i18n="sessions.filter.level.all">
-                Tous les niveaux
-              </option>
-              <option
-                value="beginner"
-                data-i18n="sessions.filter.level.beginner"
-              >
-                Débutant
-              </option>
-              <option
-                value="intermediate"
-                data-i18n="sessions.filter.level.intermediate"
-              >
-                Intermédiaire
-              </option>
-              <option
-                value="advanced"
-                data-i18n="sessions.filter.level.advanced"
-              >
-                Avancé
-              </option>
+              <option value="">Tous les niveaux</option>
+              <option value="beginner">Débutant</option>
+              <option value="intermediate">Intermédiaire</option>
+              <option value="advanced">Avancé</option>
             </select>
           </div>
 
           <!-- Duration Filter -->
           <div class="filter-group">
             <select id="duration-filter" class="filter-select">
-              <option value="" data-i18n="sessions.filter.duration.all">
-                Toutes les durées
-              </option>
+              <option value="">Toutes les durées</option>
               <option value="5-10">5-10 min</option>
               <option value="10-20">10-20 min</option>
               <option value="20-45">20-45 min</option>
@@ -205,9 +132,7 @@
           <!-- Type Filter -->
           <div class="filter-group">
             <select id="type-filter" class="filter-select">
-              <option value="" data-i18n="sessions.filter.type.all">
-                Tous les types
-              </option>
+              <option value="">Tous les types</option>
               <option value="hatha">Hatha</option>
               <option value="vinyasa">Vinyasa</option>
               <option value="yin">Yin</option>
@@ -218,30 +143,11 @@
           <!-- Goal Filter -->
           <div class="filter-group">
             <select id="goal-filter" class="filter-select">
-              <option value="" data-i18n="sessions.filter.goal.all">
-                Tous les objectifs
-              </option>
-              <option
-                value="détente"
-                data-i18n="sessions.filter.goal.relaxation"
-              >
-                Détente
-              </option>
-              <option
-                value="mobilité"
-                data-i18n="sessions.filter.goal.mobility"
-              >
-                Mobilité
-              </option>
-              <option
-                value="renforcement"
-                data-i18n="sessions.filter.goal.strength"
-              >
-                Renforcement
-              </option>
-              <option value="énergie" data-i18n="sessions.filter.goal.energy">
-                Énergie
-              </option>
+              <option value="">Tous les objectifs</option>
+              <option value="détente">Détente</option>
+              <option value="mobilité">Mobilité</option>
+              <option value="renforcement">Renforcement</option>
+              <option value="énergie">Énergie</option>
             </select>
           </div>
         </div>
@@ -249,9 +155,7 @@
         <!-- Results Count -->
         <div class="results-info">
           <p id="results-count" class="results-count">
-            <span data-i18n="sessions.results.loading"
-              >Chargement des séances...</span
-            >
+            Chargement des séances...
           </p>
         </div>
       </div>
@@ -267,17 +171,11 @@
         <!-- Empty State -->
         <div id="empty-state" class="empty-state hidden">
           <div class="empty-icon">🔍</div>
-          <h3 class="empty-title" data-i18n="sessions.empty.title">
-            Aucune séance trouvée
-          </h3>
-          <p class="empty-text" data-i18n="sessions.empty.text">
+          <h3 class="empty-title">Aucune séance trouvée</h3>
+          <p class="empty-text">
             Essayez d'ajuster vos filtres pour trouver d'autres séances
           </p>
-          <button
-            id="reset-filters"
-            class="btn btn-primary"
-            data-i18n="sessions.empty.reset"
-          >
+          <button id="reset-filters" class="btn btn-primary">
             Réinitialiser les filtres
           </button>
         </div>
@@ -285,9 +183,8 @@
     </section>
 
     <!-- Scripts -->
-    <script defer src="js/i18n-manager.js"></script>
-    <script defer src="js/footer-loader.js"></script>
-    <script defer src="js/theme.js"></script>
-    <script defer src="js/sessions.js"></script>
+    <script src="js/footer-loader.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/sessions.js"></script>
   </body>
 </html>

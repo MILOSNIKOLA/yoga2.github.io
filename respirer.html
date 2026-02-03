@@ -6,42 +6,15 @@
     <meta
       name="description"
       content="Exercices de respiration guidée - Yoga App"
-      data-i18n-attr-content="breathing.metaDescription"
     />
-    <title data-i18n="breathing.pageTitle">Respiration - Yoga App</title>
+    <title>Respiration - Yoga App</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/themes.css" />
     <link rel="stylesheet" href="css/respiration.css" />
   </head>
   <body>
-    <!-- Language Toggle Button -->
-    <button
-      id="language-toggle"
-      class="language-toggle"
-      data-i18n-aria-label="common.aria.language"
-      aria-label="Changer de langue"
-    >
-      <svg
-        class="flag-icon"
-        data-lang="fr"
-        width="32"
-        height="24"
-        viewBox="0 0 32 24"
-        aria-hidden="true"
-      >
-        <rect width="10.67" height="24" fill="#002395" />
-        <rect x="10.67" width="10.67" height="24" fill="#FFFFFF" />
-        <rect x="21.33" width="10.67" height="24" fill="#ED2939" />
-      </svg>
-    </button>
-
     <!-- Theme Toggle Button -->
-    <button
-      id="theme-toggle"
-      class="theme-toggle"
-      data-i18n-aria-label="common.aria.theme"
-      aria-label="Changer le thème"
-    >
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
       <svg
         class="sun-icon"
         width="24"
@@ -84,72 +57,40 @@
         >
           <path d="M19 12H5M12 19l-7-7 7-7" />
         </svg>
-        <span data-i18n="common.back">Retour</span>
+        Retour
       </a>
     </div>
 
     <!-- Breathing Section -->
     <section class="breathing-container">
       <div class="container">
-        <h1 class="breathing-title" data-i18n="breathing.title">
-          Respiration guidée
-        </h1>
-        <p class="breathing-subtitle" data-i18n="breathing.subtitle">
-          Prenez quelques instants pour respirer
-        </p>
+        <h1 class="breathing-title">Respiration guidée</h1>
+        <p class="breathing-subtitle">Prenez quelques instants pour respirer</p>
 
         <!-- Breathing Type Selector -->
         <div class="breathing-selector">
           <button class="breath-type-btn active" data-type="coherence">
             <div class="breath-type-icon">❤️</div>
-            <div
-              class="breath-type-name"
-              data-i18n="breathing.types.coherence.title"
-            >
-              Cohérence cardiaque
-            </div>
-            <div
-              class="breath-type-desc"
-              data-i18n="breathing.types.coherence.desc"
-            >
-              5s inspire / 5s expire
-            </div>
+            <div class="breath-type-name">Cohérence cardiaque</div>
+            <div class="breath-type-desc">5s inspire / 5s expire</div>
           </button>
 
           <button class="breath-type-btn" data-type="box">
             <div class="breath-type-icon">📦</div>
-            <div class="breath-type-name" data-i18n="breathing.types.box.title">
-              Box Breathing
-            </div>
-            <div class="breath-type-desc" data-i18n="breathing.types.box.desc">
-              4s chaque phase
-            </div>
+            <div class="breath-type-name">Box Breathing</div>
+            <div class="breath-type-desc">4s chaque phase</div>
           </button>
 
           <button class="breath-type-btn" data-type="478">
             <div class="breath-type-icon">😌</div>
-            <div class="breath-type-name" data-i18n="breathing.types.478.title">
-              4-7-8
-            </div>
-            <div class="breath-type-desc" data-i18n="breathing.types.478.desc">
-              Relaxation profonde
-            </div>
+            <div class="breath-type-name">4-7-8</div>
+            <div class="breath-type-desc">Relaxation profonde</div>
           </button>
 
           <button class="breath-type-btn" data-type="energize">
             <div class="breath-type-icon">⚡</div>
-            <div
-              class="breath-type-name"
-              data-i18n="breathing.types.energize.title"
-            >
-              Énergisant
-            </div>
-            <div
-              class="breath-type-desc"
-              data-i18n="breathing.types.energize.desc"
-            >
-              3s inspire / 6s expire
-            </div>
+            <div class="breath-type-name">Énergisant</div>
+            <div class="breath-type-desc">3s inspire / 6s expire</div>
           </button>
         </div>
 
@@ -177,24 +118,14 @@
           </svg>
 
           <div class="breathing-instruction">
-            <div
-              class="instruction-text"
-              id="instruction-text"
-              data-i18n="breathing.instruction.ready"
-            >
-              Prêt
-            </div>
+            <div class="instruction-text" id="instruction-text">Prêt</div>
             <div class="instruction-count" id="instruction-count"></div>
           </div>
         </div>
 
         <!-- Controls -->
         <div class="breathing-controls">
-          <button
-            id="start-breath-btn"
-            class="btn btn-primary btn-large"
-            data-i18n="breathing.actions.start"
-          >
+          <button id="start-breath-btn" class="btn btn-primary btn-large">
             <svg
               width="24"
               height="24"
@@ -207,11 +138,7 @@
             Commencer
           </button>
 
-          <button
-            id="stop-breath-btn"
-            class="btn btn-outline btn-large hidden"
-            data-i18n="breathing.actions.stop"
-          >
+          <button id="stop-breath-btn" class="btn btn-outline btn-large hidden">
             <svg
               width="24"
               height="24"
@@ -230,27 +157,23 @@
         <div class="breathing-options">
           <label class="option-toggle">
             <input type="checkbox" id="sound-toggle" checked />
-            <span data-i18n="breathing.options.sound">Son activé</span>
+            <span>Son activé</span>
           </label>
 
           <label class="option-toggle">
             <input type="checkbox" id="vibration-toggle" />
-            <span data-i18n="breathing.options.vibration">Vibrations</span>
+            <span>Vibrations</span>
           </label>
         </div>
 
         <!-- Stats -->
         <div class="breathing-stats">
           <div class="stat-item">
-            <div class="stat-label" data-i18n="breathing.stats.cycles">
-              Cycles complétés
-            </div>
+            <div class="stat-label">Cycles complétés</div>
             <div class="stat-value" id="cycles-count">0</div>
           </div>
           <div class="stat-item">
-            <div class="stat-label" data-i18n="breathing.stats.totalTime">
-              Temps total
-            </div>
+            <div class="stat-label">Temps total</div>
             <div class="stat-value" id="total-time">0:00</div>
           </div>
         </div>
@@ -260,9 +183,8 @@
     <!-- Footer will be loaded dynamically -->
     <!-- (Footer populated by footer-loader.js) -->
 
-    <script defer src="js/i18n-manager.js"></script>
-    <script defer src="js/footer-loader.js"></script>
-    <script defer src="js/theme.js"></script>
-    <script defer src="js/breathing.js"></script>
+    <script src="js/footer-loader.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/breathing.js"></script>
   </body>
 </html>
