@@ -219,7 +219,7 @@ const SITE_TRANSLATIONS = {
         terms: "CGU",
         contact: "Contact",
       },
-      copyright: "2026 Yoga App. Tous droits réservés.",
+      copyright: "© 2026 Yoga App. Tous droits réservés.",
     },
   },
 

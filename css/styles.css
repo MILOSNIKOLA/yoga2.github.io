@@ -84,35 +84,6 @@ a:hover {
 /* ========================================
    LANGUAGE TOGGLE BUTTON
    ======================================== */
-.top-left-controls {
-  position: fixed;
-  top: 20px;
-  right: 80px;
-  left: auto;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 1000;
-}
-
-.navbar-logo {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 2px solid var(--border);
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.navbar-logo:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
 .language-toggle {
   position: fixed;
   top: 20px;
@@ -129,12 +100,6 @@ a:hover {
   z-index: 1000;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.top-left-controls .language-toggle {
-  position: static;
-  top: auto;
-  left: auto;
 }
 
 .language-toggle:hover {
@@ -385,11 +350,6 @@ a:hover {
   /* border: none; */
   padding: 0.5rem 1rem;
   border-color: var(--border);
-}
-
-[data-theme="dark"] .btn-text {
-  background: var(--bg-secondary);
-  color: #f7fafc;
 }
 
 .btn-text:hover {
@@ -796,7 +756,6 @@ a:hover {
   align-content: start;
   justify-items: stretch;
   width: 100%;
-  padding-bottom: 1rem;
 }
 
 .footer-section {
@@ -805,7 +764,6 @@ a:hover {
   align-items: flex-start;
   width: 100%;
   min-width: 0;
-  margin-top: 5rem;
 }
 
 @media (max-width: 900px) {
