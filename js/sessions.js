@@ -13,12 +13,29 @@ function initializeSessionsPage() {
   // Load sessions from localStorage
   loadSessions();
 
+  // Mettre à jour l'affichage du logout dans la navbar
+  updateNavbarAuth();
+
   // Setup event listeners
   setupEventListeners();
 
   // Initial render
   renderSessions(allSessions);
   updateResultsCount(allSessions.length);
+}
+
+function updateNavbarAuth() {
+  const logoutBtn = document.getElementById("logout-btn");
+  const userId =
+    sessionStorage.getItem("userId") || localStorage.getItem("userId");
+
+  if (logoutBtn) {
+    if (userId) {
+      logoutBtn.classList.remove("hidden");
+    } else {
+      logoutBtn.classList.add("hidden");
+    }
+  }
 }
 
 /* ========================================

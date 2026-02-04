@@ -29,7 +29,7 @@ class UniversalLanguageSystem {
   constructor() {
     this.currentLanguage = "fr"; // Langue par défaut
     this.availableLanguages = ["fr", "sr", "en"];
-    this.storageKey = "yoga-app-language";
+    this.storageKey = "site_language";
     this.translations = window.SITE_TRANSLATIONS || {};
 
     // SVG des drapeaux
@@ -84,6 +84,11 @@ class UniversalLanguageSystem {
     const saved = localStorage.getItem(this.storageKey);
     if (saved && this.availableLanguages.includes(saved)) {
       this.currentLanguage = saved;
+    } else {
+      this.currentLanguage = "fr";
+      try {
+        localStorage.setItem(this.storageKey, "fr");
+      } catch (e) {}
     }
   }
 

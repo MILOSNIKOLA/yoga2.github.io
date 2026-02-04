@@ -4,7 +4,7 @@
 
 :root {
   /* Theme Light (Default) */
-  --bg-primary: #f5f5f5;
+  --bg-primary: #c0bae6;
   --bg-secondary: #e8ebf0;
   --bg-hover: #dce1e8;
 
@@ -56,8 +56,21 @@
   --shadow-hover: rgba(0, 0, 0, 0.5);
 }
 
-/* ========================================
-   AUTH PAGE STYLES
+/* ========================================   BUTTON THEME OVERRIDES
+   ======================================== */
+/* Light theme: secondary buttons use text-secondary color */
+[data-theme="light"] .btn.btn-secondary,
+[data-theme="light"] .btn.btn-secondary.btn-large {
+  color: var(--text-secondary);
+}
+
+/* Light theme: secondary buttons hover state changes to accent color */
+[data-theme="light"] .btn.btn-secondary:hover,
+[data-theme="light"] .btn.btn-secondary.btn-large:hover {
+  color: var(--accent);
+}
+
+/* ========================================   AUTH PAGE STYLES
    ======================================== */
 .auth-page {
   min-height: 100vh;

@@ -11,6 +11,7 @@ class I18nSystem {
     this.currentLanguage = "fr";
     this.translations = {};
     this.supportedLanguages = ["fr", "en", "sr"];
+    this.storageKey = "site_language";
     this.DEBUG = false; // Activer les logs de debug si nécessaire
   }
 
@@ -82,14 +83,18 @@ class I18nSystem {
    * Restaurer la langue depuis localStorage
    */
   restoreLanguage() {
-    const savedLang = localStorage.getItem("language");
+    const savedLang = localStorage.getItem(this.storageKey);
+    const legacyLang = localStorage.getItem("language");
 
     // Utiliser la langue sauvegardée ou le français par défaut
     if (savedLang && this.supportedLanguages.includes(savedLang)) {
       this.currentLanguage = savedLang;
+    } else if (legacyLang && this.supportedLanguages.includes(legacyLang)) {
+      this.currentLanguage = legacyLang;
+      localStorage.setItem(this.storageKey, legacyLang);
     } else {
       this.currentLanguage = "fr";
-      localStorage.setItem("language", "fr");
+      localStorage.setItem(this.storageKey, "fr");
     }
 
     this.log(`🌍 Langue restaurée: ${this.currentLanguage}`);
@@ -147,7 +152,7 @@ class I18nSystem {
     this.currentLanguage = lang;
 
     // Sauvegarder dans localStorage
-    localStorage.setItem("language", lang);
+    localStorage.setItem(this.storageKey, lang);
 
     // Mettre à jour l'attribut lang du document
     document.documentElement.lang = lang;

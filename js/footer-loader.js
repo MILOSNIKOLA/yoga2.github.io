@@ -4,6 +4,28 @@
  */
 
 (function loadFooter() {
+  const ensureFavicon = () => {
+    if (!document.head) {
+      return;
+    }
+
+    const existingIcon = document.head.querySelector(
+      'link[rel~="icon"][href="favicon-48x481.png"]',
+    );
+
+    if (existingIcon) {
+      return;
+    }
+
+    const favicon = document.createElement("link");
+    favicon.rel = "icon";
+    favicon.href = "favicon-48x481.png";
+    favicon.type = "image/x-icon";
+    document.head.appendChild(favicon);
+  };
+
+  ensureFavicon();
+
   // Check if footer already exists
   if (document.querySelector("footer.footer")) {
     return; // Footer already present, skip loading

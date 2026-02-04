@@ -2,8 +2,119 @@
    APP.JS - MAIN APPLICATION LOGIC
    ======================================== */
 
+// Translations object (will be loaded from i18n-manager)
+let TRANSLATIONS = {};
+
+// Load translations from i18n-manager (global instance)
+function loadTranslations() {
+  try {
+    // Try to get translations from the global i18n instance
+    if (window.i18n && window.i18n.translations) {
+      TRANSLATIONS = window.i18n.translations;
+      return;
+    }
+  } catch (e) {
+    console.warn("Could not load translations from i18n");
+  }
+
+  // Fallback translations - these will be overwritten when i18n is ready
+  TRANSLATIONS = {
+    fr: {
+      badges: {
+        free: "Gratuit",
+        premium: "Premium",
+      },
+      filter: {
+        level: {
+          beginner: "Débutant",
+          intermediate: "Intermédiaire",
+          advanced: "Avancé",
+        },
+        goal: {
+          relaxation: "Détente",
+          mobility: "Mobilité",
+          strength: "Renforcement",
+          energy: "Énergie",
+        },
+      },
+    },
+    en: {
+      badges: {
+        free: "Free",
+        premium: "Premium",
+      },
+      filter: {
+        level: {
+          beginner: "Beginner",
+          intermediate: "Intermediate",
+          advanced: "Advanced",
+        },
+        goal: {
+          relaxation: "Relaxation",
+          mobility: "Mobility",
+          strength: "Strength",
+          energy: "Energy",
+        },
+      },
+    },
+    sr: {
+      badges: {
+        free: "Besplatno",
+        premium: "Premium",
+      },
+      filter: {
+        level: {
+          beginner: "Početnik",
+          intermediate: "Srednji",
+          advanced: "Napredni",
+        },
+        goal: {
+          relaxation: "Opuštanje",
+          mobility: "Mobilnost",
+          strength: "Jačanje",
+          energy: "Energija",
+        },
+      },
+    },
+  };
+}
+
+// Get current language
+function getCurrentLanguage() {
+  // Try to get from i18n system first
+  if (window.i18n && window.i18n.currentLanguage) {
+    return window.i18n.currentLanguage;
+  }
+  const htmlLang = document.documentElement.lang || "fr";
+  return htmlLang.toLowerCase();
+}
+
+// Get translation value
+function getTranslation(key, defaultValue = "") {
+  const lang = getCurrentLanguage();
+  const keys = key.split(".");
+  let value = TRANSLATIONS[lang] || TRANSLATIONS["fr"];
+
+  for (const k of keys) {
+    value = value?.[k];
+    if (!value) break;
+  }
+
+  return value || defaultValue;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  initializeApp();
+  // Wait a bit for i18n to be initialized
+  setTimeout(() => {
+    loadTranslations();
+    initializeApp();
+  }, 100);
+
+  // Listen for language changes
+  document.addEventListener("languageChanged", (event) => {
+    loadTranslations();
+    refreshSessionCards();
+  });
 });
 
 function initializeApp() {
@@ -19,6 +130,27 @@ function initializeApp() {
   initializeSampleData();
 }
 
+// Refresh session cards when language changes
+function refreshSessionCards() {
+  const container = document.getElementById("popular-sessions");
+  if (!container) return;
+
+  const sessions = JSON.parse(localStorage.getItem("sessions") || "[]");
+  const popular = sessions.slice(0, 3);
+
+  container.innerHTML = popular
+    .map((session) => createSessionCard(session))
+    .join("");
+
+  // Re-add click handlers
+  container.querySelectorAll(".session-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const sessionId = card.dataset.sessionId;
+      window.location.href = `session-player.html?id=${sessionId}`;
+    });
+  });
+}
+
 /* ========================================
    AUTH UI MANAGEMENT
    ======================================== */
@@ -26,6 +158,7 @@ function initializeApp() {
 function updateAuthUI() {
   const authSection = document.getElementById("auth-section");
   const userMenu = document.getElementById("user-menu");
+  const logoutBtn = document.getElementById("logout-btn");
   const userId =
     sessionStorage.getItem("userId") || localStorage.getItem("userId");
 
@@ -33,10 +166,12 @@ function updateAuthUI() {
     // User is logged in
     if (authSection) authSection.classList.add("hidden");
     if (userMenu) userMenu.classList.remove("hidden");
+    if (logoutBtn) logoutBtn.classList.remove("hidden");
   } else {
     // User is not logged in
     if (authSection) authSection.classList.remove("hidden");
     if (userMenu) userMenu.classList.add("hidden");
+    if (logoutBtn) logoutBtn.classList.add("hidden");
   }
 }
 
@@ -82,19 +217,70 @@ function getFallbackImageUrl(title) {
   return `https://source.unsplash.com/800x600/?relaxation,${query}`;
 }
 
-function createSessionCard(session) {
-  const levelLabels = {
-    beginner: "Débutant",
-    intermediate: "Intermédiaire",
-    advanced: "Avancé",
+function getLocalizedSessionDescription(session, lang) {
+  if (session.descriptionTranslations?.[lang]) {
+    return session.descriptionTranslations[lang];
+  }
+
+  const descriptionMap = {
+    "Flow doux du matin": {
+      en: "Gently wake your body with smooth, flowing poses",
+      sr: "Lagano razbudite telo kroz meke, tečne položaje",
+    },
+    "Vinyasa énergisant": {
+      en: "Dynamic flow to boost your energy",
+      sr: "Dinamičan tok za podizanje energije",
+    },
+    "Yin relaxant du soir": {
+      en: "Long-held poses for deep release",
+      sr: "Dugo zadržani položaji za duboko opuštanje",
+    },
   };
 
+  return descriptionMap[session.title]?.[lang] || session.description;
+}
+
+function createSessionCard(session) {
+  const lang = getCurrentLanguage();
+
+  // Get level label from translations
+  const levelLabels =
+    TRANSLATIONS[lang]?.filter?.level || TRANSLATIONS["fr"].filter.level;
+  const badgeLabels = TRANSLATIONS[lang]?.badges || TRANSLATIONS["fr"].badges;
+  const goalLabels =
+    TRANSLATIONS[lang]?.filter?.goal || TRANSLATIONS["fr"].filter.goal;
+
   const freeOrPremium = session.free
-    ? '<span class="free-badge">Gratuit</span>'
-    : '<span class="premium-badge">Premium</span>';
+    ? `<span class="free-badge">${badgeLabels.free}</span>`
+    : `<span class="premium-badge">${badgeLabels.premium}</span>`;
 
   const imageUrl = getSessionImageUrl(session.title);
   const fallbackUrl = getFallbackImageUrl(session.title);
+
+  // Translate objectives
+  const translatedObjectives = session.objectives.map((obj) => {
+    // Map French objective names to translation keys
+    const objKeyMap = {
+      détente: "relaxation",
+      relaxation: "relaxation",
+      mobilité: "mobility",
+      mobility: "mobility",
+      renforcement: "strength",
+      strength: "strength",
+      énergie: "energy",
+      energy: "energy",
+      // For unmapped values, return as-is
+      calme: "relaxation", // maps to relaxation
+      sommeil: "relaxation", // maps to relaxation
+      équilibre: "mobility", // maps to mobility
+      force: "strength", // maps to strength
+      repos: "relaxation", // maps to relaxation
+      soulagement: "mobility", // maps to mobility
+      focus: "relaxation", // maps to relaxation
+    };
+    const objKey = objKeyMap[obj.toLowerCase()] || obj.toLowerCase();
+    return goalLabels[objKey] || obj;
+  });
 
   return `
         <div class="session-card" data-session-id="${session.id}">
@@ -111,9 +297,9 @@ function createSessionCard(session) {
                     <span class="session-duration">${session.duration} min</span>
                 </div>
                 <h3 class="session-title">${session.title}</h3>
-                <p class="session-description">${session.description}</p>
+                <p class="session-description">${getLocalizedSessionDescription(session, lang)}</p>
                 <div class="session-footer">
-                    ${session.objectives.map((obj) => `<span class="session-tag">${obj}</span>`).join("")}
+                    ${translatedObjectives.map((obj) => `<span class="session-tag">${obj}</span>`).join("")}
                 </div>
             </div>
         </div>

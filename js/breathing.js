@@ -65,6 +65,7 @@ const circleMain = document.querySelector(".circle-main");
 
 document.addEventListener("DOMContentLoaded", () => {
   initializeBreathing();
+  updateBreathingAuth();
 });
 
 function initializeBreathing() {
@@ -80,6 +81,12 @@ function initializeBreathing() {
   startBtn.addEventListener("click", startBreathing);
   stopBtn.addEventListener("click", stopBreathing);
 
+  // Logout button
+  const logoutBtn = document.getElementById("logout-btn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", logout);
+  }
+
   // Initialize audio context on first user interaction
   document.addEventListener(
     "click",
@@ -90,6 +97,20 @@ function initializeBreathing() {
     },
     { once: true },
   );
+}
+
+function updateBreathingAuth() {
+  const logoutBtn = document.getElementById("logout-btn");
+  const userId =
+    sessionStorage.getItem("userId") || localStorage.getItem("userId");
+
+  if (logoutBtn) {
+    if (userId) {
+      logoutBtn.classList.remove("hidden");
+    } else {
+      logoutBtn.classList.add("hidden");
+    }
+  }
 }
 
 /* ========================================
