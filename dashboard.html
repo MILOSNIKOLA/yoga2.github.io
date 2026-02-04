@@ -3,11 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Mon espace - Yoga App" />
-    <title>Mon espace - Yoga App</title>
+    <meta
+      name="description"
+      content="Mon espace - Yoga App"
+      data-i18n-attr-content="dashboard.metaDescription"
+    />
+    <title data-i18n="dashboard.pageTitle">Mon espace - Yoga App</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/themes.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="icon" href="favicon-48x481.png" type="image/x-icon" />
   </head>
   <body>
     <!-- Navbar -->
@@ -18,16 +23,56 @@
           <span class="logo-text">Yoga App</span>
         </a>
         <div class="navbar-menu">
-          <a href="sessions.html" class="navbar-link">Séances</a>
-          <a href="respirer.html" class="navbar-link">Respiration</a>
-          <a href="progress.html" class="navbar-link">Progression</a>
-          <a href="learning.html" class="navbar-link">Apprentissage</a>
+          <a
+            href="sessions.html"
+            class="navbar-link"
+            data-i18n="common.nav.sessions"
+            >Séances</a
+          >
+          <a
+            href="respirer.html"
+            class="navbar-link"
+            data-i18n="common.nav.breathing"
+            >Respiration</a
+          >
+          <a
+            href="progress.html"
+            class="navbar-link"
+            data-i18n="common.nav.progress"
+            >Progression</a
+          >
+          <a
+            href="learning.html"
+            class="navbar-link"
+            data-i18n="common.nav.learning"
+            >Apprentissage</a
+          >
         </div>
         <div class="navbar-actions">
           <button
+            id="language-toggle"
+            class="language-toggle"
+            data-i18n-aria-label="common.aria.language"
+            aria-label="Changer de langue"
+          >
+            <svg
+              class="flag-icon"
+              data-lang="fr"
+              width="32"
+              height="24"
+              viewBox="0 0 32 24"
+              aria-hidden="true"
+            >
+              <rect width="10.67" height="24" fill="#002395" />
+              <rect x="10.67" width="10.67" height="24" fill="#FFFFFF" />
+              <rect x="21.33" width="10.67" height="24" fill="#ED2939" />
+            </svg>
+          </button>
+          <button
             id="theme-toggle"
             class="theme-toggle-nav"
-            aria-label="Toggle theme"
+            data-i18n-aria-label="common.aria.theme"
+            aria-label="Changer le thème"
           >
             <svg
               class="sun-icon"
@@ -58,7 +103,12 @@
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
           </button>
-          <button id="logout-btn" class="btn-logout" aria-label="Déconnexion">
+          <button
+            id="logout-btn"
+            class="btn-logout"
+            data-i18n-aria-label="common.aria.logout"
+            aria-label="Déconnexion"
+          >
             <svg
               width="20"
               height="20"
@@ -79,7 +129,8 @@
     <button
       id="theme-toggle-mobile"
       class="theme-toggle"
-      aria-label="Toggle theme"
+      data-i18n-aria-label="common.aria.theme"
+      aria-label="Changer le thème"
       style="display: none"
     >
       <svg
@@ -127,10 +178,16 @@
             >
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
-            Retour
+            <span data-i18n="common.back">Retour</span>
           </a>
-          <h1 class="dashboard-title">Mon espace</h1>
-          <p class="dashboard-subtitle" id="welcome-message">
+          <h1 class="dashboard-title" data-i18n="dashboard.header.title">
+            Mon espace
+          </h1>
+          <p
+            class="dashboard-subtitle"
+            id="welcome-message"
+            data-i18n="dashboard.header.subtitle"
+          >
             Bienvenue sur votre espace
           </p>
         </div>
@@ -140,31 +197,47 @@
           <div class="stat-card">
             <div class="stat-icon">🧘</div>
             <div class="stat-value" id="total-sessions">0</div>
-            <div class="stat-label">Séances pratiquées</div>
+            <div class="stat-label" data-i18n="dashboard.stats.sessions">
+              Séances pratiquées
+            </div>
           </div>
 
           <div class="stat-card">
             <div class="stat-icon">⏱️</div>
             <div class="stat-value" id="total-minutes">0</div>
-            <div class="stat-label">Minutes de pratique</div>
+            <div class="stat-label" data-i18n="dashboard.stats.minutes">
+              Minutes de pratique
+            </div>
           </div>
 
           <div class="stat-card">
             <div class="stat-icon">🔥</div>
             <div class="stat-value" id="current-streak">0</div>
-            <div class="stat-label">Jours consécutifs</div>
+            <div class="stat-label" data-i18n="dashboard.stats.streak">
+              Jours consécutifs
+            </div>
           </div>
 
           <div class="stat-card">
             <div class="stat-icon">✨</div>
             <div class="stat-value" id="this-week">0</div>
-            <div class="stat-label">Cette semaine</div>
+            <div class="stat-label" data-i18n="dashboard.stats.week">
+              Cette semaine
+            </div>
           </div>
 
           <div class="stat-card">
             <div class="stat-icon">🎯</div>
-            <div class="stat-value" id="user-level">Débutant</div>
-            <div class="stat-label">Niveau</div>
+            <div
+              class="stat-value"
+              id="user-level"
+              data-i18n="dashboard.stats.level.beginner"
+            >
+              Débutant
+            </div>
+            <div class="stat-label" data-i18n="dashboard.stats.level.label">
+              Niveau
+            </div>
           </div>
         </div>
 
@@ -172,8 +245,10 @@
         <div class="streak-message" id="streak-message">
           <div class="streak-icon">💫</div>
           <div class="streak-text">
-            <p class="streak-title">Continuez ainsi !</p>
-            <p class="streak-desc">
+            <p class="streak-title" data-i18n="dashboard.streak.title">
+              Continuez ainsi !
+            </p>
+            <p class="streak-desc" data-i18n="dashboard.streak.desc">
               Chaque moment compte, pas besoin d'être parfait.
             </p>
           </div>
@@ -181,7 +256,9 @@
 
         <!-- Continue Practice -->
         <section class="dashboard-section">
-          <h2 class="section-title">Continuer ma pratique</h2>
+          <h2 class="section-title" data-i18n="dashboard.section.continue">
+            Continuer ma pratique
+          </h2>
           <div class="continue-practice" id="continue-practice">
             <!-- Will be populated by JS -->
           </div>
@@ -189,17 +266,23 @@
 
         <!-- Recent Sessions -->
         <section class="dashboard-section">
-          <h2 class="section-title">Séances récentes</h2>
+          <h2 class="section-title" data-i18n="dashboard.section.recent">
+            Séances récentes
+          </h2>
           <div class="recent-sessions" id="recent-sessions">
             <p class="empty-message">
-              Aucune séance enregistrée pour le moment
+              <span data-i18n="dashboard.empty.recent"
+                >Aucune séance enregistrée pour le moment</span
+              >
             </p>
           </div>
         </section>
 
         <!-- Weekly Chart -->
         <section class="dashboard-section">
-          <h2 class="section-title">Votre semaine</h2>
+          <h2 class="section-title" data-i18n="dashboard.section.week">
+            Votre semaine
+          </h2>
           <div class="week-chart" id="week-chart">
             <!-- Will be populated by JS -->
           </div>
@@ -218,7 +301,9 @@
               <circle cx="12" cy="12" r="10"></circle>
               <polygon points="10 8 16 12 10 16 10 8"></polygon>
             </svg>
-            Nouvelle séance
+            <span data-i18n="dashboard.actions.newSession"
+              >Nouvelle séance</span
+            >
           </a>
           <a href="respirer.html" class="btn btn-outline btn-large">
             <svg
@@ -232,40 +317,63 @@
                 d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
               ></path>
             </svg>
-            Respiration
+            <span data-i18n="common.nav.breathing">Respiration</span>
           </a>
         </div>
 
         <!-- Account Section -->
         <section class="dashboard-section">
-          <h2 class="section-title">Compte</h2>
+          <h2 class="section-title" data-i18n="dashboard.section.account">
+            Compte
+          </h2>
           <div class="account-card">
             <div class="account-info">
-              <div class="account-label">Email</div>
+              <div class="account-label" data-i18n="dashboard.account.email">
+                Email
+              </div>
               <div class="account-value" id="user-email">-</div>
             </div>
             <div class="account-info">
-              <div class="account-label">Membre depuis</div>
+              <div
+                class="account-label"
+                data-i18n="dashboard.account.memberSince"
+              >
+                Membre depuis
+              </div>
               <div class="account-value" id="member-since">-</div>
             </div>
             <div class="account-info">
-              <div class="account-label">Statut</div>
+              <div class="account-label" data-i18n="dashboard.account.status">
+                Statut
+              </div>
               <div class="account-value">
-                <span id="premium-status" class="status-badge">Gratuit</span>
+                <span
+                  id="premium-status"
+                  class="status-badge"
+                  data-i18n="dashboard.account.free"
+                  >Gratuit</span
+                >
               </div>
             </div>
           </div>
           <div class="account-actions">
-            <button id="logout-btn" class="btn btn-outline">Déconnexion</button>
+            <button
+              id="logout-btn"
+              class="btn btn-outline"
+              data-i18n="auth.logout"
+            >
+              Déconnexion
+            </button>
           </div>
         </section>
       </div>
     </div>
 
     <!-- Footer will be loaded dynamically -->
-    <script src="js/footer-loader.js"></script>
-    <script src="js/theme.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script defer src="js/i18n-manager.js"></script>
+    <script defer src="js/footer-loader.js"></script>
+    <script defer src="js/theme.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/dashboard.js"></script>
   </body>
 </html>
