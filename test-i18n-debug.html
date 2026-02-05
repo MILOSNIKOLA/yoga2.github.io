@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test i18n Debug</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      .test-section {
+        background: #f5f5f5;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+      }
+      .success {
+        color: #22c55e;
+      }
+      .error {
+        color: #ef4444;
+      }
+      .warning {
+        color: #f59e0b;
+      }
+      button {
+        background: #3b82f6;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button:hover {
+        background: #2563eb;
+      }
+      pre {
+        background: #1e293b;
+        color: #e2e8f0;
+        padding: 15px;
+        border-radius: 6px;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔍 Test de Diagnostic i18n</h1>
+
+    <div class="test-section">
+      <h2>1. Vérification de window.i18n</h2>
+      <div id="check-i18n"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>2. Vérification des traductions de sessions</h2>
+      <div id="check-sessions"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>3. Test de traduction</h2>
+      <h3 class="test-title" data-i18n="sessions.cards.session_41.title">
+        Titre original
+      </h3>
+      <p class="test-desc" data-i18n="sessions.cards.session_41.description">
+        Description originale
+      </p>
+      <button onclick="testTranslation()">🔄 Appliquer les traductions</button>
+      <button onclick="switchLang()">🌐 Changer de langue</button>
+      <div id="current-lang"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>4. Console des traductions</h2>
+      <pre id="console-output"></pre>
+    </div>
+
+    <script defer src="js/i18n-manager.js"></script>
+    <script defer src="js/session-translations.js"></script>
+    <script>
+      let logMessages = [];
+
+      // Intercepter les console.log
+      const originalLog = console.log;
+      const originalWarn = console.warn;
+      const originalError = console.error;
+
+      console.log = function (...args) {
+        logMessages.push({ type: "log", msg: args.join(" ") });
+        updateConsole();
+        originalLog.apply(console, args);
+      };
+
+      console.warn = function (...args) {
+        logMessages.push({ type: "warn", msg: args.join(" ") });
+        updateConsole();
+        originalWarn.apply(console, args);
+      };
+
+      console.error = function (...args) {
+        logMessages.push({ type: "error", msg: args.join(" ") });
+        updateConsole();
+        originalError.apply(console, args);
+      };
+
+      function updateConsole() {
+        const output = document.getElementById("console-output");
+        output.innerHTML = logMessages
+          .map((log) => {
+            const className =
+              log.type === "warn"
+                ? "warning"
+                : log.type === "error"
+                  ? "error"
+                  : "success";
+            return `<span class="${className}">${log.msg}</span>`;
+          })
+          .join("\n");
+      }
+
+      function checkI18n() {
+        const div = document.getElementById("check-i18n");
+
+        if (!window.i18n) {
+          div.innerHTML = '<p class="error">❌ window.i18n n\'existe pas</p>';
+          return;
+        }
+
+        const checks = [
+          { name: "window.i18n", value: !!window.i18n },
+          {
+            name: "window.i18n.translations",
+            value: !!window.i18n.translations,
+          },
+          {
+            name: "window.i18n.currentLanguage",
+            value: window.i18n.currentLanguage,
+          },
+          {
+            name: "Langues supportées",
+            value: window.i18n.supportedLanguages
+              ? window.i18n.supportedLanguages.join(", ")
+              : "N/A",
+          },
+        ];
+
+        div.innerHTML = checks
+          .map(
+            (check) =>
+              `<p class="${check.value ? "success" : "error"}">
+                    ${check.value ? "✅" : "❌"} ${check.name}: ${typeof check.value === "boolean" ? (check.value ? "OK" : "KO") : check.value}
+                </p>`,
+          )
+          .join("");
+      }
+
+      function checkSessions() {
+        const div = document.getElementById("check-sessions");
+
+        if (!window.i18n || !window.i18n.translations) {
+          div.innerHTML =
+            '<p class="error">❌ window.i18n.translations n\'existe pas</p>';
+          return;
+        }
+
+        const results = [];
+
+        ["fr", "en", "sr"].forEach((lang) => {
+          const hasLang = window.i18n.translations[lang];
+          const hasSessions =
+            hasLang && window.i18n.translations[lang].sessions;
+          const hasCards =
+            hasSessions && window.i18n.translations[lang].sessions.cards;
+          const hasSession41 =
+            hasCards &&
+            window.i18n.translations[lang].sessions.cards.session_41;
+
+          results.push(`
+                    <div>
+                        <strong>${lang.toUpperCase()}:</strong>
+                        <ul>
+                            <li class="${hasLang ? "success" : "error"}">${hasLang ? "✅" : "❌"} translations.${lang}</li>
+                            <li class="${hasSessions ? "success" : "error"}">${hasSessions ? "✅" : "❌"} translations.${lang}.sessions</li>
+                            <li class="${hasCards ? "success" : "error"}">${hasCards ? "✅" : "❌"} translations.${lang}.sessions.cards</li>
+                            <li class="${hasSession41 ? "success" : "error"}">${hasSession41 ? "✅" : "❌"} translations.${lang}.sessions.cards.session_41</li>
+                            ${hasSession41 ? `<li class="success">📝 Titre: "${window.i18n.translations[lang].sessions.cards.session_41.title}"</li>` : ""}
+                        </ul>
+                    </div>
+                `);
+        });
+
+        div.innerHTML = results.join("");
+      }
+
+      function testTranslation() {
+        if (window.i18n && window.i18n.applyTranslations) {
+          window.i18n.applyTranslations();
+          updateCurrentLang();
+        } else {
+          alert("❌ window.i18n.applyTranslations() n'est pas disponible");
+        }
+      }
+
+      function switchLang() {
+        if (window.i18n && window.i18n.switchLanguage) {
+          window.i18n.switchLanguage();
+          updateCurrentLang();
+        } else {
+          alert("❌ window.i18n.switchLanguage() n'est pas disponible");
+        }
+      }
+
+      function updateCurrentLang() {
+        const div = document.getElementById("current-lang");
+        if (window.i18n) {
+          div.innerHTML = `<p><strong>Langue actuelle:</strong> <span class="success">${window.i18n.currentLanguage.toUpperCase()}</span></p>`;
+        }
+      }
+
+      // Vérification automatique après chargement
+      setTimeout(() => {
+        checkI18n();
+        checkSessions();
+        updateCurrentLang();
+      }, 500);
+
+      // Re-vérifier toutes les 2 secondes pendant 10 secondes
+      let checkCount = 0;
+      const intervalId = setInterval(() => {
+        checkCount++;
+        checkI18n();
+        checkSessions();
+        updateCurrentLang();
+
+        if (checkCount >= 5) {
+          clearInterval(intervalId);
+        }
+      }, 2000);
+    </script>
+  </body>
+</html>

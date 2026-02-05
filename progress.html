@@ -271,6 +271,39 @@
           </p>
         </div>
       </section>
+
+      <!-- Streak Widget -->
+      <div id="streak-widget"></div>
+
+      <!-- Progress Tracking -->
+      <section class="progress-section">
+        <h2 data-i18n="progress.title">Votre progression</h2>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+          <div class="progress-bar">
+            <div id="progress-fill"></div>
+          </div>
+          <span id="progress-percent">0%</span>
+        </div>
+
+        <!-- Calendar -->
+        <div class="calendar">
+          <div id="calendar-grid"></div>
+        </div>
+      </section>
+
+      <!-- Badges -->
+      <section class="badges-section">
+        <h2 data-i18n="progress.badges">Vos badges</h2>
+        <ul id="badges-list"></ul>
+      </section>
+
+      <!-- Recommendations -->
+      <section class="recommendations-section">
+        <h2 data-i18n="sessions.recommended">Recommandé pour vous</h2>
+        <div id="recommended-sessions" class="level-cards"></div>
+      </section>
     </main>
 
     <!-- Footer will be loaded dynamically -->
@@ -281,5 +314,7 @@
     <script defer src="js/theme.js"></script>
     <script defer src="js/auth.js"></script>
     <script defer src="js/progress.js"></script>
+    <script defer src="js/badges.js"></script>
+    <script defer src="js/recommendations.js"></script>
   </body>
 </html>

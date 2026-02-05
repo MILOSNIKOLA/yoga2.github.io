@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>🔥 Test Direct Traduction</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .test {
+        background: #f0f0f0;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+      }
+      .success {
+        color: #22c55e;
+        font-weight: bold;
+      }
+      .error {
+        color: #ef4444;
+        font-weight: bold;
+      }
+      button {
+        padding: 12px 24px;
+        margin: 5px;
+        background: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background: #2563eb;
+      }
+      pre {
+        background: #1e293b;
+        color: #e2e8f0;
+        padding: 15px;
+        border-radius: 6px;
+        overflow-x: auto;
+      }
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+      }
+      h3 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔥 Test Direct de Traduction des Sessions</h1>
+
+    <div class="test">
+      <h2>État du système</h2>
+      <div id="status"></div>
+    </div>
+
+    <div class="test">
+      <h2>Carte de Session Test</h2>
+      <div class="card">
+        <h3
+          class="session-card-title"
+          data-i18n="sessions.cards.session_41.title"
+        >
+          [Titre non traduit]
+        </h3>
+        <p
+          class="session-card-description"
+          data-i18n="sessions.cards.session_41.description"
+        >
+          [Description non traduite]
+        </p>
+      </div>
+      <button onclick="applyNow()">🔄 Appliquer Traductions</button>
+      <button onclick="changeLang()">🌐 Changer Langue</button>
+      <button onclick="showTranslations()">📋 Afficher Traductions</button>
+    </div>
+
+    <div class="test">
+      <h2>Console de Debug</h2>
+      <pre id="console"></pre>
+    </div>
+
+    <script src="js/i18n-manager.js"></script>
+    <script src="js/session-translations.js"></script>
+    <script>
+      let logs = [];
+
+      function log(msg, type = "info") {
+        const timestamp = new Date().toLocaleTimeString();
+        const prefix =
+          type === "error"
+            ? "❌"
+            : type === "success"
+              ? "✅"
+              : type === "warn"
+                ? "⚠️"
+                : "📝";
+        logs.push(`[${timestamp}] ${prefix} ${msg}`);
+        updateConsole();
+      }
+
+      function updateConsole() {
+        document.getElementById("console").textContent = logs.join("\n");
+      }
+
+      function updateStatus() {
+        const status = document.getElementById("status");
+        const checks = [
+          { label: "window.i18n", ok: !!window.i18n },
+          {
+            label: "window.i18n.translations",
+            ok: !!window.i18n?.translations,
+          },
+          {
+            label: "Langue actuelle",
+            ok: window.i18n?.currentLanguage,
+            value: window.i18n?.currentLanguage,
+          },
+          {
+            label: "FR sessions",
+            ok: !!window.i18n?.translations?.fr?.sessions,
+          },
+          {
+            label: "FR sessions.cards",
+            ok: !!window.i18n?.translations?.fr?.sessions?.cards,
+          },
+          {
+            label: "session_41",
+            ok: !!window.i18n?.translations?.fr?.sessions?.cards?.session_41,
+          },
+        ];
+
+        status.innerHTML = checks
+          .map(
+            (c) =>
+              `<div class="${c.ok ? "success" : "error"}">
+                    ${c.ok ? "✅" : "❌"} ${c.label}${c.value ? `: ${c.value}` : ""}
+                </div>`,
+          )
+          .join("");
+      }
+
+      function applyNow() {
+        log("Tentative d'application des traductions...");
+
+        if (!window.i18n) {
+          log("ERREUR: window.i18n n'existe pas", "error");
+          return;
+        }
+
+        if (!window.i18n.applyTranslations) {
+          log("ERREUR: window.i18n.applyTranslations n'existe pas", "error");
+          return;
+        }
+
+        // Vérifier les traductions avant
+        const key = "sessions.cards.session_41.title";
+        const translation = window.i18n.getTranslation(key);
+        log(`Traduction pour "${key}": ${translation}`);
+
+        // Appliquer
+        window.i18n.applyTranslations();
+
+        // Vérifier le résultat
+        const title = document.querySelector(".session-card-title").textContent;
+        const desc = document.querySelector(
+          ".session-card-description",
+        ).textContent;
+
+        log(
+          `Titre après application: "${title}"`,
+          title !== "[Titre non traduit]" ? "success" : "error",
+        );
+        log(
+          `Description après application: "${desc}"`,
+          desc !== "[Description non traduite]" ? "success" : "error",
+        );
+
+        updateStatus();
+      }
+
+      function changeLang() {
+        if (window.i18n && window.i18n.switchLanguage) {
+          window.i18n.switchLanguage();
+          log(`Langue changée vers: ${window.i18n.currentLanguage}`, "success");
+          updateStatus();
+        } else {
+          log("ERREUR: Impossible de changer de langue", "error");
+        }
+      }
+
+      function showTranslations() {
+        if (!window.i18n || !window.i18n.translations) {
+          log("Aucune traduction disponible", "error");
+          return;
+        }
+
+        const fr = window.i18n.translations.fr?.sessions?.cards?.session_41;
+        const en = window.i18n.translations.en?.sessions?.cards?.session_41;
+        const sr = window.i18n.translations.sr?.sessions?.cards?.session_41;
+
+        log("=== TRADUCTIONS DISPONIBLES ===");
+        log(`FR: ${JSON.stringify(fr, null, 2)}`);
+        log(`EN: ${JSON.stringify(en, null, 2)}`);
+        log(`SR: ${JSON.stringify(sr, null, 2)}`);
+      }
+
+      // Auto-test au chargement
+      setTimeout(() => {
+        log("=== DÉMARRAGE AUTO-TEST ===");
+        updateStatus();
+
+        setTimeout(() => {
+          log("Tentative d'application automatique...");
+          applyNow();
+        }, 500);
+      }, 1000);
+
+      // Re-test toutes les 3 secondes pendant 15 secondes
+      let testCount = 0;
+      const interval = setInterval(() => {
+        testCount++;
+        log(`--- Test automatique #${testCount} ---`);
+        updateStatus();
+
+        if (testCount >= 5) {
+          clearInterval(interval);
+          log("=== FIN DES TESTS AUTOMATIQUES ===", "success");
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>

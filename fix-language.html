@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>🔧 Correction de la Langue</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 40px;
+        max-width: 700px;
+        margin: 0 auto;
+        background: #f9fafb;
+      }
+      .box {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+      }
+      button {
+        padding: 15px 30px;
+        margin: 10px 5px;
+        background: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      button:hover {
+        background: #2563eb;
+      }
+      .success {
+        color: #22c55e;
+        font-weight: bold;
+      }
+      .error {
+        color: #ef4444;
+        font-weight: bold;
+      }
+      .warning {
+        color: #f59e0b;
+        font-weight: bold;
+      }
+      pre {
+        background: #1e293b;
+        color: #e2e8f0;
+        padding: 15px;
+        border-radius: 6px;
+        overflow-x: auto;
+        font-size: 13px;
+      }
+      h1 {
+        color: #1e293b;
+      }
+      h2 {
+        color: #475569;
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔧 Correction de la Langue</h1>
+
+    <div class="box">
+      <h2>Diagnostic</h2>
+      <div id="diagnostic"></div>
+    </div>
+
+    <div class="box">
+      <h2>Actions</h2>
+      <button onclick="resetToFrench()">🇫🇷 Réinitialiser en Français</button>
+      <button onclick="clearAll()">🗑️ Effacer Tout localStorage</button>
+      <button onclick="testGoals()">🎯 Tester les Goals</button>
+      <button onclick="window.location.href = 'sessions.html'">
+        ➡️ Aller à Sessions
+      </button>
+    </div>
+
+    <div class="box">
+      <h2>Console</h2>
+      <pre id="console"></pre>
+    </div>
+
+    <script>
+      let logs = [];
+
+      function log(msg, type = "info") {
+        const prefix =
+          type === "error"
+            ? "❌"
+            : type === "success"
+              ? "✅"
+              : type === "warn"
+                ? "⚠️"
+                : "📝";
+        logs.push(`${prefix} ${msg}`);
+        updateConsole();
+      }
+
+      function updateConsole() {
+        document.getElementById("console").textContent = logs.join("\n");
+      }
+
+      function diagnose() {
+        const diag = document.getElementById("diagnostic");
+        const savedLang = localStorage.getItem("site_language");
+
+        let html = "";
+
+        if (savedLang === "fr") {
+          html += '<p class="success">✅ Langue sauvegardée: FR (Français)</p>';
+        } else if (savedLang === "sr") {
+          html +=
+            '<p class="error">❌ Langue sauvegardée: SR (Serbe) - PROBLÈME DÉTECTÉ !</p>';
+        } else if (savedLang === "en") {
+          html += '<p class="warning">⚠️ Langue sauvegardée: EN (Anglais)</p>';
+        } else {
+          html += '<p class="warning">⚠️ Aucune langue sauvegardée</p>';
+        }
+
+        // Vérifier tout le localStorage
+        const allKeys = Object.keys(localStorage);
+        html += `<p>📦 Clés dans localStorage: ${allKeys.length}</p>`;
+        html +=
+          '<pre style="font-size: 11px;">' + allKeys.join("\n") + "</pre>";
+
+        diag.innerHTML = html;
+
+        log(
+          `Langue actuelle dans localStorage: ${savedLang || "aucune"}`,
+          savedLang === "fr" ? "success" : "error",
+        );
+      }
+
+      function resetToFrench() {
+        localStorage.setItem("site_language", "fr");
+        log("Langue réinitialisée en français", "success");
+        diagnose();
+        alert(
+          "✅ Langue réinitialisée en Français !\n\nRecharger la page sessions.html maintenant.",
+        );
+      }
+
+      function clearAll() {
+        if (
+          confirm(
+            "⚠️ Voulez-vous vraiment effacer TOUT le localStorage ?\n\n(Sessions, utilisateurs, etc. seront supprimés)",
+          )
+        ) {
+          localStorage.clear();
+          log("localStorage entièrement effacé", "warn");
+          diagnose();
+          alert(
+            "🗑️ localStorage effacé !\n\nRecréez les données si nécessaire.",
+          );
+        }
+      }
+
+      function testGoals() {
+        const testGoals = ["Détente", "Mobilité", "Renforcement", "Énergie"];
+
+        log("=== TEST DE NORMALISATION DES GOALS ===");
+
+        testGoals.forEach((goal) => {
+          const goalKey = goal
+            .toLowerCase()
+            .replace(/é|è/g, "e")
+            .replace(/ç/g, "c");
+
+          log(`"${goal}" → "sessions.goals.${goalKey}"`, "info");
+        });
+
+        log("=== FIN DU TEST ===", "success");
+      }
+
+      // Auto-diagnostic au chargement
+      diagnose();
+    </script>
+  </body>
+</html>

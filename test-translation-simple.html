@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test Translation Simple</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 40px;
+        background: #f5f5f5;
+      }
+      .box {
+        background: white;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      button {
+        padding: 12px 24px;
+        margin: 5px;
+        background: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background: #2563eb;
+      }
+      pre {
+        background: #1e293b;
+        color: #e2e8f0;
+        padding: 15px;
+        border-radius: 6px;
+        overflow-x: auto;
+        font-size: 12px;
+      }
+      .card {
+        background: #f9fafb;
+        padding: 20px;
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        margin: 10px 0;
+      }
+      .success {
+        color: #22c55e;
+        font-weight: bold;
+      }
+      .error {
+        color: #ef4444;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔍 Test Simple de Traduction</h1>
+
+    <div class="box">
+      <h2>Carte de Test</h2>
+      <div class="card">
+        <h3
+          class="session-card-title"
+          data-i18n="sessions.cards.session_41.title"
+        >
+          Titre Fallback FR
+        </h3>
+        <p
+          class="session-card-description"
+          data-i18n="sessions.cards.session_41.description"
+        >
+          Description Fallback FR
+        </p>
+      </div>
+      <button onclick="testAll()">🧪 Tester Tout</button>
+      <button onclick="changeLang()">🌐 Changer Langue</button>
+      <button onclick="forceApply()">🔄 Forcer Application</button>
+    </div>
+
+    <div class="box">
+      <h2>État du Système</h2>
+      <div id="status"></div>
+    </div>
+
+    <div class="box">
+      <h2>Console de Debug</h2>
+      <pre id="console"></pre>
+    </div>
+
+    <script src="js/i18n-manager.js"></script>
+    <script src="js/session-translations.js"></script>
+    <script>
+      // Intercepter console.log/warn/error pour afficher dans la page aussi
+      const originalLog = console.log;
+      const originalWarn = console.warn;
+      const originalError = console.error;
+
+      console.log = function (...args) {
+        originalLog.apply(console, args);
+        if (typeof addLog !== "undefined") {
+          addLog(args.join(" "), "info");
+        }
+      };
+
+      console.warn = function (...args) {
+        originalWarn.apply(console, args);
+        if (typeof addLog !== "undefined") {
+          addLog(args.join(" "), "warn");
+        }
+      };
+
+      console.error = function (...args) {
+        originalError.apply(console, args);
+        if (typeof addLog !== "undefined") {
+          addLog(args.join(" "), "error");
+        }
+      };
+    </script>
+    <script>
+      let logs = [];
+
+      function addLog(msg, type = "info") {
+        const timestamp = new Date().toLocaleTimeString();
+        const prefix =
+          type === "error"
+            ? "❌"
+            : type === "success"
+              ? "✅"
+              : type === "warn"
+                ? "⚠️"
+                : "📝";
+        logs.push(`[${timestamp}] ${prefix} ${msg}`);
+        updateConsole();
+      }
+
+      function updateConsole() {
+        document.getElementById("console").innerHTML = logs.join("\n");
+        document.getElementById("console").scrollTop =
+          document.getElementById("console").scrollHeight;
+      }
+
+      function updateStatus() {
+        const status = document.getElementById("status");
+        let html = "<h3>Vérifications:</h3>";
+
+        // 1. window.i18n existe ?
+        const i18nExists = !!window.i18n;
+        html += `<p class="${i18nExists ? "success" : "error"}">${i18nExists ? "✅" : "❌"} window.i18n existe</p>`;
+
+        if (!i18nExists) {
+          status.innerHTML =
+            html +
+            '<p class="error">❌ window.i18n n\'existe pas ! Vérifiez i18n-manager.js</p>';
+          return;
+        }
+
+        // 2. Langue actuelle
+        const lang = window.i18n.currentLanguage;
+        html += `<p class="success">✅ Langue actuelle: <strong>${lang.toUpperCase()}</strong></p>`;
+
+        // 3. Traductions chargées
+        const hasTranslations = !!window.i18n.translations;
+        html += `<p class="${hasTranslations ? "success" : "error"}">${hasTranslations ? "✅" : "❌"} window.i18n.translations existe</p>`;
+
+        // 4. Vérifier chaque langue
+        ["fr", "en", "sr"].forEach((l) => {
+          const path =
+            window.i18n?.translations?.[l]?.sessions?.cards?.session_41;
+          const exists = !!path;
+          html += `<p class="${exists ? "success" : "error"}">${exists ? "✅" : "❌"} Traductions ${l.toUpperCase()}: ${exists ? path.title : "MANQUANT"}</p>`;
+        });
+
+        // 5. Contenu actuel des éléments
+        const title = document.querySelector(".session-card-title");
+        const desc = document.querySelector(".session-card-description");
+        html += `<h3>Contenu Actuel:</h3>`;
+        html += `<p>📝 Titre: "${title?.textContent}"</p>`;
+        html += `<p>📝 Description: "${desc?.textContent}"</p>`;
+        html += `<p>🔑 data-i18n titre: "${title?.getAttribute("data-i18n")}"</p>`;
+
+        status.innerHTML = html;
+      }
+
+      function testAll() {
+        addLog("=== DÉBUT DES TESTS ===", "info");
+
+        // Test 1: window.i18n
+        if (!window.i18n) {
+          addLog("ERREUR: window.i18n n'existe pas", "error");
+          return;
+        }
+        addLog("OK: window.i18n existe", "success");
+
+        // Test 2: Langue actuelle
+        addLog(`Langue actuelle: ${window.i18n.currentLanguage}`, "info");
+
+        // Test 3: Traductions disponibles
+        const key = "sessions.cards.session_41.title";
+        const translationFR =
+          window.i18n.translations?.fr?.sessions?.cards?.session_41?.title;
+        const translationEN =
+          window.i18n.translations?.en?.sessions?.cards?.session_41?.title;
+        const translationSR =
+          window.i18n.translations?.sr?.sessions?.cards?.session_41?.title;
+
+        addLog(
+          `FR: ${translationFR || "MANQUANT"}`,
+          translationFR ? "success" : "error",
+        );
+        addLog(
+          `EN: ${translationEN || "MANQUANT"}`,
+          translationEN ? "success" : "error",
+        );
+        addLog(
+          `SR: ${translationSR || "MANQUANT"}`,
+          translationSR ? "success" : "error",
+        );
+
+        // Test 4: getTranslation
+        const result = window.i18n.getTranslation(key);
+        addLog(
+          `getTranslation("${key}"): ${result || "NULL"}`,
+          result ? "success" : "error",
+        );
+
+        // Test 5: Éléments DOM
+        const titleEl = document.querySelector(".session-card-title");
+        const descEl = document.querySelector(".session-card-description");
+        addLog(`Titre trouvé: ${!!titleEl}`, titleEl ? "success" : "error");
+        addLog(
+          `Description trouvée: ${!!descEl}`,
+          descEl ? "success" : "error",
+        );
+        addLog(`Contenu titre: "${titleEl?.textContent}"`, "info");
+        addLog(
+          `data-i18n titre: "${titleEl?.getAttribute("data-i18n")}"`,
+          "info",
+        );
+
+        addLog("=== FIN DES TESTS ===", "success");
+        updateStatus();
+      }
+
+      function changeLang() {
+        if (!window.i18n) {
+          addLog("ERREUR: window.i18n n'existe pas", "error");
+          return;
+        }
+
+        const oldLang = window.i18n.currentLanguage;
+        window.i18n.switchLanguage();
+        const newLang = window.i18n.currentLanguage;
+
+        addLog(`Langue changée: ${oldLang} → ${newLang}`, "success");
+
+        // Attendre un peu et vérifier le contenu
+        setTimeout(() => {
+          const title = document.querySelector(
+            ".session-card-title",
+          )?.textContent;
+          addLog(`Nouveau contenu titre: "${title}"`, "info");
+          updateStatus();
+        }, 200);
+      }
+
+      function forceApply() {
+        if (!window.i18n) {
+          addLog("ERREUR: window.i18n n'existe pas", "error");
+          return;
+        }
+
+        addLog("Force application des traductions...", "info");
+        window.i18n.applyTranslations();
+
+        setTimeout(() => {
+          const title = document.querySelector(
+            ".session-card-title",
+          )?.textContent;
+          addLog(`Contenu après application: "${title}"`, "info");
+          updateStatus();
+        }, 100);
+      }
+
+      // Auto-test au chargement
+      setTimeout(() => {
+        addLog("🚀 Page chargée, démarrage des tests automatiques", "info");
+        testAll();
+      }, 1500);
+
+      // Re-test toutes les 3 secondes
+      let testCount = 0;
+      setInterval(() => {
+        if (testCount < 3) {
+          testCount++;
+          addLog(`--- Auto-test #${testCount} ---`, "info");
+          updateStatus();
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>
