@@ -436,3 +436,95 @@
     `;
   document.head.appendChild(style);
 })();
+
+/* ========================================
+   PROGRESS TRACKING - PROGRESSION & CALENDRIER
+   ======================================== */
+
+let progressTracking = JSON.parse(localStorage.getItem("progress")) || {
+  completedSessions: [],
+  streak: 0,
+  lastSessionDate: null,
+};
+
+function completeSession(sessionId) {
+  const today = new Date().toISOString().split("T")[0];
+
+  if (
+    !progressTracking.completedSessions.find(
+      (s) => s.id === sessionId && s.date === today,
+    )
+  ) {
+    progressTracking.completedSessions.push({ id: sessionId, date: today });
+    updateStreak(today);
+    localStorage.setItem("progress", JSON.stringify(progressTracking));
+    return true;
+  }
+  return false;
+}
+
+function updateStreak(today) {
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  const yesterdayStr = yesterday.toISOString().split("T")[0];
+
+  if (
+    progressTracking.lastSessionDate === yesterdayStr ||
+    progressTracking.lastSessionDate === null
+  ) {
+    progressTracking.streak++;
+  } else {
+    progressTracking.streak = 1;
+  }
+
+  progressTracking.lastSessionDate = today;
+}
+
+function updateProgressBar(totalSessions = 30) {
+  const percent = Math.min(
+    Math.round(
+      (progressTracking.completedSessions.length / totalSessions) * 100,
+    ),
+    100,
+  );
+
+  const progressFill = document.getElementById("progress-fill");
+  const progressPercent = document.getElementById("progress-percent");
+
+  if (progressFill) {
+    progressFill.style.width = percent + "%";
+  }
+
+  if (progressPercent) {
+    progressPercent.textContent = percent + "%";
+  }
+}
+
+function renderCalendar() {
+  const grid = document.getElementById("calendar-grid");
+  if (!grid) return;
+
+  grid.innerHTML = "";
+
+  const last30Days = [...Array(30)].map((_, i) => {
+    const d = new Date();
+    d.setDate(d.getDate() - (29 - i));
+    return d.toISOString().split("T")[0];
+  });
+
+  last30Days.forEach((date) => {
+    const day = document.createElement("div");
+    day.className = "calendar-day";
+
+    if (progressTracking.completedSessions.some((s) => s.date === date)) {
+      day.classList.add("done");
+    }
+
+    grid.appendChild(day);
+  });
+}
+
+function initializeProgressTracking() {
+  updateProgressBar();
+  renderCalendar();
+}

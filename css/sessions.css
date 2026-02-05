@@ -130,10 +130,26 @@
 
 /* Sessions Grid */
 .sessions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
+  display: block;
   margin-top: 2rem;
+}
+
+/* Grouped Levels */
+.level-group {
+  margin-bottom: 3rem;
+}
+
+.level-title {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.level-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 /* Session Card */
@@ -190,26 +206,44 @@
 
 .session-level-badge {
   display: inline-block;
-  padding: 0.375rem 0.875rem;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  padding: 0.5rem 0.875rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  transition: all 0.3s ease;
 }
 
 .session-level-badge.beginner {
-  background: rgba(52, 211, 153, 0.2);
-  color: #10b981;
+  background-color: #4caf50;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.session-level-badge.beginner:hover {
+  background-color: #45a049;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
 }
 
 .session-level-badge.intermediate {
-  background: rgba(251, 191, 36, 0.2);
-  color: #f59e0b;
+  background-color: #ff9800;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);
+}
+
+.session-level-badge.intermediate:hover {
+  background-color: #e68900;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
 }
 
 .session-level-badge.advanced {
-  background: rgba(239, 68, 68, 0.2);
-  color: #ef4444;
+  background-color: #f44336;
+  box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+}
+
+.session-level-badge.advanced:hover {
+  background-color: #da190b;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.4);
 }
 
 .session-card-title {
@@ -272,6 +306,12 @@
 .session-card-button svg {
   width: 18px;
   height: 18px;
+}
+
+.session-card-button .button-text {
+  display: inline;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 /* Premium Badge */
@@ -397,4 +437,244 @@
 }
 .session-card-full:nth-child(6) {
   animation-delay: 0.3s;
+}
+/* ========================================
+   PROGRESS & TRACKING STYLES
+   ======================================== */
+
+.progress-section {
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.progress-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.progress-bar-container {
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+#progress-percent {
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 50px;
+  text-align: right;
+}
+
+/* Calendar */
+.calendar {
+  margin-top: 2rem;
+}
+
+#calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.calendar-day {
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.calendar-day:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.calendar-day.done {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+}
+
+/* Badges */
+.badges-section {
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.badges-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+#badges-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.badge {
+  padding: 1rem;
+  background: rgba(139, 92, 246, 0.1);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.badge-icon {
+  font-size: 1.5rem;
+}
+
+.badge-text {
+  color: var(--text-primary);
+}
+
+.badge-streak {
+  background: rgba(255, 107, 107, 0.1);
+  border-color: #ff6b6b;
+}
+
+.badge-milestone {
+  background: rgba(255, 193, 7, 0.1);
+  border-color: #ffc107;
+}
+
+.badge-progress {
+  background: rgba(76, 175, 80, 0.1);
+  border-color: #4caf50;
+}
+
+.badge-elite {
+  background: rgba(156, 39, 176, 0.1);
+  border-color: #9c27b0;
+}
+
+.badge-legendary {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: #ffd700;
+}
+
+.badge-starter {
+  background: rgba(33, 150, 243, 0.1);
+  border-color: #2196f3;
+}
+
+.badge-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem;
+}
+
+/* Streak Widget */
+#streak-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 107, 0.1),
+    rgba(255, 193, 7, 0.1)
+  );
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.streak-display {
+  text-align: center;
+}
+
+.streak-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.streak-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.streak-milestone {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Recommendations Section */
+.recommendations-section {
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.recommendations-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.recommendation-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.recommendation-card::before {
+  content: "✨";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.25rem;
+  opacity: 0.6;
+}
+
+/* Mobile responsiveness for progress */
+@media (max-width: 768px) {
+  .progress-section,
+  .badges-section {
+    padding: 1.5rem;
+  }
+
+  #calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  #badges-list {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-day {
+    height: 24px;
+  }
 }

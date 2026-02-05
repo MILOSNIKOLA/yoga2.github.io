@@ -217,6 +217,29 @@
         "free": "Gratuit",
         "premium": "Premium"
       },
+      "level": {
+        "beginner": "Débutant",
+        "intermediate": "Intermédiaire",
+        "advanced": "Avancé"
+      },
+      "goals": {
+        "detente": "Détente",
+        "mobilite": "Mobilité",
+        "renforcement": "Renforcement",
+        "energie": "Énergie",
+        "respiration": "Respiration",
+        "dos": "Dos",
+        "avc": "Rééducation douce",
+        "equilibre": "Équilibre",
+        "sommeil": "Sommeil",
+        "flexibilite": "Flexibilité",
+        "endurance": "Endurance"
+      },
+      "actions": {
+        "start": "Commencer",
+        "resume": "Reprendre",
+        "completed": "Terminée"
+      },
       "filter": {
         "level": {
           "all": "Tous les niveaux",
@@ -775,6 +798,29 @@
         "free": "Free",
         "premium": "Premium"
       },
+      "level": {
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "advanced": "Advanced"
+      },
+      "goals": {
+        "detente": "Relaxation",
+        "mobilite": "Mobility",
+        "renforcement": "Strength",
+        "energie": "Energy",
+        "respiration": "Breathing",
+        "dos": "Back",
+        "avc": "Gentle Rehabilitation",
+        "equilibre": "Balance",
+        "sommeil": "Sleep",
+        "flexibilite": "Flexibility",
+        "endurance": "Endurance"
+      },
+      "actions": {
+        "start": "Start",
+        "resume": "Resume",
+        "completed": "Completed"
+      },
       "filter": {
         "level": {
           "all": "All levels",
@@ -803,7 +849,12 @@
         "title": "No sessions found",
         "text": "Try adjusting your filters to find other sessions",
         "reset": "Reset filters"
-      }
+      },
+      "recommended": "Recommended for you"
+    },
+    "progress": {
+      "title": "Your Progress",
+      "badges": "Your Badges"
     },
     "dashboard": {
       "pageTitle": "My space - Yoga App",
@@ -1291,6 +1342,29 @@
         "free": "Besplatno",
         "premium": "Premium"
       },
+      "level": {
+        "beginner": "Početnik",
+        "intermediate": "Srednji",
+        "advanced": "Napredni"
+      },
+      "goals": {
+        "detente": "Opuštanje",
+        "mobilite": "Mobilnost",
+        "renforcement": "Jačanje",
+        "energie": "Energija",
+        "respiration": "Disanje",
+        "dos": "Leđa",
+        "avc": "Blaga rehabilitacija",
+        "equilibre": "Balans",
+        "sommeil": "Spavanje",
+        "flexibilite": "Fleksibilnost",
+        "endurance": "Izdržljivost"
+      },
+      "actions": {
+        "start": "Počni",
+        "resume": "Nastavi",
+        "completed": "Dovršeno"
+      },
       "filter": {
         "level": {
           "all": "Svi nivoi",
@@ -1319,7 +1393,12 @@
         "title": "Nema pronađenih sesija",
         "text": "Pokušajte da prilagodite filtere da biste pronašli druge sesije",
         "reset": "Resetuj filtere"
-      }
+      },
+      "recommended": "Preporučeno za vas"
+    },
+    "progress": {
+      "title": "Vaš napredak",
+      "badges": "Vaše značke"
     },
     "dashboard": {
       "pageTitle": "Moj prostor - Yoga App",

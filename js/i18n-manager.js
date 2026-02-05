@@ -12,7 +12,7 @@ class I18nSystem {
     this.translations = {};
     this.supportedLanguages = ["fr", "en", "sr"];
     this.storageKey = "site_language";
-    this.DEBUG = false; // Activer les logs de debug si nécessaire
+    this.DEBUG = true; // Activer les logs de debug pour diagnostiquer le problème
   }
 
   /**
@@ -38,6 +38,9 @@ class I18nSystem {
 
       // 5️⃣ Initialiser le bouton de langue (une seule fois)
       this.setupLanguageToggle();
+
+      // 6️⃣ Initialiser MutationObserver pour les éléments ajoutés dynamiquement
+      this.setupMutationObserver();
 
       this.log("✅ i18n System initialisé avec succès");
     } catch (error) {
@@ -181,12 +184,26 @@ class I18nSystem {
       return;
     }
 
+    let translatedCount = 0;
+    let failedCount = 0;
+
     // Appliquer data-i18n
     document.querySelectorAll("[data-i18n]").forEach((element) => {
       const key = element.getAttribute("data-i18n");
       const text = this.getTranslation(key);
       if (text !== null) {
         element.textContent = text;
+        translatedCount++;
+        if (this.DEBUG && key.includes("session_41")) {
+          console.log(`🔄 Traduit: ${key} → "${text}"`);
+        }
+      } else {
+        failedCount++;
+        if (this.DEBUG && key.includes("session")) {
+          console.warn(
+            `⚠️ Clé non trouvée: ${key} (langue: ${this.currentLanguage})`,
+          );
+        }
       }
     });
 
@@ -211,6 +228,11 @@ class I18nSystem {
     // Appliquer les traductions d'attributs via data-i18n-attr-*
     this.applyAttributeTranslations();
 
+    if (this.DEBUG) {
+      console.log(
+        `✅ Traductions appliquées: ${translatedCount} éléments traduits, ${failedCount} échoués (langue: ${this.currentLanguage})`,
+      );
+    }
     this.log("✅ Traductions appliquées au DOM");
   }
 
@@ -253,7 +275,12 @@ class I18nSystem {
       if (value && typeof value === "object" && k in value) {
         value = value[k];
       } else {
-        // Clé manquante: ignorer silencieusement
+        // Clé manquante: afficher un avertissement en mode DEBUG
+        if (this.DEBUG) {
+          console.warn(
+            `⚠️ Traduction manquante: ${key} (langue: ${this.currentLanguage})`,
+          );
+        }
         return null;
       }
     }
@@ -333,6 +360,52 @@ class I18nSystem {
   }
 
   /**
+   * Configuration du MutationObserver pour traduire les nouveaux éléments
+   * Observe l'ajout de nouveaux nœuds au DOM
+   */
+  setupMutationObserver() {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "childList") {
+          // Parcourir les nœuds ajoutés
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeType === 1) {
+              // Node.ELEMENT_NODE
+              // Vérifier si le nœud lui-même a data-i18n
+              if (node.hasAttribute && node.hasAttribute("data-i18n")) {
+                const key = node.getAttribute("data-i18n");
+                const text = this.getTranslation(key);
+                if (text !== null) {
+                  node.textContent = text;
+                }
+              }
+
+              // Vérifier tous les descendants qui ont data-i18n
+              if (node.querySelectorAll) {
+                node.querySelectorAll("[data-i18n]").forEach((el) => {
+                  const key = el.getAttribute("data-i18n");
+                  const text = this.getTranslation(key);
+                  if (text !== null) {
+                    el.textContent = text;
+                  }
+                });
+              }
+            }
+          });
+        }
+      });
+    });
+
+    // Démarrer l'observation du document
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    this.log("✅ MutationObserver configuré pour les traductions dynamiques");
+  }
+
+  /**
    * Log de debug (désactivable)
    */
   log(message) {
@@ -344,6 +417,9 @@ class I18nSystem {
 
 // ✅ Initialisation UNIQUE du système
 const i18n = new I18nSystem();
+
+// Exposer i18n globalement pour les autres scripts
+window.i18n = i18n;
 
 // Attendre que le DOM soit prêt
 if (document.readyState === "loading") {

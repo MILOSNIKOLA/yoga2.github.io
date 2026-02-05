@@ -19,9 +19,39 @@ function initializeSessionsPage() {
   // Setup event listeners
   setupEventListeners();
 
-  // Initial render
-  renderSessions(allSessions);
-  updateResultsCount(allSessions.length);
+  // S'assurer que les traductions de sessions sont initialisées
+  // Attendre que window.i18n et les traductions soient disponibles
+  let waitAttempts = 0;
+  const maxWaitAttempts = 40; // 40 * 50ms = 2 secondes max
+
+  function waitForTranslationsAndRender() {
+    waitAttempts++;
+
+    const translationsReady =
+      window.i18n &&
+      window.i18n.translations &&
+      window.i18n.translations.fr &&
+      window.i18n.translations.fr.sessions &&
+      window.i18n.translations.fr.sessions.cards &&
+      window.i18n.translations.fr.sessions.cards.session_41;
+
+    if (translationsReady) {
+      console.log("✅ Traductions de sessions chargées, rendu des cartes...");
+      renderSessions(allSessions);
+      updateResultsCount(allSessions.length);
+    } else if (waitAttempts >= maxWaitAttempts) {
+      console.warn("⚠️ Timeout: rendu des cartes sans traductions complètes");
+      renderSessions(allSessions);
+      updateResultsCount(allSessions.length);
+    } else {
+      console.log(
+        `⏳ En attente des traductions... (${waitAttempts}/${maxWaitAttempts})`,
+      );
+      setTimeout(waitForTranslationsAndRender, 50);
+    }
+  }
+
+  waitForTranslationsAndRender();
 }
 
 function updateNavbarAuth() {
@@ -48,6 +78,9 @@ function loadSessions() {
   if (sessions) {
     allSessions = JSON.parse(sessions);
 
+    // Ajouter les sessions supplémentaires si pas déjà présentes
+    addExtraSessions();
+
     // Vérifier si l'utilisateur est connecté
     const userId =
       sessionStorage.getItem("userId") || localStorage.getItem("userId");
@@ -65,6 +98,329 @@ function loadSessions() {
     allSessions = [];
     filteredSessions = [];
   }
+}
+
+function addExtraSessions() {
+  const existingIds = new Set(allSessions.map((s) => s.id));
+
+  const extraSessions = [
+    /* ================= DÉBUTANT ================= */
+    {
+      id: 41,
+      title: "Étirements matinaux doux",
+      description: "Réveillez votre corps en douceur",
+      level: "beginner",
+      duration: 10,
+      type: "hatha",
+      free: true,
+      objectives: ["mobilité"],
+    },
+    {
+      id: 42,
+      title: "Yoga respiration profonde",
+      description: "Techniques respiratoires apaisantes",
+      level: "beginner",
+      duration: 8,
+      type: "yin",
+      free: true,
+      objectives: ["détente"],
+    },
+    {
+      id: 43,
+      title: "Yoga anti-stress",
+      description: "Techniques pour réduire le stress",
+      level: "beginner",
+      duration: 15,
+      type: "yin",
+      free: true,
+      objectives: ["détente"],
+    },
+    {
+      id: 44,
+      title: "Mobilité hanches débutant",
+      description: "Assouplir les hanches en douceur",
+      level: "beginner",
+      duration: 12,
+      type: "hatha",
+      free: true,
+      objectives: ["mobilité"],
+    },
+    {
+      id: 45,
+      title: "Yoga dos sensible",
+      description: "Soulager et renforcer le dos",
+      level: "beginner",
+      duration: 20,
+      type: "hatha",
+      free: true,
+      objectives: ["détente"],
+    },
+    {
+      id: 46,
+      title: "Yoga du soir relaxant",
+      description: "Préparation au sommeil réparateur",
+      level: "beginner",
+      duration: 15,
+      type: "yin",
+      free: true,
+      objectives: ["détente"],
+    },
+    {
+      id: 47,
+      title: "Flow lent débutant",
+      description: "Enchaînement doux et fluide",
+      level: "beginner",
+      duration: 18,
+      type: "flow",
+      free: true,
+      objectives: ["mobilité"],
+    },
+    {
+      id: 48,
+      title: "Yoga posture de base",
+      description: "Apprentissage des postures fondamentales",
+      level: "beginner",
+      duration: 20,
+      type: "hatha",
+      free: true,
+      objectives: ["énergie"],
+    },
+    {
+      id: 49,
+      title: "Souplesse jambes débutant",
+      description: "Étirements et flexibilité des jambes",
+      level: "beginner",
+      duration: 15,
+      type: "yin",
+      free: true,
+      objectives: ["mobilité"],
+    },
+    {
+      id: 50,
+      title: "Yoga détente express",
+      description: "Relaxation courte et efficace",
+      level: "beginner",
+      duration: 5,
+      type: "yin",
+      free: true,
+      objectives: ["détente"],
+    },
+
+    /* ================= INTERMÉDIAIRE ================= */
+    {
+      id: 51,
+      title: "Vinyasa énergie",
+      description: "Flow dynamique pour l'énergie",
+      level: "intermediate",
+      duration: 25,
+      type: "vinyasa",
+      free: false,
+      objectives: ["énergie"],
+    },
+    {
+      id: 52,
+      title: "Renforcement centre du corps",
+      description: "Renforcer les abdominaux et le core",
+      level: "intermediate",
+      duration: 20,
+      type: "flow",
+      free: false,
+      objectives: ["renforcement"],
+    },
+    {
+      id: 53,
+      title: "Yoga mobilité épaules",
+      description: "Ouvrir et mobiliser les épaules",
+      level: "intermediate",
+      duration: 18,
+      type: "hatha",
+      free: true,
+      objectives: ["mobilité"],
+    },
+    {
+      id: 54,
+      title: "Flow équilibre",
+      description: "Travail de l'équilibre et de la stabilité",
+      level: "intermediate",
+      duration: 22,
+      type: "flow",
+      free: false,
+      objectives: ["renforcement"],
+    },
+    {
+      id: 55,
+      title: "Vinyasa fluide",
+      description: "Enchaînement fluide et harmonieux",
+      level: "intermediate",
+      duration: 30,
+      type: "vinyasa",
+      free: false,
+      objectives: ["énergie"],
+    },
+    {
+      id: 56,
+      title: "Yoga force douce",
+      description: "Renforcement progressif et en douceur",
+      level: "intermediate",
+      duration: 25,
+      type: "hatha",
+      free: true,
+      objectives: ["renforcement"],
+    },
+    {
+      id: 57,
+      title: "Flow cardio léger",
+      description: "Cardio sans impact avec le yoga",
+      level: "intermediate",
+      duration: 20,
+      type: "flow",
+      free: true,
+      objectives: ["énergie"],
+    },
+    {
+      id: 58,
+      title: "Yoga mobilité globale",
+      description: "Mobilité complète du corps",
+      level: "intermediate",
+      duration: 30,
+      type: "hatha",
+      free: true,
+      objectives: ["mobilité"],
+    },
+    {
+      id: 59,
+      title: "Vinyasa respiration",
+      description: "Synchronisation respiration-mouvements",
+      level: "intermediate",
+      duration: 18,
+      type: "vinyasa",
+      free: true,
+      objectives: ["détente"],
+    },
+    {
+      id: 60,
+      title: "Flow endurance",
+      description: "Construire votre endurance",
+      level: "intermediate",
+      duration: 35,
+      type: "flow",
+      free: false,
+      objectives: ["renforcement"],
+    },
+
+    /* ================= AVANCÉ ================= */
+    {
+      id: 61,
+      title: "Vinyasa intense",
+      description: "Flow puissant et exigeant",
+      level: "advanced",
+      duration: 45,
+      type: "vinyasa",
+      free: false,
+      objectives: ["renforcement"],
+    },
+    {
+      id: 62,
+      title: "Flow force complète",
+      description: "Renforcement complet du corps",
+      level: "advanced",
+      duration: 40,
+      type: "flow",
+      free: false,
+      objectives: ["renforcement"],
+    },
+    {
+      id: 63,
+      title: "Yoga équilibre avancé",
+      description: "Poses d'équilibre complexes",
+      level: "advanced",
+      duration: 30,
+      type: "hatha",
+      free: false,
+      objectives: ["renforcement"],
+    },
+    {
+      id: 64,
+      title: "Vinyasa cardio",
+      description: "Vinyasa avec cardio intensif",
+      level: "advanced",
+      duration: 35,
+      type: "vinyasa",
+      free: false,
+      objectives: ["énergie"],
+    },
+    {
+      id: 65,
+      title: "Flow explosif",
+      description: "Flow puissant et explosif",
+      level: "advanced",
+      duration: 45,
+      type: "flow",
+      free: false,
+      objectives: ["énergie"],
+    },
+    {
+      id: 66,
+      title: "Yoga force bras",
+      description: "Renforcement intensif des bras",
+      level: "advanced",
+      duration: 30,
+      type: "hatha",
+      free: false,
+      objectives: ["renforcement"],
+    },
+    {
+      id: 67,
+      title: "Vinyasa avancé long",
+      description: "Vinyasa complet d'une heure",
+      level: "advanced",
+      duration: 60,
+      type: "vinyasa",
+      free: false,
+      objectives: ["renforcement"],
+    },
+    {
+      id: 68,
+      title: "Flow endurance avancé",
+      description: "Test d'endurance ultime",
+      level: "advanced",
+      duration: 50,
+      type: "flow",
+      free: false,
+      objectives: ["renforcement"],
+    },
+    {
+      id: 69,
+      title: "Yoga puissance jambes",
+      description: "Renforcement intensif des jambes",
+      level: "advanced",
+      duration: 35,
+      type: "hatha",
+      free: false,
+      objectives: ["renforcement"],
+    },
+    {
+      id: 70,
+      title: "Flow maîtrise totale",
+      description: "Maîtrise totale du flow",
+      level: "advanced",
+      duration: 45,
+      type: "flow",
+      free: false,
+      objectives: ["énergie"],
+    },
+  ];
+
+  // Ajouter les sessions supplémentaires si elles n'existent pas
+  extraSessions.forEach((session) => {
+    if (!existingIds.has(session.id)) {
+      session.createdAt = new Date().toISOString();
+      allSessions.push(session);
+    }
+  });
+
+  // Mettre à jour localStorage
+  localStorage.setItem("sessions", JSON.stringify(allSessions));
 }
 
 /* ========================================
@@ -117,7 +473,7 @@ function handleFiltersChange() {
     grid.style.display = "none";
     emptyState.classList.remove("hidden");
   } else {
-    grid.style.display = "grid";
+    grid.style.display = "block";
     emptyState.classList.add("hidden");
   }
 }
@@ -198,6 +554,17 @@ function renderSessions(sessions) {
     .map((session) => createSessionCard(session))
     .join("");
 
+  groupSessionsByLevel();
+
+  // Forcer l'application des traductions après le rendu
+  // Utiliser un délai plus long pour s'assurer que le DOM est mis à jour
+  setTimeout(() => {
+    if (window.i18n && window.i18n.applyTranslations) {
+      window.i18n.applyTranslations();
+      console.log("✅ Traductions appliquées aux cartes de session");
+    }
+  }, 100);
+
   // Ajouter la carte de connexion si non connecté
   const userId =
     sessionStorage.getItem("userId") || localStorage.getItem("userId");
@@ -251,8 +618,56 @@ function renderSessions(sessions) {
   });
 }
 
+function groupSessionsByLevel() {
+  const grid = document.getElementById("sessions-grid");
+  const cards = Array.from(grid.querySelectorAll(".session-card"));
+
+  if (!cards.length) return;
+
+  grid.innerHTML = "";
+
+  const levels = [
+    { key: "beginner", i18n: "sessions.level.beginner" },
+    { key: "intermediate", i18n: "sessions.level.intermediate" },
+    { key: "advanced", i18n: "sessions.level.advanced" },
+  ];
+
+  levels.forEach((level) => {
+    const group = document.createElement("div");
+    group.className = "level-group";
+    group.dataset.level = level.key;
+
+    const title = document.createElement("h2");
+    title.className = "level-title";
+    title.setAttribute("data-i18n", level.i18n);
+
+    const cardsContainer = document.createElement("div");
+    cardsContainer.className = "level-cards";
+
+    cards
+      .filter((card) => card.dataset.level === level.key)
+      .forEach((card) => cardsContainer.appendChild(card));
+
+    if (cardsContainer.children.length > 0) {
+      group.appendChild(title);
+      group.appendChild(cardsContainer);
+      grid.appendChild(group);
+    }
+  });
+
+  // Réapplique les traductions
+  if (window.applyTranslations) {
+    applyTranslations();
+  }
+}
+
 function createSessionCard(session) {
-  const levelText =
+  // Générer une clé unique pour la session (pour i18n)
+  const sessionKey = `sessions.cards.session_${session.id}`;
+
+  // Texte du badge (sera traduit automatiquement via i18n)
+  const badgei18nKey = `sessions.level.${session.level}`;
+  const badgeText =
     session.level === "beginner"
       ? "Débutant"
       : session.level === "intermediate"
@@ -263,9 +678,18 @@ function createSessionCard(session) {
     ? '<span class="premium-badge-card">Premium</span>'
     : "";
 
-  const goalsHTML = session.goals
-    ? session.goals
-        .map((goal) => `<span class="session-goal-chip">${goal}</span>`)
+  // Objectifs avec data-i18n (avec texte de fallback)
+  const goalsHTML = session.objectives
+    ? session.objectives
+        .map((goal) => {
+          // Normaliser le goal (lowercase, sans accents dans la clé)
+          const goalKey = goal
+            .toLowerCase()
+            .replace(/é|è/g, "e")
+            .replace(/ç/g, "c");
+          // Ajouter le texte original comme fallback
+          return `<span class="session-goal-chip" data-i18n="sessions.goals.${goalKey}">${goal}</span>`;
+        })
         .join("")
     : "";
 
@@ -286,7 +710,7 @@ function createSessionCard(session) {
   const sessionIcon = iconMap[session.type] || "🧘‍♀️";
 
   return `
-    <div id="session-${session.id}" class="session-card-full">
+    <div id="session-${session.id}" class="session-card-full session-card" data-level="${session.level}">
       <div class="session-card-header">
         <div class="session-icon">${sessionIcon}</div>
         <div class="session-duration">
@@ -299,11 +723,26 @@ function createSessionCard(session) {
       </div>
       <div class="session-card-body">
         <div class="session-badge-container">
-          <span class="session-level-badge ${session.level}">${levelText}</span>
+          <span 
+            class="session-level-badge ${session.level}"
+            data-i18n="${badgei18nKey}"
+          >
+            ${badgeText}
+          </span>
           ${premiumBadge}
         </div>
-        <h3 class="session-card-title">${session.title}</h3>
-        <p class="session-card-description">${session.description}</p>
+        <h3 
+          class="session-card-title"
+          data-i18n="${sessionKey}.title"
+        >
+          ${session.title}
+        </h3>
+        <p 
+          class="session-card-description"
+          data-i18n="${sessionKey}.description"
+        >
+          ${session.description}
+        </p>
         ${goalsHTML ? `<div class="session-goals">${goalsHTML}</div>` : ""}
       </div>
       <div class="session-card-footer">
@@ -312,7 +751,7 @@ function createSessionCard(session) {
             <circle cx="12" cy="12" r="10"></circle>
             <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
           </svg>
-          Commencer
+          <span class="button-text" data-i18n="sessions.actions.start">Commencer</span>
         </button>
       </div>
     </div>
