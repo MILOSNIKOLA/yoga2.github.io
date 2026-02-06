@@ -89,7 +89,11 @@ function buildSessionTranslations() {
       const parsedSessions = JSON.parse(sessions);
 
       parsedSessions.forEach((session) => {
-        const sessionKey = session.id || session.title;
+        const sessionId = String(session.id || "");
+        if (!/^[0-9]+$/.test(sessionId)) {
+          return;
+        }
+        const sessionKey = `session_${sessionId}`;
 
         // Only add translation if we have meaningful data
         if (session.title && session.title.trim()) {

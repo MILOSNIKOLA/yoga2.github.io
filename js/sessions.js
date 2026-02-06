@@ -81,6 +81,10 @@ function loadSessions() {
     // Ajouter les sessions supplémentaires si pas déjà présentes
     addExtraSessions();
 
+    allSessions = allSessions.filter((session) =>
+      /^[0-9]+$/.test(String(session.id)),
+    );
+
     // Vérifier si l'utilisateur est connecté
     const userId =
       sessionStorage.getItem("userId") || localStorage.getItem("userId");
@@ -575,11 +579,11 @@ function renderSessions(sessions) {
       <div class="session-card-full login-prompt-card">
         <div class="session-card-body" style="padding: 3rem; text-align: center;">
           <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
-          <h3 class="session-card-title">Accédez à toutes les séances</h3>
-          <p class="session-card-description" style="margin-bottom: 1.5rem;">
+          <h3 class="session-card-title" data-i18n="sessions.loginPrompt.title">Accédez à toutes les séances</h3>
+          <p class="session-card-description" style="margin-bottom: 1.5rem;" data-i18n="sessions.loginPrompt.description">
             Connectez-vous pour débloquer l'accès à toutes les séances disponibles
           </p>
-          <a href="login.html" class="session-card-button" style="display: inline-block; text-decoration: none;">
+          <a href="login.html" class="session-card-button" style="display: inline-block; text-decoration: none;" data-i18n="sessions.loginPrompt.button">
             Se connecter
           </a>
         </div>
@@ -654,11 +658,6 @@ function groupSessionsByLevel() {
       grid.appendChild(group);
     }
   });
-
-  // Réapplique les traductions
-  if (window.applyTranslations) {
-    applyTranslations();
-  }
 }
 
 function createSessionCard(session) {
@@ -678,17 +677,40 @@ function createSessionCard(session) {
     ? '<span class="premium-badge-card">Premium</span>'
     : "";
 
-  // Objectifs avec data-i18n (avec texte de fallback)
+  const goalMap = {
+    detente: "relaxation",
+    mobilite: "mobilite",
+    renforcement: "renforcement",
+    energie: "energie",
+    soulagement: "mobilite",
+  };
+
   const goalsHTML = session.objectives
     ? session.objectives
-        .map((goal) => {
-          // Normaliser le goal (lowercase, sans accents dans la clé)
-          const goalKey = goal
+        .map((goal, index) => {
+          const normalizedGoal = String(goal)
             .toLowerCase()
-            .replace(/é|è/g, "e")
-            .replace(/ç/g, "c");
-          // Ajouter le texte original comme fallback
-          return `<span class="session-goal-chip" data-i18n="sessions.goals.${goalKey}">${goal}</span>`;
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+          const goalKey = goalMap[normalizedGoal];
+
+          if (!goalKey) return "";
+
+          const chipClass =
+            index === 0
+              ? "session-goal-chip session-goal-chip-1"
+              : index === 1
+                ? "session-goal-chip session-goal-chip-2"
+                : "session-goal-chip";
+
+          return `
+          <span 
+            class="${chipClass}"
+            data-i18n="sessions.goals.${goalKey}"
+          >
+            ${goal}
+          </span>
+        `;
         })
         .join("")
     : "";

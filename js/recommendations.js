@@ -96,8 +96,8 @@ function renderRecommendations() {
             <div class="session-badge-container">
               <span class="session-level-badge ${session.level}">${levelText}</span>
             </div>
-            <h3 class="session-card-title">${session.title}</h3>
-            <p class="session-card-description">${session.description}</p>
+            <h3 class="session-card-title" data-i18n="sessions.cards.session_${session.id}.title">${session.title}</h3>
+            <p class="session-card-description" data-i18n="sessions.cards.session_${session.id}.description">${session.description}</p>
           </div>
           <div class="session-card-footer">
             <button class="session-card-button recommendation-button" onclick="startRecommendedSession('${session.id}')">

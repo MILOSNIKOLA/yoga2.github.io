@@ -240,6 +240,11 @@
         "resume": "Reprendre",
         "completed": "Terminée"
       },
+      "loginPrompt": {
+        "title": "Accédez à toutes les séances",
+        "description": "Connectez-vous pour débloquer l'accès à toutes les séances disponibles",
+        "button": "Se connecter"
+      },
       "filter": {
         "level": {
           "all": "Tous les niveaux",
@@ -821,6 +826,133 @@
         "resume": "Resume",
         "completed": "Completed"
       },
+      "loginPrompt": {
+        "title": "Access all sessions",
+        "description": "Log in to unlock access to all available sessions",
+        "button": "Log in"
+      },
+      "cards": {
+        "session_41": {
+          "title": "Gentle Morning Stretches",
+          "description": "Gently wake up your body"
+        },
+        "session_42": {
+          "title": "Deep Breathing Yoga",
+          "description": "Soothing breathing techniques"
+        },
+        "session_43": {
+          "title": "Anti-stress Yoga",
+          "description": "Techniques to reduce stress"
+        },
+        "session_44": {
+          "title": "Beginner Hip Mobility",
+          "description": "Gently loosen the hips"
+        },
+        "session_45": {
+          "title": "Gentle Back Yoga",
+          "description": "Relieve and strengthen the back"
+        },
+        "session_46": {
+          "title": "Relaxing Evening Yoga",
+          "description": "Prepare for restorative sleep"
+        },
+        "session_47": {
+          "title": "Slow Beginner Flow",
+          "description": "Gentle and fluid sequence"
+        },
+        "session_48": {
+          "title": "Basic Yoga Postures",
+          "description": "Learn foundational poses"
+        },
+        "session_49": {
+          "title": "Beginner Leg Flexibility",
+          "description": "Leg stretches and flexibility"
+        },
+        "session_50": {
+          "title": "Quick Relaxation Yoga",
+          "description": "Short and effective relaxation"
+        },
+        "session_51": {
+          "title": "Energizing Vinyasa",
+          "description": "Dynamic flow for energy"
+        },
+        "session_52": {
+          "title": "Core Strengthening",
+          "description": "Strengthen abs and core"
+        },
+        "session_53": {
+          "title": "Shoulder Mobility Yoga",
+          "description": "Open and mobilize the shoulders"
+        },
+        "session_54": {
+          "title": "Balance Flow",
+          "description": "Work on balance and stability"
+        },
+        "session_55": {
+          "title": "Fluid Vinyasa",
+          "description": "Fluid and harmonious sequence"
+        },
+        "session_56": {
+          "title": "Gentle Strength Yoga",
+          "description": "Progressive, gentle strengthening"
+        },
+        "session_57": {
+          "title": "Light Cardio Flow",
+          "description": "Low-impact cardio with yoga"
+        },
+        "session_58": {
+          "title": "Full-body Mobility Yoga",
+          "description": "Whole-body mobility"
+        },
+        "session_59": {
+          "title": "Breath-focused Vinyasa",
+          "description": "Sync breath and movement"
+        },
+        "session_60": {
+          "title": "Endurance Flow",
+          "description": "Build your endurance"
+        },
+        "session_61": {
+          "title": "Intense Vinyasa",
+          "description": "Powerful, demanding flow"
+        },
+        "session_62": {
+          "title": "Full-body Strength Flow",
+          "description": "Full-body strengthening"
+        },
+        "session_63": {
+          "title": "Advanced Balance Yoga",
+          "description": "Complex balance poses"
+        },
+        "session_64": {
+          "title": "Cardio Vinyasa",
+          "description": "Vinyasa with intense cardio"
+        },
+        "session_65": {
+          "title": "Explosive Flow",
+          "description": "Powerful, explosive flow"
+        },
+        "session_66": {
+          "title": "Arm Strength Yoga",
+          "description": "Intensive arm strengthening"
+        },
+        "session_67": {
+          "title": "Long Advanced Vinyasa",
+          "description": "Full one-hour vinyasa"
+        },
+        "session_68": {
+          "title": "Advanced Endurance Flow",
+          "description": "Ultimate endurance test"
+        },
+        "session_69": {
+          "title": "Leg Power Yoga",
+          "description": "Intensive leg strengthening"
+        },
+        "session_70": {
+          "title": "Total Flow Mastery",
+          "description": "Total mastery of flow"
+        }
+      },
       "filter": {
         "level": {
           "all": "All levels",
@@ -1364,6 +1496,133 @@
         "start": "Počni",
         "resume": "Nastavi",
         "completed": "Dovršeno"
+      },
+      "loginPrompt": {
+        "title": "Pristupite svim sesijama",
+        "description": "Prijavite se da biste otključali pristup svim dostupnim sesijama",
+        "button": "Prijavi se"
+      },
+      "cards": {
+        "session_41": {
+          "title": "Blaga jutarnja istezanja",
+          "description": "Lagano razbudite telo"
+        },
+        "session_42": {
+          "title": "Joga dubokog disanja",
+          "description": "Umirujuće tehnike disanja"
+        },
+        "session_43": {
+          "title": "Joga protiv stresa",
+          "description": "Tehnike za smanjenje stresa"
+        },
+        "session_44": {
+          "title": "Početnička pokretljivost kukova",
+          "description": "Nežno opuštanje kukova"
+        },
+        "session_45": {
+          "title": "Joga za osetljiva leđa",
+          "description": "Ublažite i ojačajte leđa"
+        },
+        "session_46": {
+          "title": "Opuštajuća večernja joga",
+          "description": "Priprema za okrepljujući san"
+        },
+        "session_47": {
+          "title": "Spori početnički flow",
+          "description": "Niz blagih i fluidnih pokreta"
+        },
+        "session_48": {
+          "title": "Osnovne joga poze",
+          "description": "Učenje osnovnih poza"
+        },
+        "session_49": {
+          "title": "Početnička fleksibilnost nogu",
+          "description": "Istezanje i fleksibilnost nogu"
+        },
+        "session_50": {
+          "title": "Brza joga za opuštanje",
+          "description": "Kratko i efikasno opuštanje"
+        },
+        "session_51": {
+          "title": "Energizujuća vinjasa",
+          "description": "Dinamičan flow za energiju"
+        },
+        "session_52": {
+          "title": "Jačanje centra tela",
+          "description": "Ojačajte trbušnjake i core"
+        },
+        "session_53": {
+          "title": "Joga za pokretljivost ramena",
+          "description": "Otvorite i mobilisite ramena"
+        },
+        "session_54": {
+          "title": "Flow za balans",
+          "description": "Rad na balansu i stabilnosti"
+        },
+        "session_55": {
+          "title": "Tečna vinjasa",
+          "description": "Tečan i skladan niz"
+        },
+        "session_56": {
+          "title": "Joga blage snage",
+          "description": "Postepeno i blago jačanje"
+        },
+        "session_57": {
+          "title": "Lagani kardio flow",
+          "description": "Kardio bez udara uz jogu"
+        },
+        "session_58": {
+          "title": "Joga za celokupnu pokretljivost",
+          "description": "Potpuna pokretljivost tela"
+        },
+        "session_59": {
+          "title": "Vinjasa disanja",
+          "description": "Usklađivanje disanja i pokreta"
+        },
+        "session_60": {
+          "title": "Flow izdržljivosti",
+          "description": "Izgradite izdržljivost"
+        },
+        "session_61": {
+          "title": "Intenzivna vinjasa",
+          "description": "Moćan i zahtevan flow"
+        },
+        "session_62": {
+          "title": "Flow potpune snage",
+          "description": "Potpuno jačanje tela"
+        },
+        "session_63": {
+          "title": "Napredna joga balansa",
+          "description": "Složene poze balansa"
+        },
+        "session_64": {
+          "title": "Kardio vinjasa",
+          "description": "Vinjasa sa intenzivnim kardio"
+        },
+        "session_65": {
+          "title": "Eksplozivni flow",
+          "description": "Moćan i eksplozivan flow"
+        },
+        "session_66": {
+          "title": "Joga snage ruku",
+          "description": "Intenzivno jačanje ruku"
+        },
+        "session_67": {
+          "title": "Duga napredna vinjasa",
+          "description": "Potpuna jednosatna vinjasa"
+        },
+        "session_68": {
+          "title": "Napredni flow izdržljivosti",
+          "description": "Ultimativni test izdržljivosti"
+        },
+        "session_69": {
+          "title": "Joga snage nogu",
+          "description": "Intenzivno jačanje nogu"
+        },
+        "session_70": {
+          "title": "Potpuna kontrola flow-a",
+          "description": "Potpuno ovladavanje flow-om"
+        }
       },
       "filter": {
         "level": {
