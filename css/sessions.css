@@ -123,15 +123,302 @@
 
 /* Sessions Section */
 .sessions-section {
-  padding: 3rem 20px 5rem;
+  padding: 10rem 20px 10rem;
   background: var(--bg-secondary);
   min-height: 60vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.sessions-section .section-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sessions-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 /* Sessions Grid */
 .sessions-grid {
-  display: block;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
   margin-top: 2rem;
+}
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ============================= */
+/*  GRID DES NIVEAUX             */
+/* ============================= */
+
+.levels-grid {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+/* ============================= */
+/*  GRAND CARRE AVEC BORDURE     */
+/* ============================= */
+
+.level-wrapper {
+  width: 370px;
+  height: 400px;
+  border-radius: 20px;
+  padding: 12px;
+  border: 2px solid transparent;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+  transition: background 0.3s ease;
+}
+
+.level-wrapper:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.level-wrapper:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.level-wrapper:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* ============================= */
+/*  CONTENU INTERNE              */
+/* ============================= */
+
+.level-box {
+  height: 100%;
+  background: var(--card-bg);
+  border-radius: 16px;
+  text-align: center;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+  box-shadow: var(--card-shadow);
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.level-wrapper:hover .level-box {
+  transform: translateY(-8px) scale(1.02);
+  filter: brightness(1.18) saturate(1.05);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.level-wrapper:hover {
+  background: #fff;
+}
+
+.level-wrapper:hover h2 {
+  color: #000;
+}
+
+.level-wrapper:hover .level-streak-text {
+  color: #000;
+}
+
+.level-wrapper:hover .level-count,
+.level-wrapper:hover .level-progress-text {
+  color: #000;
+}
+
+.level-box p {
+  opacity: 0.8;
+  font-size: 1rem;
+}
+
+/* ============================= */
+/*  ICONES & COMPTEUR            */
+/* ============================= */
+
+.level-icon {
+  font-size: 2.3rem;
+}
+
+.level-count {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* ============================= */
+/*  GAMIFICATION                */
+/* ============================= */
+
+.level-gamification {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.level-progress {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+.level-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.level-progress-text {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.level-streak {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.level-streak-badge {
+  font-size: 1.1rem;
+}
+
+.level-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.level-badge {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  opacity: 0.6;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.level-badge.is-unlocked {
+  opacity: 1;
+  transform: translateY(-1px);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+}
+
+.level-beginner .level-progress-bar {
+  background: #4caf50;
+}
+
+.level-intermediate .level-progress-bar {
+  background: #ff9800;
+}
+
+.level-advanced .level-progress-bar {
+  background: #f44336;
+}
+
+/* ============================= */
+/*  COULEURS PAR NIVEAU          */
+/* ============================= */
+
+.level-beginner {
+  border-color: #4caf50;
+}
+
+.level-intermediate {
+  border-color: #ff9800;
+}
+
+.level-advanced {
+  border-color: #f44336;
+}
+
+.level-beginner .level-icon {
+  color: #4caf50;
+}
+
+.level-intermediate .level-icon {
+  color: #ff9800;
+}
+
+.level-advanced .level-icon {
+  color: #f44336;
+}
+
+/* ============================= */
+/*  VERROUILLAGE AVANCE          */
+/* ============================= */
+
+.level-wrapper.locked {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.level-wrapper.locked .level-icon {
+  font-size: 2.6rem;
+}
+
+.level-wrapper.unlocking {
+  animation: unlockGlow 1.2s ease forwards;
+}
+
+.level-wrapper.unlocking .level-box {
+  box-shadow:
+    0 0 0 2px rgba(255, 193, 7, 0.5),
+    0 0 18px rgba(255, 193, 7, 0.4),
+    var(--card-shadow);
+}
+
+/* ============================= */
+/*  ANIMATION                    */
+/* ============================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes unlockGlow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Grouped Levels */
@@ -395,6 +682,17 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .sessions-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================= */
+/*  RESPONSIVE                   */
+/* ============================= */
+
+@media (max-width: 900px) {
+  .levels-grid {
+    flex-direction: column;
+    align-items: center;
   }
 }
 

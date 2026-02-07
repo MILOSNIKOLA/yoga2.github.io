@@ -314,16 +314,46 @@ function saveSessionHistory() {
 
   if (!userId) return;
 
-  const history = JSON.parse(localStorage.getItem("sessionHistory") || "[]");
+  const completedAt = new Date().toISOString();
+  const sessionId = String(currentSession.id);
+  const postures = Array.isArray(currentSession.poses)
+    ? currentSession.poses.map((pose, index) => ({
+        name: pose.name,
+        position: index + 1,
+        duration: pose.duration,
+      }))
+    : [];
 
-  history.push({
+  const legacyHistory = JSON.parse(
+    localStorage.getItem("sessionHistory") || "[]",
+  );
+
+  legacyHistory.push({
     id: crypto.randomUUID(),
     userId: userId,
-    sessionId: currentSession.id,
+    sessionId: sessionId,
     sessionTitle: currentSession.title,
     duration: currentSession.duration,
-    completedAt: new Date().toISOString(),
+    completedAt: completedAt,
   });
 
-  localStorage.setItem("sessionHistory", JSON.stringify(history));
+  localStorage.setItem("sessionHistory", JSON.stringify(legacyHistory));
+
+  const userHistoryKey = `${userId}_history`;
+  const userHistory = JSON.parse(localStorage.getItem(userHistoryKey) || "[]");
+
+  userHistory.push({
+    sessionId: sessionId,
+    date: completedAt,
+    durationActual: currentSession.duration,
+    completed: true,
+    postures: postures,
+  });
+
+  localStorage.setItem(userHistoryKey, JSON.stringify(userHistory));
+
+  const completedSessions = Number(
+    localStorage.getItem("completedSessions") || 0,
+  );
+  localStorage.setItem("completedSessions", String(completedSessions + 1));
 }

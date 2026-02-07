@@ -59,6 +59,204 @@ const TRANSLATION_DICTIONARY = {
     en: "Quick stretches for a wellness break",
     sr: "Brza istezanja za pauzu za wellness",
   },
+  "Réveil articulaire doux": {
+    en: "Gentle Joint Wake-Up",
+    sr: "Nežno razgibavanje zglobova",
+  },
+  "Mobiliser tout le corps sans effort": {
+    en: "Mobilize the whole body without strain",
+    sr: "Pokrenite celo telo bez napora",
+  },
+  "Yoga respiration carré": {
+    en: "Box Breathing Yoga",
+    sr: "Joga disanje u kvadratu",
+  },
+  "Respiration guidée pour calmer l'esprit": {
+    en: "Guided breathing to calm the mind",
+    sr: "Vođeno disanje za smirivanje uma",
+  },
+  "Souplesse du dos débutant": {
+    en: "Beginner Back Flexibility",
+    sr: "Početnička fleksibilnost leđa",
+  },
+  "Déverrouiller la colonne en douceur": {
+    en: "Gently unlock the spine",
+    sr: "Nežno opustite kičmu",
+  },
+  "Flow débutant posture debout": {
+    en: "Beginner Standing Flow",
+    sr: "Početnički flow u stojećim pozama",
+  },
+  "Bases des postures debout en flow": {
+    en: "Basics of standing poses in flow",
+    sr: "Osnove stojećih poza u flow-u",
+  },
+  "Yoga hanches ouvertures": {
+    en: "Hip Opening Yoga",
+    sr: "Joga otvaranja kukova",
+  },
+  "Ouvrir les hanches sans forcer": {
+    en: "Open the hips without forcing",
+    sr: "Otvorite kukove bez forsiranja",
+  },
+  "Relaxation guidée débutant": {
+    en: "Beginner Guided Relaxation",
+    sr: "Vođena relaksacija za početnike",
+  },
+  "Relâcher le corps et le mental": {
+    en: "Release body and mind",
+    sr: "Otpustite telo i um",
+  },
+  "Mobilité épaules facile": {
+    en: "Easy Shoulder Mobility",
+    sr: "Laka pokretljivost ramena",
+  },
+  "Assouplir la ceinture scapulaire": {
+    en: "Loosen the shoulder girdle",
+    sr: "Omekšajte rameni pojas",
+  },
+  "Étirements du soir": {
+    en: "Evening Stretches",
+    sr: "Večernja istezanja",
+  },
+  "Étirements lents pour mieux dormir": {
+    en: "Slow stretches for better sleep",
+    sr: "Spora istezanja za bolji san",
+  },
+  "Yoga équilibre simple": {
+    en: "Simple Balance Yoga",
+    sr: "Jednostavna joga ravnoteže",
+  },
+  "Stabilité et confiance en douceur": {
+    en: "Stability and confidence, gently",
+    sr: "Stabilnost i samopouzdanje, nežno",
+  },
+  "Flow matin vitalité": {
+    en: "Morning Vitality Flow",
+    sr: "Jutarnji flow vitalnosti",
+  },
+  "Réactiver l'énergie au réveil": {
+    en: "Reignite energy on waking",
+    sr: "Ponovo probudite energiju pri buđenju",
+  },
+  "Yoga jambes légères": {
+    en: "Light Legs Yoga",
+    sr: "Joga za lagane noge",
+  },
+  "Détendre et alléger les jambes": {
+    en: "Relax and lighten the legs",
+    sr: "Opustite i olakšajte noge",
+  },
+  "Hatha débutant complet": {
+    en: "Complete Beginner Hatha",
+    sr: "Potpuni hatha za početnike",
+  },
+  "Pratique complète, lente et sécurisée": {
+    en: "Complete, slow, safe practice",
+    sr: "Potpuna, spora i bezbedna praksa",
+  },
+  "Respiration profonde + étirements": {
+    en: "Deep Breathing + Stretching",
+    sr: "Duboko disanje + istezanja",
+  },
+  "Allonger le souffle et relâcher": {
+    en: "Lengthen the breath and release",
+    sr: "Produžite dah i otpustite",
+  },
+  "Yin doux pour débuter": {
+    en: "Gentle Yin to Start",
+    sr: "Nežni yin za početak",
+  },
+  "Tenues confortables et apaisantes": {
+    en: "Comfortable, soothing holds",
+    sr: "Udobna i umirujuća zadržavanja",
+  },
+  "Yoga pause bureau": {
+    en: "Desk Break Yoga",
+    sr: "Joga pauza za kancelariju",
+  },
+  "Décontraction rapide après écran": {
+    en: "Quick release after screen time",
+    sr: "Brzo opuštanje posle ekrana",
+  },
+};
+
+const STATIC_LEVEL_TRANSLATIONS = {
+  fr: {
+    desc: {
+      beginner: "Séances douces pour bien commencer",
+      intermediate: "Renforcer et approfondir la pratique",
+      advanced: "Débloqué après 30 séances complétées",
+    },
+    count: {
+      one: "séance",
+      many: "séances",
+    },
+    gamification: {
+      progress: "0/10 séances complétées",
+      streak: "0 jours !",
+      completed: "complétées",
+      streakLabel: {
+        one: "jour",
+        many: "jours",
+      },
+      badges: {
+        first: "Premier jour ✓",
+        week: "Semaine complète ✓",
+        level: "Niveau fini ✓",
+      },
+    },
+  },
+  en: {
+    desc: {
+      beginner: "Gentle sessions to start well",
+      intermediate: "Strengthen and deepen your practice",
+      advanced: "Unlocked after 30 sessions completed",
+    },
+    count: {
+      one: "session",
+      many: "sessions",
+    },
+    gamification: {
+      progress: "0/10 sessions completed",
+      streak: "0 days!",
+      completed: "completed",
+      streakLabel: {
+        one: "day",
+        many: "days",
+      },
+      badges: {
+        first: "First day ✓",
+        week: "Full week ✓",
+        level: "Level complete ✓",
+      },
+    },
+  },
+  sr: {
+    desc: {
+      beginner: "Nežne sesije za dobar početak",
+      intermediate: "Ojačajte i produbite praksu",
+      advanced: "Otključano nakon 30 završenih sesija",
+    },
+    count: {
+      one: "sesija",
+      many: "sesije",
+    },
+    gamification: {
+      progress: "0/10 završene sesije",
+      streak: "0 dana!",
+      completed: "završene",
+      streakLabel: {
+        one: "dan",
+        many: "dana",
+      },
+      badges: {
+        first: "Prvi dan ✓",
+        week: "Puna sedmica ✓",
+        level: "Nivo završen ✓",
+      },
+    },
+  },
 };
 
 function translateSessionContent(text, lang) {
@@ -161,6 +359,42 @@ function initializeSessionTranslations() {
   console.log(
     "🔄 Fusion des traductions de sessions dans window.i18n.translations...",
   );
+
+  Object.keys(STATIC_LEVEL_TRANSLATIONS).forEach((lang) => {
+    if (!window.i18n.translations[lang]) {
+      window.i18n.translations[lang] = {};
+    }
+    if (!window.i18n.translations[lang].sessions) {
+      window.i18n.translations[lang].sessions = {};
+    }
+    if (!window.i18n.translations[lang].sessions.level) {
+      window.i18n.translations[lang].sessions.level = {};
+    }
+    if (!window.i18n.translations[lang].sessions.level.desc) {
+      window.i18n.translations[lang].sessions.level.desc = {};
+    }
+    if (!window.i18n.translations[lang].sessions.level.count) {
+      window.i18n.translations[lang].sessions.level.count = {};
+    }
+    if (!window.i18n.translations[lang].sessions.gamification) {
+      window.i18n.translations[lang].sessions.gamification = {};
+    }
+
+    Object.assign(
+      window.i18n.translations[lang].sessions.level.desc,
+      STATIC_LEVEL_TRANSLATIONS[lang].desc,
+    );
+
+    Object.assign(
+      window.i18n.translations[lang].sessions.level.count,
+      STATIC_LEVEL_TRANSLATIONS[lang].count,
+    );
+
+    Object.assign(
+      window.i18n.translations[lang].sessions.gamification,
+      STATIC_LEVEL_TRANSLATIONS[lang].gamification,
+    );
+  });
 
   // Merge SESSION_TRANSLATIONS into window.i18n
   Object.keys(SESSION_TRANSLATIONS).forEach((sessionKey) => {
