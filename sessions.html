@@ -155,167 +155,175 @@
       </div>
     </section>
 
-    <!-- Filters Bar (Sticky) -->
-    <div class="filters-container">
-      <div class="container">
-        <div class="filters-bar">
-          <!-- Search Box -->
-          <div class="filter-group search-group">
-            <svg
-              class="search-icon"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-            >
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.35-4.35"></path>
-            </svg>
-            <input
-              type="text"
-              id="search-input"
-              class="search-input"
-              placeholder="Rechercher une séance..."
-              data-i18n-placeholder="sessions.search.placeholder"
-            />
-          </div>
-
-          <!-- Level Filter -->
-          <div class="filter-group">
-            <select id="level-filter" class="filter-select">
-              <option value="" data-i18n="sessions.filter.level.all">
-                Tous les niveaux
-              </option>
-              <option
-                value="beginner"
-                data-i18n="sessions.filter.level.beginner"
-              >
-                Débutant
-              </option>
-              <option
-                value="intermediate"
-                data-i18n="sessions.filter.level.intermediate"
-              >
-                Intermédiaire
-              </option>
-              <option
-                value="advanced"
-                data-i18n="sessions.filter.level.advanced"
-              >
-                Avancé
-              </option>
-            </select>
-          </div>
-
-          <!-- Duration Filter -->
-          <div class="filter-group">
-            <select id="duration-filter" class="filter-select">
-              <option value="" data-i18n="sessions.filter.duration.all">
-                Toutes les durées
-              </option>
-              <option value="5-10">5-10 min</option>
-              <option value="10-20">10-20 min</option>
-              <option value="20-45">20-45 min</option>
-              <option value="45+">45+ min</option>
-            </select>
-          </div>
-
-          <!-- Type Filter -->
-          <div class="filter-group">
-            <select id="type-filter" class="filter-select">
-              <option value="" data-i18n="sessions.filter.type.all">
-                Tous les types
-              </option>
-              <option value="hatha">Hatha</option>
-              <option value="vinyasa">Vinyasa</option>
-              <option value="yin">Yin</option>
-              <option value="flow">Flow</option>
-            </select>
-          </div>
-
-          <!-- Goal Filter -->
-          <div class="filter-group">
-            <select id="goal-filter" class="filter-select">
-              <option value="" data-i18n="sessions.filter.goal.all">
-                Tous les objectifs
-              </option>
-              <option
-                value="détente"
-                data-i18n="sessions.filter.goal.relaxation"
-              >
-                Détente
-              </option>
-              <option
-                value="mobilité"
-                data-i18n="sessions.filter.goal.mobility"
-              >
-                Mobilité
-              </option>
-              <option
-                value="renforcement"
-                data-i18n="sessions.filter.goal.strength"
-              >
-                Renforcement
-              </option>
-              <option value="énergie" data-i18n="sessions.filter.goal.energy">
-                Énergie
-              </option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Results Count -->
-        <div class="results-info">
-          <p id="results-count" class="results-count">
-            <span data-i18n="sessions.results.loading"
-              >Chargement des séances...</span
-            >
-          </p>
-        </div>
-      </div>
-    </div>
-
     <!-- Sessions Grid -->
     <section class="sessions-section">
+      <video
+        class="section-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        aria-hidden="true"
+      >
+        <source src="c1.mp4" type="video/mp4" />
+      </video>
       <div class="container">
-        <div id="sessions-grid" class="sessions-grid">
-          <div class="level-group" data-level="beginner">
-            <h2 class="level-title" data-i18n="sessions.level.beginner">
-              Débutant
-            </h2>
-            <div class="level-cards" id="sessions-beginner"></div>
+        <div class="levels-grid">
+          <div class="level-wrapper level-beginner">
+            <a href="sessions-beginner.html" class="level-box">
+              <div class="level-icon">🌱</div>
+              <h2 data-i18n="sessions.level.beginner">Débutant</h2>
+              <p data-i18n="sessions.level.desc.beginner"></p>
+              <span class="level-count" data-level="beginner">0</span>
+              <div class="level-gamification" data-level="beginner">
+                <div class="level-progress">
+                  <div class="level-progress-bar" style="width: 0%"></div>
+                </div>
+                <div
+                  class="level-progress-text"
+                  data-i18n="sessions.gamification.progress"
+                >
+                  0/10 séances complétées
+                </div>
+                <div class="level-streak">
+                  <span class="level-streak-badge">🔥</span>
+                  <span
+                    class="level-streak-text"
+                    data-i18n="sessions.gamification.streak"
+                  >
+                    0 jours !
+                  </span>
+                </div>
+                <div class="level-badges">
+                  <span
+                    class="level-badge"
+                    data-badge="first"
+                    data-i18n="sessions.gamification.badges.first"
+                  >
+                    Premier jour ✓
+                  </span>
+                  <span
+                    class="level-badge"
+                    data-badge="week"
+                    data-i18n="sessions.gamification.badges.week"
+                  >
+                    Semaine complète ✓
+                  </span>
+                  <span
+                    class="level-badge"
+                    data-badge="level"
+                    data-i18n="sessions.gamification.badges.level"
+                  >
+                    Niveau fini ✓
+                  </span>
+                </div>
+              </div>
+            </a>
           </div>
-          <div class="level-group" data-level="intermediate">
-            <h2 class="level-title" data-i18n="sessions.level.intermediate">
-              Intermédiaire
-            </h2>
-            <div class="level-cards" id="sessions-intermediate"></div>
-          </div>
-          <div class="level-group" data-level="advanced">
-            <h2 class="level-title" data-i18n="sessions.level.advanced">
-              Avancé
-            </h2>
-            <div class="level-cards" id="sessions-advanced"></div>
-          </div>
-        </div>
 
-        <!-- Empty State -->
-        <div id="empty-state" class="empty-state hidden">
-          <div class="empty-icon">🔍</div>
-          <h3 class="empty-title" data-i18n="sessions.empty.title">
-            Aucune séance trouvée
-          </h3>
-          <p class="empty-text" data-i18n="sessions.empty.text">
-            Essayez d'ajuster vos filtres pour trouver d'autres séances
-          </p>
-          <button
-            id="reset-filters"
-            class="btn btn-primary"
-            data-i18n="sessions.empty.reset"
-          >
-            Réinitialiser les filtres
-          </button>
+          <div class="level-wrapper level-intermediate">
+            <a href="sessions-intermediate.html" class="level-box">
+              <div class="level-icon">🔥</div>
+              <h2 data-i18n="sessions.level.intermediate">Intermédiaire</h2>
+              <p data-i18n="sessions.level.desc.intermediate"></p>
+              <span class="level-count" data-level="intermediate">0</span>
+              <div class="level-gamification" data-level="intermediate">
+                <div class="level-progress">
+                  <div class="level-progress-bar" style="width: 0%"></div>
+                </div>
+                <div
+                  class="level-progress-text"
+                  data-i18n="sessions.gamification.progress"
+                >
+                  0/10 séances complétées
+                </div>
+                <div class="level-streak">
+                  <span class="level-streak-badge">🔥</span>
+                  <span
+                    class="level-streak-text"
+                    data-i18n="sessions.gamification.streak"
+                  >
+                    0 jours !
+                  </span>
+                </div>
+                <div class="level-badges">
+                  <span
+                    class="level-badge"
+                    data-badge="first"
+                    data-i18n="sessions.gamification.badges.first"
+                  >
+                    Premier jour ✓
+                  </span>
+                  <span
+                    class="level-badge"
+                    data-badge="week"
+                    data-i18n="sessions.gamification.badges.week"
+                  >
+                    Semaine complète ✓
+                  </span>
+                  <span
+                    class="level-badge"
+                    data-badge="level"
+                    data-i18n="sessions.gamification.badges.level"
+                  >
+                    Niveau fini ✓
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="level-wrapper level-advanced locked" id="advanced-level">
+            <div class="level-box">
+              <div class="level-icon">🔒</div>
+              <h2 data-i18n="sessions.level.advanced">Avancé</h2>
+              <p data-i18n="sessions.level.desc.advanced"></p>
+              <span class="level-count" data-level="advanced">0</span>
+              <div class="level-gamification" data-level="advanced">
+                <div class="level-progress">
+                  <div class="level-progress-bar" style="width: 0%"></div>
+                </div>
+                <div
+                  class="level-progress-text"
+                  data-i18n="sessions.gamification.progress"
+                >
+                  0/10 séances complétées
+                </div>
+                <div class="level-streak">
+                  <span class="level-streak-badge">🔥</span>
+                  <span
+                    class="level-streak-text"
+                    data-i18n="sessions.gamification.streak"
+                  >
+                    0 jours !
+                  </span>
+                </div>
+                <div class="level-badges">
+                  <span
+                    class="level-badge"
+                    data-badge="first"
+                    data-i18n="sessions.gamification.badges.first"
+                  >
+                    Premier jour ✓
+                  </span>
+                  <span
+                    class="level-badge"
+                    data-badge="week"
+                    data-i18n="sessions.gamification.badges.week"
+                  >
+                    Semaine complète ✓
+                  </span>
+                  <span
+                    class="level-badge"
+                    data-badge="level"
+                    data-i18n="sessions.gamification.badges.level"
+                  >
+                    Niveau fini ✓
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

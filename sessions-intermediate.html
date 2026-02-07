@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Séances intermédiaire - Yoga App"
+      data-i18n-attr-content="sessions.metaDescription"
+    />
+    <title data-i18n="sessions.level.intermediate">Intermédiaire</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/sessions.css" />
+    <link rel="icon" href="favicon-48x481.png" type="image/x-icon" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="dashboard-navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">
+          <span class="logo-icon">🧘</span>
+          <span class="logo-text">Yoga App</span>
+        </a>
+        <div class="navbar-menu">
+          <a
+            href="sessions.html"
+            class="navbar-link"
+            data-i18n="common.nav.sessions"
+            >Séances</a
+          >
+          <a
+            href="respirer.html"
+            class="navbar-link"
+            data-i18n="common.nav.breathing"
+            >Respiration</a
+          >
+          <a
+            href="progress.html"
+            class="navbar-link"
+            data-i18n="common.nav.progress"
+            >Progression</a
+          >
+          <a
+            href="learning.html"
+            class="navbar-link"
+            data-i18n="common.nav.learning"
+            >Apprentissage</a
+          >
+        </div>
+        <div class="navbar-actions">
+          <button
+            id="language-toggle"
+            class="language-toggle"
+            data-i18n-aria-label="common.aria.language"
+            aria-label="Changer de langue"
+          >
+            <svg
+              class="flag-icon"
+              data-lang="fr"
+              width="32"
+              height="24"
+              viewBox="0 0 32 24"
+              aria-hidden="true"
+            >
+              <rect width="10.67" height="24" fill="#002395" />
+              <rect x="10.67" width="10.67" height="24" fill="#FFFFFF" />
+              <rect x="21.33" width="10.67" height="24" fill="#ED2939" />
+            </svg>
+          </button>
+          <button
+            id="theme-toggle"
+            class="theme-toggle-nav"
+            data-i18n-aria-label="common.aria.theme"
+            aria-label="Changer le thème"
+          >
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon hidden"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button
+            id="logout-btn"
+            class="btn-logout hidden"
+            data-i18n-aria-label="common.aria.logout"
+            aria-label="Déconnexion"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+          </button>
+          <a
+            href="dashboard.html"
+            class="btn-profile"
+            data-i18n-aria-label="common.aria.profile"
+            aria-label="Mon profil"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="sessions-section">
+      <div class="container">
+        <h1 class="page-title" data-i18n="sessions.level.intermediate">
+          Intermédiaire
+        </h1>
+        <div id="sessions-grid" class="sessions-grid"></div>
+      </div>
+    </section>
+
+    <script>
+      window.SESSIONS_LEVEL = "intermediate";
+    </script>
+
+    <!-- Scripts -->
+    <script defer src="js/i18n-manager.js"></script>
+    <script defer src="js/session-translations.js"></script>
+    <script defer src="js/footer-loader.js"></script>
+    <script defer src="js/theme.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/sessions.js"></script>
+  </body>
+</html>
