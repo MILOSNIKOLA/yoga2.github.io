@@ -451,10 +451,58 @@
   flex-direction: column;
 }
 
+.sessions-section .sessions-grid .session-card-full:nth-child(-n + 2) {
+  background: transparent;
+}
+
 .session-card-full:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   border-color: var(--accent);
+}
+
+.sessions-section .sessions-grid .session-card-full:nth-child(3):hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 1);
+}
+
+.session-card-login {
+  border: 2px dashed var(--accent);
+  background: rgba(0, 0, 0, 0.02);
+  text-align: center;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.session-card-login-body {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.session-card-login:hover .session-card-login-body {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.session-card-login .lock-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.session-card-login .session-card-description {
+  margin-bottom: 1rem;
+}
+
+.session-card-login .session-card-button {
+  width: auto;
+  text-decoration: none;
+}
+
+.session-card-login-button:hover {
+  color: #000;
 }
 
 .session-card-header {
@@ -536,7 +584,7 @@
 .session-card-title {
   font-size: 1.375rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #fff;
   margin-bottom: 0.75rem;
 }
 

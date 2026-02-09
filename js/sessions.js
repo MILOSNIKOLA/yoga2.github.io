@@ -98,17 +98,6 @@ function loadSessions() {
       /^[0-9]+$/.test(String(session.id)),
     );
 
-    // Vérifier si l'utilisateur est connecté
-    const userId =
-      sessionStorage.getItem("userId") || localStorage.getItem("userId");
-    const isLoggedIn = !!userId;
-
-    // Si non connecté, limiter à 15% des sessions (environ 5 sessions sur 30)
-    if (!isLoggedIn) {
-      const limitedCount = Math.ceil(allSessions.length * 0.15);
-      allSessions = allSessions.slice(0, limitedCount);
-    }
-
     filteredSessions = [...allSessions];
   } else {
     console.error("Aucune séance trouvée dans localStorage");
@@ -775,27 +764,40 @@ function renderSessions(sessions) {
     }
   }, 100);
 
-  // Ajouter la carte de connexion si non connecté
+  // Appliquer l'affichage teaser pour les visiteurs non connectes
   const userId =
     sessionStorage.getItem("userId") || localStorage.getItem("userId");
   const isLoggedIn = !!userId;
 
   if (!isLoggedIn) {
-    const loginCard = `
-      <div class="session-card-full login-prompt-card">
-        <div class="session-card-body" style="padding: 3rem; text-align: center;">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
-          <h3 class="session-card-title" data-i18n="sessions.loginPrompt.title">Accédez à toutes les séances</h3>
-          <p class="session-card-description" style="margin-bottom: 1.5rem;" data-i18n="sessions.loginPrompt.description">
-            Connectez-vous pour débloquer l'accès à toutes les séances disponibles
-          </p>
-          <a href="login.html" class="session-card-button" style="display: inline-block; text-decoration: none;" data-i18n="sessions.loginPrompt.button">
-            Se connecter
-          </a>
-        </div>
+    const sessionCards = [...grid.querySelectorAll(".session-card")];
+    const freeCards = sessionCards.filter(
+      (card) => card.dataset.free === "true",
+    );
+    const cardsToKeep =
+      freeCards.length > 0 ? freeCards.slice(0, 2) : sessionCards.slice(0, 2);
+
+    sessionCards.forEach((card) => {
+      if (!cardsToKeep.includes(card)) {
+        card.remove();
+      }
+    });
+
+    const loginCard = document.createElement("div");
+    loginCard.className = "session-card-full session-card session-card-login";
+    loginCard.innerHTML = `
+      <div class="session-card-body session-card-login-body">
+        <span class="lock-icon" aria-hidden="true">🔒</span>
+        <h3 class="session-card-title" data-i18n="sessions.loginPrompt.title">Connexion requise</h3>
+        <p class="session-card-description" data-i18n="sessions.loginPrompt.description">
+          Connectez-vous pour debloquer toutes les seances et progresser.
+        </p>
+        <a href="login.html" class="session-card-button session-card-login-button" data-i18n="sessions.loginPrompt.button">
+          Se connecter
+        </a>
       </div>
     `;
-    grid.insertAdjacentHTML("beforeend", loginCard);
+    grid.appendChild(loginCard);
   }
 
   // Add click listeners to cards
@@ -807,8 +809,7 @@ function renderSessions(sessions) {
         const userId =
           sessionStorage.getItem("userId") || localStorage.getItem("userId");
 
-        if (!userId) {
-          // Redirect to login
+        if (!userId && !session.free) {
           window.location.href = "login.html";
           return;
         }
@@ -900,7 +901,7 @@ function createSessionCard(session) {
   const sessionIcon = iconMap[session.type] || "🧘‍♀️";
 
   return `
-    <div id="session-${session.id}" class="session-card-full session-card" data-level="${session.level}">
+    <div id="session-${session.id}" class="session-card-full session-card" data-level="${session.level}" data-free="${session.free ? "true" : "false"}">
       <div class="session-card-header">
         <div class="session-icon">${sessionIcon}</div>
         <div class="session-duration">
