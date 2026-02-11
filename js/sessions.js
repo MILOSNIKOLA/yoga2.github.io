@@ -1240,7 +1240,14 @@ function buildLevelGamificationElement(level) {
   streak.append(streakBadge, streakText);
 
   const badges = document.createElement("div");
-  badges.className = "level-badges";
+  const badgesClassByLevel = {
+    beginner: "level-badges1",
+    intermediate: "level-badges2",
+    advanced: "level-badges3",
+  };
+  badges.className = ["level-badges", badgesClassByLevel[level]]
+    .filter(Boolean)
+    .join(" ");
 
   const badgeFirst = document.createElement("span");
   badgeFirst.className = "level-badge";
