@@ -769,37 +769,6 @@ function renderSessions(sessions) {
     sessionStorage.getItem("userId") || localStorage.getItem("userId");
   const isLoggedIn = !!userId;
 
-  if (!isLoggedIn) {
-    const sessionCards = [...grid.querySelectorAll(".session-card")];
-    const freeCards = sessionCards.filter(
-      (card) => card.dataset.free === "true",
-    );
-    const cardsToKeep =
-      freeCards.length > 0 ? freeCards.slice(0, 2) : sessionCards.slice(0, 2);
-
-    sessionCards.forEach((card) => {
-      if (!cardsToKeep.includes(card)) {
-        card.remove();
-      }
-    });
-
-    const loginCard = document.createElement("div");
-    loginCard.className = "session-card-full session-card session-card-login";
-    loginCard.innerHTML = `
-      <div class="session-card-body session-card-login-body">
-        <span class="lock-icon" aria-hidden="true">🔒</span>
-        <h3 class="session-card-title" data-i18n="sessions.loginPrompt.title">Connexion requise</h3>
-        <p class="session-card-description" data-i18n="sessions.loginPrompt.description">
-          Connectez-vous pour debloquer toutes les seances et progresser.
-        </p>
-        <a href="login.html" class="session-card-button session-card-login-button" data-i18n="sessions.loginPrompt.button">
-          Se connecter
-        </a>
-      </div>
-    `;
-    grid.appendChild(loginCard);
-  }
-
   // Add click listeners to cards
   filtered.forEach((session) => {
     const card = document.getElementById(`session-${session.id}`);
