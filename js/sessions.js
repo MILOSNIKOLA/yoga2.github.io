@@ -733,10 +733,12 @@ function renderSessions(sessions) {
   const filtered = levelFromPage
     ? sessions.filter((session) => session.level === levelFromPage)
     : sessions;
+  const shouldLimit = !!levelFromPage;
+  const sessionsToRender = shouldLimit ? getTeaserSessions(filtered) : filtered;
 
   grid.innerHTML = "";
 
-  if (filtered.length === 0) {
+  if (sessionsToRender.length === 0) {
     const emptyState = document.getElementById("empty-state");
     if (emptyState) {
       grid.style.display = "none";
@@ -745,9 +747,13 @@ function renderSessions(sessions) {
     return;
   }
 
-  filtered.forEach((session) => {
+  sessionsToRender.forEach((session) => {
     grid.insertAdjacentHTML("beforeend", createSessionCard(session));
   });
+
+  if (shouldLimit) {
+    grid.insertAdjacentHTML("beforeend", createLockedAccessCard());
+  }
 
   const emptyState = document.getElementById("empty-state");
   if (emptyState) {
@@ -770,7 +776,7 @@ function renderSessions(sessions) {
   const isLoggedIn = !!userId;
 
   // Add click listeners to cards
-  filtered.forEach((session) => {
+  sessionsToRender.forEach((session) => {
     const card = document.getElementById(`session-${session.id}`);
     if (card) {
       card.addEventListener("click", () => {
@@ -796,6 +802,24 @@ function renderSessions(sessions) {
       });
     }
   });
+}
+
+function getTeaserSessions(sessions) {
+  const freeSessions = sessions.filter((session) => session.free);
+  if (freeSessions.length >= 2) {
+    return freeSessions.slice(0, 2);
+  }
+  return sessions.slice(0, 2);
+}
+
+function createLockedAccessCard() {
+  return `
+    <div class="level-wrapper level-advanced locked sessions-locked-card">
+      <a href="login.html" class="level-box">
+        <span class="login-cta" data-i18n="auth.login">Se connecter</span>
+      </a>
+    </div>
+  `;
 }
 
 function createSessionCard(session) {

@@ -160,11 +160,17 @@
   pointer-events: none;
   transition: transform 0.6s ease;
   margin: 0;
+  padding: 0;
 }
 
 .sessions-section .container {
   position: relative;
   z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.sessions-section .container:hover {
+  /* background: #fff; */
 }
 
 /* Sessions Grid */
@@ -269,8 +275,12 @@
   box-shadow: var(--card-shadow-hover);
 }
 
+.sessions-grid .level-wrapper:hover .level-box {
+  text-align: center;
+}
+
 .level-wrapper:hover {
-  background: #fff;
+  /* background: #fff; */
 }
 
 .level-wrapper:hover h2 {
@@ -284,6 +294,10 @@
 .level-wrapper:hover .level-count,
 .level-wrapper:hover .level-progress-text {
   color: #000;
+}
+
+.sessions-section .container .level-wrapper:hover {
+  background: #fff;
 }
 
 .level-box p {
@@ -416,8 +430,44 @@
 /* ============================= */
 
 .level-wrapper.locked {
-  pointer-events: none;
+  /* pointer-events: none; */
   opacity: 0.5;
+}
+
+.sessions-grid .level-wrapper.locked {
+  pointer-events: auto;
+}
+
+.sessions-grid .level-wrapper.locked .level-box {
+  cursor: pointer;
+}
+
+.sessions-grid .sessions-locked-card .level-box {
+  justify-content: center;
+}
+
+.sessions-grid .sessions-locked-card .login-cta {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sessions-grid .level-wrapper.locked:hover .login-cta {
+  color: #000;
+}
+
+.sessions-grid .level-wrapper.locked:hover {
+  /* background: #4a5568; */
+  /* margin: 0;
+  padding: 0; */
+  text-align: center;
+}
+
+.sessions-grid .level-wrapper.locked:hover .level-box {
+  background: #4a5568;
+  /* margin: 0;
+  padding: 0; */
+  text-align: center;
 }
 
 .level-wrapper.locked .level-icon {
@@ -847,28 +897,21 @@
   }
 }
 
-@media (min-width: 1200px) {
-  .sessions-section {
+@media (min-width: 1196px) {
+  .section-video {
     width: 100vw;
+    max-width: 100vw;
     margin-left: calc(50% - 50vw);
-    min-height: calc(60vh + 87px);
-    padding-bottom: 87px;
+    margin-right: calc(50% - 50vw);
   }
+}
 
-  .sessions-section .section-video {
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    object-position: center;
-    filter: brightness(0.8) contrast(1.05) saturate(1.05);
-    transform: scale(1);
-    z-index: 0;
-    pointer-events: none;
-    transition: transform 0.6s ease;
-    margin: 0;
+@media (min-width: 1442px) {
+  .section-video {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
   }
 }
 
