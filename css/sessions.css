@@ -252,10 +252,12 @@
 
 .level-box {
   height: 100%;
+  width: 100%;
   background: var(--card-bg);
   border-radius: 16px;
   text-align: center;
-  padding: 28px;
+  /* padding: 28px; */
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -270,7 +272,7 @@
 }
 
 .level-wrapper:hover .level-box {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-0px) scale(1.02);
   filter: brightness(1.18) saturate(1.05);
   box-shadow: var(--card-shadow-hover);
 }
@@ -444,12 +446,17 @@
 
 .sessions-grid .sessions-locked-card .level-box {
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .sessions-grid .sessions-locked-card .login-cta {
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .sessions-grid .level-wrapper.locked:hover .login-cta {
@@ -457,16 +464,12 @@
 }
 
 .sessions-grid .level-wrapper.locked:hover {
-  /* background: #4a5568; */
-  /* margin: 0;
-  padding: 0; */
+  background: #4a5568;
+  border-color: #4a5568;
   text-align: center;
 }
 
 .sessions-grid .level-wrapper.locked:hover .level-box {
-  background: #4a5568;
-  /* margin: 0;
-  padding: 0; */
   text-align: center;
 }
 
