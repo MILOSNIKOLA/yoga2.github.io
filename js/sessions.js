@@ -62,6 +62,11 @@ function initializeSessionsPage() {
 
   waitForTranslationsAndRender();
 
+  setupAdvancedLockFeedback();
+
+  // Initialize exercises display (for pages with all-exercises section)
+  initializeAllExercises();
+
   document.addEventListener("languageChanged", () => {
     updateLevelCounts(allSessions);
   });
@@ -90,20 +95,21 @@ function loadSessions() {
 
   if (sessions) {
     allSessions = JSON.parse(sessions);
-
-    // Ajouter les sessions supplémentaires si pas déjà présentes
-    addExtraSessions();
-
-    allSessions = allSessions.filter((session) =>
-      /^[0-9]+$/.test(String(session.id)),
-    );
-
-    filteredSessions = [...allSessions];
   } else {
-    console.error("Aucune séance trouvée dans localStorage");
     allSessions = [];
-    filteredSessions = [];
   }
+
+  // Ajouter les sessions supplémentaires si pas déjà présentes
+  addExtraSessions();
+
+  // Filtrer les sessions avec IDs numériques
+  allSessions = allSessions.filter((session) =>
+    /^[0-9]+$/.test(String(session.id)),
+  );
+
+  filteredSessions = [...allSessions];
+
+  console.log(`✅ ${allSessions.length} séances chargées`);
 }
 
 function addExtraSessions() {
@@ -571,12 +577,65 @@ function addExtraSessions() {
   extraSessions.forEach((session) => {
     if (!existingIds.has(session.id)) {
       session.createdAt = new Date().toISOString();
+
+      // Générer automatiquement des postures si elles n'existent pas
+      if (!session.poses || session.poses.length === 0) {
+        session.poses = generatePosesForSession(session);
+      }
+
       allSessions.push(session);
     }
   });
 
   // Mettre à jour localStorage
   localStorage.setItem("sessions", JSON.stringify(allSessions));
+}
+
+/**
+ * Générer automatiquement des postures pour une séance
+ */
+function generatePosesForSession(session) {
+  const defaultPoses = [
+    {
+      name: "Posture de l'enfant",
+      instructions: "Asseyez-vous sur les talons, front au sol",
+    },
+    {
+      name: "Chien tête en bas",
+      instructions: "Poussez les talons vers le sol",
+    },
+    { name: "Guerrier I", instructions: "Pied avant plié, bras levés" },
+    {
+      name: "Guerrier II",
+      instructions: "Jambes écartées, bras à l'horizontale",
+    },
+    { name: "Triangle", instructions: "Jambes écartées, main au sol" },
+    { name: "Torsion", instructions: "Tournez le buste d'un côté" },
+    {
+      name: "Étirement latéral",
+      instructions: "Bras au-dessus de la tête, penchez sur le côté",
+    },
+    {
+      name: "Savasana",
+      instructions: "Allongé sur le dos, relâchez complètement",
+    },
+  ];
+
+  const poses = [];
+  const totalDuration = session.duration * 60; // en secondes
+  const poseCount = Math.max(3, Math.ceil(session.duration / 3));
+  const poseDuration = Math.floor(totalDuration / poseCount);
+
+  for (let i = 0; i < poseCount; i++) {
+    const pose = { ...defaultPoses[i % defaultPoses.length] };
+    pose.duration =
+      i === poseCount - 1
+        ? totalDuration - poseDuration * (poseCount - 1)
+        : poseDuration;
+    poses.push(pose);
+  }
+
+  return poses;
 }
 
 /* ========================================
@@ -733,8 +792,10 @@ function renderSessions(sessions) {
   const filtered = levelFromPage
     ? sessions.filter((session) => session.level === levelFromPage)
     : sessions;
-  const shouldLimit = !!levelFromPage;
-  const sessionsToRender = shouldLimit ? getTeaserSessions(filtered) : filtered;
+
+  // On a level-specific page (beginner, intermediate, advanced), show ALL sessions
+  // On the main sessions page (sessions.html), show all sessions
+  const sessionsToRender = filtered;
 
   grid.innerHTML = "";
 
@@ -750,10 +811,6 @@ function renderSessions(sessions) {
   sessionsToRender.forEach((session) => {
     grid.insertAdjacentHTML("beforeend", createSessionCard(session));
   });
-
-  if (shouldLimit) {
-    grid.insertAdjacentHTML("beforeend", createLockedAccessCard());
-  }
 
   const emptyState = document.getElementById("empty-state");
   if (emptyState) {
@@ -1014,23 +1071,59 @@ function updateLevelCounts(sessions) {
   updateGamificationUI(sessions);
 }
 
-const ADVANCED_UNLOCK_LIMIT = 30;
-
 const LEVEL_GOAL = 10;
+
+function getSessionsCountByLevel(sessions) {
+  const counts = { beginner: 0, intermediate: 0, advanced: 0 };
+  sessions.forEach((session) => {
+    if (counts[session.level] !== undefined) {
+      counts[session.level] += 1;
+    }
+  });
+  return counts;
+}
+
+function setupAdvancedLockFeedback() {
+  const advancedBox = document.getElementById("advanced-level");
+  if (!advancedBox) return;
+
+  advancedBox.addEventListener("click", (event) => {
+    if (!advancedBox.classList.contains("locked")) return;
+    event.preventDefault();
+    event.stopPropagation();
+
+    advancedBox.classList.remove("locked-shake");
+    void advancedBox.offsetWidth;
+    advancedBox.classList.add("locked-shake");
+  });
+
+  advancedBox.addEventListener("animationend", (event) => {
+    if (event.animationName !== "lockedShake") return;
+    advancedBox.classList.remove("locked-shake");
+  });
+}
 
 function handleAdvancedUnlock() {
   const advancedBox = document.getElementById("advanced-level");
   if (!advancedBox || !advancedBox.classList.contains("locked")) return;
 
   const history = getUserHistory();
-  const totalCompleted = history.filter(
-    (entry) => entry.completed !== false,
-  ).length;
-  const completedSessions = totalCompleted
-    ? totalCompleted
-    : Number(localStorage.getItem("completedSessions") || 0);
+  const levelMap = buildSessionLevelMap(allSessions);
+  const completedByLevel = getCompletedByLevel(history, levelMap);
+  const totalsByLevel = getSessionsCountByLevel(allSessions);
+  if (!totalsByLevel.beginner || !totalsByLevel.intermediate) return;
+  const beginnerGoal = Math.min(LEVEL_GOAL, totalsByLevel.beginner || 0);
+  const intermediateGoal = Math.min(
+    LEVEL_GOAL,
+    totalsByLevel.intermediate || 0,
+  );
 
-  if (completedSessions < ADVANCED_UNLOCK_LIMIT) return;
+  if (
+    completedByLevel.beginner < beginnerGoal ||
+    completedByLevel.intermediate < intermediateGoal
+  ) {
+    return;
+  }
 
   advancedBox.classList.remove("locked");
   advancedBox.classList.add("unlocking");
@@ -1283,4 +1376,189 @@ function debounce(func, wait) {
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
   };
+}
+/* ========================================
+   ALL EXERCISES BY LEVEL - NEW SYSTEM
+   ======================================== */
+
+// Initialize exercises display when user is logged in
+function initializeAllExercises() {
+  const userId =
+    sessionStorage.getItem("userId") || localStorage.getItem("userId");
+
+  // Check if we're on a specific level page (beginner, intermediate, advanced)
+  const levelFromPage = window.SESSIONS_LEVEL || null;
+
+  // If on a level-specific page, always show exercises for that level
+  if (levelFromPage) {
+    loadExercisesByLevel();
+    return;
+  }
+
+  // Check if user is logged in (for sessions.html main page)
+  if (!userId) {
+    // Hide the all-exercises section if not logged in
+    const allExercisesSection = document.getElementById("all-exercises");
+    if (allExercisesSection) {
+      allExercisesSection.style.display = "none";
+    }
+    return;
+  }
+
+  // Check level completion status
+  checkAndUnlockAdvanced(userId);
+
+  // Load exercises for each level
+  loadExercisesByLevel();
+}
+
+// Check if beginner and intermediate are completed, then unlock advanced
+function checkAndUnlockAdvanced(userId) {
+  const beginnerDone = localStorage.getItem("beginnerDone") === "true";
+  const intermediateDone = localStorage.getItem("intermediateDone") === "true";
+
+  const levelAdvanced = document.getElementById("level-advanced");
+
+  if (!levelAdvanced) return;
+
+  // Unlock advanced if both conditions are met
+  if (beginnerDone && intermediateDone) {
+    levelAdvanced.classList.remove("locked");
+    levelAdvanced.classList.add("unlocked");
+
+    // Update the H2 text
+    const h2 = levelAdvanced.querySelector("h2");
+    if (h2) {
+      h2.textContent = translateText("sessions.level.advanced", "Avancé");
+    }
+  }
+}
+
+// Load exercises into each level section
+function loadExercisesByLevel() {
+  const beginnerContainer = document.getElementById("beginner-exercises");
+  const intermediateContainer = document.getElementById(
+    "intermediate-exercises",
+  );
+  const advancedContainer = document.getElementById("advanced-exercises");
+
+  if (!beginnerContainer || !intermediateContainer || !advancedContainer)
+    return;
+
+  // Get all sessions
+  const sessions =
+    allSessions.length > 0
+      ? allSessions
+      : JSON.parse(localStorage.getItem("sessions") || "[]");
+
+  // Sort sessions by level
+  const beginnerSessions = sessions.filter((s) => s.level === "beginner");
+  const intermediateSessions = sessions.filter(
+    (s) => s.level === "intermediate",
+  );
+  const advancedSessions = sessions.filter((s) => s.level === "advanced");
+
+  // Render exercises
+  renderExerciseCards(beginnerContainer, beginnerSessions, "beginner");
+  renderExerciseCards(
+    intermediateContainer,
+    intermediateSessions,
+    "intermediate",
+  );
+  renderExerciseCards(advancedContainer, advancedSessions, "advanced");
+}
+
+// Render exercise cards
+function renderExerciseCards(container, sessions, level) {
+  container.innerHTML = "";
+
+  if (sessions.length === 0) {
+    container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">Aucun exercice disponible pour ce niveau.</p>`;
+    return;
+  }
+
+  sessions.forEach((session) => {
+    const card = createExerciseCard(session, level);
+    container.appendChild(card);
+  });
+}
+
+// Create individual exercise card
+function createExerciseCard(session, level) {
+  const card = document.createElement("div");
+  card.className = "exercise-card";
+
+  const title = document.createElement("h3");
+  title.textContent = session.title || "Sans titre";
+
+  const meta = document.createElement("div");
+  meta.className = "exercise-meta";
+  meta.innerHTML = `
+    <span>⏱️ ${session.duration || 10} min</span>
+    <span>📊 ${translateLevel(session.level || level)}</span>
+    <span>🎯 ${session.type || "Hatha"}</span>
+  `;
+
+  const btn = document.createElement("a");
+  btn.className = "exercise-btn";
+  btn.href = `session-player.html?id=${session.id}`;
+  btn.textContent = translateText("sessions.cards.start", "Démarrer");
+
+  card.appendChild(title);
+  card.appendChild(meta);
+  card.appendChild(btn);
+
+  return card;
+}
+
+// Helper function to translate level
+function translateLevel(level) {
+  const translations = {
+    beginner: translateText("sessions.level.beginner", "Débutant"),
+    intermediate: translateText("sessions.level.intermediate", "Intermédiaire"),
+    advanced: translateText("sessions.level.advanced", "Avancé"),
+  };
+  return translations[level] || level;
+}
+
+// Helper function to get translation
+function translateText(key, fallback) {
+  const lang = getCurrentLanguage();
+  const keys = key.split(".");
+  let result = window.i18n?.translations?.[lang];
+
+  for (const k of keys) {
+    if (result && result[k]) {
+      result = result[k];
+    } else {
+      return fallback;
+    }
+  }
+
+  return typeof result === "string" ? result : fallback;
+}
+
+// Mark level as completed (to be called when user finishes all sessions of a level)
+function markLevelCompleted(level) {
+  if (level === "beginner") {
+    localStorage.setItem("beginnerDone", "true");
+    console.log("✅ Niveau Débutant terminé !");
+  } else if (level === "intermediate") {
+    localStorage.setItem("intermediateDone", "true");
+    console.log("✅ Niveau Intermédiaire terminé !");
+  }
+
+  // Re-check unlock status
+  const userId =
+    sessionStorage.getItem("userId") || localStorage.getItem("userId");
+  if (userId) {
+    checkAndUnlockAdvanced(userId);
+  }
+}
+
+// Auto-initialize when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeAllExercises);
+} else {
+  initializeAllExercises();
 }

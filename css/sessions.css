@@ -436,6 +436,10 @@
   opacity: 0.5;
 }
 
+.level-wrapper.locked.locked-shake {
+  animation: lockedShake 0.4s ease;
+}
+
 .sessions-grid .level-wrapper.locked {
   pointer-events: auto;
 }
@@ -512,6 +516,24 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes lockedShake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -1196,5 +1218,217 @@
 
   .calendar-day {
     height: 24px;
+  }
+}
+/* ========================================
+   ALL EXERCISES SECTION - LEVELS
+   ======================================== */
+
+.all-exercises-section {
+  padding: 60px 20px;
+  background: var(--bg-primary);
+}
+
+.all-exercises-section > .container > h1 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.level {
+  margin-bottom: 60px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.level > h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.level > h2::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 32px;
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+.exercises {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Locked State */
+.level.locked {
+  opacity: 0.4;
+  pointer-events: none;
+  position: relative;
+  filter: blur(2px);
+}
+
+.level.locked .lock-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  background: var(--card-bg, #ffffff);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--border, #e5e7eb);
+  filter: none;
+  pointer-events: auto;
+}
+
+.level.locked .lock-overlay svg {
+  color: var(--primary-color);
+  margin-bottom: 16px;
+  animation: lockPulse 2s ease-in-out infinite;
+}
+
+.level.locked .lock-overlay p {
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+@keyframes lockPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Unlocked State */
+.level.unlocked {
+  opacity: 1;
+  pointer-events: auto;
+  filter: none;
+  animation: levelUnlock 0.6s ease-out;
+}
+
+.level.unlocked .lock-overlay {
+  display: none;
+}
+
+@keyframes levelUnlock {
+  0% {
+    opacity: 0.4;
+    filter: blur(2px);
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    transform: scale(1);
+  }
+}
+
+/* Exercise Card */
+.exercise-card {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.exercise-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color);
+}
+
+.exercise-card h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin: 0;
+  font-weight: 600;
+}
+
+.exercise-card .exercise-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.exercise-card .exercise-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.exercise-card .exercise-btn {
+  margin-top: auto;
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+}
+
+.exercise-card .exercise-btn:hover {
+  background: var(--primary-hover, #059669);
+  transform: scale(1.02);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .all-exercises-section > .container > h1 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .level > h2 {
+    font-size: 1.4rem;
+  }
+
+  .exercises {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .level.locked .lock-overlay {
+    padding: 24px;
+    max-width: 90%;
+  }
+
+  .level.locked .lock-overlay svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .level.locked .lock-overlay p {
+    font-size: 0.9rem;
   }
 }

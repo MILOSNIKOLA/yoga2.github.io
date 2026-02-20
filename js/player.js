@@ -76,7 +76,11 @@ function initializePlayer() {
 
 function loadSession(sessionId) {
   const sessions = JSON.parse(localStorage.getItem("sessions") || "[]");
-  currentSession = sessions.find((s) => s.id === sessionId);
+  // Convert sessionId to number for comparison
+  const sessionIdNum = parseInt(sessionId, 10);
+  currentSession = sessions.find(
+    (s) => s.id === sessionIdNum || s.id === sessionId,
+  );
 
   if (!currentSession) {
     showError("Séance introuvable");

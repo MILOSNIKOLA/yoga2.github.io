@@ -220,7 +220,16 @@
       "level": {
         "beginner": "Débutant",
         "intermediate": "Intermédiaire",
-        "advanced": "Avancé"
+        "advanced": "Avancé",
+        "lockedMessage": "Terminez Débutant et Intermédiaire pour déverrouiller",
+        "desc": {
+          "beginner": "Postures simples et accessibles",
+          "intermediate": "Enchaînements dynamiques",
+          "advanced": "Pratique intensive et complexe"
+        }
+      },
+      "allExercises": {
+        "title": "Tous les exercices"
       },
       "goals": {
         "detente": "Détente",
@@ -806,7 +815,16 @@
       "level": {
         "beginner": "Beginner",
         "intermediate": "Intermediate",
-        "advanced": "Advanced"
+        "advanced": "Advanced",
+        "lockedMessage": "Complete Beginner and Intermediate to unlock",
+        "desc": {
+          "beginner": "Simple and accessible postures",
+          "intermediate": "Dynamic sequences",
+          "advanced": "Intensive and complex practice"
+        }
+      },
+      "allExercises": {
+        "title": "All Exercises"
       },
       "goals": {
         "detente": "Relaxation",
@@ -1477,7 +1495,16 @@
       "level": {
         "beginner": "Početnik",
         "intermediate": "Srednji",
-        "advanced": "Napredni"
+        "advanced": "Napredni",
+        "lockedMessage": "Završite Početnik i Srednji da otključate",
+        "desc": {
+          "beginner": "Jednostavne i pristupačne pozicije",
+          "intermediate": "Dinamične sekvence",
+          "advanced": "Intenzivna i složena praksa"
+        }
+      },
+      "allExercises": {
+        "title": "Sve vežbe"
       },
       "goals": {
         "detente": "Opuštanje",
