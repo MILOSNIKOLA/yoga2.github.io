@@ -5,8 +5,130 @@
 let allSessions = [];
 let filteredSessions = [];
 
+// ✅ CONTRÔLE D'ACCÈS AUX EXERCICES - S'exécute AVANT tout
+(function () {
+  // Récupère userId depuis sessionStorage OU localStorage
+  const userId =
+    sessionStorage.getItem("userId") || localStorage.getItem("userId");
+  const isLoggedIn = !!userId; // Convertir en boolean
+
+  console.log("🔍 Vérification connexion:", { userId, isLoggedIn });
+
+  // Sélectionne tous les exercices
+  const allExerciseCards = document.querySelectorAll(
+    ".exercise-card[data-session-id]",
+  );
+
+  console.log("📊 Exercices trouvés:", allExerciseCards.length);
+
+  if (!isLoggedIn) {
+    // 🔓 NON CONNECTÉ : masque exercices 3+
+    allExerciseCards.forEach((card, index) => {
+      if (index >= 2) {
+        card.classList.add("hidden-exercise");
+        card.style.display = "none !important";
+      }
+    });
+  } else {
+    // 🔐 CONNECTÉ : affiche tous les exercices
+    allExerciseCards.forEach((card) => {
+      card.classList.remove("hidden-exercise");
+      card.style.display = "";
+    });
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   initializeSessionsPage();
+});
+
+// ------------------------------------------------------------------
+// Filtrage pour mode visiteur : n'afficher que session-41,42,51,52
+// Si connecté => afficher tout. S'exécute après DOMContentLoaded.
+// ------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const isLoggedIn = !!(
+    sessionStorage.getItem("userId") || localStorage.getItem("userId")
+  );
+
+  // IDs autorisés pour les visiteurs (valeurs numériques correspondant aux sessions)
+  const ALLOWED_VISITOR_IDS = new Set(["41", "42", "51", "52"]);
+
+  // cible principale : #sessions-grid si présent, sinon la première .sessions-grid
+  const grid =
+    document.querySelector("#sessions-grid") ||
+    document.querySelector(".sessions-grid");
+  if (!grid) return;
+
+  // collecte toutes les cartes potentiellement utilisées comme sessions
+  const cards = Array.from(
+    grid.querySelectorAll(
+      ".session-card, .session-card-full, [data-session-id]",
+    ),
+  );
+
+  function extractNumericId(card) {
+    // priorise data-session-id
+    const ds = card.getAttribute("data-session-id");
+    if (ds) {
+      const m = String(ds).match(/\d+/);
+      if (m) return m[0];
+    }
+    // fallback : id de l'élément
+    if (card.id) {
+      const m2 = String(card.id).match(/\d+/);
+      if (m2) return m2[0];
+    }
+    // dernier recours : chercher un attribut contenant des chiffres
+    for (const attr of Array.from(card.attributes)) {
+      const mm = String(attr.value).match(/\d{2,}/);
+      if (mm) return mm[0];
+    }
+    return null;
+  }
+
+  cards.forEach((card) => {
+    if (isLoggedIn) {
+      // connecté : tout visible
+      card.style.removeProperty("display");
+      return;
+    }
+
+    const id = extractNumericId(card);
+    if (id && ALLOWED_VISITOR_IDS.has(id)) {
+      card.style.removeProperty("display");
+    } else {
+      card.style.display = "none";
+    }
+  });
+
+  // Si visiteur, injecter une carte d'appel à l'action pour connexion/inscription
+  if (!isLoggedIn) {
+    if (!grid.querySelector(".session-card.login-card")) {
+      const loginDiv = document.createElement("div");
+      loginDiv.className = "session-card login-card";
+      // Utiliser innerHTML minimal et i18n keys (si i18n présent, applyTranslations s'en chargera)
+      loginDiv.innerHTML = `
+        <div class="login-card-content">
+          <h3 data-i18n="sessions.login.title">Accès complet</h3>
+          <p data-i18n="sessions.login.subtitle">Connectez-vous ou inscrivez-vous pour débloquer toutes les séances.</p>
+          <div class="login-card-actions">
+            <a href="login.html" class="btn btn-primary" data-i18n="sessions.login.loginBtn">Se connecter</a>
+            <a href="register.html" class="btn btn-outline" data-i18n="sessions.login.registerBtn">S'inscrire</a>
+          </div>
+        </div>
+      `;
+      grid.appendChild(loginDiv);
+      // Appliquer traductions si disponibles
+      if (window.i18n && window.i18n.applyTranslations) {
+        try {
+          window.i18n.applyTranslations(loginDiv);
+        } catch (e) {
+          console.warn('i18n apply failed for login card', e);
+        }
+      }
+    }
+  }
 });
 
 function initializeSessionsPage() {
