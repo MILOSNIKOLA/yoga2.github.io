@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
           window.i18n.applyTranslations(loginDiv);
         } catch (e) {
-          console.warn('i18n apply failed for login card', e);
+          console.warn("i18n apply failed for login card", e);
         }
       }
     }

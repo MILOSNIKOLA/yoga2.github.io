@@ -251,6 +251,12 @@
         "description": "Connectez-vous pour débloquer l'accès à toutes les séances disponibles",
         "button": "Se connecter"
       },
+      "login": {
+        "title": "Accès complet",
+        "subtitle": "Connectez-vous ou inscrivez-vous pour débloquer toutes les séances.",
+        "loginBtn": "Se connecter",
+        "registerBtn": "S'inscrire"
+      },
       "filter": {
         "level": {
           "all": "Tous les niveaux",
@@ -845,6 +851,12 @@
         "title": "Access all sessions",
         "description": "Log in to unlock access to all available sessions",
         "button": "Log in"
+      },
+      "login": {
+        "title": "Full access",
+        "subtitle": "Log in or sign up to unlock all sessions.",
+        "loginBtn": "Log in",
+        "registerBtn": "Sign up"
       },
       "cards": {
         "session_41": {
@@ -1525,6 +1537,12 @@
         "title": "Pristupite svim sesijama",
         "description": "Prijavite se da biste otključali pristup svim dostupnim sesijama",
         "button": "Prijavi se"
+      },
+      "login": {
+        "title": "Pristup svim sesijama",
+        "subtitle": "Prijavite se ili registrujte se da otključate sve sesije.",
+        "loginBtn": "Prijavite se",
+        "registerBtn": "Registrujte se"
       },
       "cards": {
         "session_41": {
