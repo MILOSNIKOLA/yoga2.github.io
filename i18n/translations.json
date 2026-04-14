@@ -386,6 +386,27 @@
       "modal": {
         "author": "Par l'équipe Yoga App",
         "markRead": "✓ Marquer comme lu"
+      },
+      "articles": {
+        "article_1_title": "Qu'est-ce que le yoga ?",
+        "article_1_excerpt": "Découvrez les origines millénaires du yoga, ses différentes branches et comment il s'est adapté au monde moderne.",
+        "article_2_title": "Pourquoi respirer par le nez ?",
+        "article_2_excerpt": "La respiration nasale n'est pas qu'une recommandation : c'est une clé essentielle pour votre bien-être physique et mental.",
+        "article_3_title": "La philosophie du yoga",
+        "article_3_excerpt": "Au-delà des postures, le yoga est une philosophie de vie basée sur des principes éthiques millénaires.",
+        "article_4_title": "Les postures de base",
+        "article_4_excerpt": "Maîtrisez les postures fondamentales du yoga avec leurs alignements clés pour une pratique sûre et efficace.",
+        "article_5_title": "Méditation pour débutants",
+        "article_5_excerpt": "Commencez la méditation sans stress avec ce guide simple et bienveillant. 5 minutes suffisent !",
+        "categories": {
+          "bases": "Bases",
+          "pranayama": "Respiration",
+          "philosophie": "Philosophie",
+          "asanas": "Postures",
+          "meditation": "Méditation"
+        },
+        "readStatus": "✓ Lu",
+        "readLink": "Lire l'article →"
       }
     },
     "sessions": {
@@ -1114,6 +1135,27 @@
       "modal": {
         "author": "By the Yoga App team",
         "markRead": "✓ Mark as read"
+      },
+      "articles": {
+        "article_1_title": "What is Yoga?",
+        "article_1_excerpt": "Discover the ancient origins of yoga, its various branches, and how it has adapted to the modern world.",
+        "article_2_title": "Why Breathe Through Your Nose?",
+        "article_2_excerpt": "Nasal breathing is not just a recommendation: it is an essential key to your physical and mental well-being.",
+        "article_3_title": "The Philosophy of Yoga",
+        "article_3_excerpt": "Beyond postures, yoga is a life philosophy based on ancient ethical principles.",
+        "article_4_title": "Basic Postures",
+        "article_4_excerpt": "Master the fundamental yoga postures with their key alignments for safe and effective practice.",
+        "article_5_title": "Meditation for Beginners",
+        "article_5_excerpt": "Start meditating without stress with this simple and compassionate guide. 5 minutes is enough!",
+        "categories": {
+          "bases": "Basics",
+          "pranayama": "Breathing",
+          "philosophie": "Philosophy",
+          "asanas": "Postures",
+          "meditation": "Meditation"
+        },
+        "readStatus": "✓ Read",
+        "readLink": "Read article →"
       }
     },
     "home": {
@@ -1800,6 +1842,27 @@
       "modal": {
         "author": "Od Yoga App tima",
         "markRead": "✓ Obeleži kao pročitano"
+      },
+      "articles": {
+        "article_1_title": "Šta je joga?",
+        "article_1_excerpt": "Otkrij drevne poreklo joge, njene različite grane i kako se prilagodila modernom svetu.",
+        "article_2_title": "Zašto disati kroz nos?",
+        "article_2_excerpt": "Disanje kroz nos nije samo preporuka: to je esencijalni ključ za vaše fizičko i mentalno blagostanje.",
+        "article_3_title": "Filozofija joge",
+        "article_3_excerpt": "Izvan položaja, joga je životna filozofija zasnovana na drevnim etičkim principima.",
+        "article_4_title": "Osnovni položaji",
+        "article_4_excerpt": "Ovladaj fundamentalnim joga položajima sa njihovim ključnim poravnanjima za sigurnu i efikasnu praksu.",
+        "article_5_title": "Meditacija za početnike",
+        "article_5_excerpt": "Počni da meditiraš bez stresa sa ovim jednostavnim i sažaljenim vodičem. 5 minuta je dovoljno!",
+        "categories": {
+          "bases": "Osnove",
+          "pranayama": "Disanje",
+          "philosophie": "Filozofija",
+          "asanas": "Položaji",
+          "meditation": "Meditacija"
+        },
+        "readStatus": "✓ Pročitano",
+        "readLink": "Pročitaj članak →"
       }
     },
     "home": {

@@ -46,6 +46,12 @@
     document
       .getElementById("mark-as-read-btn")
       ?.addEventListener("click", markCurrentAsRead);
+
+    // Listen for language changes and re-render articles
+    document.addEventListener("languageChanged", () => {
+      console.log("📚 Language changed, re-rendering articles...");
+      renderArticles();
+    });
   }
 
   function loadArticles() {
@@ -301,6 +307,21 @@
     }
   }
 
+  function getArticleTranslation(key, fallback) {
+    // Use i18n if available and loaded, otherwise return fallback
+    try {
+      if (window.i18n && typeof window.i18n.getTranslation === "function") {
+        const translated = window.i18n.getTranslation(key);
+        if (translated) {
+          return translated;
+        }
+      }
+    } catch (e) {
+      console.warn(`Translation error for key: ${key}`, e);
+    }
+    return fallback;
+  }
+
   function renderArticles() {
     const grid = document.getElementById("articles-grid");
     const emptyState = document.getElementById("empty-articles");
@@ -313,9 +334,23 @@
       document.getElementById("filter-category")?.value || "all";
 
     let filtered = articles.filter((article) => {
+      // Filter on original article data
       const matchesSearch =
         article.title.toLowerCase().includes(searchQuery) ||
-        article.excerpt.toLowerCase().includes(searchQuery);
+        article.excerpt.toLowerCase().includes(searchQuery) ||
+        // Also search in translated versions if available
+        getArticleTranslation(
+          `learning.articles.article_${article.id}_title`,
+          "",
+        )
+          .toLowerCase()
+          .includes(searchQuery) ||
+        getArticleTranslation(
+          `learning.articles.article_${article.id}_excerpt`,
+          "",
+        )
+          .toLowerCase()
+          .includes(searchQuery);
       const matchesCategory =
         categoryFilter === "all" || article.category === categoryFilter;
       return matchesSearch && matchesCategory;
@@ -333,20 +368,36 @@
     grid.innerHTML = filtered
       .map((article) => {
         const isRead = readArticles.includes(article.id);
+        const translatedTitle = getArticleTranslation(
+          `learning.articles.article_${article.id}_title`,
+          article.title,
+        );
+        const translatedExcerpt = getArticleTranslation(
+          `learning.articles.article_${article.id}_excerpt`,
+          article.excerpt,
+        );
+        const readStatusText = getArticleTranslation(
+          "learning.articles.readStatus",
+          "✓ Lu",
+        );
+        const readLinkText = getArticleTranslation(
+          "learning.articles.readLink",
+          "Lire l'article →",
+        );
         return `
                 <div class="article-card" onclick="openArticle('${article.id}')">
                     <span class="article-icon">${article.icon}</span>
-                    <h3 class="article-card-title">${article.title}</h3>
+                    <h3 class="article-card-title">${translatedTitle}</h3>
                     <div class="article-card-meta">
                         <span class="category-badge ${article.category}">
                             ${getCategoryLabel(article.category)}
                         </span>
                         <span>📖 ${article.readTime}</span>
                     </div>
-                    <p class="article-card-excerpt">${article.excerpt}</p>
+                    <p class="article-card-excerpt">${translatedExcerpt}</p>
                     <div class="article-card-footer">
-                        ${isRead ? '<span class="read-status">✓ Lu</span>' : ""}
-                        <span class="read-link">Lire l'article →</span>
+                        ${isRead ? `<span class="read-status">${readStatusText}</span>` : ""}
+                        <span class="read-link">${readLinkText}</span>
                     </div>
                 </div>
             `;
@@ -355,6 +406,19 @@
   }
 
   function getCategoryLabel(category) {
+    // Use i18n if available, otherwise fallback to defaults
+    try {
+      const translationKey = `learning.articles.categories.${category}`;
+      if (window.i18n && typeof window.i18n.getTranslation === "function") {
+        const i18nText = window.i18n.getTranslation(translationKey);
+        if (i18nText) {
+          return i18nText;
+        }
+      }
+    } catch (e) {
+      console.warn(`Category translation error for: ${category}`, e);
+    }
+
     const labels = {
       bases: "Bases",
       pranayama: "Pranayama",
@@ -373,7 +437,20 @@
 
     currentArticleId = id;
 
-    document.getElementById("article-title").textContent = article.title;
+    const translatedTitle = getArticleTranslation(
+      `learning.articles.article_${id}_title`,
+      article.title,
+    );
+    const readStatusText = getArticleTranslation(
+      "learning.articles.readStatus",
+      "✓ Lu",
+    );
+    const markReadText = getArticleTranslation(
+      "learning.modal.markRead",
+      "✓ Marquer comme lu",
+    );
+
+    document.getElementById("article-title").textContent = translatedTitle;
     document.getElementById("article-category").textContent = getCategoryLabel(
       article.category,
     );
@@ -387,7 +464,7 @@
     const isRead = readArticles.includes(id);
     const markBtn = document.getElementById("mark-as-read-btn");
     if (markBtn) {
-      markBtn.textContent = isRead ? "✓ Déjà lu" : "✓ Marquer comme lu";
+      markBtn.textContent = isRead ? readStatusText : markReadText;
       markBtn.disabled = isRead;
     }
 
@@ -402,13 +479,22 @@
       saveReadArticles();
       renderArticles();
 
+      const readStatusText = getArticleTranslation(
+        "learning.articles.readStatus",
+        "✓ Lu",
+      );
       const markBtn = document.getElementById("mark-as-read-btn");
       if (markBtn) {
-        markBtn.textContent = "✓ Déjà lu";
+        markBtn.textContent = readStatusText;
         markBtn.disabled = true;
       }
 
-      showToast("Article marqué comme lu ! 📚");
+      // Toast message - try to get i18n version
+      const toastMessage = getArticleTranslation(
+        "learning.toast.markRead",
+        "Article marqué comme lu ! 📚",
+      );
+      showToast(toastMessage);
     }
   }
 

@@ -419,6 +419,9 @@ a:hover {
   background: var(--accent);
   color: white;
   border-color: var(--accent);
+  margin: 0;
+  padding: 10px;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
@@ -442,7 +445,7 @@ a:hover {
 
 .btn-outline {
   background:#9f7aea;;
-  color: white
+  color: white.
   border-color: var(--accent);
 }
 
@@ -456,7 +459,7 @@ a:hover {
   background: #ffffff;
   color: var(--text-secondary);
   /* border: none; */
-  padding: 0.5rem 1rem;
+  /* padding: 0.5rem 1rem; */
   border-color: var(--border);
 }
 
