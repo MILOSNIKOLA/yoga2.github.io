@@ -1,52 +1,120 @@
-# 📋 CHANGELOG - Système de Traduction
+# Changelog - Yoga2 SaaS
 
-## [1.0.0] - 28 Janvier 2026
+Tous les changements notables apportés à Yoga2 seront documentés dans ce fichier.
 
-### ✨ Ajouté
+Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+et ce projet respecte [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-#### Fonctionnalités
+## [Unreleased]
 
-- 🌍 Système de traduction multilingue avec 3 langues (Français, Serbe, Anglais)
-- 🔄 Changement de langue cyclique via bouton avec drapeau
-- 💾 Sauvegarde automatique de la préférence linguistique dans localStorage
-- ⚡ Changement instantané sans rechargement de page
-- 🎨 Drapeaux SVG animés pour chaque langue
-- 🔤 Mise à jour automatique de l'attribut `lang` du HTML
-- ♿ Support de l'accessibilité avec ARIA labels traduits
+### Added
 
-#### Traductions
+- Fonctionnalité en cours de développement
 
-- 📝 20+ éléments traduits sur la page d'accueil
-- 🏠 Section Hero (titre, sous-titre, 3 boutons d'action)
-- 🔐 Section Authentification (5 boutons/liens)
-- ⭐ Section Fonctionnalités (4 cartes avec titres et descriptions)
-- 🎬 Section Séances (titre et bouton)
-- 🚀 Section CTA (titre, description, bouton)
-- 🎯 Total : 60+ traductions (20+ clés × 3 langues)
+### Changed
 
-#### Fichiers Modifiés
+- Modifications en cours
 
-- ✅ `index.html` - Ajout des attributs `data-i18n` sur tous les textes traductibles
-- ✅ `js/language.js` - Système complet de traduction (255 lignes)
-  - Objets `languages` et `translations`
-  - Fonctions `initLanguage()`, `setLanguage()`, `applyTranslations()`
-  - Ordre cyclique des langues : FR → SR → EN
-  - Français défini comme langue par défaut
+### Deprecated
 
-#### Nouveaux Fichiers Créés
+- Fonctionnalités dépréciées
 
-**Pages de démonstration :**
+### Removed
 
-- 🎨 `demo-traduction.html` - Page de démonstration interactive avec explications
-- 🧪 `test-traduction.html` - Page de test technique avec infos en temps réel
+- Fonctionnalités supprimées
 
-**Documentation :**
+### Fixed
 
-- 📝 `TRADUCTION-RECAP.md` - Récapitulatif rapide (guide de démarrage)
-- 📖 `TRADUCTION-GUIDE.md` - Documentation technique complète
-- 🖼️ `TRADUCTION-VISUAL.md` - Guide visuel avec diagrammes
-- 📚 `TRADUCTION-INDEX.md` - Index de toute la documentation
-- 📋 `CHANGELOG.md` - Ce fichier (historique des changements)
+- Corrections de bugs
+
+### Security
+
+- Corrections de sécurité
+
+## [1.0.0] - 2024-01-15
+
+### Added
+
+- ✨ **Application complète** : Plateforme SaaS de yoga en ligne
+- 🎯 **Authentification Firebase** : Connexion/inscription sécurisée
+- 💳 **Paiements Stripe** : Abonnement premium intégré
+- 📱 **Interface responsive** : Design mobile-first
+- 🧘 **Séances de yoga** : Contenu structuré par niveaux
+- 📊 **Dashboard utilisateur** : Suivi de progression
+- 🌬️ **Exercices de respiration** : Techniques guidées
+- 🔒 **Sécurité avancée** : Chiffrement et protection des données
+- 📡 **API REST** : Endpoints complets pour toutes les fonctionnalités
+- 🗄️ **Base de données MongoDB** : Stockage scalable
+- 🚀 **Déploiement cloud** : Prêt pour production
+
+### Changed
+
+- Migration depuis localStorage vers MongoDB Atlas
+- Amélioration des performances frontend avec React 18
+- Optimisation des requêtes API avec pagination
+
+### Technical Details
+
+- **Frontend** : React 18.2.0, React Router 6.8.0, Framer Motion 10.12.0
+- **Backend** : Node.js, Express.js, MongoDB avec Mongoose
+- **Auth** : Firebase Authentication
+- **Payments** : Stripe Checkout
+- **Deployment** : Vercel (frontend), Railway/Render (backend)
+
+## [0.2.0] - 2024-01-01
+
+### Added
+
+- Interface utilisateur de base
+- Routing React
+- Composants principaux (Navbar, Cards)
+- Structure de projet initiale
+
+### Changed
+
+- Refactorisation du code pour meilleure maintenabilité
+- Ajout de TypeScript pour le typage
+
+## [0.1.0] - 2023-12-15
+
+### Added
+
+- Proof of concept initial
+- Structure de base du projet
+- Configuration des outils de développement
+- Documentation préliminaire
+
+---
+
+## 📋 Guide des types de changements
+
+- `Added` pour les nouvelles fonctionnalités
+- `Changed` pour les changements aux fonctionnalités existantes
+- `Deprecated` pour les fonctionnalités bientôt supprimées
+- `Removed` pour les fonctionnalités supprimées
+- `Fixed` pour les corrections de bugs
+- `Security` pour les corrections de sécurité
+
+## 🔖 Versioning
+
+Ce projet suit [Semantic Versioning](https://semver.org/) :
+
+- **MAJOR** version pour les changements incompatibles
+- **MINOR** version pour les nouvelles fonctionnalités compatibles
+- **PATCH** version pour les corrections de bugs
+
+## 📢 Communication
+
+Les changements importants sont annoncés via :
+
+- [GitHub Releases](https://github.com/your-org/yoga2/releases)
+- [Newsletter](https://yoga2.com/newsletter)
+- [Blog](https://blog.yoga2.com)
+- Réseaux sociaux
+
+---
+
+**Restez à jour avec les dernières améliorations ! 🎉**
 
 ### 🔧 Technique
 

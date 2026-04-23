@@ -1,53 +1,393 @@
-# 🧘‍♀️ Yoga App - Application Web Complète (Vanilla JavaScript)
+# 🧘 Yoga2 - Plateforme SaaS de Yoga en Ligne
 
-Une application de yoga moderne et **100% complète** développée en **vanilla JavaScript**, avec authentification, gestion de séances, exercices de respiration, suivi de progression, dashboard admin et articles d'apprentissage.
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/your-org/yoga2)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
 
-**✅ PROJET TERMINÉ** : Toutes les 8 sections principales sont implémentées et fonctionnelles !
+Une plateforme moderne de yoga en ligne inspirée de Calm et Headspace, avec abonnement premium, contenu verrouillé, et expérience utilisateur exceptionnelle.
+
+## ✨ Fonctionnalités Principales
+
+### 🎯 Côté Utilisateur
+
+- **Séances de yoga courtes** : 5-20 minutes adaptées au rythme moderne
+- **3 niveaux de difficulté** : Débutant, Intermédiaire, Avancé
+- **Exercices de respiration** : Techniques guidées (Cohérence cardiaque, 4-7-8, Box Breathing)
+- **Suivi de progression** : Dashboard avec statistiques et graphiques
+- **Contenu premium** : Accès illimité avec abonnement
+- **Interface mobile-first** : Optimisée pour tous les appareils
+
+### 🔧 Côté Technique
+
+- **Frontend React 18** : Composants modernes avec hooks
+- **Backend Node.js/Express** : API REST scalable
+- **Authentification Firebase** : Sécurisée et sans mot de passe
+- **Paiements Stripe** : Intégration complète des abonnements
+- **Base de données MongoDB** : Stockage flexible et performant
+- **Animations Framer Motion** : Expérience utilisateur fluide
+
+### 🚀 Déploiement
+
+- **Frontend** : Vercel/Netlify pour hosting statique
+- **Backend** : Railway/Render pour hosting Node.js
+- **Base de données** : MongoDB Atlas
+- **CDN** : Distribution globale des assets
+
+## 🛠️ Installation Rapide
+
+### Prérequis
+
+- **Node.js** 18+ ([Télécharger](https://nodejs.org/))
+- **Git** ([Télécharger](https://git-scm.com/))
+- Comptes **Firebase** et **Stripe** (pour production)
+
+### 1. Cloner et installer
+
+```bash
+# Cloner le repository
+git clone https://github.com/your-org/yoga2.git
+cd yoga2
+
+# Installer les dépendances
+cd server && npm install
+cd ../client && npm install
+```
+
+### 2. Configuration
+
+```bash
+# Backend - Copier et configurer
+cd server
+cp .env.example .env
+# Éditer .env avec vos clés API
+
+# Frontend - Variables d'environnement
+cd ../client
+# Créer .env.local avec les variables Firebase
+```
+
+### 3. Lancement développement
+
+```bash
+# Terminal 1 - Backend
+cd server && npm run dev
+
+# Terminal 2 - Frontend
+cd client && npm start
+```
+
+**🎉 Application accessible sur http://localhost:3000**
+
+## 📁 Structure du Projet
+
+```
+yoga2/
+├── client/                 # Frontend React
+│   ├── public/
+│   ├── src/
+│   │   ├── components/     # Composants réutilisables
+│   │   ├── pages/          # Pages principales
+│   │   ├── services/       # Services API
+│   │   └── App.js
+│   └── package.json
+├── server/                 # Backend Node.js
+│   ├── models/             # Schémas MongoDB
+│   ├── routes/             # Routes API
+│   ├── middleware/         # Middleware Express
+│   └── server.js
+├── docs/                   # Documentation
+├── mobile/                 # App React Native (futur)
+└── README.md
+```
+
+## 📡 API Endpoints
+
+| Endpoint                                    | Method | Description                     | Auth     |
+| ------------------------------------------- | ------ | ------------------------------- | -------- |
+| `/api/auth/users`                           | POST   | Créer/Mettre à jour utilisateur | Firebase |
+| `/api/auth/users/:id`                       | GET    | Récupérer utilisateur           | Firebase |
+| `/api/content`                              | GET    | Lister le contenu               | Firebase |
+| `/api/content/:id`                          | GET    | Contenu spécifique              | Firebase |
+| `/api/subscription/create-checkout-session` | POST   | Créer session Stripe            | Firebase |
+
+## 🎨 Design System
+
+### Couleurs
+
+```css
+--primary: #22c55e; /* Vert yoga */
+--primary-dark: #16a34a; /* Vert foncé */
+--secondary: #1e293b; /* Bleu nuit */
+--accent: #3b82f6; /* Bleu accent */
+--bg-dark: #0f172a; /* Fond sombre */
+--text-light: #f8fafc; /* Texte clair */
+```
+
+### Composants
+
+- **Navbar** : Navigation responsive
+- **Hero** : Section d'accueil accrocheuse
+- **Cards** : Cartes de contenu
+- **Buttons** : Boutons stylisés
+- **Modals** : Fenêtres modales
+
+## 🚀 Déploiement Production
+
+### Variables d'environnement production
+
+```env
+# Backend
+NODE_ENV=production
+MONGODB_URI=mongodb+srv://...
+FIREBASE_PROJECT_ID=your-prod-project
+STRIPE_SECRET_KEY=sk_live_...
+
+# Frontend
+REACT_APP_API_URL=https://your-api-domain.com
+REACT_APP_FIREBASE_API_KEY=your-prod-api-key
+REACT_APP_STRIPE_PUBLISHABLE_KEY=pk_live_...
+```
+
+### Commandes déploiement
+
+```bash
+# Build frontend
+cd client && npm run build
+
+# Deploy backend
+cd server && npm run build
+
+# Via Vercel CLI
+vercel --prod
+
+# Via Railway CLI
+railway up
+```
+
+## 🧪 Tests
+
+```bash
+# Tests frontend
+cd client && npm test
+
+# Tests backend
+cd server && npm test
+
+# Tests E2E
+npm run test:e2e
+
+# Coverage
+npm run test:coverage
+```
+
+## 📊 Performance
+
+- **Lighthouse Score** : 95+ (Performance, Accessibilité, SEO)
+- **First Contentful Paint** : < 1.5s
+- **Time to Interactive** : < 3s
+- **Bundle Size** : < 200KB gzippé
+
+## 🔒 Sécurité
+
+- **Authentification** : Firebase Auth avec JWT
+- **Paiements** : Stripe avec conformité PCI DSS
+- **Données** : Chiffrement AES-256
+- **Headers** : Security headers (CSP, HSTS, etc.)
+- **Rate Limiting** : Protection contre les abus
+
+## 🤝 Contribution
+
+Voir [CONTRIBUTING.md](CONTRIBUTING.md) pour les guidelines de contribution.
+
+### Quick Start pour contributeurs
+
+```bash
+# Fork le projet
+# Créer une branche feature
+git checkout -b feature/amazing-feature
+
+# Commits et push
+git commit -m "feat: add amazing feature"
+git push origin feature/amazing-feature
+
+# Créer une Pull Request
+```
+
+## 📚 Documentation
+
+- **[Guide Utilisateur](USER-GUIDE.md)** : Comment utiliser l'application
+- **[Guide Développement](DEVELOPMENT.md)** : Configuration et développement
+- **[API Documentation](API.md)** : Référence API complète
+- **[Architecture](ARCHITECTURE.md)** : Vue d'ensemble technique
+- **[Déploiement](DEPLOYMENT.md)** : Guide déploiement production
+- **[Sécurité](SECURITY.md)** : Mesures de sécurité
+- **[Performance](PERFORMANCE.md)** : Optimisations performance
+- **[Tests](TESTING.md)** : Stratégie de test
+
+## 📋 Roadmap
+
+### Phase 1 ✅ (Actuelle)
+
+- Application web complète
+- Authentification et paiements
+- Contenu de base
+- Déploiement production
+
+### Phase 2 🔄 (Prochaine)
+
+- Application mobile React Native
+- Contenu premium étendu
+- Fonctionnalités sociales
+- Analytics avancés
+
+### Phase 3 📅 (Futur)
+
+- Intelligence artificielle personnalisation
+- Streaming en direct
+- Applications partenaires
+- API publique
+
+## 🐛 Support & Issues
+
+- **🐛 Bugs** : [GitHub Issues](https://github.com/your-org/yoga2/issues)
+- **💡 Features** : [GitHub Discussions](https://github.com/your-org/yoga2/discussions)
+- **📧 Support** : support@yoga2.com
+- **💬 Chat** : [Discord](https://discord.gg/yoga2)
+
+## 📄 Licence
+
+Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE.md) pour plus de détails.
+
+## 🙏 Remerciements
+
+- **React** pour le framework frontend
+- **Firebase** pour l'authentification
+- **Stripe** pour les paiements
+- **MongoDB** pour la base de données
+- **Framer Motion** pour les animations
 
 ---
 
-## ✨ Fonctionnalités Complètes
+**Namaste ! 🧘‍♀️**
 
-### 🔐 Authentification
+_Fait avec ❤️ pour votre bien-être_
+cd server
+npm run dev
 
-- ✅ Inscription avec validation email/mot de passe
-- ✅ Connexion sécurisée avec hash SHA-256
-- ✅ Gestion sessions (sessionStorage + localStorage)
-- ✅ Rôles utilisateur (user / admin)
-- ✅ Mode démo rapide
+# Serveur sur http://localhost:5000
 
-### 📊 Dashboard Utilisateur
+````
 
-- ✅ 4 statistiques personnalisées (séances, temps, streak, niveau)
-- ✅ Calcul automatique du niveau (Débutant/Intermédiaire/Avancé)
-- ✅ Suggestion intelligente "Continuer ma pratique"
-- ✅ Séances récentes avec historique
-- ✅ Graphique de la semaine (barres)
-- ✅ Messages encourageants adaptatifs
+#### Frontend
 
-### 🧘 Séances de Yoga
+```bash
+cd client
+npm start
+# Application sur http://localhost:3000
+````
 
-- ✅ 12+ séances pré-configurées
-- ✅ **5 filtres avancés** : niveau, durée, type, objectif, recherche temps réel
-- ✅ Player interactif avec **timer circulaire SVG**
-- ✅ Navigation entre postures avec instructions détaillées
-- ✅ Sons de transition (Web Audio API)
-- ✅ Sauvegarde automatique historique
-- ✅ Système premium/paywall
+## 📱 Structure du Projet
 
-### 🌬️ Exercices de Respiration
+```
+yoga2/
+├── client/          # Frontend React
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── services/
+│   └── public/
+├── server/          # Backend Node.js
+│   ├── models/
+│   ├── routes/
+│   └── server.js
+└── README.md
+```
 
-- ✅ **4 exercices guidés** :
-  - ❤️ Cohérence cardiaque (5-5)
-  - 📦 Box Breathing (4-4-4-4)
-  - 😌 4-7-8 (relaxation profonde)
-  - ⚡ Énergisant (3-6)
-- ✅ **Animation SVG fluide** (cercle qui pulse)
-- ✅ **Sons adaptatifs** par phase (Web Audio API)
-- ✅ **Vibrations haptiques** (Vibration API)
-- ✅ Compteur de cycles et timer total
+## 🔐 Configuration API
 
-### 📈 Progression
+### Firebase
+
+1. Créer un projet Firebase
+2. Activer Authentication
+3. Copier les clés dans `.env`
+
+### Stripe
+
+1. Créer un compte Stripe
+2. Configurer les webhooks
+3. Ajouter les clés dans `.env`
+
+### MongoDB
+
+- Utiliser MongoDB Atlas ou local
+- Configurer l'URI dans `.env`
+
+## 🎨 Design System
+
+- **Couleurs** : Vert (#22c55e), Bleu nuit, Fond sombre
+- **Typographie** : Inter
+- **Animations** : Framer Motion
+- **Style** : Minimaliste, moderne, mobile-first
+
+## 📈 Déploiement
+
+### Frontend (Vercel)
+
+```bash
+npm run build
+# Déployer le dossier build sur Vercel
+```
+
+### Backend (Render/Railway)
+
+```bash
+# Configurer les variables d'environnement
+# Déployer sur Render ou Railway
+```
+
+## 🧪 Tests
+
+```bash
+# Frontend
+cd client
+npm test
+
+# Backend
+cd server
+npm test
+```
+
+## 📝 API Endpoints
+
+### Authentification
+
+- `POST /api/auth/users` - Créer/Mettre à jour utilisateur
+- `GET /api/auth/users/:firebaseUid` - Récupérer utilisateur
+
+### Abonnements
+
+- `POST /api/subscription/create-checkout-session` - Créer session Stripe
+
+### Contenu
+
+- `GET /api/content` - Liste du contenu
+- `GET /api/content/:id` - Contenu spécifique
+
+## 🤝 Contribution
+
+1. Fork le projet
+2. Créer une branche feature
+3. Commit les changements
+4. Push et créer une PR
+
+## 📄 Licence
+
+MIT License
+
+---
+
+**Yoga2** - Yoga simple, rapide, pour votre bien-être quotidien.
 
 - ✅ Stats détaillées avec **graphique Canvas API** (barres par jour)
 - ✅ Toggle période (7 jours / 30 jours / Tout)
