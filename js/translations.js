@@ -151,7 +151,7 @@ const SITE_TRANSLATIONS = {
       auth: {
         login: "Se connecter",
         register: "Créer un compte",
-        demo: "Demo",
+        demo: "Essai gratuit",
         dashboard: "Mon espace",
         logout: "Déconnexion",
       },
@@ -352,7 +352,7 @@ const SITE_TRANSLATIONS = {
       auth: {
         login: "Пријавите се",
         register: "Направите налог",
-        demo: "Демо",
+        demo: "Бесплатни проба",
         dashboard: "Мој простор",
         logout: "Одјавите се",
       },
@@ -552,7 +552,7 @@ const SITE_TRANSLATIONS = {
       auth: {
         login: "Log In",
         register: "Create Account",
-        demo: "Demo",
+        demo: "Free Trial",
         dashboard: "My Space",
         logout: "Log Out",
       },

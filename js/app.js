@@ -1065,3 +1065,146 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Hero background slideshow
+const heroImages = [
+  "img/y1.jpg",
+  "img/y2.jpg",
+  "img/y3.jpg",
+  "img/y4.jpg",
+  "img/y5.jpg",
+  "img/y6.jpg",
+  "img/y7.jpg",
+  "img/y8.jpg",
+  "img/y9.jpg",
+  "img/y10.jpg",
+  "img/y11.jpg",
+  "img/y12.jpg",
+  "img/y13.jpg",
+  "img/y14.jpg",
+  "img/y15.jpg",
+  "img/y16.jpg",
+  "img/y17.jpg",
+  "img/y18.jpg",
+  "img/y19.jpg",
+  "img/y20.jpg",
+  "img/y21.jpg",
+  "img/y22.jpg",
+];
+
+let currentImageIndex = 0;
+const hero = document.querySelector(".hero");
+
+function changeHeroBackground() {
+  if (hero) {
+    hero.style.backgroundImage = `url('${heroImages[currentImageIndex]}')`;
+    currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+  }
+}
+
+// Hero background slideshow with fade
+let currentBgIndex = 0;
+const heroBg1 = document.getElementById("hero-bg1");
+const heroBg2 = document.getElementById("hero-bg2");
+
+function changeHeroBackground() {
+  const nextImage = heroImages[currentImageIndex];
+  const currentBg = currentBgIndex === 0 ? heroBg1 : heroBg2;
+  const nextBg = currentBgIndex === 0 ? heroBg2 : heroBg1;
+
+  // Set the next image on the hidden bg
+  nextBg.style.backgroundImage = `url('${nextImage}')`;
+  nextBg.style.opacity = "1";
+
+  // Fade out the current bg
+  setTimeout(() => {
+    currentBg.style.opacity = "0";
+  }, 100); // Small delay to start fade
+
+  currentBgIndex = 1 - currentBgIndex;
+  currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+}
+
+// Start slideshow, change every 10 seconds
+setInterval(changeHeroBackground, 10000);
+
+// Initial background
+if (heroBg1) {
+  heroBg1.style.backgroundImage = `url('${heroImages[0]}')`;
+  heroBg1.style.opacity = "1";
+}
+
+// Navbar message rotation
+const navbarMessage = document.getElementById("navbar-message");
+let messages = [];
+
+function loadNavbarMessages() {
+  const lang = getCurrentLanguage();
+  if (
+    TRANSLATIONS[lang] &&
+    TRANSLATIONS[lang].navbar &&
+    TRANSLATIONS[lang].navbar.messages
+  ) {
+    messages = TRANSLATIONS[lang].navbar.messages.map((text) => ({
+      text,
+      duration: 5000,
+    }));
+  } else {
+    // Fallback
+    messages = [
+      {
+        text: "5 minutes de yoga par jour, 100% en ligne et à ton rythme",
+        duration: 5000,
+      },
+      {
+        text: "Accède à ton espace yoga personnel, sans coach, où tu veux, quand tu veux.",
+        duration: 5000,
+      },
+      {
+        text: "Yoga en ligne par abonnement, simple et autonome",
+        duration: 5000,
+      },
+      {
+        text: "Une plateforme de yoga en ligne, accessible 24h/24",
+        duration: 5000,
+      },
+      {
+        text: "Une nouvelle façon de pratiquer le yoga : simple, digitale et libre",
+        duration: 5000,
+      },
+      {
+        text: "La plateforme de yoga en ligne, pensée pour ton autonomie",
+        duration: 5000,
+      },
+    ];
+  }
+}
+
+let currentMessageIndex = 0;
+let messageInterval;
+
+function rotateMessage() {
+  if (navbarMessage && messages.length > 0) {
+    navbarMessage.textContent = messages[currentMessageIndex].text;
+    currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+  }
+}
+
+function startMessageRotation() {
+  if (messageInterval) {
+    clearInterval(messageInterval);
+  }
+  messageInterval = setInterval(rotateMessage, 5000);
+}
+
+// Load initial messages and start rotation
+loadNavbarMessages();
+startMessageRotation();
+
+// Listen for language change
+document.addEventListener("languageChanged", (e) => {
+  loadNavbarMessages();
+  currentMessageIndex = 0; // Reset to first message
+  rotateMessage(); // Show first message immediately
+  startMessageRotation(); // Restart interval
+});

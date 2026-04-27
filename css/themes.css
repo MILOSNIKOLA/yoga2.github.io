@@ -4,7 +4,7 @@
 
 :root {
   /* Theme Light (Default) */
-  --bg-primary: #c0bae6;
+  --bg-primary: #c0bae6b4;
   --bg-secondary: #e8ebf0;
   --bg-hover: #dce1e8;
 
@@ -31,7 +31,7 @@
 
 [data-theme="dark"] {
   /* Theme Dark */
-  --bg-primary: #1a202c;
+  --bg-primary: #1a202cab;
   --bg-secondary: #2d3748;
   --bg-hover: #4a5568;
 

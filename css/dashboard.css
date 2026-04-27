@@ -100,6 +100,15 @@
   transform: scale(1.05);
 }
 
+.navbar-message {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 500;
+}
+
 .theme-toggle-nav {
   background: transparent;
   border: none;

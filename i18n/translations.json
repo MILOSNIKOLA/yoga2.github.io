@@ -14,7 +14,18 @@
         "progress": "Progression",
         "learning": "Apprentissage"
       },
-      "back": "Retour"
+      "back": "Retour",
+      "userCount": "+500 utilisateurs satisfaits"
+    },
+    "navbar": {
+      "messages": [
+        "5 minutes de yoga par jour, 100% en ligne et à ton rythme",
+        "Accède à ton espace yoga personnel, sans coach, où tu veux, quand tu veux.",
+        "Yoga en ligne par abonnement, simple et autonome",
+        "Une plateforme de yoga en ligne, accessible 24h/24",
+        "Une nouvelle façon de pratiquer le yoga : simple, digitale et libre",
+        "La plateforme de yoga en ligne, pensée pour ton autonomie"
+      ]
     },
     "hero": {
       "title": "Prenez 15 minutes pour vous",
@@ -26,7 +37,7 @@
     "auth": {
       "login": "Se connecter",
       "register": "Créer un compte",
-      "demo": "Demo",
+      "demo": "Essai gratuit",
       "dashboard": "Mon espace",
       "logout": "Déconnexion",
       "divider": "ou",
@@ -633,7 +644,18 @@
         "progress": "Progress",
         "learning": "Learning"
       },
-      "back": "Back"
+      "back": "Back",
+      "userCount": "+500 satisfied users"
+    },
+    "navbar": {
+      "messages": [
+        "5 minutes of yoga per day, 100% online and at your pace",
+        "Access your personal yoga space, without a coach, wherever you want, whenever you want.",
+        "Online yoga by subscription, simple and autonomous",
+        "An online yoga platform, accessible 24/7",
+        "A new way to practice yoga: simple, digital and free",
+        "The online yoga platform, designed for your autonomy"
+      ]
     },
     "hero": {
       "title": "Take 15 minutes for yourself",
@@ -645,7 +667,7 @@
     "auth": {
       "login": "Log in",
       "register": "Create an account",
-      "demo": "Demo",
+      "demo": "Free Trial",
       "dashboard": "My space",
       "logout": "Log out",
       "divider": "or",
@@ -1340,7 +1362,18 @@
         "progress": "Napredak",
         "learning": "Učenje"
       },
-      "back": "Nazad"
+      "back": "Nazad",
+      "userCount": "+500 zadovoljnih korisnika"
+    },
+    "navbar": {
+      "messages": [
+        "5 minuta joge dnevno, 100% online i u vašem ritmu",
+        "Pristupite svom ličnom yoga prostoru, bez trenera, gde god želite, kad god želite.",
+        "Online yoga po pretplati, jednostavna i autonomna",
+        "Platforma za online yoga, dostupna 24/7",
+        "Novi način prakticiranja yoge: jednostavan, digitalan i slobodan",
+        "Platforma za online yoga, osmišljena za vašu autonomiju"
+      ]
     },
     "hero": {
       "title": "Odvojte 15 minuta za sebe",
@@ -1352,7 +1385,7 @@
     "auth": {
       "login": "Prijavite se",
       "register": "Napravite nalog",
-      "demo": "Demo",
+      "demo": "Бесплатни проба",
       "dashboard": "Moj prostor",
       "logout": "Odjavite se",
       "divider": "ili",

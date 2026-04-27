@@ -38,7 +38,7 @@ body {
 .container {
   /* max-width: 1200px; */
   margin: 0 auto;
-  padding: 40px 20px 40px ;
+  padding: 40px 0  40px 100px;
 }
 
 /* Typography */
@@ -296,13 +296,24 @@ a:hover {
   justify-content: center;
   text-align: center;
   padding: 100px 20px;
-  background: linear-gradient(
-    135deg,
-    var(--gradient-start) 0%,
-    var(--gradient-end) 100%
-  );
   position: relative;
   overflow: hidden;
+  border: #9f7aea solid 2px;
+  
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  z-index: 0;
 }
 
 .hero::before {
@@ -323,6 +334,11 @@ a:hover {
 .hero .container {
   position: relative;
   z-index: 1;
+  border-radius: 20px;
+  padding: 100px 100px 50px;
+  background: var(--bg-primary );
+  border: 2px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .hero-title {
@@ -383,6 +399,20 @@ a:hover {
   flex-wrap: wrap;
   animation: fadeInUp 1.4s ease;
   margin-top: 2rem;
+}
+
+.user-count {
+  text-align: center;
+  margin-top: 1rem;
+  animation: fadeInUp 1.6s ease;
+}
+
+.user-count h5 {
+  padding-top: 2rem;
+
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 #auth-section .btn {
@@ -498,36 +528,18 @@ a:hover {
    FEATURES SECTION
    ======================================== */
 .features {
-  padding: 600px 20px;
+  padding: 150px 20px;
   background: var(--bg-secondary);
   position: relative;
   overflow: hidden;
 }
 
 .features-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 0.7;
   display: none;
 }
 
-/* Image carousel with horizontal slide animation */
 .features::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.7;
-  z-index: 0;
-  animation: slideHorizontal 200s ease-in infinite;
+  display: none;
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
@@ -802,7 +814,7 @@ a:hover {
    SESSIONS PREVIEW
    ======================================== */
 .sessions-preview {
-  padding: 100px 20px;
+  padding: 100px 20px -10px 20px;
   position: relative;
   overflow: hidden;
 }
@@ -815,7 +827,7 @@ a:hover {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  opacity: 0.6;
+  /* opacity: 0.6; */
 }
 
 .sessions-preview .container {
@@ -966,14 +978,29 @@ a:hover {
 }
 
 .cta-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 40px;
+font-weight: 300;
+  /* margin-bottom: 20px; */
+  line-height: 1.2;
 }
 
-.cta-description {
-  font-size: 1.25rem;
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
+.cta-message {
+  font-size: 3.4em;
+  line-height: 70px;
+  text-align: center;
+  margin: 0 auto 40px;
+  width: 66.66666667%;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: rgba(241, 245, 249, 0.7);
+  margin-bottom: 40px;
+}
+
+/* Mode jour pour .subtitle */
+:not([data-theme="dark"]) .subtitle {
+  color: grey;
 }
 
 /* ========================================
