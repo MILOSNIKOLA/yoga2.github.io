@@ -15,7 +15,7 @@
         "learning": "Apprentissage"
       },
       "back": "Retour",
-      "userCount": "+500 utilisateurs satisfaits"
+      "userCount": "Une communauté d'utilisateurs satisfaits"
     },
     "navbar": {
       "messages": [
@@ -464,6 +464,8 @@
     },
     "home": {
       "cta": {
+        "message": "Dans cet espace virtuel, Votre harmonie globale est notre priorité absolue",
+        "heading": "Yoga simple. Résultats réels.",
         "title": "Commencez votre voyage aujourd'hui",
         "description": "Rejoignez des milliers de personnes qui ont trouvé leur équilibre",
         "button": "Créer mon compte gratuit"
@@ -645,7 +647,7 @@
         "learning": "Learning"
       },
       "back": "Back",
-      "userCount": "+500 satisfied users"
+      "userCount": "A community of satisfied users"
     },
     "navbar": {
       "messages": [
@@ -1182,6 +1184,8 @@
     },
     "home": {
       "cta": {
+        "message": "In this virtual space, your overall harmony is our top priority",
+        "heading": "Simple yoga. Real results.",
         "title": "Start your journey today",
         "description": "Join thousands of people who have found their balance",
         "button": "Create my free account"
@@ -1363,7 +1367,7 @@
         "learning": "Učenje"
       },
       "back": "Nazad",
-      "userCount": "+500 zadovoljnih korisnika"
+      "userCount": "Zajednica zadovoljnih korisnika"
     },
     "navbar": {
       "messages": [
@@ -1900,6 +1904,8 @@
     },
     "home": {
       "cta": {
+        "message": "U ovom virtuelnom prostoru, vaša sveukupna harmonija nam je najvažniji prioritet",
+        "heading": "Jednostavan yoga. Pravi rezultati.",
         "title": "Započnite svoje putovanje danas",
         "description": "Pridružite se hiljadama ljudi koji su pronašli svoj balans",
         "button": "Napravite moj besplatni nalog"
