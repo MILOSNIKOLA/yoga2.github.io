@@ -9,6 +9,15 @@
   box-sizing: border-box;
 }
 
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
 html {
   font-size: 16px;
   scroll-behavior: smooth;
@@ -36,9 +45,9 @@ body {
 
 /* Container */
 .container {
-  /* max-width: 1200px; */
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 0  40px 100px;
+  padding: 40px 20px;
 }
 
 /* Typography */
@@ -299,7 +308,6 @@ a:hover {
   position: relative;
   overflow: hidden;
   border: #9f7aea solid 2px;
-  
 }
 
 .hero-bg {
@@ -336,7 +344,7 @@ a:hover {
   z-index: 1;
   border-radius: 20px;
   padding: 100px 100px 50px;
-  background: var(--bg-primary );
+  background: var(--bg-primary);
   border: 2px solid var(--border);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -474,8 +482,8 @@ a:hover {
 }
 
 .btn-outline {
-  background:#9f7aea;;
-  color: white.
+  background: #9f7aea;
+  color: white;
   border-color: var(--accent);
 }
 
@@ -556,159 +564,492 @@ a:hover {
 /* Smooth horizontal slide animation: image glides LEFT progressively */
 @keyframes slideHorizontal {
   /* Image 1 */
-  0% { background-image: url("../img/y1.jpg"); background-position: 0% center; }
-  3.498% { background-image: url("../img/y1.jpg"); background-position: 0% center; }
-  3.76% { background-image: url("../img/y1.jpg"); background-position: -25% center; }
-  4.022% { background-image: url("../img/y1.jpg"); background-position: -50% center; }
-  4.284% { background-image: url("../img/y1.jpg"); background-position: -75% center; }
-  4.546% { background-image: url("../img/y2.jpg"); background-position: 0% center; }
-  
+  0% {
+    background-image: url("../img/y1.jpg");
+    background-position: 0% center;
+  }
+  3.498% {
+    background-image: url("../img/y1.jpg");
+    background-position: 0% center;
+  }
+  3.76% {
+    background-image: url("../img/y1.jpg");
+    background-position: -25% center;
+  }
+  4.022% {
+    background-image: url("../img/y1.jpg");
+    background-position: -50% center;
+  }
+  4.284% {
+    background-image: url("../img/y1.jpg");
+    background-position: -75% center;
+  }
+  4.546% {
+    background-image: url("../img/y2.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 2 */
-  8.044% { background-image: url("../img/y2.jpg"); background-position: 0% center; }
-  8.306% { background-image: url("../img/y2.jpg"); background-position: -25% center; }
-  8.568% { background-image: url("../img/y2.jpg"); background-position: -50% center; }
-  8.83% { background-image: url("../img/y2.jpg"); background-position: -75% center; }
-  9.091% { background-image: url("../img/y3.jpg"); background-position: 0% center; }
-  
+  8.044% {
+    background-image: url("../img/y2.jpg");
+    background-position: 0% center;
+  }
+  8.306% {
+    background-image: url("../img/y2.jpg");
+    background-position: -25% center;
+  }
+  8.568% {
+    background-image: url("../img/y2.jpg");
+    background-position: -50% center;
+  }
+  8.83% {
+    background-image: url("../img/y2.jpg");
+    background-position: -75% center;
+  }
+  9.091% {
+    background-image: url("../img/y3.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 3 */
-  12.589% { background-image: url("../img/y3.jpg"); background-position: 0% center; }
-  12.851% { background-image: url("../img/y3.jpg"); background-position: -25% center; }
-  13.113% { background-image: url("../img/y3.jpg"); background-position: -50% center; }
-  13.375% { background-image: url("../img/y3.jpg"); background-position: -75% center; }
-  13.637% { background-image: url("../img/y4.jpg"); background-position: 0% center; }
-  
+  12.589% {
+    background-image: url("../img/y3.jpg");
+    background-position: 0% center;
+  }
+  12.851% {
+    background-image: url("../img/y3.jpg");
+    background-position: -25% center;
+  }
+  13.113% {
+    background-image: url("../img/y3.jpg");
+    background-position: -50% center;
+  }
+  13.375% {
+    background-image: url("../img/y3.jpg");
+    background-position: -75% center;
+  }
+  13.637% {
+    background-image: url("../img/y4.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 4 */
-  17.135% { background-image: url("../img/y4.jpg"); background-position: 0% center; }
-  17.397% { background-image: url("../img/y4.jpg"); background-position: -25% center; }
-  17.659% { background-image: url("../img/y4.jpg"); background-position: -50% center; }
-  17.921% { background-image: url("../img/y4.jpg"); background-position: -75% center; }
-  18.182% { background-image: url("../img/y5.jpg"); background-position: 0% center; }
-  
+  17.135% {
+    background-image: url("../img/y4.jpg");
+    background-position: 0% center;
+  }
+  17.397% {
+    background-image: url("../img/y4.jpg");
+    background-position: -25% center;
+  }
+  17.659% {
+    background-image: url("../img/y4.jpg");
+    background-position: -50% center;
+  }
+  17.921% {
+    background-image: url("../img/y4.jpg");
+    background-position: -75% center;
+  }
+  18.182% {
+    background-image: url("../img/y5.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 5 */
-  21.68% { background-image: url("../img/y5.jpg"); background-position: 0% center; }
-  21.942% { background-image: url("../img/y5.jpg"); background-position: -25% center; }
-  22.204% { background-image: url("../img/y5.jpg"); background-position: -50% center; }
-  22.466% { background-image: url("../img/y5.jpg"); background-position: -75% center; }
-  22.728% { background-image: url("../img/y6.jpg"); background-position: 0% center; }
-  
+  21.68% {
+    background-image: url("../img/y5.jpg");
+    background-position: 0% center;
+  }
+  21.942% {
+    background-image: url("../img/y5.jpg");
+    background-position: -25% center;
+  }
+  22.204% {
+    background-image: url("../img/y5.jpg");
+    background-position: -50% center;
+  }
+  22.466% {
+    background-image: url("../img/y5.jpg");
+    background-position: -75% center;
+  }
+  22.728% {
+    background-image: url("../img/y6.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 6 */
-  26.226% { background-image: url("../img/y6.jpg"); background-position: 0% center; }
-  26.488% { background-image: url("../img/y6.jpg"); background-position: -25% center; }
-  26.75% { background-image: url("../img/y6.jpg"); background-position: -50% center; }
-  27.012% { background-image: url("../img/y6.jpg"); background-position: -75% center; }
-  27.273% { background-image: url("../img/y7.jpg"); background-position: 0% center; }
-  
+  26.226% {
+    background-image: url("../img/y6.jpg");
+    background-position: 0% center;
+  }
+  26.488% {
+    background-image: url("../img/y6.jpg");
+    background-position: -25% center;
+  }
+  26.75% {
+    background-image: url("../img/y6.jpg");
+    background-position: -50% center;
+  }
+  27.012% {
+    background-image: url("../img/y6.jpg");
+    background-position: -75% center;
+  }
+  27.273% {
+    background-image: url("../img/y7.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 7 */
-  30.771% { background-image: url("../img/y7.jpg"); background-position: 0% center; }
-  31.033% { background-image: url("../img/y7.jpg"); background-position: -25% center; }
-  31.295% { background-image: url("../img/y7.jpg"); background-position: -50% center; }
-  31.557% { background-image: url("../img/y7.jpg"); background-position: -75% center; }
-  31.819% { background-image: url("../img/y8.jpg"); background-position: 0% center; }
-  
+  30.771% {
+    background-image: url("../img/y7.jpg");
+    background-position: 0% center;
+  }
+  31.033% {
+    background-image: url("../img/y7.jpg");
+    background-position: -25% center;
+  }
+  31.295% {
+    background-image: url("../img/y7.jpg");
+    background-position: -50% center;
+  }
+  31.557% {
+    background-image: url("../img/y7.jpg");
+    background-position: -75% center;
+  }
+  31.819% {
+    background-image: url("../img/y8.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 8 */
-  35.317% { background-image: url("../img/y8.jpg"); background-position: 0% center; }
-  35.579% { background-image: url("../img/y8.jpg"); background-position: -25% center; }
-  35.841% { background-image: url("../img/y8.jpg"); background-position: -50% center; }
-  36.103% { background-image: url("../img/y8.jpg"); background-position: -75% center; }
-  36.364% { background-image: url("../img/y9.jpg"); background-position: 0% center; }
-  
+  35.317% {
+    background-image: url("../img/y8.jpg");
+    background-position: 0% center;
+  }
+  35.579% {
+    background-image: url("../img/y8.jpg");
+    background-position: -25% center;
+  }
+  35.841% {
+    background-image: url("../img/y8.jpg");
+    background-position: -50% center;
+  }
+  36.103% {
+    background-image: url("../img/y8.jpg");
+    background-position: -75% center;
+  }
+  36.364% {
+    background-image: url("../img/y9.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 9 */
-  39.862% { background-image: url("../img/y9.jpg"); background-position: 0% center; }
-  40.124% { background-image: url("../img/y9.jpg"); background-position: -25% center; }
-  40.386% { background-image: url("../img/y9.jpg"); background-position: -50% center; }
-  40.648% { background-image: url("../img/y9.jpg"); background-position: -75% center; }
-  40.91% { background-image: url("../img/y10.jpg"); background-position: 0% center; }
-  
+  39.862% {
+    background-image: url("../img/y9.jpg");
+    background-position: 0% center;
+  }
+  40.124% {
+    background-image: url("../img/y9.jpg");
+    background-position: -25% center;
+  }
+  40.386% {
+    background-image: url("../img/y9.jpg");
+    background-position: -50% center;
+  }
+  40.648% {
+    background-image: url("../img/y9.jpg");
+    background-position: -75% center;
+  }
+  40.91% {
+    background-image: url("../img/y10.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 10 */
-  44.408% { background-image: url("../img/y10.jpg"); background-position: 0% center; }
-  44.67% { background-image: url("../img/y10.jpg"); background-position: -25% center; }
-  44.932% { background-image: url("../img/y10.jpg"); background-position: -50% center; }
-  45.194% { background-image: url("../img/y10.jpg"); background-position: -75% center; }
-  45.455% { background-image: url("../img/y11.jpg"); background-position: 0% center; }
-  
+  44.408% {
+    background-image: url("../img/y10.jpg");
+    background-position: 0% center;
+  }
+  44.67% {
+    background-image: url("../img/y10.jpg");
+    background-position: -25% center;
+  }
+  44.932% {
+    background-image: url("../img/y10.jpg");
+    background-position: -50% center;
+  }
+  45.194% {
+    background-image: url("../img/y10.jpg");
+    background-position: -75% center;
+  }
+  45.455% {
+    background-image: url("../img/y11.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 11 */
-  48.953% { background-image: url("../img/y11.jpg"); background-position: 0% center; }
-  49.215% { background-image: url("../img/y11.jpg"); background-position: -25% center; }
-  49.477% { background-image: url("../img/y11.jpg"); background-position: -50% center; }
-  49.739% { background-image: url("../img/y11.jpg"); background-position: -75% center; }
-  50% { background-image: url("../img/y12.jpg"); background-position: 0% center; }
-  
+  48.953% {
+    background-image: url("../img/y11.jpg");
+    background-position: 0% center;
+  }
+  49.215% {
+    background-image: url("../img/y11.jpg");
+    background-position: -25% center;
+  }
+  49.477% {
+    background-image: url("../img/y11.jpg");
+    background-position: -50% center;
+  }
+  49.739% {
+    background-image: url("../img/y11.jpg");
+    background-position: -75% center;
+  }
+  50% {
+    background-image: url("../img/y12.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 12 */
-  53.498% { background-image: url("../img/y12.jpg"); background-position: 0% center; }
-  53.76% { background-image: url("../img/y12.jpg"); background-position: -25% center; }
-  54.022% { background-image: url("../img/y12.jpg"); background-position: -50% center; }
-  54.284% { background-image: url("../img/y12.jpg"); background-position: -75% center; }
-  54.545% { background-image: url("../img/y13.jpg"); background-position: 0% center; }
-  
+  53.498% {
+    background-image: url("../img/y12.jpg");
+    background-position: 0% center;
+  }
+  53.76% {
+    background-image: url("../img/y12.jpg");
+    background-position: -25% center;
+  }
+  54.022% {
+    background-image: url("../img/y12.jpg");
+    background-position: -50% center;
+  }
+  54.284% {
+    background-image: url("../img/y12.jpg");
+    background-position: -75% center;
+  }
+  54.545% {
+    background-image: url("../img/y13.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 13 */
-  58.043% { background-image: url("../img/y13.jpg"); background-position: 0% center; }
-  58.305% { background-image: url("../img/y13.jpg"); background-position: -25% center; }
-  58.567% { background-image: url("../img/y13.jpg"); background-position: -50% center; }
-  58.829% { background-image: url("../img/y13.jpg"); background-position: -75% center; }
-  59.09% { background-image: url("../img/y14.jpg"); background-position: 0% center; }
-  
+  58.043% {
+    background-image: url("../img/y13.jpg");
+    background-position: 0% center;
+  }
+  58.305% {
+    background-image: url("../img/y13.jpg");
+    background-position: -25% center;
+  }
+  58.567% {
+    background-image: url("../img/y13.jpg");
+    background-position: -50% center;
+  }
+  58.829% {
+    background-image: url("../img/y13.jpg");
+    background-position: -75% center;
+  }
+  59.09% {
+    background-image: url("../img/y14.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 14 */
-  62.588% { background-image: url("../img/y14.jpg"); background-position: 0% center; }
-  62.85% { background-image: url("../img/y14.jpg"); background-position: -25% center; }
-  63.112% { background-image: url("../img/y14.jpg"); background-position: -50% center; }
-  63.374% { background-image: url("../img/y14.jpg"); background-position: -75% center; }
-  63.636% { background-image: url("../img/y15.jpg"); background-position: 0% center; }
-  
+  62.588% {
+    background-image: url("../img/y14.jpg");
+    background-position: 0% center;
+  }
+  62.85% {
+    background-image: url("../img/y14.jpg");
+    background-position: -25% center;
+  }
+  63.112% {
+    background-image: url("../img/y14.jpg");
+    background-position: -50% center;
+  }
+  63.374% {
+    background-image: url("../img/y14.jpg");
+    background-position: -75% center;
+  }
+  63.636% {
+    background-image: url("../img/y15.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 15 */
-  67.134% { background-image: url("../img/y15.jpg"); background-position: 0% center; }
-  67.396% { background-image: url("../img/y15.jpg"); background-position: -25% center; }
-  67.658% { background-image: url("../img/y15.jpg"); background-position: -50% center; }
-  67.92% { background-image: url("../img/y15.jpg"); background-position: -75% center; }
-  68.181% { background-image: url("../img/y16.jpg"); background-position: 0% center; }
-  
+  67.134% {
+    background-image: url("../img/y15.jpg");
+    background-position: 0% center;
+  }
+  67.396% {
+    background-image: url("../img/y15.jpg");
+    background-position: -25% center;
+  }
+  67.658% {
+    background-image: url("../img/y15.jpg");
+    background-position: -50% center;
+  }
+  67.92% {
+    background-image: url("../img/y15.jpg");
+    background-position: -75% center;
+  }
+  68.181% {
+    background-image: url("../img/y16.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 16 */
-  71.679% { background-image: url("../img/y16.jpg"); background-position: 0% center; }
-  71.941% { background-image: url("../img/y16.jpg"); background-position: -25% center; }
-  72.203% { background-image: url("../img/y16.jpg"); background-position: -50% center; }
-  72.465% { background-image: url("../img/y16.jpg"); background-position: -75% center; }
-  72.727% { background-image: url("../img/y17.jpg"); background-position: 0% center; }
-  
+  71.679% {
+    background-image: url("../img/y16.jpg");
+    background-position: 0% center;
+  }
+  71.941% {
+    background-image: url("../img/y16.jpg");
+    background-position: -25% center;
+  }
+  72.203% {
+    background-image: url("../img/y16.jpg");
+    background-position: -50% center;
+  }
+  72.465% {
+    background-image: url("../img/y16.jpg");
+    background-position: -75% center;
+  }
+  72.727% {
+    background-image: url("../img/y17.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 17 */
-  76.224% { background-image: url("../img/y17.jpg"); background-position: 0% center; }
-  76.486% { background-image: url("../img/y17.jpg"); background-position: -25% center; }
-  76.748% { background-image: url("../img/y17.jpg"); background-position: -50% center; }
-  77.01% { background-image: url("../img/y17.jpg"); background-position: -75% center; }
-  77.272% { background-image: url("../img/y18.jpg"); background-position: 0% center; }
-  
+  76.224% {
+    background-image: url("../img/y17.jpg");
+    background-position: 0% center;
+  }
+  76.486% {
+    background-image: url("../img/y17.jpg");
+    background-position: -25% center;
+  }
+  76.748% {
+    background-image: url("../img/y17.jpg");
+    background-position: -50% center;
+  }
+  77.01% {
+    background-image: url("../img/y17.jpg");
+    background-position: -75% center;
+  }
+  77.272% {
+    background-image: url("../img/y18.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 18 */
-  80.77% { background-image: url("../img/y18.jpg"); background-position: 0% center; }
-  81.032% { background-image: url("../img/y18.jpg"); background-position: -25% center; }
-  81.294% { background-image: url("../img/y18.jpg"); background-position: -50% center; }
-  81.556% { background-image: url("../img/y18.jpg"); background-position: -75% center; }
-  81.818% { background-image: url("../img/y19.jpg"); background-position: 0% center; }
-  
+  80.77% {
+    background-image: url("../img/y18.jpg");
+    background-position: 0% center;
+  }
+  81.032% {
+    background-image: url("../img/y18.jpg");
+    background-position: -25% center;
+  }
+  81.294% {
+    background-image: url("../img/y18.jpg");
+    background-position: -50% center;
+  }
+  81.556% {
+    background-image: url("../img/y18.jpg");
+    background-position: -75% center;
+  }
+  81.818% {
+    background-image: url("../img/y19.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 19 */
-  85.316% { background-image: url("../img/y19.jpg"); background-position: 0% center; }
-  85.578% { background-image: url("../img/y19.jpg"); background-position: -25% center; }
-  85.84% { background-image: url("../img/y19.jpg"); background-position: -50% center; }
-  86.102% { background-image: url("../img/y19.jpg"); background-position: -75% center; }
-  86.364% { background-image: url("../img/y20.jpg"); background-position: 0% center; }
-  
+  85.316% {
+    background-image: url("../img/y19.jpg");
+    background-position: 0% center;
+  }
+  85.578% {
+    background-image: url("../img/y19.jpg");
+    background-position: -25% center;
+  }
+  85.84% {
+    background-image: url("../img/y19.jpg");
+    background-position: -50% center;
+  }
+  86.102% {
+    background-image: url("../img/y19.jpg");
+    background-position: -75% center;
+  }
+  86.364% {
+    background-image: url("../img/y20.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 20 */
-  89.861% { background-image: url("../img/y20.jpg"); background-position: 0% center; }
-  90.123% { background-image: url("../img/y20.jpg"); background-position: -25% center; }
-  90.385% { background-image: url("../img/y20.jpg"); background-position: -50% center; }
-  90.647% { background-image: url("../img/y20.jpg"); background-position: -75% center; }
-  90.909% { background-image: url("../img/y21.jpg"); background-position: 0% center; }
-  
+  89.861% {
+    background-image: url("../img/y20.jpg");
+    background-position: 0% center;
+  }
+  90.123% {
+    background-image: url("../img/y20.jpg");
+    background-position: -25% center;
+  }
+  90.385% {
+    background-image: url("../img/y20.jpg");
+    background-position: -50% center;
+  }
+  90.647% {
+    background-image: url("../img/y20.jpg");
+    background-position: -75% center;
+  }
+  90.909% {
+    background-image: url("../img/y21.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 21 */
-  94.407% { background-image: url("../img/y21.jpg"); background-position: 0% center; }
-  94.669% { background-image: url("../img/y21.jpg"); background-position: -25% center; }
-  94.931% { background-image: url("../img/y21.jpg"); background-position: -50% center; }
-  95.193% { background-image: url("../img/y21.jpg"); background-position: -75% center; }
-  95.455% { background-image: url("../img/y22.jpg"); background-position: 0% center; }
-  
+  94.407% {
+    background-image: url("../img/y21.jpg");
+    background-position: 0% center;
+  }
+  94.669% {
+    background-image: url("../img/y21.jpg");
+    background-position: -25% center;
+  }
+  94.931% {
+    background-image: url("../img/y21.jpg");
+    background-position: -50% center;
+  }
+  95.193% {
+    background-image: url("../img/y21.jpg");
+    background-position: -75% center;
+  }
+  95.455% {
+    background-image: url("../img/y22.jpg");
+    background-position: 0% center;
+  }
+
   /* Image 22 */
-  98.953% { background-image: url("../img/y22.jpg"); background-position: 0% center; }
-  99.215% { background-image: url("../img/y22.jpg"); background-position: -25% center; }
-  99.477% { background-image: url("../img/y22.jpg"); background-position: -50% center; }
-  99.739% { background-image: url("../img/y22.jpg"); background-position: -75% center; }
-  100% { background-image: url("../img/y1.jpg"); background-position: 0% center; }
+  98.953% {
+    background-image: url("../img/y22.jpg");
+    background-position: 0% center;
+  }
+  99.215% {
+    background-image: url("../img/y22.jpg");
+    background-position: -25% center;
+  }
+  99.477% {
+    background-image: url("../img/y22.jpg");
+    background-position: -50% center;
+  }
+  99.739% {
+    background-image: url("../img/y22.jpg");
+    background-position: -75% center;
+  }
+  100% {
+    background-image: url("../img/y1.jpg");
+    background-position: 0% center;
+  }
 }
 
 .features .container {
@@ -979,7 +1320,7 @@ a:hover {
 
 .cta-title {
   font-size: 40px;
-font-weight: 300;
+  font-weight: 300;
   /* margin-bottom: 20px; */
   line-height: 1.2;
 }
@@ -1068,6 +1409,12 @@ font-weight: 300;
 
   .newsletter-input {
     width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
   }
 }
 
