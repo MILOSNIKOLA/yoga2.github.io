@@ -7,13 +7,40 @@
       name="description"
       content="Prenez 15 minutes pour vous - Application de yoga moderne"
     />
+    <!-- SEO / Social -->
+    <meta
+      property="og:title"
+      content="Yoga App — Prenez 15 minutes pour vous"
+    />
+    <meta
+      property="og:description"
+      content="Séances de yoga guidées, courtes et adaptées à tous. Rejoignez notre communauté."
+    />
+    <meta
+      property="og:image"
+      content="https://milosnikola.github.io/yoga2.github.io/img/og-hero.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://milosnikola.github.io/yoga2.github.io/"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsActivityLocation",
+        "name": "Yoga App",
+        "url": "https://milosnikola.github.io/yoga2.github.io/"
+      }
+    </script>
     <title>Yoga App - Prenez un moment pour vous</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playwrite+CU+Guides&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <!-- Optionnel : preload d'une fonte critique si disponible -->
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/themes.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
@@ -191,7 +218,9 @@
 
         <!-- User Count -->
         <div class="user-count">
-          <h5 data-i18n="common.userCount">+500 zadovoljnih korisnika</h5>
+          <h5 data-i18n="common.userCount">
+            Une communauté d'utilisateurs satisfaits
+          </h5>
         </div>
 
         <!-- User Menu (if logged in) -->
@@ -340,8 +369,17 @@
 
     <!-- Popular Sessions Preview -->
     <section class="sessions-preview">
-      <video class="sessions-preview-video" autoplay muted loop playsinline>
+      <video
+        class="sessions-preview-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="img/hero-poster.webp"
+        aria-label="Aperçu des séances de yoga"
+      >
         <source src="c1.mp4" type="video/mp4" />
+        <!-- TODO: add captions track file for accessibility -->
       </video>
       <div class="container">
         <h2 class="section-title" data-i18n="sessions.title">
@@ -365,12 +403,14 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
-      <h2 class="cta-message">
+      <h2 class="cta-message" data-i18n="home.cta.message">
         Dans cet espace virtuel, Votre harmonie globale est notre priorité
         absolue.
       </h2>
       <div class="container">
-        <h2 class="cta-title">Yoga simple. Résultats réels.</h2>
+        <h2 class="cta-title" data-i18n="home.cta.heading">
+          Yoga simple. Résultats réels.
+        </h2>
         <div class="subtitle" data-i18n="home.cta.description">
           Rejoignez des milliers de personnes qui ont trouvé leur équilibre
         </div>
@@ -392,14 +432,24 @@
         <p class="newsletter-description" data-i18n="newsletter.description">
           Recevez nos conseils de yoga et nos nouvelles séances chaque semaine
         </p>
-        <form class="newsletter-form" id="newsletter-form">
+        <form class="newsletter-form" id="newsletter-form" novalidate>
+          <label for="newsletter-email" class="visually-hidden"
+            >Email pour s'abonner à la newsletter</label
+          >
           <input
+            id="newsletter-email"
+            name="email"
             type="email"
             class="newsletter-input"
             placeholder="Votre email"
             data-i18n-placeholder="newsletter.placeholder"
             required
+            aria-describedby="newsletter-help"
           />
+          <span id="newsletter-help" class="visually-hidden"
+            >Entrez votre adresse email pour recevoir des conseils et nouvelles
+            séances.</span
+          >
           <button
             type="submit"
             class="btn btn-primary"
@@ -407,6 +457,12 @@
           >
             S'abonner
           </button>
+          <div
+            id="newsletter-feedback"
+            role="status"
+            aria-live="polite"
+            class="newsletter-feedback visually-hidden"
+          ></div>
         </form>
       </div>
     </section>
