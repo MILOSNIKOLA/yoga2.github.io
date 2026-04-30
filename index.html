@@ -45,17 +45,22 @@
     <link rel="stylesheet" href="css/themes.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
   </head>
-  <body>
+  <body class="has-sticky-navbar">
     <!-- Navbar -->
-    <nav class="dashboard-navbar">
-      <div class="navbar-container">
-        <a href="index.html" class="navbar-logo">
+    <nav class="navbar" id="mainNavbar">
+      <div class="container navbar-content">
+        <a href="index.html" class="logo">
           <span class="logo-icon">🧘</span>
           <span class="logo-text">Yoga App</span>
         </a>
-        <h2 id="navbar-message" class="navbar-message">
-          5 minutes de yoga par jour, 100% en ligne et à ton rythme
-        </h2>
+
+        <ul class="nav-links">
+          <li><a href="sessions.html?filter=beginner">Débutant</a></li>
+          <li><a href="sessions.html?filter=dynamic">Dynamique</a></li>
+          <li><a href="respirer.html">Relaxation</a></li>
+          <li><a href="sessions.html" class="btn-programmes">Programmes</a></li>
+        </ul>
+
         <div class="navbar-actions">
           <button
             id="language-toggle"
