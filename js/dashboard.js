@@ -37,6 +37,30 @@ function initializeDashboard() {
     localStorage.removeItem("userId");
     window.location.href = "index.html";
   });
+
+  // Upgrade to premium handler
+  const upgradeBtn = document.getElementById("upgrade-btn");
+  if (upgradeBtn) {
+    upgradeBtn.addEventListener("click", async () => {
+      const userId = sessionStorage.getItem("userId") || localStorage.getItem("userId");
+      try {
+        const res = await fetch("/api/subscription/create-checkout-session", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId }),
+        });
+        const data = await res.json();
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          alert("Erreur lors de la création du paiement");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Erreur réseau");
+      }
+    });
+  }
 }
 
 /* ========================================

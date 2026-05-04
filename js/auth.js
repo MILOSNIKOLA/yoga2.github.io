@@ -92,7 +92,7 @@ async function register(email, password, name, level = "beginner") {
     role: isAdmin ? "admin" : "user",
     createdAt: new Date().toISOString(),
     preferences: {
-      theme: localStorage.getItem("theme") || "light",
+      theme: localStorage.getItem("theme") || "dark",
       notifications: true,
     },
     stats: {

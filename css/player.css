@@ -2,6 +2,52 @@
    SESSION PLAYER STYLES
    ======================================== */
 
+#session-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#background {
+  position: absolute;
+  inset: 0;
+  background-image: url("../yoga videos/Beginner/Gentle Morning Stretches/1. Posture de l'enfant.jpg");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: zoomEffect 20s ease-in-out infinite paused;
+  z-index: 1;
+}
+
+#background.active {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+#overlay {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes zoomEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#session-container .player-container {
+  background: transparent;
+}
+
 .player-container {
   min-height: 100vh;
   padding: 40px 20px 100px;
