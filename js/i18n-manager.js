@@ -43,6 +43,7 @@ class I18nSystem {
       this.setupMutationObserver();
 
       this.log("✅ i18n System initialisé avec succès");
+      document.dispatchEvent(new CustomEvent("i18nReady"));
     } catch (error) {
       console.error("❌ Erreur d'initialisation i18n:", error);
     }

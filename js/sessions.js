@@ -243,6 +243,10 @@ function addExtraSessions() {
       id: 41,
       title: "Étirements matinaux doux",
       description: "Réveillez votre corps en douceur",
+      descriptionTranslations: {
+        en: "Gently awaken your body with soft morning stretches",
+        sr: "Lagano probudite telo mekim jutarnjim istezanjima",
+      },
       level: "beginner",
       duration: 10,
       type: "hatha",

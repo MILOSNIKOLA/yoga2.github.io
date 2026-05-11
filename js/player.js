@@ -24,6 +24,162 @@ const background = document.getElementById("background");
 let specialSessionInterval = null;
 let specialSessionTimeLeft = 0;
 
+/**
+ * Séance 41 (session-player.html?id=41) — séquence de fond :
+ *   Image 1 (150s) → pause 1s → Image 2 (150s)
+ *
+ * L’image 1 reste entièrement pilotée par `css/player.css` (#background) :
+ * pas de style inline → zoom, transitions et background-size inchangés.
+ * L’image 2 ne fait qu’écraser `background-image` sur le même nœud : mêmes
+ * animations / classes CSS.
+ *
+ * Équivalent logique (sans casser pause / reprise / arrêt) :
+ *   showPose("1. Posture de l'enfant.jpg", null, 150, { runTimer: false });
+ *   // 150s + titres gérés par playPose()
+ *   setTimeout(() => { setTimeout(() => {
+ *     showPose("2. Chien tête en bas.jpg", "2. Chien tête en bas", 150, { onComplete: completeSession });
+ *   }, 1000); }, 150000);
+ */
+const SESSION_41_BG_DIR = "yoga videos/Beginner/Gentle Morning Stretches/";
+const SESSION_41_FILE_IMAGE_1 = "1. Posture de l'enfant.jpg";
+const SESSION_41_FILE_IMAGE_2 = "2. Chien tête en bas.jpg";
+const SESSION_41_POSE_TITLE_2 = "2. Chien tête en bas";
+const SESSION_41_SEGMENT_SEC = 150;
+const SESSION_41_PAUSE_MS = 1000;
+
+let session41BetweenTimeout = null;
+let session41Phase2Interval = null;
+let session41Phase2TimeLeft = 0;
+let session41ShowPoseTotal = SESSION_41_SEGMENT_SEC;
+let session41ShowPoseOnComplete = null;
+/** "idle" | "swapPending" | "phase2" */
+let session41Seq = "idle";
+
+/**
+ * Applique le fichier de fond pour #background.
+ * `null` ou le nom de la 1ère image → aucun style inline : l’image vient du CSS.
+ * Autre nom → `background-image` relatif à la page (même #background, mêmes règles CSS).
+ */
+function applySession41BackgroundFileName(imageName) {
+  if (!background) return;
+
+  const useStylesheetImage =
+    imageName == null ||
+    imageName === SESSION_41_FILE_IMAGE_1 ||
+    String(imageName).endsWith(SESSION_41_FILE_IMAGE_1);
+
+  if (useStylesheetImage) {
+    background.style.backgroundImage = "";
+    return;
+  }
+
+  const relativePath = String(imageName).includes("/")
+    ? String(imageName)
+    : `${SESSION_41_BG_DIR}${imageName}`;
+  background.style.backgroundImage = `url("${encodeURI(relativePath)}")`;
+}
+
+/**
+ * Affiche une pose de fond : image, titre (#pose-name / .pose-title) et durée.
+ * Ne modifie pas les règles d’animation CSS : uniquement `background-image` et `.active`.
+ *
+ * @param {string|null} imageName - null ou "1. Posture de l'enfant.jpg" → image depuis la feuille de style ; sinon fichier dans SESSION_41_BG_DIR
+ * @param {string|null} poseTitle - texte du titre de pose ; `null` ou "" = ne pas modifier #pose-name (ex. phase 1 laissée à playPose)
+ * @param {number} durationSeconds - durée compteur + cercle si `runTimer` (sinon informatif seulement)
+ * @param {{ onComplete?: () => void, runTimer?: boolean }} [options] - `runTimer: false` : fond (+ titre si fourni) sans lancer le minuteur (phase 1 = postures 150s)
+ */
+function showPose(imageName, poseTitle, durationSeconds, options = {}) {
+  const { onComplete = null, runTimer = true } = options;
+
+  applySession41BackgroundFileName(imageName);
+  background.classList.add("active");
+
+  if (poseTitle != null && String(poseTitle).trim() !== "" && poseName) {
+    poseName.textContent = poseTitle;
+    poseName.removeAttribute("data-i18n");
+  }
+
+  if (!runTimer) return;
+
+  session41ShowPoseTotal = durationSeconds;
+  session41ShowPoseOnComplete = typeof onComplete === "function" ? onComplete : null;
+
+  clearInterval(session41Phase2Interval);
+  session41Phase2Interval = null;
+  session41Phase2TimeLeft = durationSeconds;
+
+  updateTimeDisplay(durationSeconds);
+  updateTimerCircle(0, durationSeconds);
+
+  runSession41Phase2Timer();
+}
+
+function resetSession41State() {
+  if (session41BetweenTimeout) {
+    clearTimeout(session41BetweenTimeout);
+    session41BetweenTimeout = null;
+  }
+  if (session41Phase2Interval) {
+    clearInterval(session41Phase2Interval);
+    session41Phase2Interval = null;
+  }
+  session41Phase2TimeLeft = 0;
+  session41ShowPoseTotal = SESSION_41_SEGMENT_SEC;
+  session41ShowPoseOnComplete = null;
+  session41Seq = "idle";
+  if (background) {
+    background.style.backgroundImage = "";
+  }
+}
+
+function scheduleSession41ImageSwap() {
+  if (!currentSession || Number(currentSession.id) !== 41) return;
+  clearTimeout(session41BetweenTimeout);
+  session41BetweenTimeout = setTimeout(() => {
+    session41BetweenTimeout = null;
+    session41Seq = "phase2";
+    startSession41Phase2();
+  }, SESSION_41_PAUSE_MS);
+}
+
+function startSession41Phase2() {
+  if (!isPlaying || !currentSession || Number(currentSession.id) !== 41) return;
+
+  poseInstructions.innerHTML =
+    "<p>Corps en triangle, épaules au-dessus des poignets, poussez le bassin vers le haut.</p>";
+  poseNumber.textContent = "Posture 2 / 2";
+
+  if (audioToggle.checked) {
+    playTransitionSound();
+  }
+
+  showPose(SESSION_41_FILE_IMAGE_2, SESSION_41_POSE_TITLE_2, SESSION_41_SEGMENT_SEC, {
+    onComplete: () => completeSession(),
+  });
+}
+
+function runSession41Phase2Timer() {
+  const total = session41ShowPoseTotal;
+  clearInterval(session41Phase2Interval);
+  session41Phase2Interval = setInterval(() => {
+    if (isPaused) return;
+
+    session41Phase2TimeLeft -= 1;
+    updateTimeDisplay(session41Phase2TimeLeft);
+    updateTimerCircle(total - session41Phase2TimeLeft, total);
+
+    if (session41Phase2TimeLeft <= 0) {
+      clearInterval(session41Phase2Interval);
+      session41Phase2Interval = null;
+      const done = session41ShowPoseOnComplete;
+      session41ShowPoseOnComplete = null;
+      if (typeof done === "function") {
+        done();
+      }
+    }
+  }, 1000);
+}
+
 const startBtn = document.getElementById("start-btn");
 const pauseBtn = document.getElementById("pause-btn");
 const resumeBtn = document.getElementById("resume-btn");
@@ -33,6 +189,22 @@ const audioToggle = document.getElementById("audio-toggle");
 const completionModal = document.getElementById("completion-modal");
 const modalDuration = document.getElementById("modal-duration");
 const modalPoses = document.getElementById("modal-poses");
+const languageToggleBtn = document.getElementById("language-toggle");
+const LANGUAGE_STORAGE_KEY = "session-player-language";
+const languageOrder = ["fr", "en", "sr"];
+let currentLang = localStorage.getItem(LANGUAGE_STORAGE_KEY) || "fr";
+
+const translations = {
+  fr: {
+    text: "Réveillez votre corps en douceur",
+  },
+  en: {
+    text: "Gently awaken your body",
+  },
+  sr: {
+    text: "Probudite svoje telo nežno",
+  },
+};
 
 /* ========================================
    UTILITY FUNCTIONS
@@ -60,26 +232,24 @@ function initializePlayer() {
   const urlParams = new URLSearchParams(window.location.search);
   const sessionId = urlParams.get("id");
 
+  const waitForI18n = (callback) => {
+    const isI18nReady =
+      window.i18n &&
+      typeof window.i18n.getTranslation === "function" &&
+      window.i18n.translations &&
+      window.i18n.translations[window.i18n.currentLanguage];
+
+    if (isI18nReady) {
+      callback();
+    } else {
+      document.addEventListener("i18nReady", callback, { once: true });
+    }
+  };
+
   if (!sessionId) {
-    // Wait for i18n to be ready, then show error
-    const showErrorWhenReady = () => {
-      console.log("Checking i18n:", window.i18n);
-      if (window.i18n && typeof window.i18n.getTranslation === "function") {
-        const testTranslation = window.i18n.getTranslation("common.back");
-        console.log("Test translation result:", testTranslation);
-        const errorTranslation = window.i18n.getTranslation(
-          "player.noSessionSelected",
-        );
-        console.log("Error translation result:", errorTranslation);
-        showError(errorTranslation || "Aucune séance sélectionnée");
-      } else {
-        // Fallback if i18n not ready
-        console.log("i18n not ready, using fallback");
-        showError("Aucune séance sélectionnée");
-        setTimeout(showErrorWhenReady, 100);
-      }
-    };
-    showErrorWhenReady();
+    waitForI18n(() => {
+      showError("player.noSessionSelected");
+    });
     return;
   }
 
@@ -92,16 +262,26 @@ function initializePlayer() {
   resumeBtn.addEventListener("click", resumeSession);
   stopBtn.addEventListener("click", stopSession);
 
-  // Set button texts with translations
-  const setButtonTexts = () => {
-    if (window.i18n && typeof window.i18n.applyTranslations === "function") {
-      window.i18n.applyTranslations();
-    } else {
-      // Fallback
-      setTimeout(setButtonTexts, 100);
+  if (languageToggleBtn) {
+    languageToggleBtn.addEventListener("click", toggleLanguage);
+  }
+
+  document.addEventListener("languageChanged", () => {
+    if (currentSession) {
+      displaySessionInfo();
     }
-  };
-  setButtonTexts();
+    applyLanguageToggle();
+  });
+
+  applyLanguageToggle();
+
+  // Apply data-i18n translations and refresh session info once the i18n system is ready
+  waitForI18n(() => {
+    if (typeof window.i18n.applyTranslations === "function") {
+      window.i18n.applyTranslations();
+    }
+    displaySessionInfo();
+  });
 
   // Initialize audio context on first user interaction
   document.addEventListener(
@@ -120,6 +300,8 @@ function initializePlayer() {
    ======================================== */
 
 function loadSession(sessionId) {
+  resetSession41State();
+
   const sessions = JSON.parse(localStorage.getItem("sessions") || "[]");
   // Convert sessionId to number for comparison
   const sessionIdNum = parseInt(sessionId, 10);
@@ -134,6 +316,10 @@ function loadSession(sessionId) {
       level: "beginner",
       duration: 2.5,
       description: "Séance douce pour réveiller le corps en matinée.",
+      descriptionTranslations: {
+        en: "Gentle morning session to wake your body softly.",
+        sr: "Blaga jutarnja sesija za nežno buđenje tela.",
+      },
       free: true,
       poses: [
         {
@@ -187,6 +373,20 @@ function loadSession(sessionId) {
   displaySessionInfo();
 }
 
+function getSessionDescription(session) {
+  const lang = currentLang || "fr";
+
+  if (
+    lang !== "fr" &&
+    session.descriptionTranslations &&
+    session.descriptionTranslations[lang]
+  ) {
+    return session.descriptionTranslations[lang];
+  }
+
+  return session.description || translations[lang].text || translations.fr.text;
+}
+
 function displaySessionInfo() {
   const levelLabels = {
     beginner: "Débutant",
@@ -199,22 +399,86 @@ function displaySessionInfo() {
     levelLabels[currentSession.level] || currentSession.level;
   sessionDuration.textContent = `${currentSession.duration} min`;
 
-  poseInstructions.innerHTML = `<p>${currentSession.description}</p>`;
+  poseInstructions.innerHTML = `<p>${getSessionDescription(currentSession)}</p>`;
 }
 
-function showError(message) {
+function setLanguage(lang) {
+  if (!languageOrder.includes(lang)) {
+    lang = "fr";
+  }
+  currentLang = lang;
+  localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+  applyLanguageToggle();
+  if (currentSession) {
+    displaySessionInfo();
+  }
+}
+
+function toggleLanguage() {
+  const currentIndex = languageOrder.indexOf(currentLang);
+  const nextIndex = (currentIndex + 1) % languageOrder.length;
+  setLanguage(languageOrder[nextIndex]);
+}
+
+function applyLanguageToggle() {
+  const languageLabel = document.querySelector(".flag-icon");
+  if (!languageLabel) return;
+
+  if (currentLang === "en") {
+    languageLabel.dataset.lang = "en";
+    languageLabel.innerHTML = `
+      <rect width="32" height="24" fill="#012169" />
+      <path d="M0 0 L32 24 M32 0 L0 24" stroke="#fff" stroke-width="4" />
+      <path d="M0 12 L32 12 M16 0 L16 24" stroke="#fff" stroke-width="4" />
+      <path d="M0 12 L32 12" stroke="#C8102E" stroke-width="2" />
+      <path d="M16 0 L16 24" stroke="#C8102E" stroke-width="2" />
+    `;
+  } else if (currentLang === "sr") {
+    languageLabel.dataset.lang = "sr";
+    languageLabel.innerHTML = `
+      <rect width="32" height="24" fill="#FF0000" />
+      <rect y="8" width="32" height="8" fill="#0C3" />
+      <circle cx="16" cy="12" r="4" fill="#fff" />
+    `;
+  } else {
+    languageLabel.dataset.lang = "fr";
+    languageLabel.innerHTML = `
+      <rect width="10.67" height="24" fill="#002395" />
+      <rect x="10.67" width="10.67" height="24" fill="#FFFFFF" />
+      <rect x="21.33" width="10.67" height="24" fill="#ED2939" />
+    `;
+  }
+}
+
+function showError(messageKey) {
+  const message = messageKey.startsWith("player.")
+    ? getTranslation(messageKey)
+    : messageKey;
+
   sessionTitle.textContent = message;
   poseName.textContent = getTranslation("player.error");
-  poseInstructions.innerHTML = `<p>${message}</p>`;
+  poseInstructions.innerHTML = `
+    <p data-i18n="${messageKey}">${message}</p>
+  `;
+
+  if (window.i18n && typeof window.i18n.applyTranslations === "function") {
+    window.i18n.applyTranslations();
+  }
+
   startBtn.disabled = true;
 }
 
 function showPremiumPaywall() {
   poseName.textContent = getTranslation("player.premiumTitle");
   poseInstructions.innerHTML = `
-    <p>${getTranslation("player.premiumMessage")}</p>
-    <a href="register.html" class="btn btn-primary" style="margin-top: 1rem;">${getTranslation("player.premiumButton")}</a>
+    <p data-i18n="player.premiumMessage">${getTranslation("player.premiumMessage")}</p>
+    <a href="register.html" class="btn btn-primary" style="margin-top: 1rem;" data-i18n="player.premiumButton">${getTranslation("player.premiumButton")}</a>
   `;
+
+  if (window.i18n && typeof window.i18n.applyTranslations === "function") {
+    window.i18n.applyTranslations();
+  }
+
   startBtn.disabled = true;
 }
 
@@ -229,6 +493,8 @@ function startSession() {
     return;
   }
 
+  resetSession41State();
+
   isPlaying = true;
   isPaused = false;
   currentPoseIndex = 0;
@@ -237,9 +503,11 @@ function startSession() {
   pauseBtn.classList.remove("hidden");
   stopBtn.classList.remove("hidden");
 
-  // Activate background for session 41
+  // Séance 41 : fond image 1 = feuille de style uniquement (pas d’inline), timer = postures 150s
   if (Number(currentSession.id) === 41) {
-    background.classList.add("active");
+    showPose(SESSION_41_FILE_IMAGE_1, null, SESSION_41_SEGMENT_SEC, {
+      runTimer: false,
+    });
   }
 
   playPose();
@@ -313,6 +581,15 @@ function pauseSession() {
   clearInterval(poseTimer);
   clearInterval(specialSessionInterval);
 
+  if (session41Phase2Interval) {
+    clearInterval(session41Phase2Interval);
+    session41Phase2Interval = null;
+  }
+  if (session41BetweenTimeout) {
+    clearTimeout(session41BetweenTimeout);
+    session41BetweenTimeout = null;
+  }
+
   pauseBtn.classList.add("hidden");
   resumeBtn.classList.remove("hidden");
 }
@@ -323,6 +600,19 @@ function resumeSession() {
   resumeBtn.classList.add("hidden");
   pauseBtn.classList.remove("hidden");
 
+  if (Number(currentSession?.id) === 41 && session41Seq === "swapPending") {
+    scheduleSession41ImageSwap();
+    return;
+  }
+  if (
+    Number(currentSession?.id) === 41 &&
+    session41Seq === "phase2" &&
+    session41Phase2TimeLeft > 0
+  ) {
+    runSession41Phase2Timer();
+    return;
+  }
+
   runPoseTimer();
 }
 
@@ -331,6 +621,7 @@ function stopSession() {
   isPaused = false;
   clearInterval(poseTimer);
   clearInterval(specialSessionInterval);
+  resetSession41State();
 
   startBtn.classList.remove("hidden");
   pauseBtn.classList.add("hidden");
@@ -352,7 +643,19 @@ function stopSession() {
    ======================================== */
 
 function playPose() {
-  if (!isPlaying || currentPoseIndex >= currentSession.poses.length) {
+  if (!isPlaying) return;
+
+  if (currentPoseIndex >= currentSession.poses.length) {
+    if (Number(currentSession.id) === 41) {
+      if (session41Seq === "idle") {
+        session41Seq = "swapPending";
+        scheduleSession41ImageSwap();
+        return;
+      }
+      if (session41Seq === "swapPending" || session41Seq === "phase2") {
+        return;
+      }
+    }
     completeSession();
     return;
   }
@@ -445,6 +748,7 @@ function playTransitionSound() {
 function completeSession() {
   isPlaying = false;
   clearInterval(poseTimer);
+  resetSession41State();
 
   // Hide controls
   pauseBtn.classList.add("hidden");
