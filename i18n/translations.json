@@ -12,7 +12,11 @@
         "sessions": "Séances",
         "breathing": "Respiration",
         "progress": "Progression",
-        "learning": "Apprentissage"
+        "learning": "Apprentissage",
+        "beginner": "Débutant",
+        "dynamic": "Dynamique",
+        "relaxation": "Relaxation",
+        "programmes": "Programmes"
       },
       "back": "Retour",
       "userCount": "Une communauté d'utilisateurs satisfaits"
@@ -660,7 +664,11 @@
         "sessions": "Sessions",
         "breathing": "Breathing",
         "progress": "Progress",
-        "learning": "Learning"
+        "learning": "Learning",
+        "beginner": "Beginner",
+        "dynamic": "Dynamic",
+        "relaxation": "Relaxation",
+        "programmes": "Programs"
       },
       "back": "Back",
       "userCount": "A community of satisfied users"
@@ -1396,7 +1404,11 @@
         "sessions": "Sesije",
         "breathing": "Disanje",
         "progress": "Napredak",
-        "learning": "Učenje"
+        "learning": "Učenje",
+        "beginner": "Početnik",
+        "dynamic": "Dinamično",
+        "relaxation": "Opuštanje",
+        "programmes": "Programi"
       },
       "back": "Nazad",
       "userCount": "Zajednica zadovoljnih korisnika"
