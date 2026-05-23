@@ -47,7 +47,7 @@
       ]
     },
     "hero": {
-      "title": "Prenez 15 minutes pour vous",
+      "title": "Des séances de yoga personnalisées par l’IA selon votre niveau, votre temps et votre énergie",
       "subtitle": "Retrouvez calme et bien-être à travers des séances de yoga guidées",
       "daily": "Séance du jour",
       "breathing": "Respiration rapide",
@@ -699,7 +699,7 @@
       ]
     },
     "hero": {
-      "title": "Take 15 minutes for yourself",
+      "title": "AI-personalized yoga sessions based on your level, time, and energy",
       "subtitle": "Find calm and well-being through guided yoga sessions",
       "daily": "Daily session",
       "breathing": "Quick breathing",
@@ -1439,7 +1439,7 @@
       ]
     },
     "hero": {
-      "title": "Odvojte 15 minuta za sebe",
+      "title": "AI personalizovane yoga sesije prema vašem nivou, vremenu i energiji",
       "subtitle": "Pronađite mir i dobrobit kroz vođene yoga sesije",
       "daily": "Sesija dana",
       "breathing": "Brzo disanje",
@@ -2132,3 +2132,5 @@
     }
   }
 }
+
+

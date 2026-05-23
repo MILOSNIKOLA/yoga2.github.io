@@ -141,7 +141,7 @@ const SITE_TRANSLATIONS = {
     // ═══════════════════════════════════════════════════════════════════
     home: {
       hero: {
-        title: "Prenez 15 minutes pour vous",
+        title: "Des séances de yoga personnalisées par l’IA selon votre niveau, votre temps et votre énergie",
         subtitle:
           "Retrouvez calme et bien-être à travers des séances de yoga guidées",
         daily: "Séance du jour",
@@ -343,7 +343,7 @@ const SITE_TRANSLATIONS = {
 
     home: {
       hero: {
-        title: "Одвојите 15 минута за себе",
+        title: "AI personalizovane yoga sesije prema vašem nivou, vremenu i energiji",
         subtitle: "Пронађите мир и добробит кроз вођене јога сесије",
         daily: "Данашња сесија",
         breathing: "Брзо дисање",
@@ -543,7 +543,7 @@ const SITE_TRANSLATIONS = {
 
     home: {
       hero: {
-        title: "Take 15 Minutes for Yourself",
+        title: "AI-personalized yoga sessions based on your level, time, and energy",
         subtitle: "Find calm and well-being through guided yoga sessions",
         daily: "Daily Session",
         breathing: "Quick Breathing",
@@ -627,3 +627,5 @@ const SITE_TRANSLATIONS = {
 if (typeof window !== "undefined") {
   window.SITE_TRANSLATIONS = SITE_TRANSLATIONS;
 }
+
+
