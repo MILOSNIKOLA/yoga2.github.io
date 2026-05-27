@@ -7,47 +7,53 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initializeDashboard() {
-  // Check if user is logged in
-  const userId =
-    sessionStorage.getItem("userId") || localStorage.getItem("userId");
+  const user = getDashboardUser();
 
-  if (!userId) {
+  if (!user) {
     window.location.href = "login.html";
     return;
   }
 
-  // Load user data
-  loadUserData(userId);
+  loadUserData(user);
+  loadStats(user.id);
+  loadContinuePractice(user.id);
+  loadRecentSessions(user.id);
+  loadWeekChart(user.id);
 
-  // Load statistics
-  loadStats(userId);
+  const logoutButtons = document.querySelectorAll("#logout-btn, #account-logout-btn");
+  logoutButtons.forEach((logoutBtn) => {
+    logoutBtn.addEventListener("click", () => {
+      if (typeof logout === "function") {
+        logout();
+        return;
+      }
 
-  // Load continue practice
-  loadContinuePractice(userId);
-
-  // Load recent sessions
-  loadRecentSessions(userId);
-
-  // Load week chart
-  loadWeekChart(userId);
-
-  // Logout handler
-  document.getElementById("logout-btn").addEventListener("click", () => {
-    sessionStorage.removeItem("userId");
-    localStorage.removeItem("userId");
-    window.location.href = "index.html";
+      sessionStorage.removeItem("userId");
+      localStorage.removeItem("userId");
+      window.location.href = "index.html";
+    });
   });
 
-  // Upgrade to premium handler
   const upgradeBtn = document.getElementById("upgrade-btn");
   if (upgradeBtn) {
     upgradeBtn.addEventListener("click", async () => {
-      const userId = sessionStorage.getItem("userId") || localStorage.getItem("userId");
+      const currentUser = getDashboardUser();
+
+      if (!currentUser) {
+        window.location.href = "login.html";
+        return;
+      }
+
       try {
-        const res = await fetch("/api/subscription/create-checkout-session", {
+        const res = await fetch(`${API_BASE_URL}/api/subscription/create-checkout-session`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userId }),
+          headers: {
+            "Content-Type": "application/json",
+            ...getAuthHeaders(),
+          },
+          body: JSON.stringify({
+            userId: currentUser.firebaseUid || currentUser.uid || currentUser.id,
+          }),
         });
         const data = await res.json();
         if (data.url) {
@@ -64,35 +70,80 @@ function initializeDashboard() {
 }
 
 /* ========================================
-   LOAD USER DATA
+   USER HELPERS
    ======================================== */
 
-function loadUserData(userId) {
+function getDashboardUser() {
+  if (typeof getCurrentUser === "function") {
+    const currentUser = getCurrentUser();
+    if (currentUser) return currentUser;
+  }
+
+  const userId =
+    sessionStorage.getItem("userId") || localStorage.getItem("userId");
+
+  if (!userId) return null;
+
   const users = JSON.parse(localStorage.getItem("users") || "[]");
   const user = users.find((u) => u.id === userId);
 
+  if (!user) return null;
+
+  return {
+    ...user,
+    name: user.name || "",
+    premium:
+      typeof user.premium === "boolean"
+        ? user.premium
+        : false,
+  };
+}
+
+function clearElement(element) {
+  if (!element) return;
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+}
+
+function createTextElement(tag, className, text) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  element.textContent = text;
+  return element;
+}
+
+function renderEmptyMessage(container, tag, text) {
+  clearElement(container);
+  container.appendChild(createTextElement(tag, "empty-message", text));
+}
+
+/* ========================================
+   LOAD USER DATA
+   ======================================== */
+
+function loadUserData(user) {
   if (!user) {
     window.location.href = "login.html";
     return;
   }
 
-  // Welcome message
-  const firstName = user.fullName.split(" ")[0];
+  const displayName = (user.name || "").trim();
+  const firstName = displayName ? displayName.split(" ")[0] : "ami";
   document.getElementById("welcome-message").textContent =
     `Bienvenue ${firstName}`;
 
-  // Account info
-  document.getElementById("user-email").textContent = user.email;
+  document.getElementById("user-email").textContent = user.email || "-";
 
-  // Member since
-  const memberSince = new Date(user.createdAt);
+  const memberSince = user.createdAt ? new Date(user.createdAt) : null;
   const options = { year: "numeric", month: "long" };
   document.getElementById("member-since").textContent =
-    memberSince.toLocaleDateString("fr-FR", options);
+    memberSince && !Number.isNaN(memberSince.getTime())
+      ? memberSince.toLocaleDateString("fr-FR", options)
+      : "-";
 
-  // Premium status
   const premiumBadge = document.getElementById("premium-status");
-  if (user.isPremium) {
+  if (user.premium) {
     premiumBadge.textContent = "Premium";
     premiumBadge.classList.add("premium");
     premiumBadge.classList.remove("free");
@@ -111,34 +162,30 @@ function loadStats(userId) {
   const history = JSON.parse(localStorage.getItem("sessionHistory") || "[]");
   const userHistory = history.filter((h) => h.userId === userId);
 
-  // Total sessions
   const totalSessions = userHistory.length;
   document.getElementById("total-sessions").textContent = totalSessions;
 
-  // Total minutes
-  const totalMinutes = userHistory.reduce((sum, h) => sum + h.duration, 0);
+  const totalMinutes = userHistory.reduce(
+    (sum, h) => sum + Number(h.duration || 0),
+    0,
+  );
   document.getElementById("total-minutes").textContent = totalMinutes;
 
-  // Current streak
   const streak = calculateStreak(userHistory);
   document.getElementById("current-streak").textContent = streak;
 
-  // This week
   const thisWeek = getThisWeekCount(userHistory);
   document.getElementById("this-week").textContent = thisWeek;
 
-  // User level
   const level = calculateUserLevel(totalSessions);
   document.getElementById("user-level").textContent = level;
 
-  // Update streak message
   updateStreakMessage(streak, totalSessions);
 }
 
 function calculateStreak(history) {
   if (history.length === 0) return 0;
 
-  // Sort by date, most recent first
   const sorted = [...history].sort(
     (a, b) => new Date(b.completedAt) - new Date(a.completedAt),
   );
@@ -171,7 +218,7 @@ function calculateStreak(history) {
 function getThisWeekCount(history) {
   const today = new Date();
   const weekStart = new Date(today);
-  weekStart.setDate(today.getDate() - today.getDay()); // Start of week (Sunday)
+  weekStart.setDate(today.getDate() - today.getDay());
   weekStart.setHours(0, 0, 0, 0);
 
   return history.filter((h) => {
@@ -219,22 +266,15 @@ function loadContinuePractice(userId) {
   const userHistory = history.filter((h) => h.userId === userId);
 
   const container = document.getElementById("continue-practice");
-
-  // Get a suggested session (random or based on level)
   const availableSessions = sessions.filter(
-    (s) => !s.isPremium || isPremiumUser(userId),
+    (s) => !requiresPremiumAccess(s) || hasPremiumAccess(userId),
   );
 
   if (availableSessions.length === 0) {
-    container.innerHTML = `
-      <div class="empty-message">
-        Aucune séance disponible pour le moment
-      </div>
-    `;
+    renderEmptyMessage(container, "div", "Aucune séance disponible pour le moment");
     return;
   }
 
-  // Choose a session (preferably one not done recently)
   const recentSessionIds = userHistory.slice(0, 5).map((h) => h.sessionId);
   let suggestedSession = availableSessions.find(
     (s) => !recentSessionIds.includes(s.id),
@@ -253,30 +293,52 @@ function loadContinuePractice(userId) {
         ? "Intermédiaire"
         : "Avancé";
 
-  container.innerHTML = `
-    <div class="continue-card">
-      <div class="continue-icon">🧘‍♀️</div>
-      <div class="continue-content">
-        <div class="continue-title">${suggestedSession.title}</div>
-        <div class="continue-description">${suggestedSession.description}</div>
-        <div class="continue-meta">
-          <span class="continue-badge ${levelClass}">${levelText}</span>
-          <span>⏱️ ${suggestedSession.duration} min</span>
-        </div>
-      </div>
-      <div class="continue-action">
-        <a href="session-player.html?id=${suggestedSession.id}" class="btn btn-primary">
-          Commencer
-        </a>
-      </div>
-    </div>
-  `;
+  clearElement(container);
+
+  const card = document.createElement("div");
+  card.className = "continue-card";
+
+  const icon = createTextElement("div", "continue-icon", "🧘‍♀️");
+  const content = document.createElement("div");
+  content.className = "continue-content";
+  content.appendChild(createTextElement("div", "continue-title", suggestedSession.title));
+  content.appendChild(
+    createTextElement("div", "continue-description", suggestedSession.description),
+  );
+
+  const meta = document.createElement("div");
+  meta.className = "continue-meta";
+  meta.appendChild(createTextElement("span", `continue-badge ${levelClass}`, levelText));
+  meta.appendChild(createTextElement("span", "", `⏱️ ${suggestedSession.duration} min`));
+  content.appendChild(meta);
+
+  const action = document.createElement("div");
+  action.className = "continue-action";
+  const link = document.createElement("a");
+  link.href = `session-player.html?id=${suggestedSession.id}`;
+  link.className = "btn btn-primary";
+  link.textContent = "Commencer";
+  action.appendChild(link);
+
+  card.appendChild(icon);
+  card.appendChild(content);
+  card.appendChild(action);
+  container.appendChild(card);
 }
 
-function isPremiumUser(userId) {
+function hasPremiumAccess(userId) {
+  const user = getDashboardUser();
+  if (user && user.id === userId) {
+    return Boolean(user.premium);
+  }
+
   const users = JSON.parse(localStorage.getItem("users") || "[]");
-  const user = users.find((u) => u.id === userId);
-  return user && user.isPremium;
+  const fallbackUser = users.find((u) => u.id === userId);
+  return Boolean(fallbackUser && fallbackUser.premium);
+}
+
+function requiresPremiumAccess(session) {
+  return Boolean(session.premium || session.free === false);
 }
 
 /* ========================================
@@ -288,19 +350,19 @@ function loadRecentSessions(userId) {
   const userHistory = history
     .filter((h) => h.userId === userId)
     .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))
-    .slice(0, 5); // Last 5 sessions
+    .slice(0, 5);
 
   const container = document.getElementById("recent-sessions");
 
   if (userHistory.length === 0) {
-    container.innerHTML =
-      '<p class="empty-message">Aucune séance enregistrée pour le moment</p>';
+    renderEmptyMessage(container, "p", "Aucune séance enregistrée pour le moment");
     return;
   }
 
-  container.innerHTML = userHistory
-    .map((session) => createSessionItem(session))
-    .join("");
+  clearElement(container);
+  userHistory.forEach((session) => {
+    container.appendChild(createSessionItem(session));
+  });
 }
 
 function createSessionItem(session) {
@@ -313,15 +375,19 @@ function createSessionItem(session) {
   };
   const formattedDate = date.toLocaleDateString("fr-FR", options);
 
-  return `
-    <div class="session-item">
-      <div class="session-item-info">
-        <div class="session-item-title">${session.sessionTitle}</div>
-        <div class="session-item-date">${formattedDate}</div>
-      </div>
-      <div class="session-item-duration">${session.duration} min</div>
-    </div>
-  `;
+  const item = document.createElement("div");
+  item.className = "session-item";
+
+  const info = document.createElement("div");
+  info.className = "session-item-info";
+  info.appendChild(createTextElement("div", "session-item-title", session.sessionTitle));
+  info.appendChild(createTextElement("div", "session-item-date", formattedDate));
+
+  item.appendChild(info);
+  item.appendChild(
+    createTextElement("div", "session-item-duration", `${session.duration} min`),
+  );
+  return item;
 }
 
 /* ========================================
@@ -335,7 +401,6 @@ function loadWeekChart(userId) {
   const today = new Date();
   const weekData = [];
 
-  // Get last 7 days
   for (let i = 6; i >= 0; i--) {
     const date = new Date(today);
     date.setDate(today.getDate() - i);
@@ -358,20 +423,27 @@ function renderWeekChart(weekData) {
   const container = document.getElementById("week-chart");
   const maxCount = Math.max(...weekData.map((d) => d.count), 1);
 
-  container.innerHTML = weekData
-    .map((day) => {
-      const height = day.count > 0 ? (day.count / maxCount) * 100 : 3;
-      const emptyClass = day.count === 0 ? "empty" : "";
+  clearElement(container);
 
-      return `
-      <div class="week-day">
-        <div class="week-bar-container">
-          <div class="week-bar ${emptyClass}" style="height: ${height}%"></div>
-        </div>
-        <div class="week-day-label">${day.day}</div>
-        <div class="week-day-count">${day.count > 0 ? day.count : "-"}</div>
-      </div>
-    `;
-    })
-    .join("");
+  weekData.forEach((day) => {
+    const height = day.count > 0 ? (day.count / maxCount) * 100 : 3;
+    const emptyClass = day.count === 0 ? "empty" : "";
+
+    const dayElement = document.createElement("div");
+    dayElement.className = "week-day";
+
+    const barContainer = document.createElement("div");
+    barContainer.className = "week-bar-container";
+    const bar = document.createElement("div");
+    bar.className = `week-bar ${emptyClass}`.trim();
+    bar.style.height = `${height}%`;
+    barContainer.appendChild(bar);
+
+    dayElement.appendChild(barContainer);
+    dayElement.appendChild(createTextElement("div", "week-day-label", day.day));
+    dayElement.appendChild(
+      createTextElement("div", "week-day-count", day.count > 0 ? String(day.count) : "-"),
+    );
+    container.appendChild(dayElement);
+  });
 }

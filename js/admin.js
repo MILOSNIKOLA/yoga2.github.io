@@ -76,11 +76,25 @@
   function loadSessions() {
     try {
       const stored = localStorage.getItem("sessions");
-      sessions = stored ? JSON.parse(stored) : [];
+      sessions = stored ? JSON.parse(stored).map(normalizeSession) : [];
+      saveSessions();
     } catch (error) {
       console.error("Error loading sessions:", error);
       sessions = [];
     }
+  }
+
+  function normalizeSession(session) {
+    const legacyPremium = session["is" + "Premium"];
+    const rest = { ...session };
+    delete rest["is" + "Premium"];
+    return {
+      ...rest,
+      premium:
+        typeof session.premium === "boolean"
+          ? session.premium
+          : Boolean(legacyPremium),
+    };
   }
 
   function saveSessions() {
@@ -99,43 +113,79 @@
     if (!tbody) return;
 
     if (sessions.length === 0) {
-      tbody.innerHTML = "";
+      clearElement(tbody);
       emptyState.style.display = "block";
       return;
     }
 
     emptyState.style.display = "none";
+    clearElement(tbody);
 
-    tbody.innerHTML = sessions
-      .map(
-        (session) => `
-            <tr>
-                <td>
-                    <div class="session-title">${session.title}</div>
-                    ${session.isPremium ? '<small style="color: var(--primary-color)">👑 Premium</small>' : ""}
-                </td>
-                <td>
-                    <span class="session-badge ${session.level}">
-                        ${getLevelLabel(session.level)}
-                    </span>
-                </td>
-                <td>${session.duration} min</td>
-                <td class="session-type">${session.type}</td>
-                <td>${session.poses?.length || 0} postures</td>
-                <td>
-                    <div class="table-actions">
-                        <button class="btn-icon edit" onclick="editSession('${session.id}')" title="Modifier">
-                            ✏️
-                        </button>
-                        <button class="btn-icon delete" onclick="deleteSession('${session.id}')" title="Supprimer">
-                            🗑️
-                        </button>
-                    </div>
-                </td>
-            </tr>
-        `,
-      )
-      .join("");
+    sessions.forEach((session) => {
+      tbody.appendChild(createSessionRow(session));
+    });
+  }
+
+  function clearElement(element) {
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+  }
+
+  function createCell(text, className = "") {
+    const td = document.createElement("td");
+    if (className) td.className = className;
+    td.textContent = text;
+    return td;
+  }
+
+  function createSessionRow(session) {
+    const row = document.createElement("tr");
+
+    const titleCell = document.createElement("td");
+    const title = document.createElement("div");
+    title.className = "session-title";
+    title.textContent = session.title;
+    titleCell.appendChild(title);
+    if (session.premium) {
+      const premium = document.createElement("small");
+      premium.style.color = "var(--primary-color)";
+      premium.textContent = "Premium";
+      titleCell.appendChild(premium);
+    }
+
+    const levelCell = document.createElement("td");
+    const level = document.createElement("span");
+    level.className = `session-badge ${session.level}`;
+    level.textContent = getLevelLabel(session.level);
+    levelCell.appendChild(level);
+
+    const actionsCell = document.createElement("td");
+    const actions = document.createElement("div");
+    actions.className = "table-actions";
+    const editButton = document.createElement("button");
+    editButton.className = "btn-icon edit";
+    editButton.title = "Modifier";
+    editButton.textContent = "Modifier";
+    editButton.addEventListener("click", () => window.editSession(session.id));
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "btn-icon delete";
+    deleteButton.title = "Supprimer";
+    deleteButton.textContent = "Supprimer";
+    deleteButton.addEventListener("click", () => window.deleteSession(session.id));
+    actions.append(editButton, deleteButton);
+    actionsCell.appendChild(actions);
+
+    row.append(
+      titleCell,
+      levelCell,
+      createCell(`${session.duration} min`),
+      createCell(session.type, "session-type"),
+      createCell(`${session.poses?.length || 0} postures`),
+      actionsCell,
+    );
+
+    return row;
   }
 
   function getLevelLabel(level) {
@@ -180,7 +230,7 @@
     document.getElementById("session-level").value = session.level || "";
     document.getElementById("session-type").value = session.type || "";
     document.getElementById("session-premium").checked =
-      session.isPremium || false;
+      Boolean(session.premium);
 
     // Check goals
     document.querySelectorAll(".goal-checkbox").forEach((cb) => {
@@ -281,63 +331,71 @@
 
     container.style.display = "flex";
     emptyState.style.display = "none";
+    clearElement(container);
 
-    container.innerHTML = poses
-      .map(
-        (pose, index) => `
-            <div class="pose-item" data-pose-id="${pose.id}">
-                <div class="pose-item-header">
-                    <span class="pose-number">Posture ${index + 1}</span>
-                    <button class="btn-remove" onclick="removePose('${pose.id}')">✕</button>
-                </div>
-                
-                <div class="form-group">
-                    <label>Nom de la posture *</label>
-                    <input 
-                        type="text" 
-                        class="form-input pose-name" 
-                        data-pose-id="${pose.id}"
-                        value="${pose.name || ""}"
-                        placeholder="Ex: Chien tête en bas"
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label>Durée (secondes) *</label>
-                    <input 
-                        type="number" 
-                        class="form-input pose-duration" 
-                        data-pose-id="${pose.id}"
-                        value="${pose.duration || 30}"
-                        min="5"
-                        max="300"
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label>Instructions</label>
-                    <textarea 
-                        class="form-textarea pose-instructions" 
-                        data-pose-id="${pose.id}"
-                        rows="2"
-                        placeholder="Consignes pour cette posture..."
-                    >${pose.instructions || ""}</textarea>
-                </div>
-            </div>
-        `,
-      )
-      .join("");
-
-    // Add event listeners
-    container.querySelectorAll(".pose-name").forEach((input) => {
-      input.addEventListener("input", updatePoseData);
+    poses.forEach((pose, index) => {
+      container.appendChild(createPoseEditor(pose, index));
     });
-    container.querySelectorAll(".pose-duration").forEach((input) => {
-      input.addEventListener("input", updatePoseData);
-    });
-    container.querySelectorAll(".pose-instructions").forEach((textarea) => {
-      textarea.addEventListener("input", updatePoseData);
-    });
+  }
+
+  function createFormGroup(labelText, field) {
+    const group = document.createElement("div");
+    group.className = "form-group";
+    const label = document.createElement("label");
+    label.textContent = labelText;
+    group.append(label, field);
+    return group;
+  }
+
+  function createPoseEditor(pose, index) {
+    const item = document.createElement("div");
+    item.className = "pose-item";
+    item.dataset.poseId = pose.id;
+
+    const header = document.createElement("div");
+    header.className = "pose-item-header";
+    const number = document.createElement("span");
+    number.className = "pose-number";
+    number.textContent = `Posture ${index + 1}`;
+    const remove = document.createElement("button");
+    remove.className = "btn-remove";
+    remove.textContent = "x";
+    remove.addEventListener("click", () => window.removePose(pose.id));
+    header.append(number, remove);
+
+    const name = document.createElement("input");
+    name.type = "text";
+    name.className = "form-input pose-name";
+    name.dataset.poseId = pose.id;
+    name.value = pose.name || "";
+    name.placeholder = "Ex: Chien tête en bas";
+    name.addEventListener("input", updatePoseData);
+
+    const duration = document.createElement("input");
+    duration.type = "number";
+    duration.className = "form-input pose-duration";
+    duration.dataset.poseId = pose.id;
+    duration.value = pose.duration || 30;
+    duration.min = "5";
+    duration.max = "300";
+    duration.addEventListener("input", updatePoseData);
+
+    const instructions = document.createElement("textarea");
+    instructions.className = "form-textarea pose-instructions";
+    instructions.dataset.poseId = pose.id;
+    instructions.rows = 2;
+    instructions.placeholder = "Consignes pour cette posture...";
+    instructions.value = pose.instructions || "";
+    instructions.addEventListener("input", updatePoseData);
+
+    item.append(
+      header,
+      createFormGroup("Nom de la posture *", name),
+      createFormGroup("Durée (secondes) *", duration),
+      createFormGroup("Instructions", instructions),
+    );
+
+    return item;
   }
 
   function updatePoseData(e) {
@@ -372,7 +430,7 @@
     );
     const level = document.getElementById("session-level").value;
     const type = document.getElementById("session-type").value;
-    const isPremium = document.getElementById("session-premium").checked;
+    const premium = document.getElementById("session-premium").checked;
 
     // Get goals
     const goals = Array.from(
@@ -398,7 +456,7 @@
       duration,
       level,
       type,
-      isPremium,
+      premium,
       goals,
       poses: validPoses,
       updatedAt: new Date().toISOString(),

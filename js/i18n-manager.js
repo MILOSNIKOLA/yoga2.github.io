@@ -12,7 +12,7 @@ class I18nSystem {
     this.translations = {};
     this.supportedLanguages = ["fr", "en", "sr"];
     this.storageKey = "site_language";
-    this.DEBUG = true; // Activer les logs de debug pour diagnostiquer le problème
+    this.DEBUG = false; // Logs i18n désactivés par défaut en usage normal
   }
 
   /**

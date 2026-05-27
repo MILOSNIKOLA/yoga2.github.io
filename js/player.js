@@ -359,7 +359,11 @@ function loadSession(sessionId) {
       const users = JSON.parse(localStorage.getItem("users") || "[]");
       const user = users.find((u) => u.id === userId);
 
-      if (!user || !user.isPremium) {
+      const storedPremium =
+        (sessionStorage.getItem("userPremium") ||
+          localStorage.getItem("userPremium")) === "true";
+
+      if (!storedPremium && (!user || !user.premium)) {
         showPremiumPaywall();
         return;
       }

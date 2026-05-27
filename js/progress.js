@@ -269,38 +269,64 @@
     // Show only last 10
     const recent = sorted.slice(0, 10);
 
-    container.innerHTML = recent
-      .map((session) => {
-        const date = new Date(session.completedAt);
-        const formattedDate = formatDate(date);
-        const duration = session.duration || 0;
-        const level = session.level || "beginner";
+    clearElement(container);
+    recent.forEach((session) => {
+      container.appendChild(createTimelineItem(session));
+    });
+  }
 
-        return `
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <span class="timeline-date">${formattedDate}</span>
-                        </div>
-                        <h3 class="timeline-title">${session.sessionTitle || "Séance"}</h3>
-                        <div class="timeline-meta">
-                            <span class="timeline-badge ${level}">
-                                ${
-                                  level === "beginner"
-                                    ? "Débutant"
-                                    : level === "intermediate"
-                                      ? "Intermédiaire"
-                                      : "Avancé"
-                                }
-                            </span>
-                            <span>⏱️ ${duration} min</span>
-                            <span>🧘‍♀️ ${session.poses?.length || 0} postures</span>
-                        </div>
-                    </div>
-                </div>
-            `;
-      })
-      .join("");
+  function clearElement(element) {
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+  }
+
+  function createTextElement(tag, className, text) {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    element.textContent = text;
+    return element;
+  }
+
+  function getLevelLabel(level) {
+    if (level === "beginner") return "Débutant";
+    if (level === "intermediate") return "Intermédiaire";
+    return "Avancé";
+  }
+
+  function createTimelineItem(session) {
+    const date = new Date(session.completedAt);
+    const formattedDate = formatDate(date);
+    const duration = session.duration || 0;
+    const level = session.level || "beginner";
+
+    const item = document.createElement("div");
+    item.className = "timeline-item";
+    const content = document.createElement("div");
+    content.className = "timeline-content";
+    const header = document.createElement("div");
+    header.className = "timeline-header";
+    header.appendChild(createTextElement("span", "timeline-date", formattedDate));
+
+    const title = createTextElement(
+      "h3",
+      "timeline-title",
+      session.sessionTitle || "Séance",
+    );
+
+    const meta = document.createElement("div");
+    meta.className = "timeline-meta";
+    meta.appendChild(
+      createTextElement("span", `timeline-badge ${level}`, getLevelLabel(level)),
+    );
+    meta.appendChild(createTextElement("span", "", `${duration} min`));
+    meta.appendChild(
+      createTextElement("span", "", `${session.poses?.length || 0} postures`),
+    );
+
+    content.append(header, title, meta);
+    item.appendChild(content);
+    return item;
   }
 
   function formatDate(date) {

@@ -138,11 +138,31 @@ function refreshSessionCards() {
   const sessions = JSON.parse(localStorage.getItem("sessions") || "[]");
   const popular = sessions.slice(0, 3);
 
-  container.innerHTML = popular
-    .map((session) => createSessionCard(session))
-    .join("");
+  renderSessionCards(container, popular);
+}
 
-  // Re-add click handlers
+function clearElement(element) {
+  if (!element) return;
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+}
+
+function renderSimpleMessage(container, text) {
+  clearElement(container);
+  const message = document.createElement("p");
+  message.style.textAlign = "center";
+  message.style.color = "var(--text-secondary)";
+  message.textContent = text;
+  container.appendChild(message);
+}
+
+function renderSessionCards(container, sessions) {
+  clearElement(container);
+  sessions.forEach((session) => {
+    container.insertAdjacentHTML("beforeend", createSessionCard(session));
+  });
+
   container.querySelectorAll(".session-card").forEach((card) => {
     card.addEventListener("click", () => {
       const sessionId = card.dataset.sessionId;
@@ -189,22 +209,11 @@ function loadPopularSessions() {
   const popular = sessions.slice(0, 3);
 
   if (popular.length === 0) {
-    container.innerHTML =
-      '<p style="text-align: center; color: var(--text-secondary);">Aucune séance disponible pour le moment</p>';
+    renderSimpleMessage(container, "Aucune séance disponible pour le moment");
     return;
   }
 
-  container.innerHTML = popular
-    .map((session) => createSessionCard(session))
-    .join("");
-
-  // Add click handlers
-  container.querySelectorAll(".session-card").forEach((card) => {
-    card.addEventListener("click", () => {
-      const sessionId = card.dataset.sessionId;
-      window.location.href = `session-player.html?id=${sessionId}`;
-    });
-  });
+  renderSessionCards(container, popular);
 }
 
 function getSessionImageUrl(title) {

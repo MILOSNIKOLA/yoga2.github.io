@@ -6,8 +6,92 @@
 // Brute force protection
 const loginAttempts = new Map();
 
-// Admin whitelist
-const ADMIN_EMAILS = ["admin@yoga-app.com", "admin@example.com"];
+const API_BASE_URL =
+  localStorage.getItem("apiBaseUrl") ||
+  (window.location.port === "5000" ? "" : "http://localhost:5000");
+
+function getAuthToken() {
+  return sessionStorage.getItem("authToken") || localStorage.getItem("authToken");
+}
+
+function getAuthHeaders() {
+  const token = getAuthToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+
+async function apiRequest(path, options = {}) {
+  const response = await fetch(`${API_BASE_URL}${path}`, {
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      ...getAuthHeaders(),
+      ...(options.headers || {}),
+    },
+  });
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    throw new Error(data.error || "Erreur serveur");
+  }
+
+  return data;
+}
+
+function isApiReachableError(error) {
+  return error instanceof TypeError || /Failed to fetch|NetworkError/i.test(error.message);
+}
+
+
+/* ========================================
+   USER STORAGE NORMALIZATION
+   ======================================== */
+
+function normalizeUser(user = {}) {
+  const normalizedName =
+    typeof user.name === "string" && user.name.trim()
+      ? user.name.trim()
+      : "";
+
+  const normalizedPremium =
+    typeof user.premium === "boolean"
+      ? user.premium
+      : false;
+
+  return {
+    ...user,
+    name: normalizedName,
+    premium: normalizedPremium,
+    email: typeof user.email === "string" ? user.email.toLowerCase() : "",
+    preferences: {
+      theme: localStorage.getItem("theme") || "dark",
+      notifications: true,
+      ...(user.preferences || {}),
+    },
+    stats: {
+      totalSessions: 0,
+      totalMinutes: 0,
+      currentStreak: 0,
+      longestStreak: 0,
+      ...(user.stats || {}),
+    },
+    createdAt: user.createdAt || new Date().toISOString(),
+    lastLogin: user.lastLogin || null,
+  };
+}
+
+function getStoredUsers() {
+  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const normalizedUsers = users.map(normalizeUser);
+  localStorage.setItem("users", JSON.stringify(normalizedUsers));
+  return normalizedUsers;
+}
+
+function saveStoredUsers(users) {
+  localStorage.setItem(
+    "users",
+    JSON.stringify(users.map((user) => normalizeUser(user))),
+  );
+}
 
 /* ========================================
    PASSWORD UTILITIES
@@ -65,11 +149,25 @@ async function register(email, password, name, level = "beginner") {
     throw new Error("Nom invalide (2-50 caractères)");
   }
 
-  // Simulate delay to prevent timing attacks
+  try {
+    const data = await apiRequest("/api/auth/register", {
+      method: "POST",
+      body: JSON.stringify({ email, password, name, level }),
+    });
+
+    await createSession(data.user, false, data.token);
+    logActivity("register", { userId: data.user.id, source: "api" });
+    return data.user;
+  } catch (error) {
+    if (!isApiReachableError(error)) throw error;
+    console.warn("API auth indisponible, bascule en mode local:", error.message);
+  }
+
+  // Simulate delay to prevent timing attacks in local fallback
   await new Promise((resolve) => setTimeout(resolve, 500));
 
   // Get existing users
-  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const users = getStoredUsers();
 
   // Check if user exists
   if (users.find((u) => u.email.toLowerCase() === email.toLowerCase())) {
@@ -79,17 +177,15 @@ async function register(email, password, name, level = "beginner") {
   // Hash password
   const hashedPassword = await hashPassword(password);
 
-  // Determine if admin
-  const isAdmin = ADMIN_EMAILS.includes(email.toLowerCase());
-
   // Create new user
   const newUser = {
     id: crypto.randomUUID(),
     email: email.toLowerCase(),
     password: hashedPassword,
     name: name.trim(),
+    premium: false,
     level,
-    role: isAdmin ? "admin" : "user",
+    role: "user",
     createdAt: new Date().toISOString(),
     preferences: {
       theme: localStorage.getItem("theme") || "dark",
@@ -104,8 +200,8 @@ async function register(email, password, name, level = "beginner") {
   };
 
   // Save user
-  users.push(newUser);
-  localStorage.setItem("users", JSON.stringify(users));
+  users.push(normalizeUser(newUser));
+  saveStoredUsers(users);
 
   // Auto-login
   await createSession(newUser);
@@ -150,11 +246,26 @@ async function login(email, password, remember = false) {
   // Brute force protection
   checkBruteForce(email);
 
+  try {
+    const data = await apiRequest("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+    });
+
+    loginAttempts.delete(email);
+    await createSession(data.user, remember, data.token);
+    logActivity("login", { userId: data.user.id, source: "api" });
+    return data.user;
+  } catch (error) {
+    if (!isApiReachableError(error)) throw error;
+    console.warn("API auth indisponible, bascule en mode local:", error.message);
+  }
+
   // Simulate delay
   await new Promise((resolve) => setTimeout(resolve, 500));
 
   // Get users
-  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const users = getStoredUsers();
 
   // Hash password
   const hashedPassword = await hashPassword(password);
@@ -204,27 +315,41 @@ function generateToken(userId) {
   return `${header}.${payload}.${signature}`;
 }
 
+function parseTokenPayload(token) {
+  const [, payloadB64] = token.split(".");
+  const normalized = payloadB64.replace(/-/g, "+").replace(/_/g, "/");
+  const padded = normalized.padEnd(
+    normalized.length + ((4 - (normalized.length % 4)) % 4),
+    "=",
+  );
+  return JSON.parse(atob(padded));
+}
+
 /**
  * Create user session
  */
-async function createSession(user, remember = false) {
-  const token = generateToken(user.id);
+async function createSession(user, remember = false, serverToken = null) {
+  const token = serverToken || generateToken(user.id);
 
   // Store in sessionStorage (or localStorage if remember)
   const storage = remember ? localStorage : sessionStorage;
 
   storage.setItem("authToken", token);
-  storage.setItem("userId", user.id);
+  storage.setItem("userId", user.id || user.uid || user.firebaseUid);
+  storage.setItem("firebaseUid", user.firebaseUid || user.uid || user.id);
   storage.setItem("userName", user.name);
   storage.setItem("userRole", user.role);
   storage.setItem("userEmail", user.email);
+  storage.setItem("userPremium", String(Boolean(user.premium)));
+  if (user.createdAt) storage.setItem("userCreatedAt", user.createdAt);
+  if (user.lastLogin) storage.setItem("userLastLogin", user.lastLogin);
 
   // Update last login
-  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const users = getStoredUsers();
   const userIndex = users.findIndex((u) => u.id === user.id);
   if (userIndex !== -1) {
     users[userIndex].lastLogin = new Date().toISOString();
-    localStorage.setItem("users", JSON.stringify(users));
+    saveStoredUsers(users);
   }
 
   // Start inactivity timer
@@ -245,10 +370,13 @@ function requireAuth() {
 
   // Verify token expiration
   try {
-    const [, payloadB64] = token.split(".");
-    const payload = JSON.parse(atob(payloadB64));
+    const payload = parseTokenPayload(token);
+    const expiresAt =
+      typeof payload.exp === "number" && payload.exp < 1000000000000
+        ? payload.exp * 1000
+        : payload.exp;
 
-    if (Date.now() > payload.exp) {
+    if (expiresAt && Date.now() > expiresAt) {
       logout();
       throw new Error("Session expirée");
     }
@@ -297,9 +425,13 @@ function logout() {
   // Clear localStorage auth if exists
   localStorage.removeItem("authToken");
   localStorage.removeItem("userId");
+  localStorage.removeItem("firebaseUid");
   localStorage.removeItem("userName");
   localStorage.removeItem("userRole");
   localStorage.removeItem("userEmail");
+  localStorage.removeItem("userPremium");
+  localStorage.removeItem("userCreatedAt");
+  localStorage.removeItem("userLastLogin");
 
   // Clear inactivity timer
   if (window.inactivityTimer) {
@@ -353,8 +485,30 @@ function getCurrentUser() {
 
   if (!userId) return null;
 
-  const users = JSON.parse(localStorage.getItem("users") || "[]");
-  return users.find((u) => u.id === userId);
+  const users = getStoredUsers();
+  const localUser = users.find((u) => u.id === userId);
+  if (localUser) return localUser;
+
+  return {
+    id: userId,
+    firebaseUid:
+      sessionStorage.getItem("firebaseUid") || localStorage.getItem("firebaseUid"),
+    name: sessionStorage.getItem("userName") || localStorage.getItem("userName") || "",
+    email:
+      sessionStorage.getItem("userEmail") || localStorage.getItem("userEmail") || "",
+    role: sessionStorage.getItem("userRole") || localStorage.getItem("userRole") || "user",
+    premium:
+      (sessionStorage.getItem("userPremium") || localStorage.getItem("userPremium")) ===
+      "true",
+    createdAt:
+      sessionStorage.getItem("userCreatedAt") ||
+      localStorage.getItem("userCreatedAt") ||
+      null,
+    lastLogin:
+      sessionStorage.getItem("userLastLogin") ||
+      localStorage.getItem("userLastLogin") ||
+      null,
+  };
 }
 
 /**
@@ -362,7 +516,7 @@ function getCurrentUser() {
  */
 function updateUserProfile(updates) {
   const userId = requireAuth();
-  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const users = getStoredUsers();
   const userIndex = users.findIndex((u) => u.id === userId);
 
   if (userIndex === -1) {
@@ -370,12 +524,18 @@ function updateUserProfile(updates) {
   }
 
   // Merge updates
-  users[userIndex] = { ...users[userIndex], ...updates };
-  localStorage.setItem("users", JSON.stringify(users));
+  users[userIndex] = normalizeUser({ ...users[userIndex], ...updates });
+  saveStoredUsers(users);
 
   // Update session storage
   if (updates.name) {
     sessionStorage.setItem("userName", updates.name);
+    localStorage.setItem("userName", updates.name);
+  }
+
+  if (typeof updates.premium === "boolean") {
+    sessionStorage.setItem("userPremium", String(updates.premium));
+    localStorage.setItem("userPremium", String(updates.premium));
   }
 
   logActivity("profile_update", { userId });
@@ -417,7 +577,7 @@ function logActivity(action, data = {}) {
  */
 function exportUserData() {
   const userId = requireAuth();
-  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const users = getStoredUsers();
   const user = users.find((u) => u.id === userId);
 
   const progress = JSON.parse(localStorage.getItem("progress") || "[]");
@@ -463,9 +623,9 @@ function deleteUserAccount() {
   }
 
   // Delete user
-  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const users = getStoredUsers();
   const filteredUsers = users.filter((u) => u.id !== userId);
-  localStorage.setItem("users", JSON.stringify(filteredUsers));
+  saveStoredUsers(filteredUsers);
 
   // Delete progress
   const progress = JSON.parse(localStorage.getItem("progress") || "[]");
@@ -485,7 +645,7 @@ function deleteUserAccount() {
 
 // Initialize default admin if no users exist
 function initializeDefaultAdmin() {
-  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const users = getStoredUsers();
 
   if (users.length === 0) {
     console.log("Creating default admin account...");

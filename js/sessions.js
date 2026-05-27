@@ -5,6 +5,65 @@
 let allSessions = [];
 let filteredSessions = [];
 
+function clearElement(element) {
+  if (!element) return;
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+}
+
+function createLoginCard() {
+  const loginDiv = document.createElement("div");
+  loginDiv.className = "session-card login-card";
+
+  const content = document.createElement("div");
+  content.className = "login-card-content";
+
+  const title = document.createElement("h3");
+  title.setAttribute("data-i18n", "sessions.login.title");
+  title.textContent = "Accès complet";
+
+  const subtitle = document.createElement("p");
+  subtitle.setAttribute("data-i18n", "sessions.login.subtitle");
+  subtitle.textContent =
+    "Connectez-vous ou inscrivez-vous pour débloquer toutes les séances.";
+
+  const actions = document.createElement("div");
+  actions.className = "login-card-actions";
+
+  const loginLink = document.createElement("a");
+  loginLink.href = "login.html";
+  loginLink.className = "btn btn-primary";
+  loginLink.setAttribute("data-i18n", "sessions.login.loginBtn");
+  loginLink.textContent = "Se connecter";
+
+  const registerLink = document.createElement("a");
+  registerLink.href = "register.html";
+  registerLink.className = "btn btn-outline";
+  registerLink.setAttribute("data-i18n", "sessions.login.registerBtn");
+  registerLink.textContent = "S'inscrire";
+
+  actions.appendChild(loginLink);
+  actions.appendChild(registerLink);
+  content.appendChild(title);
+  content.appendChild(subtitle);
+  content.appendChild(actions);
+  loginDiv.appendChild(content);
+
+  return loginDiv;
+}
+
+function renderNoExercisesMessage(container) {
+  clearElement(container);
+  const message = document.createElement("p");
+  message.style.gridColumn = "1/-1";
+  message.style.textAlign = "center";
+  message.style.color = "var(--text-secondary)";
+  message.textContent = "Aucun exercice disponible pour ce niveau.";
+  container.appendChild(message);
+}
+
+
 // ✅ CONTRÔLE D'ACCÈS AUX EXERCICES - S'exécute AVANT tout
 (function () {
   // Récupère userId depuis sessionStorage OU localStorage
@@ -105,19 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Si visiteur, injecter une carte d'appel à l'action pour connexion/inscription
   if (!isLoggedIn) {
     if (!grid.querySelector(".session-card.login-card")) {
-      const loginDiv = document.createElement("div");
-      loginDiv.className = "session-card login-card";
-      // Utiliser innerHTML minimal et i18n keys (si i18n présent, applyTranslations s'en chargera)
-      loginDiv.innerHTML = `
-        <div class="login-card-content">
-          <h3 data-i18n="sessions.login.title">Accès complet</h3>
-          <p data-i18n="sessions.login.subtitle">Connectez-vous ou inscrivez-vous pour débloquer toutes les séances.</p>
-          <div class="login-card-actions">
-            <a href="login.html" class="btn btn-primary" data-i18n="sessions.login.loginBtn">Se connecter</a>
-            <a href="register.html" class="btn btn-outline" data-i18n="sessions.login.registerBtn">S'inscrire</a>
-          </div>
-        </div>
-      `;
+      const loginDiv = createLoginCard();
       grid.appendChild(loginDiv);
       // Appliquer traductions si disponibles
       if (window.i18n && window.i18n.applyTranslations) {
@@ -216,7 +263,7 @@ function loadSessions() {
   const sessions = localStorage.getItem("sessions");
 
   if (sessions) {
-    allSessions = JSON.parse(sessions);
+    allSessions = JSON.parse(sessions).map(normalizeSessionModel);
   } else {
     allSessions = [];
   }
@@ -232,6 +279,19 @@ function loadSessions() {
   filteredSessions = [...allSessions];
 
   console.log(`✅ ${allSessions.length} séances chargées`);
+}
+
+function normalizeSessionModel(session) {
+  const legacyPremium = session["is" + "Premium"];
+  const rest = { ...session };
+  delete rest["is" + "Premium"];
+  return {
+    ...rest,
+    premium:
+      typeof session.premium === "boolean"
+        ? session.premium
+        : Boolean(legacyPremium),
+  };
 }
 
 function addExtraSessions() {
@@ -923,7 +983,7 @@ function renderSessions(sessions) {
   // On the main sessions page (sessions.html), show all sessions
   const sessionsToRender = filtered;
 
-  grid.innerHTML = "";
+  clearElement(grid);
 
   if (sessionsToRender.length === 0) {
     const emptyState = document.getElementById("empty-state");
@@ -935,7 +995,7 @@ function renderSessions(sessions) {
   }
 
   sessionsToRender.forEach((session) => {
-    grid.insertAdjacentHTML("beforeend", createSessionCard(session));
+    grid.appendChild(createSessionCardElement(session));
   });
 
   const emptyState = document.getElementById("empty-state");
@@ -973,7 +1033,7 @@ function renderSessions(sessions) {
         }
 
         // Check if premium session and user is not premium
-        if (session.isPremium && !isPremiumUser(userId)) {
+        if (requiresPremiumAccess(session) && !hasPremiumAccess(userId)) {
           alert(
             "Cette séance est réservée aux membres Premium.\n\nPassez à Premium pour accéder à toutes les séances exclusives !",
           );
@@ -1005,6 +1065,156 @@ function createLockedAccessCard() {
   `;
 }
 
+function requiresPremiumAccess(session) {
+  return Boolean(session.premium || session.free === false);
+}
+
+function createSvgIcon(viewBox, paths) {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("width", "16");
+  svg.setAttribute("height", "16");
+  svg.setAttribute("viewBox", viewBox);
+  svg.setAttribute("fill", "none");
+  svg.setAttribute("stroke", "currentColor");
+  paths.forEach((pathConfig) => {
+    const element = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      pathConfig.tag,
+    );
+    Object.entries(pathConfig.attrs).forEach(([key, value]) => {
+      element.setAttribute(key, value);
+    });
+    svg.appendChild(element);
+  });
+  return svg;
+}
+
+function createSessionCardElement(session) {
+  const sessionKey = `sessions.cards.session_${session.id}`;
+  const badgei18nKey = `sessions.level.${session.level}`;
+  const badgeText =
+    session.level === "beginner"
+      ? "Débutant"
+      : session.level === "intermediate"
+        ? "Intermédiaire"
+        : "Avancé";
+  const iconMap = {
+    hatha: "🕉️",
+    vinyasa: "🌊",
+    yin: "🌙",
+    flow: "💨",
+    pilates: "💪",
+    pranayama: "🌬️",
+    meditation: "🧠",
+    restoration: "🌿",
+    power: "⚡",
+    acro: "🤝",
+  };
+  const goalMap = {
+    detente: "relaxation",
+    mobilite: "mobilite",
+    renforcement: "renforcement",
+    energie: "energie",
+    soulagement: "mobilite",
+  };
+
+  const card = document.createElement("div");
+  card.id = `session-${session.id}`;
+  card.className = "session-card-full session-card";
+  card.dataset.level = session.level;
+  card.dataset.free = session.free ? "true" : "false";
+
+  const header = document.createElement("div");
+  header.className = "session-card-header";
+  const icon = document.createElement("div");
+  icon.className = "session-icon";
+  icon.textContent = iconMap[session.type] || "🧘‍♀️";
+  const duration = document.createElement("div");
+  duration.className = "session-duration";
+  duration.appendChild(
+    createSvgIcon("0 0 24 24", [
+      { tag: "circle", attrs: { cx: "12", cy: "12", r: "10" } },
+      { tag: "polyline", attrs: { points: "12 6 12 12 16 14" } },
+    ]),
+  );
+  duration.appendChild(document.createTextNode(` ${session.duration} min`));
+  header.append(icon, duration);
+
+  const body = document.createElement("div");
+  body.className = "session-card-body";
+  const badgeContainer = document.createElement("div");
+  badgeContainer.className = "session-badge-container";
+  const levelBadge = document.createElement("span");
+  levelBadge.className = `session-level-badge ${session.level}`;
+  levelBadge.dataset.i18n = badgei18nKey;
+  levelBadge.textContent = badgeText;
+  badgeContainer.appendChild(levelBadge);
+  if (requiresPremiumAccess(session)) {
+    const premiumBadge = document.createElement("span");
+    premiumBadge.className = "premium-badge-card";
+    premiumBadge.textContent = "Premium";
+    badgeContainer.appendChild(premiumBadge);
+  }
+
+  const title = document.createElement("h3");
+  title.className = "session-card-title";
+  title.dataset.i18n = `${sessionKey}.title`;
+  title.textContent = session.title;
+  const description = document.createElement("p");
+  description.className = "session-card-description";
+  description.dataset.i18n = `${sessionKey}.description`;
+  description.textContent = session.description;
+
+  body.append(badgeContainer, title, description);
+  if (session.objectives?.length) {
+    const goals = document.createElement("div");
+    goals.className = "session-goals";
+    session.objectives.forEach((goal, index) => {
+      const normalizedGoal = String(goal)
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+      const goalKey = goalMap[normalizedGoal];
+      if (!goalKey) return;
+
+      const chip = document.createElement("span");
+      chip.className =
+        index === 0
+          ? "session-goal-chip session-goal-chip-1"
+          : index === 1
+            ? "session-goal-chip session-goal-chip-2"
+            : "session-goal-chip";
+      chip.dataset.i18n = `sessions.goals.${goalKey}`;
+      chip.textContent = goal;
+      goals.appendChild(chip);
+    });
+    body.appendChild(goals);
+  }
+
+  const footer = document.createElement("div");
+  footer.className = "session-card-footer";
+  const button = document.createElement("button");
+  button.className = "session-card-button";
+  const playIcon = createSvgIcon("0 0 24 24", [
+    { tag: "circle", attrs: { cx: "12", cy: "12", r: "10" } },
+    {
+      tag: "polygon",
+      attrs: { points: "10 8 16 12 10 16 10 8", fill: "currentColor" },
+    },
+  ]);
+  playIcon.setAttribute("width", "18");
+  playIcon.setAttribute("height", "18");
+  const text = document.createElement("span");
+  text.className = "button-text";
+  text.dataset.i18n = "sessions.actions.start";
+  text.textContent = "Commencer";
+  button.append(playIcon, text);
+  footer.appendChild(button);
+
+  card.append(header, body, footer);
+  return card;
+}
+
 function createSessionCard(session) {
   // Générer une clé unique pour la session (pour i18n)
   const sessionKey = `sessions.cards.session_${session.id}`;
@@ -1018,7 +1228,7 @@ function createSessionCard(session) {
         ? "Intermédiaire"
         : "Avancé";
 
-  const premiumBadge = session.isPremium
+  const premiumBadge = requiresPremiumAccess(session)
     ? '<span class="premium-badge-card">Premium</span>'
     : "";
 
@@ -1485,10 +1695,15 @@ function buildLevelGamificationElement(level) {
   return wrapper;
 }
 
-function isPremiumUser(userId) {
+function hasPremiumAccess(userId) {
+  const currentUserPremium =
+    (sessionStorage.getItem("userPremium") || localStorage.getItem("userPremium")) ===
+    "true";
+  if (currentUserPremium) return true;
+
   const users = JSON.parse(localStorage.getItem("users") || "[]");
   const user = users.find((u) => u.id === userId);
-  return user && user.isPremium;
+  return Boolean(user && user.premium);
 }
 
 // Debounce function for search input
@@ -1596,10 +1811,10 @@ function loadExercisesByLevel() {
 
 // Render exercise cards
 function renderExerciseCards(container, sessions, level) {
-  container.innerHTML = "";
+  clearElement(container);
 
   if (sessions.length === 0) {
-    container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">Aucun exercice disponible pour ce niveau.</p>`;
+    renderNoExercisesMessage(container);
     return;
   }
 
@@ -1619,11 +1834,19 @@ function createExerciseCard(session, level) {
 
   const meta = document.createElement("div");
   meta.className = "exercise-meta";
-  meta.innerHTML = `
-    <span>⏱️ ${session.duration || 10} min</span>
-    <span>📊 ${translateLevel(session.level || level)}</span>
-    <span>🎯 ${session.type || "Hatha"}</span>
-  `;
+
+  const durationMeta = document.createElement("span");
+  durationMeta.textContent = `⏱️ ${session.duration || 10} min`;
+
+  const levelMeta = document.createElement("span");
+  levelMeta.textContent = `📊 ${translateLevel(session.level || level)}`;
+
+  const typeMeta = document.createElement("span");
+  typeMeta.textContent = `🎯 ${session.type || "Hatha"}`;
+
+  meta.appendChild(durationMeta);
+  meta.appendChild(levelMeta);
+  meta.appendChild(typeMeta);
 
   const btn = document.createElement("a");
   btn.className = "exercise-btn";
