@@ -509,6 +509,7 @@ a:hover {
   border-radius: 20px;
   padding: 100px 100px 50px;
   background: var(--bg-primary);
+  opacity: 0.75;
   border: 2px solid var(--border);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

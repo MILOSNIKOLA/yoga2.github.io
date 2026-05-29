@@ -1,0 +1,394 @@
+/* ========================================
+   MOBILE PREMIUM UI 2026
+   ======================================== */
+
+/* ========================================
+   MOBILE BOTTOM NAVIGATION
+   ======================================== */
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: var(--z-sticky);
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: flex;
+  }
+}
+
+.mobile-nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  max-width: 100%;
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast) ease-out;
+  flex: 1;
+  height: 100%;
+  position: relative;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.mobile-nav-item svg {
+  width: 24px;
+  height: 24px;
+  transition: all var(--transition-fast) ease-out;
+}
+
+.mobile-nav-item:hover,
+.mobile-nav-item.active {
+  color: var(--accent-primary);
+}
+
+.mobile-nav-item.active svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.4));
+}
+
+/* ========================================
+   MOBILE PAGE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 70px;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: var(--z-sticky);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .page-content {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  /* Hero mobile adjustments */
+  .hero {
+    min-height: 70vh;
+    padding-top: 70px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  /* Section mobile adjustments */
+  .section-premium {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  /* Grid mobile adjustments */
+  .grid-premium {
+    gap: var(--spacing-md);
+  }
+
+  /* Card mobile adjustments */
+  .card-premium {
+    padding: var(--spacing-lg);
+  }
+}
+
+/* ========================================
+   MOBILE GESTURE INTERACTIONS
+   ======================================== */
+
+.touch-responsive {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.touch-target {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* ========================================
+   MOBILE MODALS & OVERLAYS
+   ======================================== */
+
+.mobile-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: flex-end;
+  z-index: var(--z-modal-backdrop);
+}
+
+.mobile-modal.active {
+  display: flex;
+  animation: fadeIn var(--transition-base) ease-out;
+}
+
+.mobile-modal-content {
+  width: 100%;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+  padding: var(--spacing-xl);
+  animation: slideInUp var(--transition-base) ease-out;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   MOBILE RESPONSIVE TEXT
+   ======================================== */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .text-small {
+    font-size: 0.85rem;
+  }
+}
+
+/* ========================================
+   MOBILE SPACING
+   ======================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-4xl: 2rem;
+    --spacing-3xl: 1.5rem;
+  }
+
+  .m-mobile-xs {
+    margin: var(--spacing-xs) !important;
+  }
+  .m-mobile-sm {
+    margin: var(--spacing-sm) !important;
+  }
+  .m-mobile-md {
+    margin: var(--spacing-md) !important;
+  }
+  .m-mobile-lg {
+    margin: var(--spacing-lg) !important;
+  }
+  .m-mobile-xl {
+    margin: var(--spacing-xl) !important;
+  }
+
+  .p-mobile-xs {
+    padding: var(--spacing-xs) !important;
+  }
+  .p-mobile-sm {
+    padding: var(--spacing-sm) !important;
+  }
+  .p-mobile-md {
+    padding: var(--spacing-md) !important;
+  }
+  .p-mobile-lg {
+    padding: var(--spacing-lg) !important;
+  }
+  .p-mobile-xl {
+    padding: var(--spacing-xl) !important;
+  }
+}
+
+/* ========================================
+   MOBILE BUTTONS
+   ======================================== */
+
+@media (max-width: 768px) {
+  .btn-premium,
+  .btn-secondary,
+  .btn-outline {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+}
+
+/* ========================================
+   MOBILE VIEWPORT OPTIMIZATION
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* Prevent zoom on input focus */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+
+  /* Mobile scroll snapping */
+  .scroll-snap-x {
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scroll-snap-item {
+    scroll-snap-align: center;
+    flex-shrink: 0;
+  }
+}
+
+/* ========================================
+   MOBILE ANIMATIONS OPTIMIZATION
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* Reduce animation on slower devices */
+  .animate-slow {
+    animation-duration: 600ms;
+  }
+
+  .animate-slower {
+    animation-duration: 1000ms;
+  }
+
+  /* Reduce float animation on mobile */
+  .float {
+    animation: float 8s ease-in-out infinite;
+  }
+}
+
+/* ========================================
+   LANDSCAPE MODE
+   ======================================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+    padding-top: 50px;
+  }
+
+  .mobile-nav {
+    height: 50px;
+  }
+
+  .mobile-nav-item {
+    font-size: 0.7rem;
+  }
+
+  body {
+    padding-bottom: 50px;
+  }
+}
+
+/* ========================================
+   SAFE AREA FOR NOTCH DEVICES
+   ======================================== */
+
+@supports (padding: max(0px)) {
+  .mobile-nav {
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+  }
+
+  .page-content {
+    padding-bottom: calc(70px + max(0px, env(safe-area-inset-bottom)));
+  }
+
+  body {
+    padding-bottom: calc(70px + max(0px, env(safe-area-inset-bottom)));
+  }
+}
+
+/* ========================================
+   MOBILE FIRST UTILITIES
+   ======================================== */
+
+.hidden-mobile {
+  display: none;
+}
+
+.visible-mobile {
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .hidden-mobile {
+    display: block;
+  }
+
+  .visible-mobile {
+    display: none;
+  }
+}
+
+/* ========================================
+   MOBILE PERFORMANCE
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* Reduce shadows on mobile */
+  .card-premium {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Optimize background animations */
+  .hero::before {
+    animation: gradient-shift 20s ease infinite;
+  }
+}

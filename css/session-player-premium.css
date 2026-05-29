@@ -1,0 +1,644 @@
+/* ========================================
+   SESSION PLAYER PREMIUM 2026
+   ======================================== */
+
+/* ========================================
+   PLAYER CONTAINER
+   ======================================== */
+
+#session-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--bg-primary) 0%,
+    var(--bg-secondary) 100%
+  );
+  z-index: -2;
+  animation: gradient-shift 20s ease infinite;
+}
+
+#background::before {
+  content: "";
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: -100%;
+  left: -100%;
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(102, 126, 234, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(250, 112, 154, 0.15) 0%,
+      transparent 50%
+    );
+  animation: float 20s ease-in-out infinite;
+}
+
+#overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 6, 23, 0.4);
+  backdrop-filter: blur(0.5px);
+  -webkit-backdrop-filter: blur(0.5px);
+}
+
+/* ========================================
+   PLAYER CONTENT LAYOUT
+   ======================================== */
+
+.player-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.back-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast) ease-out;
+  padding: 10px 16px;
+  border-radius: var(--radius-lg);
+  font-weight: 500;
+}
+
+.back-link:hover {
+  color: var(--accent-primary);
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateX(-4px);
+}
+
+/* ========================================
+   SESSION INFO SECTION
+   ======================================== */
+
+.session-info {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 40px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.session-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-family: var(--font-family-display);
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 15px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.session-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.session-level,
+.session-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all var(--transition-fast) ease-out;
+}
+
+.session-level:hover,
+.session-duration:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ========================================
+   TIMER CIRCLE PREMIUM
+   ======================================== */
+
+.timer-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  animation: fadeInUp 1.2s ease-out;
+  filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.3));
+}
+
+.timer-circle {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.2));
+}
+
+.timer-progress {
+  stroke: url(#gradient-stroke);
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.6));
+  transition: stroke-dashoffset 1s linear;
+}
+
+.timer-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.timer-time {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+.timer-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-top: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   BREATHING CIRCLE ANIMATION
+   ======================================== */
+
+.breathing-circle {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+.breathing-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(102, 126, 234, 0.8),
+    rgba(102, 126, 234, 0.3)
+  );
+  animation: breathing-circle 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+}
+
+/* ========================================
+   POSTURE IMAGE SECTION
+   ======================================== */
+
+.posture-section {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 40px 0;
+  animation: fadeInUp 1.4s ease-out;
+}
+
+.posture-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.posture-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform var(--transition-slow) ease-out,
+    filter var(--transition-slow) ease-out;
+  animation: fadeIn var(--transition-base) ease-out;
+}
+
+.posture-image.zoom-in {
+  animation: zoomIn var(--transition-slow) ease-out;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.posture-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  pointer-events: none;
+}
+
+.posture-name {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.posture-duration {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  gap: 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================
+   POSTURE INSTRUCTIONS
+   ======================================== */
+
+.posture-instructions {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-xl);
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin: 30px 0;
+  animation: fadeInUp 1.6s ease-out;
+}
+
+.instructions-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.instructions-content {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* ========================================
+   CONTROLS SECTION
+   ======================================== */
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0;
+  animation: fadeInUp 1.8s ease-out;
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gradient-primary);
+  color: white;
+  cursor: pointer;
+  transition: all var(--transition-fast) ease-out;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  font-size: 1.5rem;
+}
+
+.control-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+}
+
+.control-btn:active {
+  transform: scale(0.95);
+}
+
+.control-btn.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+}
+
+.control-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   PROGRESS BAR
+   ======================================== */
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin: 30px 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+/* ========================================
+   NEXT/PREV BUTTONS
+   ======================================== */
+
+.nav-buttons {
+  display: flex;
+  gap: 20px;
+  margin: 30px 0;
+  animation: fadeInUp 2s ease-out;
+}
+
+.nav-btn {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast) ease-out;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ========================================
+   RESPONSIVE PLAYER
+   ======================================== */
+
+@media (max-width: 768px) {
+  #session-container {
+    min-height: calc(100vh - 70px);
+  }
+
+  .player-container {
+    padding: 20px 16px;
+    gap: 30px;
+  }
+
+  .back-link {
+    top: 10px;
+    left: 10px;
+    font-size: 0.9rem;
+  }
+
+  .session-title {
+    font-size: 1.5rem;
+  }
+
+  .session-meta {
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+
+  .timer-container {
+    width: 220px;
+    height: 220px;
+    margin: 20px 0;
+  }
+
+  .timer-time {
+    font-size: 2.5rem;
+  }
+
+  .timer-label {
+    font-size: 0.85rem;
+  }
+
+  .posture-container {
+    aspect-ratio: 3 / 4;
+  }
+
+  .posture-overlay {
+    padding: 20px;
+  }
+
+  .posture-name {
+    font-size: 1.25rem;
+  }
+
+  .posture-instructions {
+    padding: 20px;
+  }
+
+  .control-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  .control-btn.secondary {
+    width: 44px;
+    height: 44px;
+  }
+
+  .player-controls {
+    gap: 15px;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .session-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .session-level,
+  .session-duration {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .timer-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .timer-time {
+    font-size: 2rem;
+  }
+
+  .posture-instructions {
+    margin: 20px 0;
+  }
+
+  .instructions-title {
+    font-size: 1.1rem;
+  }
+
+  .instructions-content {
+    font-size: 0.95rem;
+  }
+
+  .progress-bar {
+    height: 4px;
+  }
+}
+
+/* ========================================
+   BREATHING ANIMATION STATES
+   ======================================== */
+
+.player-state-breathing .breathing-circle {
+  opacity: 1;
+}
+
+.player-state-posture .breathing-circle {
+  opacity: 0;
+}
+
+/* ========================================
+   FULLSCREEN PLAYER
+   ======================================== */
+
+.player-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-fixed);
+  background: var(--bg-primary);
+}
+
+.player-fullscreen #overlay {
+  height: 100vh;
+}
+
+/* ========================================
+   ANIMATION SEQUENCES
+   ======================================== */
+
+.fade-in-sequence {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.stagger-sequence > * {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.stagger-sequence > *:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.stagger-sequence > *:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.stagger-sequence > *:nth-child(3) {
+  animation-delay: 0.6s;
+}

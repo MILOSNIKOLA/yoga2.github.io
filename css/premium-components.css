@@ -1,0 +1,537 @@
+/* Premium Components CSS - Yoga2 Premium 2026
+   Adds sections: Programmes, App mockup, Popular sessions, Premium CTA,
+   Testimonials, Progression, Audio Ambiences, FAQ, Footer premium
+   Designed to be non-intrusive: uses new classes that can be added to existing HTML
+*/
+:root {
+  --bg-1: #0b1220;
+  --bg-2: #06101a;
+  --accent: #7dd3fc;
+  --accent-2: #a78bfa;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --card-radius: 28px;
+  --shadow-deep: 0 30px 60px rgba(2, 6, 23, 0.6);
+  --shadow-soft: 0 12px 30px rgba(2, 6, 23, 0.45);
+  --glass-blur: 15px;
+  --transition-slow: 450ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  --text-muted: rgba(255, 255, 255, 0.72);
+}
+
+/* Page background (design system) */
+body {
+  background: radial-gradient(circle at top, #1e293b, #020617 70%);
+  color: #e6eef6;
+  font-family:
+    Inter,
+    -apple-system,
+    "SF Pro Text",
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glass base */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+}
+
+/* Programmes - horizontal immersive row */
+.programmes {
+  padding: 36px 20px;
+}
+.programmes .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.programmes .program-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+}
+.programmes .program-card {
+  position: relative;
+  flex: 0 0 320px;
+  height: 200px;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  scroll-snap-align: center;
+  background: #000;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform var(--transition-slow),
+    box-shadow var(--transition-slow),
+    filter var(--transition-slow);
+}
+.programmes .program-card .card-media {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1);
+  transition: transform 650ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+.programmes .program-card .card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px;
+  color: #fff;
+}
+.programmes .program-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.programmes .program-card p {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.programmes .program-card .meta {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
+/* Hover premium */
+.programmes .program-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:
+    0 40px 90px rgba(2, 6, 23, 0.7),
+    0 10px 30px rgba(34, 197, 94, 0.06);
+  filter: blur(0px);
+}
+.programmes .program-card:hover .card-media {
+  transform: scale(1.08);
+}
+.programmes .program-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 8px 30px rgba(34, 197, 94, 0.042) inset;
+  pointer-events: none;
+  transition: opacity 400ms;
+  opacity: 0;
+}
+.programmes .program-card:hover::after {
+  opacity: 1;
+}
+
+/* subtle glow */
+.programmes .program-card .glow {
+  position: absolute;
+  right: -40px;
+  top: -30px;
+  width: 260px;
+  height: 180px;
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(125, 211, 252, 0.18),
+    transparent 40%
+  );
+  filter: blur(24px);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 400ms;
+}
+.programmes .program-card:hover .glow {
+  opacity: 1;
+}
+
+/* App mockup */
+.app-mockup {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding: 48px 20px;
+  justify-content: center;
+}
+.phone-mockup {
+  width: 260px;
+  height: 520px;
+  border-radius: 44px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.01)
+  );
+  box-shadow: var(--shadow-deep);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.phone-screen {
+  position: absolute;
+  inset: 14px;
+  border-radius: 32px;
+  background: linear-gradient(180deg, #021029, #041025);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 18px;
+}
+.phone-screen .player-visual {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.phone-screen .controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+/* breathing circle */
+.breathing-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(167, 139, 250, 0.22),
+    rgba(125, 211, 252, 0.12)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 40px rgba(10, 14, 20, 0.6);
+  animation: breathe 4200ms ease-in-out infinite;
+}
+.breathing-circle .inner {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Popular sessions carousel */
+.popular-sessions {
+  padding: 36px 20px;
+}
+.popular-sessions .carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.popular-sessions .card {
+  flex: 0 0 220px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  height: 140px;
+  background: #000;
+  transition:
+    transform var(--transition-slow),
+    box-shadow var(--transition-slow);
+}
+.popular-sessions .card .meta {
+  position: absolute;
+  left: 12px;
+  bottom: 8px;
+  color: #fff;
+  font-weight: 600;
+}
+.popular-sessions .card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Premium CTA */
+.premium-cta {
+  padding: 48px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.premium-cta .cta-box {
+  flex: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(167, 139, 250, 0.12),
+    rgba(125, 211, 252, 0.06)
+  );
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.premium-cta .cta-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+.premium-cta .cta-benefits {
+  margin-top: 12px;
+}
+.premium-cta .btn-premium {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7dd3fc, #a78bfa);
+  color: #021029;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms;
+}
+.premium-cta .btn-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(167, 139, 250, 0.18);
+}
+.premium-cta .btn-pulse {
+  animation: pulse 2200ms ease-in-out infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Testimonials */
+.testimonials {
+  padding: 36px 20px;
+}
+.testimonials .grid {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.testimonials .testimonial {
+  flex: 1 1 260px;
+  border-radius: 18px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.45);
+  transition: transform var(--transition-slow);
+}
+.testimonials .testimonial:hover {
+  transform: translateY(-6px);
+}
+.testimonials .avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 12px;
+}
+.testimonials .stars {
+  color: #ffd166;
+}
+
+/* Progression */
+.progression {
+  padding: 36px 20px;
+}
+.progression .day-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.progression .day {
+  min-width: 96px;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  text-align: center;
+  transition: transform 300ms;
+}
+.progression .day.active {
+  background: linear-gradient(135deg, #22c55e33, #4ade8033);
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.08);
+  transform: scale(1.02);
+}
+.progression .progress-track {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+.progression .progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #7dd3fc, #a78bfa);
+  transition: width 900ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+/* Audio ambiances */
+.audio-ambiences {
+  padding: 36px 20px;
+}
+.audio-ambiences .audio-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+}
+.audio-card {
+  flex: 0 0 180px;
+  border-radius: 16px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  transition: transform var(--transition-slow);
+}
+.audio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-soft);
+}
+.audio-card .visualizer {
+  display: flex;
+  gap: 4px;
+  align-items: end;
+  height: 28px;
+}
+.audio-card .visualizer span {
+  width: 4px;
+  height: 8px;
+  background: linear-gradient(180deg, #7dd3fc, #a78bfa);
+  animation: bar 900ms infinite;
+  display: block;
+  border-radius: 2px;
+}
+@keyframes bar {
+  0% {
+    height: 6px;
+  }
+  50% {
+    height: 22px;
+  }
+  100% {
+    height: 6px;
+  }
+}
+
+/* FAQ */
+.faq {
+  padding: 36px 20px;
+}
+.faq .qa {
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  margin-bottom: 10px;
+}
+.faq .qa .question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.faq .qa .answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 420ms ease;
+  padding-top: 0;
+}
+.faq .qa.open .answer {
+  max-height: 240px;
+  padding-top: 10px;
+}
+
+/* Footer premium */
+.footer-premium {
+  padding: 28px 20px;
+  background: rgba(2, 6, 23, 0.6);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+.footer-premium .col {
+  flex: 1;
+}
+.footer-premium .socials a {
+  margin-right: 8px;
+  opacity: 0.9;
+}
+
+/* Scroll reveal utility */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    transform 700ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+.scroll-reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* small screens */
+@media (max-width: 768px) {
+  .programmes .program-card {
+    flex: 0 0 78%;
+    height: 220px;
+  }
+  .app-mockup {
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px;
+  }
+  .phone-mockup {
+    width: 198px;
+    height: 420px;
+  }
+}
