@@ -509,7 +509,149 @@
         >
       </div>
     </section>
+
+    <!-- Comment le yoga peut améliorer votre quotidien ? -->
+     
     
+<!-- Editorial Premium Section (nouvelle) -->
+<section class="editorial-premium" aria-label="Éditorial premium">
+  <style>
+    .editorial-premium .ep-container {
+      margin: 2% 10%;
+      display: flex;
+      flex-direction: column;
+      gap: 135px;
+    }
+
+    .ep-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      column-gap: 40px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 520ms ease, transform 520ms ease;
+    }
+
+    .ep-block.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ep-image img {
+      width: 638px;
+      height: 454px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      transition: transform 360ms ease;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .ep-image img:hover,
+    .ep-image img:focus {
+      transform: scale(1.03);
+    }
+
+    .ep-text {
+      width: 560px;
+      height: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .ep-text h2 {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin: 0 0 18px 0;
+      color: #111;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .ep-text p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    /* Reverse layout helper */
+    .ep-block.reverse .ep-image { grid-column: 2; }
+    .ep-block.reverse .ep-text { grid-column: 1; }
+
+    @media (max-width: 1024px) {
+      .ep-block { grid-template-columns: 1fr; row-gap: 32px; }
+      .ep-image img { width: 100%; height: auto; max-height: 460px; }
+      .ep-text { width: 100%; height: auto; }
+      .editorial-premium .ep-container { margin: 4% 6%; gap: 48px; }
+      .ep-text h2 { font-size: 32px; }
+    }
+  </style>
+
+  <div class="ep-container">
+    <!-- Bloc 1 : Image gauche, texte droite -->
+    <div class="ep-block" role="group">
+      <div class="ep-image" aria-hidden="false">
+        <img src="img/yoga at home/1.jpg" alt="Image éditoriale 1" loading="lazy" />
+      </div>
+      <div class="ep-text">
+        <h2>Commencez doucement</h2>
+        <p>Des séquences pensées pour installer une pratique régulière et respectueuse de votre corps. Des gestes simples, des enchaînements clairs et une approche bienveillante.</p>
+      </div>
+    </div>
+
+    <!-- Bloc 2 : Texte gauche, image droite -->
+    <div class="ep-block reverse" role="group">
+      <div class="ep-image" aria-hidden="false">
+        <img src="img/yoga at home/2.jpg" alt="Image éditoriale 2" loading="lazy" />
+      </div>
+      <div class="ep-text">
+        <h2>Routine quotidienne</h2>
+        <p>Adoptez des rituels courts et puissants pour mieux respirer, lâcher prise et gagner en concentration chaque jour, sans pression de performance.</p>
+      </div>
+    </div>
+
+    <!-- Bloc 3 : Image gauche, texte droite -->
+    <div class="ep-block" role="group">
+      <div class="ep-image" aria-hidden="false">
+        <img src="img/yoga at home/3.jpg" alt="Image éditoriale 3" loading="lazy" />
+      </div>
+      <div class="ep-text">
+        <h2>Moments de détente</h2>
+        <p>Des séances axées sur la détente musculaire et la détente mentale, pour récupérer après une journée chargée et mieux dormir.</p>
+      </div>
+    </div>
+
+    <!-- Bloc 4 : Texte gauche, image droite -->
+    <div class="ep-block reverse" role="group">
+      <div class="ep-image" aria-hidden="false">
+        <img src="img/yoga at home/4.jpg" alt="Image éditoriale 4" loading="lazy" />
+      </div>
+      <div class="ep-text">
+        <h2>Pratique guidée</h2>
+        <p>Suivez des flows structurés qui respectent votre niveau, votre temps et votre énergie — pour une progression douce et mesurable.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const blocks = document.querySelectorAll('.editorial-premium .ep-block');
+      if (!('IntersectionObserver' in window)) { blocks.forEach(b=>b.classList.add('in-view')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('in-view'); }
+        });
+      }, { threshold: 0.12 });
+      blocks.forEach(b => io.observe(b));
+    })();
+  </script>
+</section>
+
 <!-- External Resources Section -->
 <section class="resources-section">
   <div class="container">
