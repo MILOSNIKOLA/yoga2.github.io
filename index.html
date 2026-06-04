@@ -526,6 +526,10 @@
     .ep-block {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-auto-flow: column; 
+      gap-height: -4rem;
+      
+
       align-items: center;
       column-gap: 40px;
       opacity: 0;
@@ -589,7 +593,7 @@
     }
     .ep-block.reverse .ep-image,
     .ep-block.reverse .ep-text {
-      align-self: start;
+      align-self: center;
     }
     .ep-block.reverse .ep-text {
       justify-content: flex-start;
@@ -871,7 +875,7 @@
 
         .y2-fab:hover { transform: scale(1.08); box-shadow: 0 26px 60px rgba(20,40,30,0.22); }
         .y2-fab:focus { box-shadow: 0 26px 60px rgba(20,40,30,0.28); }
-
+ep-block reverse in-view
         @keyframes y2-breathe { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
         .y2-chat-icon { font-size: 28px; line-height:1 }
