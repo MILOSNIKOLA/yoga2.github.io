@@ -141,7 +141,8 @@ const SITE_TRANSLATIONS = {
     // ═══════════════════════════════════════════════════════════════════
     home: {
       hero: {
-        title: "Des séances de yoga personnalisées par l’IA selon votre niveau, votre temps et votre énergie",
+        title:
+          "Des séances de yoga personnalisées par l’IA selon votre niveau, votre temps et votre énergie",
         subtitle:
           "Retrouvez calme et bien-être à travers des séances de yoga guidées",
         daily: "Séance du jour",
@@ -181,7 +182,7 @@ const SITE_TRANSLATIONS = {
       cta: {
         title: "Commencez votre voyage aujourd'hui",
         description:
-          "Rejoignez des milliers de personnes qui ont trouvé leur équilibre",
+          "Des séances de yoga guidées, accessibles à tout moment et à votre rythme.",
         button: "Créer mon compte gratuit",
       },
       newsletter: {
@@ -343,7 +344,8 @@ const SITE_TRANSLATIONS = {
 
     home: {
       hero: {
-        title: "AI personalizovane yoga sesije prema vašem nivou, vremenu i energiji",
+        title:
+          "AI personalizovane yoga sesije prema vašem nivou, vremenu i energiji",
         subtitle: "Пронађите мир и добробит кроз вођене јога сесије",
         daily: "Данашња сесија",
         breathing: "Брзо дисање",
@@ -543,7 +545,8 @@ const SITE_TRANSLATIONS = {
 
     home: {
       hero: {
-        title: "AI-personalized yoga sessions based on your level, time, and energy",
+        title:
+          "AI-personalized yoga sessions based on your level, time, and energy",
         subtitle: "Find calm and well-being through guided yoga sessions",
         daily: "Daily Session",
         breathing: "Quick Breathing",
@@ -627,5 +630,3 @@ const SITE_TRANSLATIONS = {
 if (typeof window !== "undefined") {
   window.SITE_TRANSLATIONS = SITE_TRANSLATIONS;
 }
-
-

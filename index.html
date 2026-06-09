@@ -50,7 +50,7 @@
     <link rel="stylesheet" href="css/layout-premium.css" />
     <link rel="stylesheet" href="css/mobile-premium.css" />
     <link rel="stylesheet" href="css/cta-background.css" />
-    <link rel="icon" type="image/png" href="./favicon-48x481.png">
+    <link rel="icon" type="image/png" href="./favicon-48x481.png" />
   </head>
   <body class="has-sticky-navbar">
     <!-- Navbar -->
@@ -370,139 +370,188 @@
     </section>
 
     <!-- Bien plus que du yoga -->
-     
+
     <section class="more-than-yoga">
       <div class="container">
-        <h2 class="section-title" data-i18n="more.title">
-          Bien plus que du yoga
+        <h2 class="section-title" data-i18n="home.moreThanYoga.title">
+          Plus qu'une simple pratique du yoga
         </h2>
-        <p class="section-description" data-i18n="more.desc">
-          Un espace pour vous reconnecter à vous-même, à votre corps et à votre
-          souffle
+        <p class="section-description" data-i18n="home.moreThanYoga.description">
+          Découvrez une approche complète du bien-être à travers des séances
+          guidées adaptées à votre rythme.
         </p>
       </div>
 
-    <!-- Yoga Philosophy Section -->
-    <section class="yoga-section">
-      <div class="container">
-        <h2 class="section-title" data-i18n="yoga.title">
-          Qu'est-ce que le yoga ?
-        </h2>
-        <p class="section-description" data-i18n="yoga.intro">
-          Le yoga est une pratique ancienne qui unit le corps, l'esprit et la
-          respiration
-        </p>
+      <!-- Yoga Philosophy Section -->
+      <section class="yoga-section">
+        <div class="container">
+          <h2 class="section-title" data-i18n="yoga.title">
+            Qu'est-ce que le yoga ?
+          </h2>
+          <p class="section-description" data-i18n="yoga.intro">
+            Le yoga est une pratique ancienne qui unit le corps, l'esprit et la
+            respiration
+          </p>
 
-        <div class="yoga-benefits">
-          <div class="benefit-item">
-            <h3 data-i18n="yoga.benefit1.title">Réduction du stress</h3>
-            <p data-i18n="yoga.benefit1.desc">
-              Apaisez votre esprit et trouvez la paix intérieure
-            </p>
-          </div>
-          <div class="benefit-item">
-            <h3 data-i18n="yoga.benefit2.title">Flexibilité accrue</h3>
-            <p data-i18n="yoga.benefit2.desc">
-              Améliorez votre souplesse et votre mobilité
-            </p>
-          </div>
-          <div class="benefit-item">
-            <h3 data-i18n="yoga.benefit3.title">Force physique</h3>
-            <p data-i18n="yoga.benefit3.desc">
-              Renforcez vos muscles en douceur
-            </p>
+          <div class="yoga-benefits">
+            <div class="benefit-item">
+              <h3 data-i18n="yoga.benefit1.title">Réduction du stress</h3>
+              <p data-i18n="yoga.benefit1.desc">
+                Apaisez votre esprit et trouvez la paix intérieure
+              </p>
+            </div>
+            <div class="benefit-item">
+              <h3 data-i18n="yoga.benefit2.title">Flexibilité accrue</h3>
+              <p data-i18n="yoga.benefit2.desc">
+                Améliorez votre souplesse et votre mobilité
+              </p>
+            </div>
+            <div class="benefit-item">
+              <h3 data-i18n="yoga.benefit3.title">Force physique</h3>
+              <p data-i18n="yoga.benefit3.desc">
+                Renforcez vos muscles en douceur
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Popular Sessions Preview -->
-    <section class="sessions-preview">
-      <video
-        class="sessions-preview-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        poster="img/hero-poster.webp"
-        aria-label="Aperçu des séances de yoga"
-      >
-        <source src="c1.mp4" type="video/mp4" />
-        <!-- TODO: add captions track file for accessibility -->
-      </video>
-      <div class="container">
-        <h2 class="section-title" data-i18n="sessions.title">
-          Séances populaires
-        </h2>
+      <!-- Popular Sessions Preview -->
+      <section class="sessions-preview">
+        <video
+          class="sessions-preview-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="img/hero-poster.webp"
+          aria-label="Aperçu des séances de yoga"
+        >
+          <source src="c1.mp4" type="video/mp4" />
+          <!-- TODO: add captions track file for accessibility -->
+        </video>
+        <div class="container">
+          <h2 class="section-title" data-i18n="sessions.title">
+            Séances populaires
+          </h2>
 
-        <div class="sessions-grid" id="popular-sessions">
-          <!-- Dynamically loaded -->
+          <div class="sessions-grid" id="popular-sessions">
+            <!-- Dynamically loaded -->
+          </div>
+
+          <div class="text-center">
+            <a
+              href="sessions.html"
+              class="btn btn-primary"
+              data-i18n="sessions.viewAll"
+              >Voir toutes les séances</a
+            >
+          </div>
         </div>
+      </section>
 
-        <div class="text-center">
-          <a
-            href="sessions.html"
-            class="btn btn-primary"
-            data-i18n="sessions.viewAll"
-            >Voir toutes les séances</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <!-- <section class="cta-section">
+      <!-- CTA Section -->
+      <!-- <section class="cta-section">
       <h2 class="cta-message" data-i18n="home.cta.message">
         Dans cet espace virtuel, Votre harmonie globale est notre priorité
         absolue.
       </h2> -->
       <div class="cta-background" aria-hidden="false">
-        <div class="cta-grid" aria-label="Collection d'images yoga premium" role="list">
+        <div
+          class="cta-grid"
+          aria-label="Collection d'images yoga premium"
+          role="list"
+        >
           <article class="cta-item" role="listitem" tabindex="0">
-            <img src="img/yoga at home/1.jpg" alt="Yoga à domicile - posture relax" loading="lazy" />
+            <img
+              src="img/yoga at home/1.jpg"
+              alt="Yoga à domicile - posture relax"
+              loading="lazy"
+            />
             <div class="cta-content">
-              <h2>Yoga à domicile</h2>
-              <p>Pratiquez à votre rythme depuis chez vous grâce à des séances guidées accessibles à tout moment.</p>
+              <h2 data-i18n="home.ctaGrid.item1.title">Yoga à domicile</h2>
+              <p data-i18n="home.ctaGrid.item1.description">
+                Pratiquez à votre rythme depuis chez vous grâce à des séances
+                guidées accessibles à tout moment.
+              </p>
             </div>
           </article>
 
           <article class="cta-item" role="listitem" tabindex="0">
-            <img src="img/yoga at home/2.jpg" alt="Bien-être quotidien - matin calme" loading="lazy" />
+            <img
+              src="img/yoga at home/2.jpg"
+              alt="Bien-être quotidien - matin calme"
+              loading="lazy"
+            />
             <div class="cta-content">
-              <h2>Bien-être quotidien</h2>
-              <p>Quelques minutes par jour suffisent pour améliorer votre énergie et votre équilibre intérieur.</p>
+              <h2 data-i18n="home.ctaGrid.item2.title">Bien-être quotidien</h2>
+              <p data-i18n="home.ctaGrid.item2.description">
+                Quelques minutes par jour suffisent pour améliorer votre énergie
+                et votre équilibre intérieur.
+              </p>
             </div>
           </article>
 
           <article class="cta-item" role="listitem" tabindex="0">
-            <img src="img/yoga at home/3.jpg" alt="Relaxation profonde - respiration" loading="lazy" />
+            <img
+              src="img/yoga at home/3.jpg"
+              alt="Relaxation profonde - respiration"
+              loading="lazy"
+            />
             <div class="cta-content">
-              <h2>Relaxation profonde</h2>
-              <p>Des séances conçues pour relâcher les tensions et favoriser la détente.</p>
+              <h2 data-i18n="home.ctaGrid.item3.title">Relaxation profonde</h2>
+              <p data-i18n="home.ctaGrid.item3.description">
+                Des séances conçues pour relâcher les tensions et favoriser la
+                détente.
+              </p>
             </div>
           </article>
 
           <article class="cta-item" role="listitem" tabindex="0">
-            <img src="img/yoga at home/4.jpg" alt="Équilibre et sérénité - posture" loading="lazy" />
+            <img
+              src="img/yoga at home/4.jpg"
+              alt="Équilibre et sérénité - posture"
+              loading="lazy"
+            />
             <div class="cta-content">
-              <h2>Équilibre et sérénité</h2>
-              <p>Développez une routine apaisante pour retrouver calme, concentration et confiance.</p>
+              <h2 data-i18n="home.ctaGrid.item4.title">
+                Équilibre et sérénité
+              </h2>
+              <p data-i18n="home.ctaGrid.item4.description">
+                Développez une routine apaisante pour retrouver calme,
+                concentration et confiance.
+              </p>
             </div>
           </article>
 
           <article class="cta-item" role="listitem" tabindex="0">
-            <img src="img/yoga at home/5.jpg" alt="Moments de bien-être en famille" loading="lazy" />
+            <img
+              src="img/yoga at home/5.jpg"
+              alt="Moments de bien-être en famille"
+              loading="lazy"
+            />
             <div class="cta-content">
-              <h2>Moments en famille</h2>
-              <p>Partagez des instants de bien-être avec vos proches.</p>
+              <h2 data-i18n="home.ctaGrid.item5.title">
+                Moments en famille
+              </h2>
+              <p data-i18n="home.ctaGrid.item5.description">
+                Partagez des instants de bien-être avec vos proches.
+              </p>
             </div>
           </article>
 
           <article class="cta-item" role="listitem" tabindex="0">
-            <img src="img/yoga at home/6.jpg" alt="Rituel de yoga à domicile" loading="lazy" />
+            <img
+              src="img/yoga at home/6.jpg"
+              alt="Rituel de yoga à domicile"
+              loading="lazy"
+            />
             <div class="cta-content">
-              <h2>Rituel bien-être</h2>
-              <p>Installez une routine douce qui soutient votre calme et votre énergie chaque jour.</p>
+              <h2 data-i18n="home.ctaGrid.item6.title">Rituel bien-être</h2>
+              <p data-i18n="home.ctaGrid.item6.description">
+                Installez une routine douce qui soutient votre calme et votre
+                énergie chaque jour.
+              </p>
             </div>
           </article>
         </div>
@@ -512,7 +561,8 @@
           Yoga simple. Résultats réels.
         </h2>
         <div class="subtitle" data-i18n="home.cta.description">
-          Des séances de yoga guidées, accessibles à tout moment et à votre rythme.
+          Des séances de yoga guidées, accessibles à tout moment et à votre
+          rythme.
         </div>
         <a
           href="register.html"
@@ -524,213 +574,323 @@
     </section>
 
     <!-- Comment le yoga peut améliorer votre quotidien ? -->
-     
-    
-<!-- Editorial Premium Section (nouvelle) -->
-<section class="editorial-premium" aria-label="Éditorial premium">
-  <style>
-    .editorial-premium .ep-container {
-      margin: 2% 10%;
-      display: flex;
-      flex-direction: column;
-      gap: 135px;
-    }
 
-    .ep-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-auto-flow: column; 
-      gap-height: -4rem;
-      
+    <!-- Editorial Premium Section (nouvelle) -->
+    <section class="editorial-premium" aria-label="Éditorial premium">
+      <style>
+        .editorial-premium .ep-container {
+          margin: 2% 10%;
+          display: flex;
+          flex-direction: column;
+          gap: 135px;
+        }
 
-      align-items: center;
-      column-gap: 40px;
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 520ms ease, transform 520ms ease;
-    }
+        .ep-block {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-auto-flow: column;
+          gap-height: -4rem;
 
-    .ep-block.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
+          align-items: center;
+          column-gap: 40px;
+          opacity: 0;
+          transform: translateY(24px);
+          transition:
+            opacity 520ms ease,
+            transform 520ms ease;
+        }
 
-    .ep-image img {
-      width: 638px;
-      height: 454px;
-      object-fit: cover;
-      border-radius: 12px;
-      display: block;
-      transition: transform 360ms ease;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
+        .ep-block.in-view {
+          opacity: 1;
+          transform: translateY(0);
+        }
 
-    .ep-image img:hover,
-    .ep-image img:focus {
-      transform: scale(1.03);
-    }
+        .ep-image img {
+          width: 638px;
+          height: 454px;
+          object-fit: cover;
+          border-radius: 12px;
+          display: block;
+          transition: transform 360ms ease;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
 
-    .ep-text {
-      width: 560px;
-      height: 450px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+        .ep-image img:hover,
+        .ep-image img:focus {
+          transform: scale(1.03);
+        }
 
-    .ep-text h2 {
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 1.2;
-      margin: 0 0 18px 0;
-      color: #111;
-      font-family: 'Playfair Display', serif;
-    }
+        .ep-text {
+          width: 560px;
+          height: 450px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
 
-    .ep-text p {
-      font-size: 18px;
-      line-height: 1.8;
-      color: #555;
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    }
+        .ep-text h2 {
+          font-size: 48px;
+          font-weight: 600;
+          line-height: 1.2;
+          margin: 0 0 18px 0;
+          color: #111;
+          font-family: "Playfair Display", serif;
+        }
 
-    /* Reverse layout helper */
-    .ep-block.reverse .ep-image { grid-column: 2; }
-    .ep-block.reverse .ep-text { grid-column: 1; }
+        .ep-text p {
+          font-size: 18px;
+          line-height: 1.8;
+          color: #555;
+          margin: 0;
+          font-family:
+            Inter,
+            system-ui,
+            -apple-system,
+            "Segoe UI",
+            Roboto,
+            "Helvetica Neue",
+            Arial;
+        }
 
-    /* Aligner le texte en haut uniquement pour les blocs reverse (bloc 2 et 4) */
-    .ep-block.reverse {
-      align-items: start;
-    }
-    .ep-block.reverse .ep-image,
-    .ep-block.reverse .ep-text {
-      align-self: center;
-    }
-    .ep-block.reverse .ep-text {
-      justify-content: flex-start;
-      margin-top: 0;
-      padding-top: 0;
-      height: auto;
-    }
+        /* Reverse layout helper */
+        .ep-block.reverse .ep-image {
+          grid-column: 2;
+        }
+        .ep-block.reverse .ep-text {
+          grid-column: 1;
+        }
 
-    @media (max-width: 1024px) {
-      .ep-block { grid-template-columns: 1fr; row-gap: 32px; }
-      .ep-image img { width: 100%; height: auto; max-height: 460px; }
-      .ep-text { width: 100%; height: auto; }
-      .editorial-premium .ep-container { margin: 4% 6%; gap: 48px; }
-      .ep-text h2 { font-size: 32px; }
-    }
-  </style>
+        /* Aligner le texte en haut uniquement pour les blocs reverse (bloc 2 et 4) */
+        .ep-block.reverse {
+          align-items: start;
+        }
+        .ep-block.reverse .ep-image,
+        .ep-block.reverse .ep-text {
+          align-self: center;
+        }
+        .ep-block.reverse .ep-text {
+          justify-content: flex-start;
+          margin-top: 0;
+          padding-top: 0;
+          height: auto;
+        }
 
-  <div class="ep-container">
-    <!-- Bloc 1 : Image gauche, texte droite -->
-    <div class="ep-block" role="group">
-      <div class="ep-image" aria-hidden="false">
-        <img src="img/yoga at home/1.jpg" alt="Image éditoriale 1" loading="lazy" />
+        @media (max-width: 1024px) {
+          .ep-block {
+            grid-template-columns: 1fr;
+            row-gap: 32px;
+          }
+          .ep-image img {
+            width: 100%;
+            height: auto;
+            max-height: 460px;
+          }
+          .ep-text {
+            width: 100%;
+            height: auto;
+          }
+          .editorial-premium .ep-container {
+            margin: 4% 6%;
+            gap: 48px;
+          }
+          .ep-text h2 {
+            font-size: 32px;
+          }
+        }
+      </style>
+
+      <div class="ep-container">
+        <!-- Bloc 1 : Image gauche, texte droite -->
+        <div class="ep-block" role="group">
+          <div class="ep-image" aria-hidden="false">
+            <img
+              src="img/yoga at home/1.jpg"
+              alt="Image éditoriale 1"
+              loading="lazy"
+            />
+          </div>
+          <div class="ep-text">
+            <h2>Commencez doucement</h2>
+            <p>
+              Des séquences pensées pour installer une pratique régulière et
+              respectueuse de votre corps. Des gestes simples, des enchaînements
+              clairs et une approche bienveillante.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bloc 2 : Texte gauche, image droite -->
+        <div class="ep-block reverse" role="group">
+          <div class="ep-image" aria-hidden="false">
+            <img
+              src="img/yoga at home/2.jpg"
+              alt="Image éditoriale 2"
+              loading="lazy"
+            />
+          </div>
+          <div class="ep-text ep-text-2">
+            <h2>Routine quotidienne</h2>
+            <p>
+              Adoptez des rituels courts et puissants pour mieux respirer,
+              lâcher prise et gagner en concentration chaque jour, sans pression
+              de performance.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bloc 3 : Image gauche, texte droite -->
+        <div class="ep-block" role="group">
+          <div class="ep-image" aria-hidden="false">
+            <img
+              src="img/yoga at home/3.jpg"
+              alt="Image éditoriale 3"
+              loading="lazy"
+            />
+          </div>
+          <div class="ep-text">
+            <h2>Moments de détente</h2>
+            <p>
+              Des séances axées sur la détente musculaire et la détente mentale,
+              pour récupérer après une journée chargée et mieux dormir.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bloc 4 : Texte gauche, image droite -->
+        <div class="ep-block reverse" role="group">
+          <div class="ep-image" aria-hidden="false">
+            <img
+              src="img/yoga at home/4.jpg"
+              alt="Image éditoriale 4"
+              loading="lazy"
+            />
+          </div>
+          <div class="ep-text ep-text-4">
+            <h2>Pratique guidée</h2>
+            <p>
+              Suivez des flows structurés qui respectent votre niveau, votre
+              temps et votre énergie — pour une progression douce et mesurable.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="ep-text">
-        <h2>Commencez doucement</h2>
-        <p>Des séquences pensées pour installer une pratique régulière et respectueuse de votre corps. Des gestes simples, des enchaînements clairs et une approche bienveillante.</p>
-      </div>
-    </div>
 
-    <!-- Bloc 2 : Texte gauche, image droite -->
-    <div class="ep-block reverse" role="group">
-      <div class="ep-image" aria-hidden="false">
-        <img src="img/yoga at home/2.jpg" alt="Image éditoriale 2" loading="lazy" />
-      </div>
-      <div class="ep-text ep-text-2">
-        <h2>Routine quotidienne</h2>
-        <p>Adoptez des rituels courts et puissants pour mieux respirer, lâcher prise et gagner en concentration chaque jour, sans pression de performance.</p>
-      </div>
-    </div>
+      <script>
+        (function () {
+          const blocks = document.querySelectorAll(
+            ".editorial-premium .ep-block",
+          );
+          if (!("IntersectionObserver" in window)) {
+            blocks.forEach((b) => b.classList.add("in-view"));
+            return;
+          }
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("in-view");
+                }
+              });
+            },
+            { threshold: 0.12 },
+          );
+          blocks.forEach((b) => io.observe(b));
+        })();
+      </script>
+    </section>
 
-    <!-- Bloc 3 : Image gauche, texte droite -->
-    <div class="ep-block" role="group">
-      <div class="ep-image" aria-hidden="false">
-        <img src="img/yoga at home/3.jpg" alt="Image éditoriale 3" loading="lazy" />
+    <!-- External Resources Section -->
+    <section class="resources-section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="home.resources.title">
+          Pour aller plus loin
+        </h2>
+        <p class="section-description" data-i18n="home.resources.description">
+          Quelques ressources externes pour approfondir votre pratique
+        </p>
+        <ul class="resources-list">
+          <li>
+            <a
+              href="https://meudon-bien-etre.fr/planning/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Meudon Bien-Être
+            </a>
+            <span>
+              — Planning de cours collectifs de yoga, Pilates,et d'autres
+              proposés par des professionnels du bien-être.</span
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.yogacoaching.fr/boutique-yoga-coaching"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              YogaCoaching
+            </a>
+            <span>
+              — Cours de yoga gratuits en ligne pour tous les niveaux, par une
+              passionnée de yoga.</span
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.example-bien-etre.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Eyme Yoga
+            </a>
+            <span>
+              — Agenda des stages et week-ends de yoga, méditation et danses
+              sacrées proposés par l'École des Yogas EYME.</span
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.example-bien-etre.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Le Tigre
+            </a>
+            <span>
+              — Plateforme de cours de yoga, Pilates, méditation et bien-être en
+              ligne, pour tous les niveaux et objectifs.</span
+            >
+          </li>
+          <li>
+            <a
+              href="https://monyogavirtuel.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Monyogavirtuel
+            </a>
+            <span>
+              — Plateforme québécoise de cours en ligne de yoga, méditation,
+              respiration,et d'autres, accessible à tous les niveaux .</span
+            >
+          </li>
+          <li>
+            <a
+              href="https://the-last-yogi.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              The Last Yogi
+            </a>
+            <span>
+              — Application et plateforme de cours de yoga, méditation et
+              respiration en ligne, basés sur des approches scientifiques.</span
+            >
+          </li>
+        </ul>
       </div>
-      <div class="ep-text">
-        <h2>Moments de détente</h2>
-        <p>Des séances axées sur la détente musculaire et la détente mentale, pour récupérer après une journée chargée et mieux dormir.</p>
-      </div>
-    </div>
-
-    <!-- Bloc 4 : Texte gauche, image droite -->
-    <div class="ep-block reverse" role="group">
-      <div class="ep-image" aria-hidden="false">
-        <img src="img/yoga at home/4.jpg" alt="Image éditoriale 4" loading="lazy" />
-      </div>
-      <div class="ep-text ep-text-4">
-        <h2>Pratique guidée</h2>
-        <p>Suivez des flows structurés qui respectent votre niveau, votre temps et votre énergie — pour une progression douce et mesurable.</p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    (function(){
-      const blocks = document.querySelectorAll('.editorial-premium .ep-block');
-      if (!('IntersectionObserver' in window)) { blocks.forEach(b=>b.classList.add('in-view')); return; }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) { entry.target.classList.add('in-view'); }
-        });
-      }, { threshold: 0.12 });
-      blocks.forEach(b => io.observe(b));
-    })();
-  </script>
-</section>
-
-<!-- External Resources Section -->
-<section class="resources-section">
-  <div class="container">
-    <h2 class="section-title">Pour aller plus loin</h2>
-    <p class="section-description">
-      Quelques ressources externes pour approfondir votre pratique
-    </p>
-    <ul class="resources-list">
-      <li>
-        <a href="https://meudon-bien-etre.fr/planning/" target="_blank" rel="noopener noreferrer">
-          Meudon Bien-Être 
-        </a>
-        <span> — Planning de cours collectifs de yoga, Pilates,et d'autres proposés par des professionnels du bien-être.</span>
-      </li>
-      <li>
-        <a href="https://www.yogacoaching.fr/boutique-yoga-coaching" target="_blank" rel="noopener noreferrer">
-          YogaCoaching
-        </a>
-        <span> — Cours de yoga gratuits en ligne pour tous les niveaux, par une passionnée de yoga.</span>
-      </li>
-      <li>
-        <a href="https://www.example-bien-etre.com" target="_blank" rel="noopener noreferrer">
-          Eyme Yoga
-        </a>
-        <span> — Agenda des stages et week-ends de yoga, méditation et danses sacrées proposés par l'École des Yogas EYME.</span>
-      </li>
-      <li>
-        <a href="https://www.example-bien-etre.com" target="_blank" rel="noopener noreferrer">
-          Le Tigre
-        </a>
-        <span> — Plateforme de cours de yoga, Pilates, méditation et bien-être en ligne, pour tous les niveaux et objectifs.</span>
-      </li>
-      <li>
-        <a href="https://monyogavirtuel.com/" target="_blank" rel="noopener noreferrer">
-         Monyogavirtuel
-        </a>
-        <span> — Plateforme québécoise de cours en ligne de yoga, méditation, respiration,et d'autres, accessible à tous les niveaux .</span>
-      </li>
-      <li>
-        <a href="https://the-last-yogi.com/" target="_blank" rel="noopener noreferrer">
-          The Last Yogi
-        </a>
-        <span> — Application et plateforme de cours de yoga, méditation et respiration en ligne, basés sur des approches scientifiques.</span>
-      </li>
-    </ul>
-  </div>
-</section>
+    </section>
     <!-- Newsletter Section -->
     <section class="newsletter-section">
       <div class="container">
@@ -876,108 +1036,390 @@
     <!-- Chatbot flottant premium Yoga2 -->
     <div class="y2-chatbot" aria-hidden="true">
       <style>
-        .y2-chatbot { position: fixed; right: 24px; bottom: 24px; z-index: 1200; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; }
+        .y2-chatbot {
+          position: fixed;
+          right: 24px;
+          bottom: 24px;
+          z-index: 1200;
+          font-family:
+            Inter,
+            system-ui,
+            -apple-system,
+            "Segoe UI",
+            Roboto,
+            Arial;
+        }
 
         /* Floating button */
         .y2-chatbot .y2-fab {
-          width: 70px; height: 70px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
-          background: linear-gradient(180deg,#7bd389 0%,#4caf71 100%); color: white; box-shadow: 0 18px 40px rgba(20,40,30,0.18);
-          transition: transform 260ms cubic-bezier(.2,.9,.3,1), box-shadow 260ms ease; border: none; outline: none;
-          animation: y2-breathe 4s ease-in-out infinite; backdrop-filter: none;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          cursor: pointer;
+          background: linear-gradient(180deg, #7bd389 0%, #4caf71 100%);
+          color: white;
+          box-shadow: 0 18px 40px rgba(20, 40, 30, 0.18);
+          transition:
+            transform 260ms cubic-bezier(0.2, 0.9, 0.3, 1),
+            box-shadow 260ms ease;
+          border: none;
+          outline: none;
+          animation: y2-breathe 4s ease-in-out infinite;
+          backdrop-filter: none;
         }
 
-        .y2-fab:hover { transform: scale(1.08); box-shadow: 0 26px 60px rgba(20,40,30,0.22); }
-        .y2-fab:focus { box-shadow: 0 26px 60px rgba(20,40,30,0.28); }
-ep-block reverse in-view
-        @keyframes y2-breathe { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+        .y2-fab:hover {
+          transform: scale(1.08);
+          box-shadow: 0 26px 60px rgba(20, 40, 30, 0.22);
+        }
+        .y2-fab:focus {
+          box-shadow: 0 26px 60px rgba(20, 40, 30, 0.28);
+        }
+        ep-block reverse in-view @keyframes y2-breathe {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.02);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
 
-        .y2-chat-icon { font-size: 28px; line-height:1 }
+        .y2-chat-icon {
+          font-size: 28px;
+          line-height: 1;
+        }
 
         /* Chat window */
-        .y2-window { width: 420px; height: 600px; background: #fff; border-radius: 24px; box-shadow: 0 30px 80px rgba(10,20,30,0.18); overflow: hidden; display: flex; flex-direction: column; transform: translateY(20px); opacity: 0; transition: transform 320ms ease, opacity 320ms ease; }
-        .y2-window.open { transform: translateY(0); opacity: 1; }
+        .y2-window {
+          width: 420px;
+          height: 600px;
+          background: #fff;
+          border-radius: 24px;
+          box-shadow: 0 30px 80px rgba(10, 20, 30, 0.18);
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          transform: translateY(20px);
+          opacity: 0;
+          transition:
+            transform 320ms ease,
+            opacity 320ms ease;
+        }
+        .y2-window.open {
+          transform: translateY(0);
+          opacity: 1;
+        }
 
-        .y2-header { display:flex; align-items:center; gap:12px; padding:18px 18px; color:#fff; background: linear-gradient(90deg,#4caf71 0%,#66c17a 100%); }
-        .y2-header .y2-title { font-weight:600; font-size:16px; }
-        .y2-header .y2-online { margin-left:auto; display:flex; align-items:center; gap:8px; font-size:13px; opacity:0.95 }
-        .y2-online-dot { width:10px; height:10px; border-radius:50%; background:#2ee06a; box-shadow:0 0 8px rgba(46,224,106,0.6); position:relative; }
-        .y2-online-dot::after { content:''; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:100%; height:100%; border-radius:50%; box-shadow:0 0 12px rgba(46,224,106,0.24); }
+        .y2-header {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 18px 18px;
+          color: #fff;
+          background: linear-gradient(90deg, #4caf71 0%, #66c17a 100%);
+        }
+        .y2-header .y2-title {
+          font-weight: 600;
+          font-size: 16px;
+        }
+        .y2-header .y2-online {
+          margin-left: auto;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 13px;
+          opacity: 0.95;
+        }
+        .y2-online-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #2ee06a;
+          box-shadow: 0 0 8px rgba(46, 224, 106, 0.6);
+          position: relative;
+        }
+        .y2-online-dot::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          box-shadow: 0 0 12px rgba(46, 224, 106, 0.24);
+        }
 
-        .y2-messages { flex:1; padding:18px; overflow:auto; display:flex; flex-direction:column; gap:12px; background: linear-gradient(180deg,#fbfbfb,#ffffff); }
-        .y2-msg { max-width:78%; padding:12px 14px; border-radius:14px; font-size:15px; line-height:1.4; }
-        .y2-msg.bot { background:#f1f7f4; color:#0b2b1d; align-self:flex-start; }
-        .y2-msg.user { background:#4caf71; color:#fff; align-self:flex-end; }
+        .y2-messages {
+          flex: 1;
+          padding: 18px;
+          overflow: auto;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          background: linear-gradient(180deg, #fbfbfb, #ffffff);
+        }
+        .y2-msg {
+          max-width: 78%;
+          padding: 12px 14px;
+          border-radius: 14px;
+          font-size: 15px;
+          line-height: 1.4;
+        }
+        .y2-msg.bot {
+          background: #f1f7f4;
+          color: #0b2b1d;
+          align-self: flex-start;
+        }
+        .y2-msg.user {
+          background: #4caf71;
+          color: #fff;
+          align-self: flex-end;
+        }
 
-        .y2-typing { display:inline-block; padding:8px 12px; border-radius:12px; background:#f1f7f4; }
-        .y2-typing .dot { width:6px; height:6px; background:#7dbf92; border-radius:50%; display:inline-block; margin:0 3px; opacity:0; animation: y2-dot 1s infinite; }
-        .y2-typing .dot:nth-child(1){ animation-delay:0s } .y2-typing .dot:nth-child(2){ animation-delay:.15s } .y2-typing .dot:nth-child(3){ animation-delay:.3s }
-        @keyframes y2-dot { 0%{ opacity:0; transform:translateY(4px)} 50%{opacity:1; transform:translateY(0)} 100%{opacity:0; transform:translateY(4px)} }
+        .y2-typing {
+          display: inline-block;
+          padding: 8px 12px;
+          border-radius: 12px;
+          background: #f1f7f4;
+        }
+        .y2-typing .dot {
+          width: 6px;
+          height: 6px;
+          background: #7dbf92;
+          border-radius: 50%;
+          display: inline-block;
+          margin: 0 3px;
+          opacity: 0;
+          animation: y2-dot 1s infinite;
+        }
+        .y2-typing .dot:nth-child(1) {
+          animation-delay: 0s;
+        }
+        .y2-typing .dot:nth-child(2) {
+          animation-delay: 0.15s;
+        }
+        .y2-typing .dot:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+        @keyframes y2-dot {
+          0% {
+            opacity: 0;
+            transform: translateY(4px);
+          }
+          50% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(4px);
+          }
+        }
 
-        .y2-footer { padding:14px; display:flex; gap:8px; align-items:center; border-top:1px solid #f0f0f0; }
-        .y2-input { flex:1; border-radius:12px; padding:10px 12px; border:1px solid #e6e6e6; font-size:14px; }
-        .y2-send { background:#4caf71; color:#fff; border:none; padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600 }
+        .y2-footer {
+          padding: 14px;
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          border-top: 1px solid #f0f0f0;
+        }
+        .y2-input {
+          flex: 1;
+          border-radius: 12px;
+          padding: 10px 12px;
+          border: 1px solid #e6e6e6;
+          font-size: 14px;
+        }
+        .y2-send {
+          background: #4caf71;
+          color: #fff;
+          border: none;
+          padding: 10px 14px;
+          border-radius: 12px;
+          cursor: pointer;
+          font-weight: 600;
+        }
 
-        .y2-close { background:transparent; border:none; color:rgba(255,255,255,0.95); font-size:18px; cursor:pointer }
+        .y2-close {
+          background: transparent;
+          border: none;
+          color: rgba(255, 255, 255, 0.95);
+          font-size: 18px;
+          cursor: pointer;
+        }
 
         /* Responsive */
-        @media (max-width: 520px){ .y2-chatbot{ right:12px; bottom:12px } .y2-window{ width: calc(100vw - 20px); height: 80vh; border-radius:16px } }
+        @media (max-width: 520px) {
+          .y2-chatbot {
+            right: 12px;
+            bottom: 12px;
+          }
+          .y2-window {
+            width: calc(100vw - 20px);
+            height: 80vh;
+            border-radius: 16px;
+          }
+        }
       </style>
 
-      <button class="y2-fab" id="y2-toggle" aria-label="Ouvrir l'assistant Yoga">
+      <button
+        class="y2-fab"
+        id="y2-toggle"
+        aria-label="Ouvrir l'assistant Yoga"
+      >
         <span class="y2-chat-icon">💬</span>
       </button>
 
-      <div class="y2-window" id="y2-window" role="dialog" aria-modal="false" aria-hidden="true">
+      <div
+        class="y2-window"
+        id="y2-window"
+        role="dialog"
+        aria-modal="false"
+        aria-hidden="true"
+      >
         <div class="y2-header">
-          <div style="display:flex;align-items:center;gap:10px">
-            <div style="width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,0.12);display:grid;place-items:center;font-size:20px">🧘</div>
+          <div style="display: flex; align-items: center; gap: 10px">
+            <div
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.12);
+                display: grid;
+                place-items: center;
+                font-size: 20px;
+              "
+            >
+              🧘
+            </div>
             <div>
               <div class="y2-title">Assistant Yoga IA</div>
-              <div style="font-size:12px;opacity:0.9">Conseils rapides et séances</div>
+              <div style="font-size: 12px; opacity: 0.9">
+                Conseils rapides et séances
+              </div>
             </div>
           </div>
-          <div class="y2-online"><span class="y2-online-dot" aria-hidden="true"></span><span style="font-size:13px">En ligne</span></div>
+          <div class="y2-online">
+            <span class="y2-online-dot" aria-hidden="true"></span
+            ><span style="font-size: 13px">En ligne</span>
+          </div>
         </div>
 
         <div class="y2-messages" id="y2-messages" aria-live="polite">
-          <div class="y2-msg bot">Bonjour 👋<br/>Comment puis-je vous aider aujourd'hui ?</div>
+          <div class="y2-msg bot">
+            Bonjour 👋<br />Comment puis-je vous aider aujourd'hui ?
+          </div>
         </div>
 
         <div class="y2-footer">
-          <input id="y2-input" class="y2-input" placeholder="Écrivez un message..." aria-label="Message" />
+          <input
+            id="y2-input"
+            class="y2-input"
+            placeholder="Écrivez un message..."
+            aria-label="Message"
+          />
           <button id="y2-send" class="y2-send">Envoyer</button>
         </div>
       </div>
     </div>
 
     <script>
-      (function(){
-        const toggle = document.getElementById('y2-toggle');
-        const win = document.getElementById('y2-window');
-        const input = document.getElementById('y2-input');
-        const send = document.getElementById('y2-send');
-        const messages = document.getElementById('y2-messages');
+      (function () {
+        const toggle = document.getElementById("y2-toggle");
+        const win = document.getElementById("y2-window");
+        const input = document.getElementById("y2-input");
+        const send = document.getElementById("y2-send");
+        const messages = document.getElementById("y2-messages");
 
-        function openWindow(){ win.classList.add('open'); win.setAttribute('aria-hidden','false'); document.querySelector('.y2-chatbot').setAttribute('aria-hidden','false'); input.focus(); }
-        function closeWindow(){ win.classList.remove('open'); win.setAttribute('aria-hidden','true'); document.querySelector('.y2-chatbot').setAttribute('aria-hidden','true'); toggle.focus(); }
+        function openWindow() {
+          win.classList.add("open");
+          win.setAttribute("aria-hidden", "false");
+          document
+            .querySelector(".y2-chatbot")
+            .setAttribute("aria-hidden", "false");
+          input.focus();
+        }
+        function closeWindow() {
+          win.classList.remove("open");
+          win.setAttribute("aria-hidden", "true");
+          document
+            .querySelector(".y2-chatbot")
+            .setAttribute("aria-hidden", "true");
+          toggle.focus();
+        }
 
-        toggle.addEventListener('click', ()=>{ if(win.classList.contains('open')) closeWindow(); else openWindow(); });
+        toggle.addEventListener("click", () => {
+          if (win.classList.contains("open")) closeWindow();
+          else openWindow();
+        });
 
         // Close on ESC
-        document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && win.classList.contains('open')) closeWindow(); });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && win.classList.contains("open"))
+            closeWindow();
+        });
 
-        function appendMessage(text, who){ const el = document.createElement('div'); el.className = 'y2-msg '+who; el.innerHTML = text; messages.appendChild(el); messages.scrollTop = messages.scrollHeight; }
+        function appendMessage(text, who) {
+          const el = document.createElement("div");
+          el.className = "y2-msg " + who;
+          el.innerHTML = text;
+          messages.appendChild(el);
+          messages.scrollTop = messages.scrollHeight;
+        }
 
-        function showTyping(){ const t = document.createElement('div'); t.className='y2-typing'; t.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>'; messages.appendChild(t); messages.scrollTop = messages.scrollHeight; return t; }
+        function showTyping() {
+          const t = document.createElement("div");
+          t.className = "y2-typing";
+          t.innerHTML =
+            '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+          messages.appendChild(t);
+          messages.scrollTop = messages.scrollHeight;
+          return t;
+        }
 
-        function autoReply(text){ const normalized = text.toLowerCase(); const typ = showTyping(); setTimeout(()=>{ typ.remove(); let reply = "Merci pour votre question. Un coach IA complet sera bientôt disponible.";
-          if(normalized.includes('stress')) reply = 'Je vous recommande la séance Anti-stress.';
-          else if(normalized.includes('sommeil')) reply = 'Essayez nos séances dédiées au sommeil.';
-          else if(normalized.includes('débutant') || normalized.includes('debutant')) reply = 'Le programme Débutant est parfait pour commencer.';
-          appendMessage(reply, 'bot'); }, 900 + Math.min(1400, text.length*40)); }
+        function autoReply(text) {
+          const normalized = text.toLowerCase();
+          const typ = showTyping();
+          setTimeout(
+            () => {
+              typ.remove();
+              let reply =
+                "Merci pour votre question. Un coach IA complet sera bientôt disponible.";
+              if (normalized.includes("stress"))
+                reply = "Je vous recommande la séance Anti-stress.";
+              else if (normalized.includes("sommeil"))
+                reply = "Essayez nos séances dédiées au sommeil.";
+              else if (
+                normalized.includes("débutant") ||
+                normalized.includes("debutant")
+              )
+                reply = "Le programme Débutant est parfait pour commencer.";
+              appendMessage(reply, "bot");
+            },
+            900 + Math.min(1400, text.length * 40),
+          );
+        }
 
-        send.addEventListener('click', ()=>{ const v = input.value.trim(); if(!v) return; appendMessage(v, 'user'); input.value=''; input.focus(); autoReply(v); });
-        input.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ e.preventDefault(); send.click(); } });
+        send.addEventListener("click", () => {
+          const v = input.value.trim();
+          if (!v) return;
+          appendMessage(v, "user");
+          input.value = "";
+          input.focus();
+          autoReply(v);
+        });
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            send.click();
+          }
+        });
 
         // IntersectionObserver for fade-in of chat window when opened (gentle animation handled by CSS)
         // Persist small history during session
