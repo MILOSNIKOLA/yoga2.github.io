@@ -487,8 +487,60 @@
         "message": "Dans cet espace virtuel, Votre harmonie globale est notre priorité absolue",
         "heading": "Yoga simple. Résultats réels.",
         "title": "Commencez votre voyage aujourd'hui",
-        "description": "Rejoignez des milliers de personnes qui ont trouvé leur équilibre",
+        "description": "Des séances de yoga guidées, accessibles à tout moment et à votre rythme.",
         "button": "Créer mon compte gratuit"
+      },
+      "ctaGrid": {
+        "item1": {
+          "title": "Yoga à domicile",
+          "description": "Pratiquez à votre rythme depuis chez vous grâce à des séances guidées accessibles à tout moment."
+        },
+        "item2": {
+          "title": "Bien-être quotidien",
+          "description": "Quelques minutes par jour suffisent pour améliorer votre énergie et votre équilibre intérieur."
+        },
+        "item3": {
+          "title": "Relaxation profonde",
+          "description": "Des séances conçues pour relâcher les tensions et favoriser la détente."
+        },
+        "item4": {
+          "title": "Équilibre et sérénité",
+          "description": "Développez une routine apaisante pour retrouver calme, concentration et confiance."
+        },
+        "item5": {
+          "title": "Moments en famille",
+          "description": "Partagez des instants de bien-être avec vos proches."
+        },
+        "item6": {
+          "title": "Rituel bien-être",
+          "description": "Installez une routine douce qui soutient votre calme et votre énergie chaque jour."
+        }
+      },
+      "moreThanYoga": {
+        "title": "Plus qu'une simple pratique du yoga",
+        "description": "Découvrez une approche complète du bien-être à travers des séances guidées adaptées à votre rythme."
+      },
+      "editorial": {
+        "block1": {
+          "title": "Commencez doucement",
+          "description": "Des séquences pensées pour installer une pratique régulière et respectueuse de votre corps. Des gestes simples, des enchaînements clairs et une approche bienveillante."
+        },
+        "block2": {
+          "title": "Routine quotidienne",
+          "description": "Adoptez des rituels courts et puissants pour mieux respirer, lâcher prise et gagner en concentration chaque jour, sans pression de performance."
+        },
+        "block3": {
+          "title": "Moments de détente",
+          "description": "Des séances axées sur la détente musculaire et la détente mentale, pour récupérer après une journée chargée et mieux dormir."
+        },
+        "block4": {
+          "title": "Pratique guidée",
+          "description": "Suivez des flows structurés qui respectent votre niveau, votre temps et votre énergie — pour une progression douce et mesurable."
+        }
+      },
+      "resources": {
+        "title": "Pour aller plus loin",
+        "description": "Quelques ressources externes pour approfondir votre pratique"
       }
     },
     "newsletter": {
@@ -1229,6 +1281,58 @@
         "title": "Start your journey today",
         "description": "Join thousands of people who have found their balance",
         "button": "Create my free account"
+      },
+      "ctaGrid": {
+        "item1": {
+          "title": "Yoga at Home",
+          "description": "Practice at your own pace from home with guided sessions available anytime."
+        },
+        "item2": {
+          "title": "Daily Well-being",
+          "description": "A few minutes a day are enough to improve your energy and inner balance."
+        },
+        "item3": {
+          "title": "Deep Relaxation",
+          "description": "Sessions designed to release tension and encourage relaxation."
+        },
+        "item4": {
+          "title": "Balance and Serenity",
+          "description": "Build a calming routine to rediscover calm, focus, and confidence."
+        },
+        "item5": {
+          "title": "Family Moments",
+          "description": "Share moments of well-being with the people you love."
+        },
+        "item6": {
+          "title": "Wellness Ritual",
+          "description": "Establish a gentle routine that supports your calm and energy every day."
+        }
+      },
+      "moreThanYoga": {
+        "title": "More than just a yoga practice",
+        "description": "Discover a complete approach to well-being through guided sessions adapted to your pace."
+      },
+      "editorial": {
+        "block1": {
+          "title": "Start gently",
+          "description": "Sequences designed to build a steady practice that respects your body. Simple movements, clear flows, and a supportive approach."
+        },
+        "block2": {
+          "title": "Daily routine",
+          "description": "Adopt short, powerful rituals to breathe better, let go, and build focus each day without performance pressure."
+        },
+        "block3": {
+          "title": "Moments of calm",
+          "description": "Sessions focused on physical and mental release, so you can recover after a busy day and sleep better."
+        },
+        "block4": {
+          "title": "Guided practice",
+          "description": "Follow structured flows that respect your level, your time, and your energy for gentle, measurable progress."
+        }
+      },
+      "resources": {
+        "title": "Further resources",
+        "description": "A few external resources to deepen your practice"
       }
     },
     "newsletter": {
@@ -1969,6 +2073,58 @@
         "title": "Započnite svoje putovanje danas",
         "description": "Pridružite se hiljadama ljudi koji su pronašli svoj balans",
         "button": "Napravite moj besplatni nalog"
+      },
+      "ctaGrid": {
+        "item1": {
+          "title": "Joga kod kuće",
+          "description": "Vežbajte svojim tempom od kuće uz vođene sesije dostupne u bilo kom trenutku."
+        },
+        "item2": {
+          "title": "Svakodnevno blagostanje",
+          "description": "Nekoliko minuta dnevno dovoljno je da poboljšate energiju i unutrašnji balans."
+        },
+        "item3": {
+          "title": "Duboka relaksacija",
+          "description": "Sesije osmišljene da otpuste napetost i podstaknu opuštanje."
+        },
+        "item4": {
+          "title": "Ravnoteža i spokoj",
+          "description": "Izgradite umirujuću rutinu kako biste ponovo pronašli mir, fokus i samopouzdanje."
+        },
+        "item5": {
+          "title": "Porodični trenuci",
+          "description": "Delite trenutke blagostanja sa svojim najbližima."
+        },
+        "item6": {
+          "title": "Ritual blagostanja",
+          "description": "Uvedite nežnu rutinu koja svakog dana podržava vaš mir i energiju."
+        }
+      },
+      "moreThanYoga": {
+        "title": "Više od obične joga prakse",
+        "description": "Otkrijte sveobuhvatan pristup blagostanju kroz vođene sesije prilagođene vašem tempu."
+      },
+      "editorial": {
+        "block1": {
+          "title": "Krenite nežno",
+          "description": "Sekvence osmišljene da izgrade redovnu praksu koja poštuje vaše telo. Jednostavni pokreti, jasni nizovi i podržavajući pristup."
+        },
+        "block2": {
+          "title": "Svakodnevna rutina",
+          "description": "Usvojite kratke, snažne rituale da bolje dišete, otpustite napetost i svakog dana razvijate fokus bez pritiska rezultata."
+        },
+        "block3": {
+          "title": "Trenuci opuštanja",
+          "description": "Sesije usmerene na fizičko i mentalno opuštanje, kako biste se oporavili nakon napornog dana i bolje spavali."
+        },
+        "block4": {
+          "title": "Vođena praksa",
+          "description": "Pratite strukturirane tokove koji poštuju vaš nivo, vaše vreme i vašu energiju, za nežan i merljiv napredak."
+        }
+      },
+      "resources": {
+        "title": "Dodatni resursi",
+        "description": "Nekoliko spoljašnjih resursa za produbljivanje vaše prakse"
       }
     },
     "newsletter": {
