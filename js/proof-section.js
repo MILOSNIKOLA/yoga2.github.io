@@ -25,6 +25,76 @@
     </section>
   `;
 
+  const JOURNEY_SECTION_HTML = `
+    <section class="journey-section" aria-label="Parcours utilisateur">
+      <div class="journey-shell">
+        <div class="journey-heading">
+          <span class="journey-kicker">Parcours utilisateur</span>
+          <h2>Comment Yoga2 fonctionne</h2>
+          <p>
+            Un parcours simple et guidé pour comprendre immédiatement comment
+            découvrir, suivre et faire évoluer votre pratique.
+          </p>
+        </div>
+
+        <div class="journey-steps" role="list">
+          <article class="journey-step" role="listitem" data-step="1">
+            <span class="journey-step-index">1</span>
+            <div class="journey-step-content">
+              <h3>Choisissez un programme</h3>
+              <p>Débutant, intermédiaire ou avancé selon votre niveau du moment.</p>
+            </div>
+          </article>
+
+          <div class="journey-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 5v12"></path>
+              <path d="M7 13l5 5 5-5"></path>
+            </svg>
+          </div>
+
+          <article class="journey-step" role="listitem" data-step="2">
+            <span class="journey-step-index">2</span>
+            <div class="journey-step-content">
+              <h3>Suivez vos séances</h3>
+              <p>Chaque séance est guidée pour vous aider à rester concentré.</p>
+            </div>
+          </article>
+
+          <div class="journey-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 5v12"></path>
+              <path d="M7 13l5 5 5-5"></path>
+            </svg>
+          </div>
+
+          <article class="journey-step" role="listitem" data-step="3">
+            <span class="journey-step-index">3</span>
+            <div class="journey-step-content">
+              <h3>Progressez à votre rythme</h3>
+              <p>La plateforme s’adapte à votre énergie et à votre régularité.</p>
+            </div>
+          </article>
+
+          <div class="journey-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 5v12"></path>
+              <path d="M7 13l5 5 5-5"></path>
+            </svg>
+          </div>
+
+          <article class="journey-step" role="listitem" data-step="4">
+            <span class="journey-step-index">4</span>
+            <div class="journey-step-content">
+              <h3>Retrouvez votre équilibre</h3>
+              <p>Installez une routine claire, durable et rassurante au quotidien.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  `;
+
   function formatCounterValue(prefix, value, suffix) {
     return `${prefix || ""}${value}${suffix || ""}`;
   }
@@ -87,6 +157,36 @@
     }
 
     return proofSection;
+  }
+
+  function injectJourneySection(proofSection) {
+    if (document.querySelector(".journey-section")) {
+      return document.querySelector(".journey-section");
+    }
+
+    if (!proofSection) {
+      return null;
+    }
+
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = JOURNEY_SECTION_HTML.trim();
+
+    const journeySection = wrapper.firstElementChild;
+
+    proofSection.insertAdjacentElement("afterend", journeySection);
+
+    const steps = journeySection.querySelectorAll(".journey-step");
+    const arrows = journeySection.querySelectorAll(".journey-arrow");
+
+    steps.forEach((step, index) => {
+      step.style.transitionDelay = `${index * 140}ms`;
+    });
+
+    arrows.forEach((arrow, index) => {
+      arrow.style.transitionDelay = `${index * 140 + 80}ms`;
+    });
+
+    return journeySection;
   }
 
   function revealProofSection(section) {
@@ -158,9 +258,62 @@
     observer.observe(section);
   }
 
+  function revealJourneySection(section) {
+    if (!section) {
+      return;
+    }
+
+    const journeySteps = Array.from(section.querySelectorAll(".journey-step"));
+    const journeyArrows = Array.from(section.querySelectorAll(".journey-arrow"));
+    const prefersReducedMotion =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const finalizeState = () => {
+      journeySteps.forEach((step) => {
+        step.style.transitionDelay = "0ms";
+      });
+      journeyArrows.forEach((arrow) => {
+        arrow.style.transitionDelay = "0ms";
+      });
+    };
+
+    const triggerReveal = () => {
+      section.classList.add("is-visible");
+      window.setTimeout(finalizeState, 900);
+    };
+
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      section.classList.add("is-visible");
+      finalizeState();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          triggerReveal();
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.22,
+        rootMargin: "0px 0px -10% 0px",
+      },
+    );
+
+    observer.observe(section);
+  }
+
   function initProofSection() {
     const proofSection = injectProofSection();
+    const journeySection = injectJourneySection(proofSection);
     revealProofSection(proofSection);
+    revealJourneySection(journeySection);
   }
 
   if (document.readyState === "loading") {
