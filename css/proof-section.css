@@ -1,0 +1,242 @@
+/* ========================================
+   PROOF & STATS SECTION
+   ======================================== */
+
+.proof-section {
+  position: relative;
+  margin: 6rem auto;
+  padding: 0 10%;
+  max-width: 1600px;
+  isolation: isolate;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(125, 211, 252, 0.12),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(167, 139, 250, 0.12),
+      transparent 32%
+    ),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.56) 100%);
+}
+
+[data-theme="light"] .proof-section {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(14, 165, 233, 0.08),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(20, 184, 166, 0.08),
+      transparent 32%
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 250, 252, 0.82) 100%);
+}
+
+.proof-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0)
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.proof-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.proof-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.proof-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.58));
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.32);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 420ms ease,
+    background 420ms ease,
+    opacity 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+[data-theme="light"] .proof-card {
+  border-color: rgba(15, 23, 42, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.82));
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.proof-card::before,
+.proof-card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  transition:
+    opacity 420ms ease,
+    transform 420ms ease;
+}
+
+.proof-card::before {
+  inset: -45% auto auto -35%;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(
+    circle,
+    rgba(125, 211, 252, 0.2) 0%,
+    transparent 68%
+  );
+  opacity: 0.8;
+}
+
+.proof-card::after {
+  inset: auto -20% -45% auto;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(
+    circle,
+    rgba(167, 139, 250, 0.16) 0%,
+    transparent 68%
+  );
+  opacity: 0.55;
+}
+
+[data-theme="light"] .proof-card::before {
+  background: radial-gradient(
+    circle,
+    rgba(14, 165, 233, 0.12) 0%,
+    transparent 68%
+  );
+}
+
+[data-theme="light"] .proof-card::after {
+  background: radial-gradient(
+    circle,
+    rgba(20, 184, 166, 0.12) 0%,
+    transparent 68%
+  );
+}
+
+.proof-section.is-visible .proof-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.proof-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(125, 211, 252, 0.32);
+  box-shadow: 0 32px 80px rgba(2, 6, 23, 0.4);
+}
+
+[data-theme="light"] .proof-card:hover {
+  border-color: rgba(14, 165, 233, 0.2);
+  box-shadow: 0 32px 80px rgba(15, 23, 42, 0.12);
+}
+
+.proof-card:hover::before,
+.proof-card:hover::after {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.proof-number {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  color: #f8fafc;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-shadow: 0 12px 30px rgba(2, 6, 23, 0.2);
+}
+
+[data-theme="light"] .proof-number {
+  color: #0f172a;
+  text-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.proof-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #cbd5e1;
+  letter-spacing: 0.01em;
+}
+
+[data-theme="light"] .proof-card h3 {
+  color: #334155;
+}
+
+@media (max-width: 1024px) {
+  .proof-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .proof-section {
+    margin: 4rem auto;
+    padding: 0 1.25rem;
+  }
+
+  .proof-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .proof-card {
+    padding: 28px 24px;
+  }
+
+  .proof-number {
+    font-size: clamp(2.8rem, 16vw, 4rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proof-section,
+  .proof-card,
+  .proof-card::before,
+  .proof-card::after {
+    transition: none;
+  }
+
+  .proof-section,
+  .proof-card {
+    opacity: 1;
+    transform: none;
+  }
+}
