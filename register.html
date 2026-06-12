@@ -6,6 +6,11 @@
     <title data-i18n="auth.registerPage.title">Inscription - Yoga App</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/themes.css" />
+    <!-- PREMIUM 2026 DESIGN SYSTEM -->
+    <link rel="stylesheet" href="css/premium-design-system.css" />
+    <link rel="stylesheet" href="css/animations-premium.css" />
+    <link rel="stylesheet" href="css/layout-premium.css" />
+    <link rel="stylesheet" href="css/mobile-premium.css" />
     <link rel="icon" href="favicon-48x481.png" type="image/x-icon" />
   </head>
   <body class="auth-page">
@@ -95,7 +100,9 @@
         <!-- Register Form -->
         <form id="register-form" class="auth-form">
           <div class="form-group">
-            <label for="name" data-i18n="auth.fields.firstName">Prénom</label>
+            <label for="name" data-i18n="auth.fields.firstName"
+              >Prénom / Nom</label
+            >
             <input
               type="text"
               id="name"
@@ -261,12 +268,16 @@
           const successMessage = document.getElementById("success-message");
 
           // Get form data
-          const name = document.getElementById("name").value;
-          const email = document.getElementById("email").value;
+          const name = document.getElementById("name").value.trim();
+          const email = document
+            .getElementById("email")
+            .value.trim()
+            .toLowerCase();
           const password = document.getElementById("password").value;
           const confirmPassword =
             document.getElementById("confirm-password").value;
           const level = document.getElementById("level").value;
+          const termsAccepted = document.getElementById("terms").checked;
 
           const t = (key, fallback) => {
             if (window.i18n && typeof i18n.getTranslation === "function") {
@@ -280,6 +291,37 @@
           submitBtn.textContent = t("auth.registerPage.loading", "Création...");
           errorMessage.classList.add("hidden");
           successMessage.classList.add("hidden");
+          errorMessage.textContent = "";
+          successMessage.textContent = "";
+
+          // Validate required choices
+          if (!level) {
+            errorMessage.textContent = t(
+              "auth.registerPage.levelRequired",
+              "Choisissez votre niveau",
+            );
+            errorMessage.classList.remove("hidden");
+            submitBtn.disabled = false;
+            submitBtn.textContent = t(
+              "auth.registerPage.submit",
+              "Créer mon compte",
+            );
+            return;
+          }
+
+          if (!termsAccepted) {
+            errorMessage.textContent = t(
+              "auth.registerPage.termsRequired",
+              "Vous devez accepter les conditions d'utilisation",
+            );
+            errorMessage.classList.remove("hidden");
+            submitBtn.disabled = false;
+            submitBtn.textContent = t(
+              "auth.registerPage.submit",
+              "Créer mon compte",
+            );
+            return;
+          }
 
           // Validate passwords match
           if (password !== confirmPassword) {
@@ -355,5 +397,8 @@
         }
       });
     </script>
+    <!-- PREMIUM ANIMATIONS & SCROLL SYSTEM -->
+    <script defer src="js/premium-animations.js"></script>
+    <script defer src="js/scroll-animations.js"></script>
   </body>
 </html>
