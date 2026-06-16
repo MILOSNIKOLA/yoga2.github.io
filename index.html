@@ -642,10 +642,10 @@
           <source src="c1.mp4" type="video/mp4" />
           <!-- TODO: add captions track file for accessibility -->
         </video>
-        <div class="container">
-          <h2 class="section-title" data-i18n="sessions.title">
-            Séances populaires
-          </h2>
+      <div class="container">
+        <h2 class="section-title" data-i18n="sessions.title">
+          Séances populaires
+        </h2>
 
           <div class="sessions-grid" id="popular-sessions">
             <!-- Dynamically loaded -->
@@ -658,6 +658,106 @@
               data-i18n="sessions.viewAll"
               >Voir toutes les séances</a
             >
+          </div>
+        </div>
+      </section>
+
+      <!-- Premium Offer Section -->
+      <section class="premium-offer-section" aria-labelledby="premium-offer-title">
+        <div class="premium-offer-container">
+          <div class="premium-offer-surface">
+            <header class="premium-offer-header" data-animate="fade-up">
+              <span class="premium-offer-badge">PREMIUM</span>
+              <h2 class="premium-offer-title" id="premium-offer-title">
+                Passez à Premium
+              </h2>
+              <p class="premium-offer-description">
+                Accédez à l'intégralité de la plateforme et profitez d'une
+                expérience de yoga encore plus complète.
+              </p>
+            </header>
+
+            <div class="premium-offer-grid">
+              <article
+                class="premium-offer-card"
+                data-animate="fade-up"
+                data-delay="0"
+              >
+                <div class="premium-offer-card-head">
+                  <span class="premium-offer-icon" aria-hidden="true">✓</span>
+                  <div class="premium-offer-card-copy">
+                    <h3>Accès illimité</h3>
+                    <p>Profitez de toutes les séances sans restriction.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="premium-offer-card"
+                data-animate="fade-up"
+                data-delay="90"
+              >
+                <div class="premium-offer-card-head">
+                  <span class="premium-offer-icon" aria-hidden="true">✓</span>
+                  <div class="premium-offer-card-copy">
+                    <h3>Nouvelles séances</h3>
+                    <p>Découvrez régulièrement de nouveaux contenus.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="premium-offer-card premium-offer-card-featured"
+                data-animate="fade-up"
+                data-delay="180"
+              >
+                <span class="premium-offer-popular"
+                  ><span class="premium-offer-crown" aria-hidden="true"
+                    >👑</span
+                  >Le plus populaire</span
+                >
+                <div class="premium-offer-card-head">
+                  <span class="premium-offer-icon" aria-hidden="true">✓</span>
+                  <div class="premium-offer-card-copy">
+                    <h3>Suivi de progression</h3>
+                    <p>Visualisez votre évolution séance après séance.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="premium-offer-card"
+                data-animate="fade-up"
+                data-delay="270"
+              >
+                <div class="premium-offer-card-head">
+                  <span class="premium-offer-icon" aria-hidden="true">✓</span>
+                  <div class="premium-offer-card-copy">
+                    <h3>Contenus exclusifs</h3>
+                    <p>
+                      Accédez à des programmes réservés aux membres Premium.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="premium-offer-cta" data-animate="fade-up" data-delay="120">
+              <div class="premium-offer-cta-copy">
+                <span class="premium-offer-cta-label">Essai gratuit</span>
+                <h3>Commencez en quelques clics</h3>
+                <p>
+                  Découvrez l'expérience Premium et débloquez toute la
+                  plateforme immédiatement.
+                </p>
+              </div>
+              <a
+                href="register.html"
+                class="btn btn-primary premium-offer-button"
+              >
+                Commencer l'essai gratuit
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1289,7 +1389,7 @@
         .y2-fab:focus {
           box-shadow: 0 26px 60px rgba(20, 40, 30, 0.28);
         }
-        ep-block reverse in-view @keyframes y2-breathe {
+        @keyframes y2-breathe {
           0% {
             transform: scale(1);
           }
