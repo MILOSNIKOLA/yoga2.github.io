@@ -208,6 +208,18 @@ class I18nSystem {
       }
     });
 
+    // Appliquer data-i18n-html pour les contenus riches (ex. <br>, <strong>)
+    document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+      const key = element.getAttribute("data-i18n-html");
+      const text = this.getTranslation(key);
+      if (text !== null) {
+        element.innerHTML = text;
+        translatedCount++;
+      } else {
+        failedCount++;
+      }
+    });
+
     // Appliquer data-i18n-placeholder
     document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
       const key = element.getAttribute("data-i18n-placeholder");
@@ -381,6 +393,14 @@ class I18nSystem {
                 }
               }
 
+              if (node.hasAttribute && node.hasAttribute("data-i18n-html")) {
+                const key = node.getAttribute("data-i18n-html");
+                const text = this.getTranslation(key);
+                if (text !== null) {
+                  node.innerHTML = text;
+                }
+              }
+
               // Vérifier tous les descendants qui ont data-i18n
               if (node.querySelectorAll) {
                 node.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -388,6 +408,14 @@ class I18nSystem {
                   const text = this.getTranslation(key);
                   if (text !== null) {
                     el.textContent = text;
+                  }
+                });
+
+                node.querySelectorAll("[data-i18n-html]").forEach((el) => {
+                  const key = el.getAttribute("data-i18n-html");
+                  const text = this.getTranslation(key);
+                  if (text !== null) {
+                    el.innerHTML = text;
                   }
                 });
               }

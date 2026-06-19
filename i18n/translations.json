@@ -141,6 +141,118 @@
       "benefit3": {
         "title": "Force physique",
         "desc": "Renforcez vos muscles en douceur"
+      },
+      "history": {
+        "title": "Les origines et l'évolution historique du yoga",
+        "intro": "Le yoga représente une coutume millénaire prenant racine au cœur de la culture indienne. Ses premières mentions remontent à plus de trois millénaires au sein des Védas, les écrits sacrés de l'hindouisme.",
+        "roots": {
+          "title": "Racines ancestrales : Védas, Upanishads",
+          "desc": "Le yoga cherchait à relier l'être humain au sacré par la méditation, le chant de mantras et des exercices de concentration mentale. Les Upanishads ont introduit l'idée d'une union entre la conscience individuelle (atman) et l'absolu (Brahman)."
+        },
+        "classical": {
+          "title": "Période classique : Les Yoga-Sûtras de Patanjali",
+          "desc": "Entre le IIᵉ et le Vᵉ siècle, le sage Patanjali formalise les célèbres Yoga-Sûtras, un ouvrage qui demeure une référence absolue aujourd'hui. Il y définit le yoga comme la canalisation des agitations de l'esprit et y structure la pratique en huit piliers (Ashtanga) : la morale universelle, l'auto-discipline, les postures physiques, la maîtrise du souffle, l'intériorisation des sens, la concentration, la méditation et enfin l'état de communion absolue."
+        },
+        "medieval": {
+          "title": "Époque médiévale : Avènement du Hatha Yoga",
+          "desc": "La discipline s'oriente alors vers une dimension plus physique avec l'émergence du Hatha Yoga. Les praticiens intègrent des postures (asanas) et des méthodes respiratoires (pranayama) afin de purifier l'organisme et de préparer l'esprit à la contemplation."
+        },
+        "modern": {
+          "title": "Expansion moderne : Transfert de l'Inde vers l'Occident (XIXᵉ et XXᵉ siècles)",
+          "desc": "Dès le XIXᵉ siècle, le yoga s'exporte vers le monde occidental sous l'impulsion de guides spirituels indiens tels que Swami Vivekananda. Au XXᵉ siècle, des maîtres renommés comme B.K.S. Iyengar, Pattabhi Jois et Sivananda contribuent largement à sa démocratisation en développant des approches spécifiques, créant ainsi la grande variété de styles actuels (Ashtanga, Iyengar, Kundalini, etc.)."
+        },
+        "contemporary": {
+          "title": "Pratique contemporaine : Pluralité des courants et rayonnement global",
+          "desc": "De nos jours, le yoga se pratique sur tous les continents. Il s'est assimilé aux modes de vie actuels pour répondre à de multiples attentes : gestion du stress, entretien corporel, éveil spirituel ou quête de sens. Signe de sa portée universelle, l'UNESCO a inscrit le yoga au patrimoine culturel immatériel de l'humanité en 2016."
+        },
+        "current": {
+          "title": "Perspectives actuelles : Entre tradition et innovation",
+          "desc": "Face à sa popularité, le yoga évolue entre tradition et modernité.<br />Ses bienfaits sur le corps et l’esprit sont aujourd’hui confirmés.<br />De nouvelles formes émergent, intégrant technologies et pratiques hybrides.<br />Cette évolution soulève des questions sur l’authenticité et les racines spirituelles.<br />Le yoga oscille ainsi entre héritage ancestral et adaptation contemporaine."
+        },
+        "conclusion1": "En somme, la trajectoire du yoga est celle d'une tradition en constante évolution qui a traversé les époques sans jamais perdre son fondement premier : la symbiose entre le corps, la respiration et la conscience.",
+        "conclusion2": "Pour approfondir le sujet, vous pouvez explorer les origines et l'histoire du yoga via l'Institut Français de Yoga."
+      },
+      "major": {
+        "title": "Les fondements majeurs du yoga",
+        "intro": "Le yoga s'appuie sur un ensemble de règles fondamentales qui guident sa mise en pratique et sa transmission. Ces concepts clés dépassent le simple cadre anatomique pour englober la respiration, la clarté mentale et le comportement au quotidien.",
+        "discover": "Découvrez les grands axes du yoga :",
+        "prana": {
+          "title": "Le Prana : le souffle vital",
+          "desc": "Le concept de prana, cette force vitale qui anime tout être vivant, est central dans le yoga. Cette source d'énergie est captée et canalisée par le biais de la respiration. Les exercices de pranayama ont précisément pour but de maîtriser et d'équilibrer ce flux énergétique. Une respiration apaisée et régulière demeure la condition essentielle pour pacifier le mental."
+        },
+        "asanas": {
+          "title": "Les Asanas : les exercices corporels",
+          "desc": "Les asanas désignent les différentes postures physiques. Elles servent à tonifier la musculature, assouplir les articulations, rectifier la posture générale et préparer l'esprit au calme de la méditation. Le répertoire comprend des centaines de postures, des plus accessibles comme la posture de la montagne aux plus complexes comme la posture sur la tête. Chaque position remplit un rôle déterminé : calmer, dynamiser, aligner ou purifier."
+        },
+        "pranayama": {
+          "title": "Le Pranayama : la respiration mesurée",
+          "desc": "Le contrôle thérapeutique de la respiration est un aspect crucial du yoga. Les exercices de pranayama permettent de stabiliser l'énergie, de canaliser les pensées et d'optimiser l'oxygénation de l'organisme. Des méthodes telles que Nadi Shodhana (respiration alternée) ou Kapalabhati (respiration du feu) exercent une action profonde sur le système nerveux et la régulation des émotions."
+        },
+        "meditation": {
+          "title": "La méditation et l'intériorisation",
+          "desc": "La démarche du yoga reste incomplète sans le travail méditatif. Elle offre l'opportunité de s'ancrer, de dissiper le tumulte intérieur et d'aiguiser la vigilance mentale. Patanjali évoque aussi le pratyahara, ou retrait des sens, comme une phase incontournable pour tourner son attention vers le dedans."
+        },
+        "yamas": {
+          "title": "Les Yamas et Niyamas : la philosophie morale",
+          "desc": "Souvent mis de côté dans la vision occidentale, les Yamas et Niyamas forment un code de dix règles de vie qui encadrent la discipline. Les Yamas, fondés sur la bienveillance, la sincérité, la modération, la probité et la non-possessivité, dictent les interactions avec autrui. Les Niyamas, qui valorisent la clarté intérieure, la gratitude, la rigueur, la connaissance de soi et le lâcher-prise, régissent le rapport à soi-même."
+        },
+        "harmony": {
+          "title": "L'harmonie entre le corps et l'esprit",
+          "desc": "Le yoga se définit avant tout comme une démarche de reconnexion. Chaque rituel vise à synchroniser le souffle, le mouvement physique et l'attention. Cette cohésion engendre une paix intérieure, aiguise la pleine conscience et favorise une introspection lucide. L'aspiration finale ne réside pas dans l'exploit technique, mais dans la recherche de l'équilibre de l'être."
+        }
+      },
+      "styles": {
+        "title": "Les styles de yoga",
+        "intro": "Les styles de yoga sont nombreux : au fil du temps, la pratique s'est déclinée en plusieurs approches, chacune avec son tempo, ses particularités et ses intentions.",
+        "classification": "On peut les classer en quatre grands ensembles : doux, dynamiques, énergétiques et spécifiques / thérapeutiques.",
+        "gentle": {
+          "title": "1. Les yogas doux",
+          "desc1": "Parfaits pour commencer, ils mettent l’accent sur la lenteur, la détente et l’attention portée aux sensations. Le Hatha Yoga est l’un des plus connus et combine postures, respiration et relâchement.[1][6][7] Le Yin Yoga privilégie des postures maintenues longtemps pour travailler les tissus profonds, tandis que le Yoga restauratif favorise une détente profonde à l’aide de supports.[5][9]",
+          "desc2": "Ces pratiques conviennent particulièrement aux personnes qui cherchent la récupération, la sérénité ou une progression en douceur.[1][5]"
+        },
+        "dynamic": {
+          "title": "2. Les yogas dynamiques",
+          "desc1": "Plus toniques et plus physiques, ces styles suivent un rythme soutenu. L’Ashtanga Yoga repose sur des enchaînements précis coordonnés avec la respiration.[1][3][9] Le Vinyasa propose des séquences plus libres et fluides, souvent organisées en flow.[3][12][15] Le Power Yoga développe la force et l’endurance, tandis que le Hot Yoga se pratique dans une salle chauffée, avec une intensité marquée.[2][5][9]",
+          "desc2": "Ils conviennent davantage aux personnes sportives ou à celles qui veulent une pratique plus exigeante sur le plan physique.[3][9][10]"
+        },
+        "energetic": {
+          "title": "3. Les yogas énergétiques",
+          "desc1": "Ici, l’accent est moins mis sur la performance corporelle que sur le travail intérieur. Le Kundalini Yoga associe respirations, mantras et kriyas pour stimuler l’énergie vitale.[1][4][5] Le Yoga intégral cherche à relier toutes les dimensions de l’être — corps, mental et esprit.[4] L’Iyengar Yoga, de son côté, insiste sur la précision de l’alignement et l’usage d’accessoires.[1][5]",
+          "desc2": "Ces approches attirent souvent les pratiquants qui veulent explorer une dimension plus spirituelle, plus subtile ou plus structurée.[1][4][5]"
+        },
+        "specific": {
+          "title": "4. Les yogas spécifiques et thérapeutiques",
+          "desc1": "Certains styles ont été pensés pour répondre à des besoins particuliers. Le Yoga prénatal accompagne la grossesse et prépare à l’accouchement.[1] Le Yoga sur chaise rend la pratique plus accessible aux seniors ou aux personnes à mobilité réduite.[1][5] Le Yoga thérapeutique vise des problématiques ciblées comme le stress, le dos ou la respiration.[1][5] Le yoga pour enfants et le yoga familial introduisent aussi la pratique dès le plus jeune âge.[1][15]",
+          "desc2": "Ces formes permettent d’adapter le yoga à chaque étape de la vie et à différents niveaux de capacité physique.[1][5]"
+        },
+        "choice": {
+          "title": "Comment choisir son style de yoga ?",
+          "intro": "Le choix dépend surtout de vos objectifs personnels :",
+          "relaxation": "<strong>Pour la détente et la douceur :</strong> Hatha, Yin, Restauratif[1][5][7]",
+          "energy": "<strong>Pour l’énergie et le sport :</strong> Vinyasa, Ashtanga, Power[2][3][9]",
+          "spirituality": "<strong>Pour la spiritualité et l’énergie :</strong> Kundalini, Yoga intégral[4][5]",
+          "specific": "<strong>Pour des besoins particuliers :</strong> Prénatal, Yoga sur chaise, Yoga enfants[1][5]"
+        }
+      }
+    },
+    "foundations": {
+      "title": "Les fondements du yoga",
+      "intro": "Découvrez les principes essentiels qui sous-tendent la pratique du yoga",
+      "pillar1": {
+        "title": "Équilibre",
+        "desc": "Harmonie entre le corps et l'esprit"
+      },
+      "pillar2": {
+        "title": "Respiration",
+        "desc": "Prana, l'énergie vitale respirée"
+      },
+      "pillar3": {
+        "title": "Conscience",
+        "desc": "Présence et attention à chaque instant"
+      },
+      "pillar4": {
+        "title": "Gratitude",
+        "desc": "Reconnaissance et bienveillance envers soi"
       }
     },
     "breathing": {
@@ -541,6 +653,23 @@
       "resources": {
         "title": "Pour aller plus loin",
         "description": "Quelques ressources externes pour approfondir votre pratique"
+      },
+      "premium": {
+        "badge": "PREMIUM",
+        "title": "Passez à Premium",
+        "description": "Accédez à l'intégralité de la plateforme et profitez d'une expérience de yoga encore plus complète.",
+        "card1Title": "Accès illimité",
+        "card1Desc": "Profitez de toutes les séances sans restriction.",
+        "card2Title": "Nouvelles séances",
+        "card2Desc": "Découvrez régulièrement de nouveaux contenus.",
+        "card3Title": "Suivi de progression",
+        "card3Desc": "Visualisez votre évolution séance après séance.",
+        "card4Title": "Contenus exclusifs",
+        "card4Desc": "Accédez à des programmes réservés aux membres Premium.",
+        "ctaLabel": "Essai gratuit",
+        "ctaTitle": "Commencez en quelques clics",
+        "ctaDesc": "Découvrez l'expérience Premium et débloquez toute la plateforme immédiatement.",
+        "ctaButton": "Commencer l'essai gratuit"
       }
     },
     "newsletter": {
@@ -845,6 +974,118 @@
       "benefit3": {
         "title": "Physical strength",
         "desc": "Strengthen your muscles gently"
+      },
+      "history": {
+        "title": "The Origins and Historical Evolution of Yoga",
+        "intro": "Yoga represents an age-old custom rooted in the heart of Indian culture. Its earliest mentions date back more than three millennia in the Vedas, the sacred writings of Hinduism.",
+        "roots": {
+          "title": "Ancient Roots: Vedas, Upanishads",
+          "desc": "Yoga sought to connect human beings with the sacred through meditation, mantra chanting, and mental concentration exercises. The Upanishads introduced the idea of a union between individual consciousness (atman) and the absolute (Brahman)."
+        },
+        "classical": {
+          "title": "Classical Period: Patanjali's Yoga Sutras",
+          "desc": "Between the 2nd and 5th centuries, the sage Patanjali formalized the famous Yoga Sutras, a work that remains an absolute reference today. He defined yoga as the channeling of the mind's fluctuations and structured the practice into eight limbs (Ashtanga): universal ethics, self-discipline, physical postures, breath control, sense withdrawal, concentration, meditation, and finally the state of complete communion."
+        },
+        "medieval": {
+          "title": "Medieval Period: The Rise of Hatha Yoga",
+          "desc": "The discipline then shifted toward a more physical dimension with the emergence of Hatha Yoga. Practitioners integrated postures (asanas) and breathing methods (pranayama) in order to purify the body and prepare the mind for contemplation."
+        },
+        "modern": {
+          "title": "Modern Expansion: From India to the West (19th and 20th Centuries)",
+          "desc": "From the 19th century onward, yoga spread to the Western world under the influence of Indian spiritual teachers such as Swami Vivekananda. In the 20th century, renowned masters like B.K.S. Iyengar, Pattabhi Jois and Sivananda helped democratize it by developing specific approaches, giving rise to the wide variety of styles we know today (Ashtanga, Iyengar, Kundalini, etc.)."
+        },
+        "contemporary": {
+          "title": "Contemporary Practice: Diversity of Traditions and Global Reach",
+          "desc": "Today, yoga is practiced on every continent. It has adapted to modern lifestyles to meet many needs: stress management, physical maintenance, spiritual awakening, or the search for meaning. A sign of its universal reach, UNESCO inscribed yoga on the Intangible Cultural Heritage of Humanity list in 2016."
+        },
+        "current": {
+          "title": "Current Perspectives: Between Tradition and Innovation",
+          "desc": "Faced with its popularity, yoga evolves between tradition and modernity.<br />Its benefits for the body and mind are now confirmed.<br />New forms are emerging, integrating technologies and hybrid practices.<br />This evolution raises questions about authenticity and spiritual roots.<br />Yoga thus oscillates between ancestral heritage and contemporary adaptation."
+        },
+        "conclusion1": "In short, yoga's trajectory is that of a tradition in constant evolution that has crossed eras without ever losing its original foundation: the symbiosis of body, breath, and awareness.",
+        "conclusion2": "To explore the subject further, you can discover the origins and history of yoga through the French Yoga Institute."
+      },
+      "major": {
+        "title": "The Major Foundations of Yoga",
+        "intro": "Yoga is based on a set of fundamental rules that guide its practice and transmission. These key concepts transcend simple anatomy to encompass breathing, mental clarity and daily behavior.",
+        "discover": "Discover the major pillars of yoga:",
+        "prana": {
+          "title": "Prana: the Vital Breath",
+          "desc": "The concept of prana, the vital force that animates every living being, is central to yoga. This energy source is captured and channeled through breath. Pranayama exercises are specifically intended to master and balance this energy flow. Calm, steady breathing remains the essential condition for pacifying the mind."
+        },
+        "asanas": {
+          "title": "Asanas: Physical Exercises",
+          "desc": "Asanas refer to the different physical postures. They help tone the muscles, loosen the joints, correct general posture, and prepare the mind for the calm of meditation. The repertoire includes hundreds of postures, from the most accessible such as Mountain Pose to the most complex such as Headstand. Each position serves a specific purpose: calm, energize, align, or purify."
+        },
+        "pranayama": {
+          "title": "Pranayama: Measured Breathing",
+          "desc": "Therapeutic control of the breath is a crucial aspect of yoga. Pranayama exercises help stabilize energy, channel thoughts, and optimize the body's oxygenation. Methods such as Nadi Shodhana (alternate nostril breathing) or Kapalabhati (breath of fire) have a profound effect on the nervous system and emotional regulation."
+        },
+        "meditation": {
+          "title": "Meditation and Inner Focus",
+          "desc": "The yogic path remains incomplete without meditative work. It offers the opportunity to ground oneself, dispel inner turmoil, and sharpen mental vigilance. Patanjali also mentions pratyahara, or sense withdrawal, as an essential phase for turning attention inward."
+        },
+        "yamas": {
+          "title": "The Yamas and Niyamas: Moral Philosophy",
+          "desc": "Often overlooked in the Western view, the Yamas and Niyamas form a code of ten life principles that frame the discipline. The Yamas, based on kindness, sincerity, moderation, integrity, and non-possessiveness, govern interactions with others. The Niyamas, which value inner clarity, gratitude, discipline, self-knowledge, and letting go, govern the relationship with oneself."
+        },
+        "harmony": {
+          "title": "Harmony Between Body and Mind",
+          "desc": "Yoga is above all a path of reconnection. Each ritual aims to synchronize breath, physical movement, and attention. This cohesion creates inner peace, sharpens mindfulness, and fosters clear introspection. The ultimate aspiration is not technical achievement, but the search for balance in being."
+        }
+      },
+      "styles": {
+        "title": "Yoga Styles",
+        "intro": "There are many yoga styles: over time, the practice has developed into several approaches, each with its own pace, characteristics and intentions.",
+        "classification": "They can be classified into four major categories: gentle, dynamic, energetic and specific/therapeutic.",
+        "gentle": {
+          "title": "1. Gentle Yoga",
+          "desc1": "Ideal for beginners, it emphasizes slowness, relaxation, and attention to sensation. Hatha Yoga is one of the best known and combines postures, breathing, and release.[1][6][7] Yin Yoga favors long-held postures to work the deep tissues, while Restorative Yoga promotes deep relaxation with the help of props.[5][9]",
+          "desc2": "These practices are especially suitable for people looking for recovery, serenity, or gradual progress.[1][5]"
+        },
+        "dynamic": {
+          "title": "2. Dynamic Yoga",
+          "desc1": "More energetic and more physical, these styles follow a steady pace. Ashtanga Yoga is based on precise sequences coordinated with the breath.[1][3][9] Vinyasa offers freer, more fluid sequences, often organized as flows.[3][12][15] Power Yoga develops strength and endurance, while Hot Yoga is practiced in a heated room with a marked intensity.[2][5][9]",
+          "desc2": "They are better suited to sporty people or those who want a more demanding physical practice.[3][9][10]"
+        },
+        "energetic": {
+          "title": "3. Energetic Yoga",
+          "desc1": "Here, the focus is less on physical performance and more on inner work. Kundalini Yoga combines breathing, mantras, and kriyas to stimulate vital energy.[1][4][5] Integral Yoga seeks to connect all dimensions of being - body, mind, and spirit.[4] Iyengar Yoga, for its part, emphasizes alignment precision and the use of props.[1][5]",
+          "desc2": "These approaches often attract practitioners who want to explore a more spiritual, subtle, or structured dimension.[1][4][5]"
+        },
+        "specific": {
+          "title": "4. Specific and Therapeutic Yoga",
+          "desc1": "Some styles were designed to meet particular needs. Prenatal Yoga accompanies pregnancy and prepares for childbirth.[1] Chair Yoga makes practice more accessible to seniors or people with reduced mobility.[1][5] Therapeutic Yoga targets specific issues such as stress, the back, or breathing.[1][5] Yoga for children and family yoga also introduce practice from an early age.[1][15]",
+          "desc2": "These forms make it possible to adapt yoga to every stage of life and to different levels of physical ability.[1][5]"
+        },
+        "choice": {
+          "title": "How Do You Choose Your Yoga Style?",
+          "intro": "The choice mainly depends on your personal goals:",
+          "relaxation": "<strong>For relaxation and gentleness:</strong> Hatha, Yin, Restorative[1][5][7]",
+          "energy": "<strong>For energy and sport:</strong> Vinyasa, Ashtanga, Power[2][3][9]",
+          "spirituality": "<strong>For spirituality and energy:</strong> Kundalini, Integral Yoga[4][5]",
+          "specific": "<strong>For specific needs:</strong> Prenatal, Chair Yoga, Children's Yoga[1][5]"
+        }
+      }
+    },
+    "foundations": {
+      "title": "The Foundations of Yoga",
+      "intro": "Discover the essential principles that underlie yoga practice",
+      "pillar1": {
+        "title": "Balance",
+        "desc": "Harmony between body and mind"
+      },
+      "pillar2": {
+        "title": "Breathing",
+        "desc": "Prana, the vital energy breathed"
+      },
+      "pillar3": {
+        "title": "Consciousness",
+        "desc": "Presence and attention at every moment"
+      },
+      "pillar4": {
+        "title": "Gratitude",
+        "desc": "Recognition and kindness toward oneself"
       }
     },
     "breathing": {
@@ -1333,6 +1574,23 @@
       "resources": {
         "title": "Further resources",
         "description": "A few external resources to deepen your practice"
+      },
+      "premium": {
+        "badge": "PREMIUM",
+        "title": "Go Premium",
+        "description": "Access the full platform and enjoy an even more complete yoga experience.",
+        "card1Title": "Unlimited access",
+        "card1Desc": "Enjoy all sessions without restrictions.",
+        "card2Title": "New sessions",
+        "card2Desc": "Discover new content regularly.",
+        "card3Title": "Progress tracking",
+        "card3Desc": "Visualize your progress session after session.",
+        "card4Title": "Exclusive content",
+        "card4Desc": "Access programs reserved for Premium members.",
+        "ctaLabel": "Free trial",
+        "ctaTitle": "Get started in a few clicks",
+        "ctaDesc": "Discover the Premium experience and unlock the entire platform immediately.",
+        "ctaButton": "Start free trial"
       }
     },
     "newsletter": {
@@ -1637,6 +1895,118 @@
       "benefit3": {
         "title": "Fizička snaga",
         "desc": "Jačajte svoje mišiće nežno"
+      },
+      "history": {
+        "title": "Poreklo i istorijska evolucija joge",
+        "intro": "Joga predstavlja vekovnu tradiciju ukorenjenu u srcu indijske kulture. Njeni prvi tragovi sežu više od tri milenijuma unazad, u Vedama, svetim spisima hinduizma.",
+        "roots": {
+          "title": "Drevni koreni: Vede, Upanišade",
+          "desc": "Joga je nastojala da poveže čoveka sa svetim kroz meditaciju, pevanje mantri i vežbe mentalne koncentracije. Upanišade su uvele ideju jedinstva između individualne svesti (atman) i apsoluta (Brahman)."
+        },
+        "classical": {
+          "title": "Klasični period: Patanđalijeve Joga-sutre",
+          "desc": "Između II i V veka, mudrac Patanđali je formalizovao čuvene Joga-sutre, delo koje i danas ostaje apsolutna referenca. On je jogu definisao kao usmeravanje nemira uma i strukturisao praksu u osam delova (Aštanga): univerzalni moral, samodisciplinu, telesne položaje, ovladavanje dahom, povlačenje čula, koncentraciju, meditaciju i konačno stanje potpunog sjedinjenja."
+        },
+        "medieval": {
+          "title": "Srednjovekovni period: uspon Hata joge",
+          "desc": "Disciplina se zatim okrenula više fizičkoj dimenziji sa pojavom Hata joge. Praktičari su uvodili položaje (asane) i tehnike disanja (pranajama) kako bi pročistili telo i pripremili um za kontemplaciju."
+        },
+        "modern": {
+          "title": "Savremeno širenje: od Indije do Zapada (XIX i XX vek)",
+          "desc": "Od XIX veka, joga se širi ka zapadnom svetu pod uticajem indijskih duhovnih učitelja kao što je Svami Vivekananda. U XX veku, priznati majstori poput B.K.S. Ajengara, Patabija Džoisa i Sivanande značajno su doprineli njenoj popularizaciji razvijajući posebne pristupe, čime je nastala velika raznovrsnost današnjih stilova (Aštanga, Ajengar, Kundalini, itd.)."
+        },
+        "contemporary": {
+          "title": "Savremena praksa: raznovrsnost pravaca i globalni domet",
+          "desc": "Danas se joga praktikuje na svim kontinentima. Prilagodila se savremenom načinu života kako bi odgovorila na brojne potrebe: upravljanje stresom, održavanje tela, duhovno buđenje ili traganje za smislom. Kao znak svog univerzalnog dometa, UNESCO je 2016. godine upisao jogu na listu nematerijalne kulturne baštine čovečanstva."
+        },
+        "current": {
+          "title": "Savremeni pogledi: između tradicije i inovacije",
+          "desc": "Suočena sa svojom popularnošću, joga se razvija između tradicije i modernosti.<br />Njene koristi za telo i um danas su potvrđene.<br />Pojavljuju se novi oblici, koji integrišu tehnologije i hibridne prakse.<br />Ta evolucija postavlja pitanja o autentičnosti i duhovnim korenima.<br />Joga tako oscilira između drevnog nasleđa i savremene adaptacije."
+        },
+        "conclusion1": "Ukratko, put joge je put tradicije koja se neprestano razvija i koja je kroz epohe prošla bez gubitka svog prvobitnog temelja: simbioze tela, daha i svesti.",
+        "conclusion2": "Da biste temu istražili dalje, možete otkriti poreklo i istoriju joge preko Francuskog instituta za jogu."
+      },
+      "major": {
+        "title": "Glavni temelji joge",
+        "intro": "Joga se zasniva na skupu temeljnih pravila koja vodiće njenu praksu i prenošenje. Ovi ključni koncepti prevazilaze jednostavnu anatomiju da obuhvate disanje, mentalnu jasnoću i svakodnevno ponašanje.",
+        "discover": "Otkrijte glavne stubove joge:",
+        "prana": {
+          "title": "Prana: životni dah",
+          "desc": "Pojam prane, životne sile koja oživljava svako živo biće, centralni je u jogi. Ovaj izvor energije se hvata i usmerava kroz disanje. Vežbe pranajame upravo imaju za cilj da ovladaju i uravnoteže ovaj tok energije. Mirno i ujednačeno disanje ostaje osnovni uslov za smirivanje uma."
+        },
+        "asanas": {
+          "title": "Asane: telesne vežbe",
+          "desc": "Asane označavaju različite fizičke položaje. Oni služe za jačanje mišića, opuštanje zglobova, ispravljanje držanja i pripremu uma za smirenost meditacije. Repertoar obuhvata stotine položaja, od najpristupačnijih kao što je planinski stav do najsloženijih kao što je stav na glavi. Svaka pozicija ima određenu ulogu: da smiri, okripi, poravna ili pročisti."
+        },
+        "pranayama": {
+          "title": "Pranajama: odmereno disanje",
+          "desc": "Terapijska kontrola disanja je ključan aspekt joge. Vežbe pranajame pomažu da se energija stabilizuje, misli usmere i oksigenacija organizma optimizuje. Metode kao što su Nadi Šodana (naizmenično disanje) ili Kapalabati (vatreno disanje) deluju duboko na nervni sistem i regulaciju emocija."
+        },
+        "meditation": {
+          "title": "Meditacija i unutrašnje usmeravanje",
+          "desc": "Jogijski put ostaje nepotpun bez meditativnog rada. On pruža priliku da se čovek utemelji, rasprši unutrašnji nemir i izoštri mentalna budnost. Patanđali takođe pominje pratjaharu, odnosno povlačenje čula, kao neophodnu fazu za usmeravanje pažnje ka unutra."
+        },
+        "yamas": {
+          "title": "Jame i Nijame: moralna filozofija",
+          "desc": "Često zanemarene u zapadnom viđenju, Jame i Nijame čine kodeks od deset životnih pravila koji uokviruje disciplinu. Jame, zasnovane na dobroti, iskrenosti, umerenosti, poštenju i nenaposedovanju, uređuju odnose sa drugima. Nijame, koje vrednuju unutrašnju jasnoću, zahvalnost, disciplinu, samospoznaju i prepuštanje, uređuju odnos prema sebi."
+        },
+        "harmony": {
+          "title": "Harmonija između tela i duha",
+          "desc": "Joga se pre svega definiše kao put ponovnog povezivanja. Svaki ritual ima za cilj da uskladi dah, fizički pokret i pažnju. Ta povezanost stvara unutrašnji mir, izoštrava svest i podstiče jasnu introspekciju. Konačna težnja nije u tehničkom podvigu, već u traganju za ravnotežom bića."
+        }
+      },
+      "styles": {
+        "title": "Stilovi joge",
+        "intro": "Postoji mnogo stilova joge: tokom vremena, praksa se razvila u nekoliko pristupa, svaki sa svojim ritmom, karakteristikama i namerama.",
+        "classification": "Mogu se klasifikovati u četiri glavne kategorije: blage, dinamične, energetske i specifične/terapeutske.",
+        "gentle": {
+          "title": "1. Blage joge",
+          "desc1": "Idealne za početak, naglašavaju sporost, opuštanje i pažnju na senzacije. Hata joga je jedna od najpoznatijih i kombinuje položaje, disanje i opuštanje.[1][6][7] Jin joga preferira dugo zadržane položaje radi rada na dubokim tkivima, dok restorativna joga podstiče duboko opuštanje uz pomoć pomagala.[5][9]",
+          "desc2": "Ove prakse su posebno pogodne za ljude koji traže oporavak, spokoj ili postepen napredak.[1][5]"
+        },
+        "dynamic": {
+          "title": "2. Dinamične joge",
+          "desc1": "Više energične i fizički zahtevne, ove prakse prate ujednačen ritam. Aštanga joga se zasniva na preciznim sekvencama usklađenim sa dahom.[1][3][9] Vinjasa nudi slobodnije, tečnije nizove, često organizovane kao tokovi.[3][12][15] Pauer joga razvija snagu i izdržljivost, dok se hot joga praktikuje u zagrejanoj sali, sa izraženim intenzitetom.[2][5][9]",
+          "desc2": "Bolje odgovaraju fizički aktivnim ljudima ili onima koji žele zahtevniju praksu.[3][9][10]"
+        },
+        "energetic": {
+          "title": "3. Energetske joge",
+          "desc1": "Ovde je fokus manje na fizičkom učinku, a više na unutrašnjem radu. Kundalini joga povezuje disanje, mantre i krije da bi podstakla životnu energiju.[1][4][5] Integralna joga nastoji da poveže sve dimenzije bića - telo, um i duh.[4] Ajengar joga, sa svoje strane, naglašava preciznost poravnanja i upotrebu pomagala.[1][5]",
+          "desc2": "Ovi pristupi često privlače praktičare koji žele da istraže duhovniju, suptilniju ili strukturiraniju dimenziju.[1][4][5]"
+        },
+        "specific": {
+          "title": "4. Specifične i terapeutske joge",
+          "desc1": "Neki stilovi su osmišljeni da odgovore na posebne potrebe. Prenatalna joga prati trudnoću i priprema za porođaj.[1] Joga na stolici čini praksu dostupnijom starijima ili osobama sa smanjenom pokretljivošću.[1][5] Terapeutska joga cilja na određene probleme kao što su stres, leđa ili disanje.[1][5] Joga za decu i porodična joga takođe uvode praksu od najranijeg uzrasta.[1][15]",
+          "desc2": "Ovi oblici omogućavaju prilagođavanje joge svakoj životnoj fazi i različitim nivoima fizičke sposobnosti.[1][5]"
+        },
+        "choice": {
+          "title": "Kako odabrati stil joge?",
+          "intro": "Izbor najviše zavisi od vaših ličnih ciljeva:",
+          "relaxation": "<strong>Za opuštanje i blagost:</strong> Hata, Jin joga, restorativna joga[1][5][7]",
+          "energy": "<strong>Za energiju i sport:</strong> Vinjasa, Aštanga, Pauer[2][3][9]",
+          "spirituality": "<strong>Za duhovnost i energiju:</strong> Kundalini, integralna joga[4][5]",
+          "specific": "<strong>Za posebne potrebe:</strong> prenatalna joga, joga na stolici, dečja joga[1][5]"
+        }
+      }
+    },
+    "foundations": {
+      "title": "Temelji joge",
+      "intro": "Otkrijte suštinske principe koji podržavaju jogu praksu",
+      "pillar1": {
+        "title": "Ravnoteža",
+        "desc": "Harmonija između tela i uma"
+      },
+      "pillar2": {
+        "title": "Disanje",
+        "desc": "Prana, vitalna energija koja se diše"
+      },
+      "pillar3": {
+        "title": "Svesnost",
+        "desc": "Prisustvo i pažnja u svakom trenutku"
+      },
+      "pillar4": {
+        "title": "Zahvalnost",
+        "desc": "Priznanje i dobrota prema sebi"
       }
     },
     "breathing": {
@@ -2125,6 +2495,23 @@
       "resources": {
         "title": "Dodatni resursi",
         "description": "Nekoliko spoljašnjih resursa za produbljivanje vaše prakse"
+      },
+      "premium": {
+        "badge": "PREMIUM",
+        "title": "Postani Premium",
+        "description": "Pristupite cijeloj platformi i uživajte u još bogatijemu iskustvu joge.",
+        "card1Title": "Neograničen pristup",
+        "card1Desc": "Uživajte u svim sesijama bez ograničenja.",
+        "card2Title": "Nove sesije",
+        "card2Desc": "Redovito otkrivajte novi sadržaj.",
+        "card3Title": "Praćenje napretka",
+        "card3Desc": "Vizualizirajte svoj napredak sesiju za sesijom.",
+        "card4Title": "Ekskuzivni sadržaj",
+        "card4Desc": "Pristupite programima rezerviranim za Premium članove.",
+        "ctaLabel": "Besplatna proba",
+        "ctaTitle": "Započnite u nekoliko klikova",
+        "ctaDesc": "Otkrijte Premium iskustvo i odmah otključajte cijelu platformu.",
+        "ctaButton": "Započnite besplatnu probu"
       }
     },
     "newsletter": {
