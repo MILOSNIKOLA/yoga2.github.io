@@ -108,6 +108,21 @@
         "success": "Compte créé avec succès ! Redirection..."
       }
     },
+    "proofCards": {
+      "guided": "Séances guidées",
+      "levels": "Niveaux de pratique",
+      "pace": "À votre rythme",
+      "anywhere": "Accessible partout"
+    },
+    "journey": {
+      "kicker": "Parcours utilisateur",
+      "heading": "Comment Yoga App AI fonctionne",
+      "description": "Un parcours simple et guidé pour comprendre immédiatement comment découvrir, suivre et faire évoluer votre pratique.",
+      "step1": { "title": "Choisissez un programme", "desc": "Débutant, intermédiaire ou avancé selon votre niveau du moment." },
+      "step2": { "title": "Suivez vos séances", "desc": "Chaque séance est guidée pour vous aider à rester concentré." },
+      "step3": { "title": "Progressez à votre rythme", "desc": "La plateforme s'adapte à votre énergie et à votre régularité." },
+      "step4": { "title": "Retrouvez votre équilibre", "desc": "Installez une routine claire, durable et rassurante au quotidien." }
+    },
     "features": {
       "title": "Un yoga fait pour vous",
       "understand": {
@@ -199,7 +214,8 @@
         "harmony": {
           "title": "L'harmonie entre le corps et l'esprit",
           "desc": "Le yoga se définit avant tout comme une démarche de reconnexion. Chaque rituel vise à synchroniser le souffle, le mouvement physique et l'attention. Cette cohésion engendre une paix intérieure, aiguise la pleine conscience et favorise une introspection lucide. L'aspiration finale ne réside pas dans l'exploit technique, mais dans la recherche de l'équilibre de l'être."
-        }
+        },
+        "conclusion": "Ces règles d'or forment la structure de toute démarche yogique. Qu'il s'agisse de préserver sa vitalité, de relâcher les tensions ou d'approfondir sa quête intérieure, elles agissent comme un repère et confèrent au yoga toute sa résonance."
       },
       "styles": {
         "title": "Les styles de yoga",
@@ -652,7 +668,13 @@
       },
       "resources": {
         "title": "Pour aller plus loin",
-        "description": "Quelques ressources externes pour approfondir votre pratique"
+        "description": "Quelques ressources externes pour approfondir votre pratique",
+        "item1": { "desc": "— Planning de cours collectifs de yoga, Pilates, et d'autres proposés par des professionnels du bien-être." },
+        "item2": { "desc": "— Cours de yoga gratuits en ligne pour tous les niveaux, par une passionnée de yoga." },
+        "item3": { "desc": "— Agenda des stages et week-ends de yoga, méditation et danses sacrées proposés par l'École des Yogas EYME." },
+        "item4": { "desc": "— Plateforme de cours de yoga, Pilates, méditation et bien-être en ligne, pour tous les niveaux et objectifs." },
+        "item5": { "desc": "— Plateforme québécoise de cours en ligne de yoga, méditation, respiration et d'autres, accessible à tous les niveaux." },
+        "item6": { "desc": "— Application et plateforme de cours de yoga, méditation et respiration en ligne, basés sur des approches scientifiques." }
       },
       "premium": {
         "badge": "PREMIUM",
@@ -941,6 +963,21 @@
         "success": "Account created successfully! Redirecting..."
       }
     },
+    "proofCards": {
+      "guided": "Guided sessions",
+      "levels": "Practice levels",
+      "pace": "At your own pace",
+      "anywhere": "Accessible anywhere"
+    },
+    "journey": {
+      "kicker": "User journey",
+      "heading": "How Yoga App AI works",
+      "description": "A simple, guided journey to immediately understand how to discover, follow and evolve your practice.",
+      "step1": { "title": "Choose a program", "desc": "Beginner, intermediate or advanced depending on your current level." },
+      "step2": { "title": "Follow your sessions", "desc": "Each session is guided to help you stay focused." },
+      "step3": { "title": "Progress at your own pace", "desc": "The platform adapts to your energy and your consistency." },
+      "step4": { "title": "Find your balance", "desc": "Build a clear, lasting and reassuring routine every day." }
+    },
     "features": {
       "title": "Yoga made for you",
       "understand": {
@@ -1032,7 +1069,8 @@
         "harmony": {
           "title": "Harmony Between Body and Mind",
           "desc": "Yoga is above all a path of reconnection. Each ritual aims to synchronize breath, physical movement, and attention. This cohesion creates inner peace, sharpens mindfulness, and fosters clear introspection. The ultimate aspiration is not technical achievement, but the search for balance in being."
-        }
+        },
+        "conclusion": "These golden rules form the structure of any yogic approach. Whether it is about preserving vitality, releasing tension, or deepening one's inner quest, they act as a guide and give yoga its full resonance."
       },
       "styles": {
         "title": "Yoga Styles",
@@ -1573,7 +1611,13 @@
       },
       "resources": {
         "title": "Further resources",
-        "description": "A few external resources to deepen your practice"
+        "description": "A few external resources to deepen your practice",
+        "item1": { "desc": "— Schedule of group yoga, Pilates and other classes offered by wellness professionals." },
+        "item2": { "desc": "— Free online yoga classes for all levels, by a yoga enthusiast." },
+        "item3": { "desc": "— Calendar of yoga retreats, weekends, meditation and sacred dances offered by the EYME Yoga School." },
+        "item4": { "desc": "— Online yoga, Pilates, meditation and wellness platform for all levels and goals." },
+        "item5": { "desc": "— Quebec-based online platform for yoga, meditation, breathing and more, accessible to all levels." },
+        "item6": { "desc": "— App and online platform for yoga, meditation and breathing, based on scientific approaches." }
       },
       "premium": {
         "badge": "PREMIUM",
@@ -1862,6 +1906,21 @@
         "success": "Nalog je uspešno kreiran! Preusmeravanje..."
       }
     },
+    "proofCards": {
+      "guided": "Vođene sesije",
+      "levels": "Nivoi prakse",
+      "pace": "Vašim tempom",
+      "anywhere": "Dostupno svuda"
+    },
+    "journey": {
+      "kicker": "Korisničko putovanje",
+      "heading": "Kako Yoga App AI funkcioniše",
+      "description": "Jednostavno i vođeno putovanje da odmah razumete kako da otkrijete, pratite i razvijate svoju praksu.",
+      "step1": { "title": "Izaberite program", "desc": "Početni, srednji ili napredni nivo prema vašem trenutnom stanju." },
+      "step2": { "title": "Pratite vaše sesije", "desc": "Svaka sesija je vođena da vam pomogne da ostanete fokusirani." },
+      "step3": { "title": "Napredujte svojim tempom", "desc": "Platforma se prilagođava vašoj energiji i vašoj redovnosti." },
+      "step4": { "title": "Pronađite svoju ravnotežu", "desc": "Izgradite jasnu, trajnu i smirujuću rutinu svakog dana." }
+    },
     "features": {
       "title": "Joga napravljena za vas",
       "understand": {
@@ -1953,7 +2012,8 @@
         "harmony": {
           "title": "Harmonija između tela i duha",
           "desc": "Joga se pre svega definiše kao put ponovnog povezivanja. Svaki ritual ima za cilj da uskladi dah, fizički pokret i pažnju. Ta povezanost stvara unutrašnji mir, izoštrava svest i podstiče jasnu introspekciju. Konačna težnja nije u tehničkom podvigu, već u traganju za ravnotežom bića."
-        }
+        },
+        "conclusion": "Ova zlatna pravila čine osnovu svakog joga pristupa. Bilo da se radi o očuvanju vitalnosti, oslobađanju napetosti ili produbljivanju unutrašnje potrage, ona deluju kao putokaz i daju jogi punu rezonancu."
       },
       "styles": {
         "title": "Stilovi joge",
@@ -2494,7 +2554,13 @@
       },
       "resources": {
         "title": "Dodatni resursi",
-        "description": "Nekoliko spoljašnjih resursa za produbljivanje vaše prakse"
+        "description": "Nekoliko spoljašnjih resursa za produbljivanje vaše prakse",
+        "item1": { "desc": "— Raspored grupnih časova joge, pilatesa i drugih koje nude profesionalci dobrobiti." },
+        "item2": { "desc": "— Besplatni onlajn časovi joge za sve nivoe, od strane entuzijaste joge." },
+        "item3": { "desc": "— Kalendar retreata i vikend seminara joge, meditacije i svetih plesova Škole joge EYME." },
+        "item4": { "desc": "— Onlajn platforma za jogu, pilates, meditaciju i dobrobit za sve nivoe i ciljeve." },
+        "item5": { "desc": "— Kvebeška onlajn platforma za jogu, meditaciju, disanje i još mnogo toga, dostupna svim nivoima." },
+        "item6": { "desc": "— Aplikacija i onlajn platforma za jogu, meditaciju i disanje, zasnovana na naučnim pristupima." }
       },
       "premium": {
         "badge": "PREMIUM",

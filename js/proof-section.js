@@ -4,22 +4,22 @@
       <div class="proof-grid">
         <div class="proof-card">
           <span class="proof-number" data-target="50" data-suffix="+">0</span>
-          <h3>Séances guidées</h3>
+          <h3 data-i18n="proofCards.guided">Séances guidées</h3>
         </div>
 
         <div class="proof-card">
           <span class="proof-number" data-target="3">0</span>
-          <h3>Niveaux de pratique</h3>
+          <h3 data-i18n="proofCards.levels">Niveaux de pratique</h3>
         </div>
 
         <div class="proof-card">
           <span class="proof-number" data-target="100" data-suffix="%">0</span>
-          <h3>À votre rythme</h3>
+          <h3 data-i18n="proofCards.pace">À votre rythme</h3>
         </div>
 
         <div class="proof-card">
           <span class="proof-number" data-target="24" data-prefix="24h/">0</span>
-          <h3>Accessible partout</h3>
+          <h3 data-i18n="proofCards.anywhere">Accessible partout</h3>
         </div>
       </div>
     </section>
@@ -29,20 +29,17 @@
     <section class="journey-section" aria-label="Parcours utilisateur">
       <div class="journey-shell">
         <div class="journey-heading">
-          <span class="journey-kicker">Parcours utilisateur</span>
-          <h2>Comment Yoga2 fonctionne</h2>
-          <p>
-            Un parcours simple et guidé pour comprendre immédiatement comment
-            découvrir, suivre et faire évoluer votre pratique.
-          </p>
+          <span class="journey-kicker" data-i18n="journey.kicker">Parcours utilisateur</span>
+          <h2 data-i18n="journey.heading">Comment Yoga App AI fonctionne</h2>
+          <p data-i18n="journey.description">Un parcours simple et guidé pour comprendre immédiatement comment découvrir, suivre et faire évoluer votre pratique.</p>
         </div>
 
         <div class="journey-steps" role="list">
           <article class="journey-step" role="listitem" data-step="1">
             <span class="journey-step-index">1</span>
             <div class="journey-step-content">
-              <h3>Choisissez un programme</h3>
-              <p>Débutant, intermédiaire ou avancé selon votre niveau du moment.</p>
+              <h3 data-i18n="journey.step1.title">Choisissez un programme</h3>
+              <p data-i18n="journey.step1.desc">Débutant, intermédiaire ou avancé selon votre niveau du moment.</p>
             </div>
           </article>
 
@@ -56,8 +53,8 @@
           <article class="journey-step" role="listitem" data-step="2">
             <span class="journey-step-index">2</span>
             <div class="journey-step-content">
-              <h3>Suivez vos séances</h3>
-              <p>Chaque séance est guidée pour vous aider à rester concentré.</p>
+              <h3 data-i18n="journey.step2.title">Suivez vos séances</h3>
+              <p data-i18n="journey.step2.desc">Chaque séance est guidée pour vous aider à rester concentré.</p>
             </div>
           </article>
 
@@ -71,8 +68,8 @@
           <article class="journey-step" role="listitem" data-step="3">
             <span class="journey-step-index">3</span>
             <div class="journey-step-content">
-              <h3>Progressez à votre rythme</h3>
-              <p>La plateforme s’adapte à votre énergie et à votre régularité.</p>
+              <h3 data-i18n="journey.step3.title">Progressez à votre rythme</h3>
+              <p data-i18n="journey.step3.desc">La plateforme s'adapte à votre énergie et à votre régularité.</p>
             </div>
           </article>
 
@@ -86,8 +83,8 @@
           <article class="journey-step" role="listitem" data-step="4">
             <span class="journey-step-index">4</span>
             <div class="journey-step-content">
-              <h3>Retrouvez votre équilibre</h3>
-              <p>Installez une routine claire, durable et rassurante au quotidien.</p>
+              <h3 data-i18n="journey.step4.title">Retrouvez votre équilibre</h3>
+              <p data-i18n="journey.step4.desc">Installez une routine claire, durable et rassurante au quotidien.</p>
             </div>
           </article>
         </div>
@@ -264,7 +261,9 @@
     }
 
     const journeySteps = Array.from(section.querySelectorAll(".journey-step"));
-    const journeyArrows = Array.from(section.querySelectorAll(".journey-arrow"));
+    const journeyArrows = Array.from(
+      section.querySelectorAll(".journey-arrow"),
+    );
     const prefersReducedMotion =
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
