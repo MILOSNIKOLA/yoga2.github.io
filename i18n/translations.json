@@ -9,6 +9,8 @@
         "close": "Fermer"
       },
       "nav": {
+        "home": "Accueil",
+        "foundations": "Fondements",
         "sessions": "Séances",
         "breathing": "Respiration",
         "progress": "Progression",
@@ -252,23 +254,31 @@
       }
     },
     "foundations": {
+      "pageTitle": "Fondements - Yoga App",
+      "pageDescription": "Explorez les quatre fondements du yoga : équilibre, respiration, conscience et gratitude.",
+      "pageHeading": "Quatre portes d'entrée dans la pratique",
+      "pageIntro": "Chaque carte de l'accueil ouvre ici une section dédiée. Cliquez sur un fondement pour aller directement au bon endroit.",
       "title": "Les fondements du yoga",
       "intro": "Découvrez les principes essentiels qui sous-tendent la pratique du yoga",
       "pillar1": {
         "title": "Équilibre",
-        "desc": "Harmonie entre le corps et l'esprit"
+        "desc": "Harmonie entre le corps et l'esprit",
+        "pageDesc": "Stabilité, ancrage et alignement. Cette base aide à rester présent sans rigidité, dans une posture à la fois ferme et fluide."
       },
       "pillar2": {
         "title": "Respiration",
-        "desc": "Prana, l'énergie vitale respirée"
+        "desc": "Prana, l'énergie vitale respirée",
+        "pageDesc": "Le souffle guide le rythme de la pratique. Il soutient le mouvement, apaise le système nerveux et ramène l'attention à l'instant."
       },
       "pillar3": {
         "title": "Conscience",
-        "desc": "Présence et attention à chaque instant"
+        "desc": "Présence et attention à chaque instant",
+        "pageDesc": "Observer ce qui se passe dans le corps et dans l'esprit, sans jugement, pour pratiquer avec plus de lucidité et de précision."
       },
       "pillar4": {
         "title": "Gratitude",
-        "desc": "Reconnaissance et bienveillance envers soi"
+        "desc": "Reconnaissance et bienveillance envers soi",
+        "pageDesc": "Terminer la pratique avec reconnaissance et bienveillance donne du sens à l'effort et nourrit une relation plus douce avec soi-même."
       }
     },
     "breathing": {
@@ -864,6 +874,8 @@
         "close": "Close"
       },
       "nav": {
+        "home": "Home",
+        "foundations": "Foundations",
         "sessions": "Sessions",
         "breathing": "Breathing",
         "progress": "Progress",
@@ -1107,23 +1119,31 @@
       }
     },
     "foundations": {
+      "pageTitle": "Foundations - Yoga App",
+      "pageDescription": "Explore the four foundations of yoga: balance, breathing, consciousness, and gratitude.",
+      "pageHeading": "Four entry points into practice",
+      "pageIntro": "Each card on the home page opens a dedicated section here. Click a foundation to jump straight to it.",
       "title": "The Foundations of Yoga",
       "intro": "Discover the essential principles that underlie yoga practice",
       "pillar1": {
         "title": "Balance",
-        "desc": "Harmony between body and mind"
+        "desc": "Harmony between body and mind",
+        "pageDesc": "Stability, grounding and alignment. This base helps you stay present without rigidity, in a posture that is both firm and fluid."
       },
       "pillar2": {
         "title": "Breathing",
-        "desc": "Prana, the vital energy breathed"
+        "desc": "Prana, the vital energy breathed",
+        "pageDesc": "The breath guides the rhythm of practice. It supports movement, soothes the nervous system and brings attention back to the present moment."
       },
       "pillar3": {
         "title": "Consciousness",
-        "desc": "Presence and attention at every moment"
+        "desc": "Presence and attention at every moment",
+        "pageDesc": "Observe what is happening in body and mind without judgment, so you can practice with more clarity and precision."
       },
       "pillar4": {
         "title": "Gratitude",
-        "desc": "Recognition and kindness toward oneself"
+        "desc": "Recognition and kindness toward oneself",
+        "pageDesc": "Ending practice with gratitude and kindness gives meaning to effort and nurtures a gentler relationship with yourself."
       }
     },
     "breathing": {
@@ -1807,6 +1827,8 @@
         "close": "Zatvori"
       },
       "nav": {
+        "home": "Početna",
+        "foundations": "Temelji",
         "sessions": "Sesije",
         "breathing": "Disanje",
         "progress": "Napredak",
@@ -2050,23 +2072,31 @@
       }
     },
     "foundations": {
+      "pageTitle": "Temelji - Yoga App",
+      "pageDescription": "Istražite četiri temelja joge: ravnotežu, disanje, svest i zahvalnost.",
+      "pageHeading": "Četiri ulaza u praksu",
+      "pageIntro": "Svaka kartica sa početne stranice otvara ovde posebnu sekciju. Kliknite na temelj da biste odmah prešli na njega.",
       "title": "Temelji joge",
       "intro": "Otkrijte suštinske principe koji podržavaju jogu praksu",
       "pillar1": {
         "title": "Ravnoteža",
-        "desc": "Harmonija između tela i uma"
+        "desc": "Harmonija između tela i uma",
+        "pageDesc": "Stabilnost, uzemljenje i poravnanje. Ova osnova pomaže da ostanete prisutni bez ukočenosti, u položaju koji je istovremeno čvrst i fluidan."
       },
       "pillar2": {
         "title": "Disanje",
-        "desc": "Prana, vitalna energija koja se diše"
+        "desc": "Prana, vitalna energija koja se diše",
+        "pageDesc": "Dah vodi ritam prakse. Podržava pokret, smiruje nervni sistem i vraća pažnju u sadašnji trenutak."
       },
       "pillar3": {
         "title": "Svesnost",
-        "desc": "Prisustvo i pažnja u svakom trenutku"
+        "desc": "Prisustvo i pažnja u svakom trenutku",
+        "pageDesc": "Posmatrajte šta se dešava u telu i umu bez osuđivanja, kako biste vežbali sa više jasnoće i preciznosti."
       },
       "pillar4": {
         "title": "Zahvalnost",
-        "desc": "Priznanje i dobrota prema sebi"
+        "desc": "Priznanje i dobrota prema sebi",
+        "pageDesc": "Završavanje prakse sa zahvalnošću i blagošću daje smisao naporu i neguje nežniji odnos prema sebi."
       }
     },
     "breathing": {
