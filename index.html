@@ -53,7 +53,7 @@
     <link rel="stylesheet" href="css/proof-section.css" />
     <link rel="icon" type="image/png" href="./favicon-48x481.png" />
   </head>
-  <body class="has-sticky-navbar">
+  <body class="has-sticky-navbar page-index">
     <!-- Navbar -->
     <nav class="navbar" id="mainNavbar">
       <div class="container navbar-content">
@@ -896,6 +896,17 @@
               >
                 Passez à Premium
               </h2>
+              <div class="test" data-animate="fade-up" data-delay="120">
+                <p class="test-stars" aria-label="5 étoiles">⭐⭐⭐⭐⭐</p>
+                <p class="test-proof">
+                  Déjà adopté par des centaines de pratiquants
+                </p>
+                <p class="test-price">9€/mois après l'essai gratuit</p>
+                <ul class="test-points" aria-label="Avantages de l'essai">
+                  <li>7 jours gratuits</li>
+                  <li>Sans engagement</li>
+                </ul>
+              </div>
               <p
                 class="premium-offer-description"
                 data-i18n="home.premium.description"
@@ -1245,7 +1256,7 @@
           display: grid;
           grid-template-columns: 1fr 1fr;
           grid-auto-flow: column;
-          gap-height: -4rem;
+          row-gap: 0;
 
           align-items: center;
           column-gap: 40px;
@@ -1453,6 +1464,191 @@
           blocks.forEach((b) => io.observe(b));
         })();
       </script>
+    </section>
+
+    <!-- AI Coach Premium Section -->
+    <section class="coach-ai-section" aria-labelledby="coach-ai-title">
+      <div class="coach-ai-shell">
+        <header class="coach-ai-header" data-animate="fade-up">
+          <p class="coach-ai-kicker">Votre Coach IA Personnel</p>
+          <h2 class="coach-ai-title" id="coach-ai-title">
+            Votre coach IA vous accompagne chaque jour
+          </h2>
+          <p class="coach-ai-subtitle">
+            Recevez des recommandations de yoga personnalisées selon votre
+            niveau, vos objectifs, votre temps disponible et votre énergie du
+            moment.
+          </p>
+        </header>
+
+        <div class="coach-ai-grid">
+          <article class="coach-ai-card" data-animate="fade-up" data-delay="60">
+            <span class="coach-ai-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" role="img">
+                <circle
+                  cx="12"
+                  cy="8"
+                  r="4"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+                <path
+                  d="M5.5 20a6.5 6.5 0 0 1 13 0"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M18.5 4.5l2 2m-2 0l2-2"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <h3>Analyse de votre niveau</h3>
+            <p>
+              L'intelligence artificielle évalue votre expérience, votre
+              condition physique et vos préférences afin de vous proposer des
+              séances adaptées dès le premier jour.
+            </p>
+          </article>
+
+          <article
+            class="coach-ai-card"
+            data-animate="fade-up"
+            data-delay="140"
+          >
+            <span class="coach-ai-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" role="img">
+                <path
+                  d="M4 12a8 8 0 0 1 13.66-5.66"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M20 12a8 8 0 0 1-13.66 5.66"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M16 4.5h3.5V8"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8 19.5H4.5V16"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            <h3>Recommandations personnalisées</h3>
+            <p>
+              Recevez chaque jour des séances sélectionnées spécialement pour
+              vous afin de progresser plus rapidement et de rester motivé.
+            </p>
+          </article>
+
+          <article
+            class="coach-ai-card"
+            data-animate="fade-up"
+            data-delay="220"
+          >
+            <span class="coach-ai-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" role="img">
+                <path
+                  d="M4 18V9m5 9V6m5 12v-4m5 4V11"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M3 20h18"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <h3>Suivi intelligent</h3>
+            <p>
+              Visualisez votre progression, vos habitudes de pratique et vos
+              performances grâce à un tableau de bord clair et intuitif.
+            </p>
+          </article>
+
+          <article
+            class="coach-ai-card"
+            data-animate="fade-up"
+            data-delay="300"
+          >
+            <span class="coach-ai-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" role="img">
+                <path
+                  d="M4 15.5a4 4 0 0 1 4-4h8a4 4 0 1 1 0 8H8a4 4 0 0 1-4-4Z"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+                <path
+                  d="M10 8.5a4 4 0 0 1 4-4h2"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M18 4.5l2 2m0-2l-2 2"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <h3>Adaptation automatique</h3>
+            <p>
+              Votre programme évolue automatiquement en fonction de votre
+              progression, de votre disponibilité et de vos objectifs de
+              bien-être.
+            </p>
+          </article>
+        </div>
+
+        <aside
+          class="coach-ai-highlights"
+          aria-label="Avantages IA"
+          data-animate="fade-up"
+          data-delay="140"
+        >
+          <p class="coach-ai-highlights-title">Ce que l'IA change pour vous</p>
+          <ul>
+            <li>
+              <span aria-hidden="true">&#10024;</span> Plus de personnalisation
+            </li>
+            <li>
+              <span aria-hidden="true">&#10024;</span> Progression plus rapide
+            </li>
+            <li>
+              <span aria-hidden="true">&#10024;</span> Motivation renforcée
+            </li>
+            <li>
+              <span aria-hidden="true">&#10024;</span> Expérience unique grâce à
+              l'IA
+            </li>
+          </ul>
+        </aside>
+
+        <div class="coach-ai-cta-wrap" data-animate="fade-up" data-delay="220">
+          <a href="register.html" class="btn btn-primary coach-ai-cta">
+            Découvrir mon programme personnalisé
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- External Resources Section -->
@@ -1689,6 +1885,7 @@
     <script defer src="js/premium-animations.js"></script>
     <script defer src="js/scroll-animations.js"></script>
     <script defer src="js/cta-background.js"></script>
+    <script defer src="js/section-title-navigation.js"></script>
     <!-- Chatbot flottant premium Yoga2 -->
     <div class="y2-chatbot" aria-hidden="true">
       <style>
