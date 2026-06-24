@@ -1249,6 +1249,30 @@ a:hover {
   text-transform: capitalize;
 }
 
+.section-title-clickable {
+  cursor: pointer;
+  user-select: none;
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+.section-title-clickable:hover {
+  color: var(--accent);
+}
+
+.section-title-clickable:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+
+.section-title.is-clicked,
+.section-title-clickable.is-clicked {
+  color: var(--accent);
+  text-shadow: 0 0 14px rgba(59, 130, 246, 0.28);
+}
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 360px));
@@ -1825,6 +1849,25 @@ a:hover {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
+}
+
+.page-index .yoga-section .yoga-benefits {
+  display: none;
+}
+
+.section-details-page {
+  min-height: 100vh;
+  padding: 3rem 0 5rem;
+  background: linear-gradient(
+    145deg,
+    var(--bg-primary) 0%,
+    var(--bg-secondary) 100%
+  );
+}
+
+.section-details-title {
+  text-decoration: none;
+  margin: 2rem 0;
 }
 
 .benefit-item {
