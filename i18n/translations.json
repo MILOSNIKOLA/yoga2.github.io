@@ -676,6 +676,54 @@
           "description": "Suivez des flows structurés qui respectent votre niveau, votre temps et votre énergie — pour une progression douce et mesurable."
         }
       },
+      "aiCoach": {
+        "kicker": "Votre Coach IA Personnel",
+        "title": "Votre coach IA vous accompagne chaque jour",
+        "subtitle": "Recevez des recommandations de yoga personnalisées selon votre niveau, vos objectifs, votre temps disponible et votre énergie du moment.",
+        "cards": {
+          "analysis": {
+            "title": "Analyse de votre niveau",
+            "desc": "L'intelligence artificielle évalue votre expérience, votre condition physique et vos préférences afin de vous proposer des séances adaptées dès le premier jour."
+          },
+          "recommendations": {
+            "title": "Recommandations personnalisées",
+            "desc": "Recevez chaque jour des séances sélectionnées spécialement pour vous afin de progresser plus rapidement et de rester motivé."
+          },
+          "tracking": {
+            "title": "Suivi intelligent",
+            "desc": "Visualisez votre progression, vos habitudes de pratique et vos performances grâce à un tableau de bord clair et intuitif."
+          },
+          "adaptation": {
+            "title": "Adaptation automatique",
+            "desc": "Votre programme évolue automatiquement en fonction de votre progression, de votre disponibilité et de vos objectifs de bien-être."
+          }
+        },
+        "highlights": {
+          "aria": "Avantages IA",
+          "title": "Ce que l'IA change pour vous",
+          "item1": "Plus de personnalisation",
+          "item2": "Progression plus rapide",
+          "item3": "Motivation renforcée",
+          "item4": "Expérience unique grâce à l'IA"
+        },
+        "cta": "Découvrir mon programme personnalisé",
+        "dashboard": {
+          "greeting": "Bonjour Jean 👋",
+          "energyLabel": "Votre énergie aujourd'hui",
+          "recommendedLabel": "Séance recommandée",
+          "recommendedTitle": "Yoga du matin",
+          "recommendedDuration": "12 minutes",
+          "objectiveLabel": "Objectif",
+          "objectiveValue": "Relaxation",
+          "progressLabel": "Progression",
+          "streakLabel": "Streak",
+          "days": "jours",
+          "caloriesLabel": "Calories",
+          "breathingLabel": "Respiration",
+          "breathingValue": "Excellente",
+          "globalScore": "Score global"
+        }
+      },
       "resources": {
         "title": "Pour aller plus loin",
         "description": "Quelques ressources externes pour approfondir votre pratique",
@@ -1629,6 +1677,54 @@
           "description": "Follow structured flows that respect your level, your time, and your energy for gentle, measurable progress."
         }
       },
+      "aiCoach": {
+        "kicker": "Your Personal AI Coach",
+        "title": "Your AI coach supports you every day",
+        "subtitle": "Receive personalized yoga recommendations based on your level, your goals, your available time, and your current energy.",
+        "cards": {
+          "analysis": {
+            "title": "Level analysis",
+            "desc": "Artificial intelligence evaluates your experience, your physical condition, and your preferences to suggest suitable sessions from day one."
+          },
+          "recommendations": {
+            "title": "Personalized recommendations",
+            "desc": "Receive sessions selected especially for you every day so you can progress faster and stay motivated."
+          },
+          "tracking": {
+            "title": "Smart tracking",
+            "desc": "Visualize your progress, your practice habits, and your performance with a clear and intuitive dashboard."
+          },
+          "adaptation": {
+            "title": "Automatic adaptation",
+            "desc": "Your program evolves automatically according to your progress, your availability, and your wellness goals."
+          }
+        },
+        "highlights": {
+          "aria": "AI benefits",
+          "title": "What AI changes for you",
+          "item1": "More personalization",
+          "item2": "Faster progress",
+          "item3": "Stronger motivation",
+          "item4": "A unique AI-powered experience"
+        },
+        "cta": "Discover my personalized program",
+        "dashboard": {
+          "greeting": "Hello Jean 👋",
+          "energyLabel": "Your energy today",
+          "recommendedLabel": "Recommended session",
+          "recommendedTitle": "Morning yoga",
+          "recommendedDuration": "12 minutes",
+          "objectiveLabel": "Goal",
+          "objectiveValue": "Relaxation",
+          "progressLabel": "Progress",
+          "streakLabel": "Streak",
+          "days": "days",
+          "caloriesLabel": "Calories",
+          "breathingLabel": "Breathing",
+          "breathingValue": "Excellent",
+          "globalScore": "Global score"
+        }
+      },
       "resources": {
         "title": "Further resources",
         "description": "A few external resources to deepen your practice",
@@ -2580,6 +2676,54 @@
         "block4": {
           "title": "Vođena praksa",
           "description": "Pratite strukturirane tokove koji poštuju vaš nivo, vaše vreme i vašu energiju, za nežan i merljiv napredak."
+        }
+      },
+      "aiCoach": {
+        "kicker": "Vaš lični AI trener",
+        "title": "Vaš AI trener vas prati svakog dana",
+        "subtitle": "Dobijajte personalizovane preporuke za jogu prema vašem nivou, ciljevima, raspoloživom vremenu i trenutnoj energiji.",
+        "cards": {
+          "analysis": {
+            "title": "Analiza vašeg nivoa",
+            "desc": "Veštačka inteligencija procenjuje vaše iskustvo, fizičku spremu i preferencije kako bi vam predložila odgovarajuće sesije već od prvog dana."
+          },
+          "recommendations": {
+            "title": "Personalizovane preporuke",
+            "desc": "Svakog dana dobijajte sesije odabrane posebno za vas kako biste brže napredovali i ostali motivisani."
+          },
+          "tracking": {
+            "title": "Pametno praćenje",
+            "desc": "Pratite svoj napredak, navike vežbanja i rezultate kroz jasan i intuitivan kontrolni panel."
+          },
+          "adaptation": {
+            "title": "Automatsko prilagođavanje",
+            "desc": "Vaš program se automatski prilagođava vašem napretku, raspoloživom vremenu i ciljevima blagostanja."
+          }
+        },
+        "highlights": {
+          "aria": "Prednosti AI",
+          "title": "Šta AI menja za vas",
+          "item1": "Više personalizacije",
+          "item2": "Brži napredak",
+          "item3": "Jača motivacija",
+          "item4": "Jedinstveno iskustvo uz AI"
+        },
+        "cta": "Otkrij moj personalizovani program",
+        "dashboard": {
+          "greeting": "Zdravo Jean 👋",
+          "energyLabel": "Vaša energija danas",
+          "recommendedLabel": "Preporučena sesija",
+          "recommendedTitle": "Joga ujutru",
+          "recommendedDuration": "12 minuta",
+          "objectiveLabel": "Cilj",
+          "objectiveValue": "Relaksacija",
+          "progressLabel": "Napredak",
+          "streakLabel": "Streak",
+          "days": "dana",
+          "caloriesLabel": "Kalorije",
+          "breathingLabel": "Disanje",
+          "breathingValue": "Odlično",
+          "globalScore": "Ukupan skor"
         }
       },
       "resources": {

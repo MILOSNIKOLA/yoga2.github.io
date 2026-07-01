@@ -185,6 +185,39 @@ const SITE_TRANSLATIONS = {
           "Des séances de yoga guidées, accessibles à tout moment et à votre rythme.",
         button: "Créer mon compte gratuit",
       },
+      aiCoach: {
+        kicker: "Votre Coach IA Personnel",
+        title: "Votre coach IA vous accompagne chaque jour",
+        subtitle:
+          "Recevez des recommandations de yoga personnalisées selon votre niveau, vos objectifs, votre temps disponible et votre énergie du moment.",
+        cards: {
+          analysis: {
+            title: "Analyse de votre niveau",
+            desc: "L'intelligence artificielle évalue votre expérience, votre condition physique et vos préférences afin de vous proposer des séances adaptées dès le premier jour.",
+          },
+          recommendations: {
+            title: "Recommandations personnalisées",
+            desc: "Recevez chaque jour des séances sélectionnées spécialement pour vous afin de progresser plus rapidement et de rester motivé.",
+          },
+          tracking: {
+            title: "Suivi intelligent",
+            desc: "Visualisez votre progression, vos habitudes de pratique et vos performances grâce à un tableau de bord clair et intuitif.",
+          },
+          adaptation: {
+            title: "Adaptation automatique",
+            desc: "Votre programme évolue automatiquement en fonction de votre progression, de votre disponibilité et de vos objectifs de bien-être.",
+          },
+        },
+        highlights: {
+          aria: "Avantages IA",
+          title: "Ce que l'IA change pour vous",
+          item1: "Plus de personnalisation",
+          item2: "Progression plus rapide",
+          item3: "Motivation renforcée",
+          item4: "Expérience unique grâce à l'IA",
+        },
+        cta: "Découvrir mon programme personnalisé",
+      },
       newsletter: {
         title: "Restez informé",
         description:
@@ -229,10 +262,10 @@ const SITE_TRANSLATIONS = {
   // ═══════════════════════════════════════════════════════════════════
   sr: {
     common: {
-      backHome: "Повратак на почетну",
+      backHome: "Povratak na početnu",
       aria: {
-        language: "Промените језик",
-        theme: "Промените тему",
+        language: "Promeni jezik",
+        theme: "Promeni temu",
       },
     },
 
@@ -346,52 +379,85 @@ const SITE_TRANSLATIONS = {
       hero: {
         title:
           "AI personalizovane yoga sesije prema vašem nivou, vremenu i energiji",
-        subtitle: "Пронађите мир и добробит кроз вођене јога сесије",
-        daily: "Данашња сесија",
-        breathing: "Брзо дисање",
-        gentle: "Благо истезање",
+        subtitle: "Pronađite mir i blagostanje kroz vođene joga sesije",
+        daily: "Današnja sesija",
+        breathing: "Brzo disanje",
+        gentle: "Nežno istezanje",
       },
       auth: {
-        login: "Пријавите се",
-        register: "Направите налог",
-        demo: "Бесплатни проба",
-        dashboard: "Мој простор",
-        logout: "Одјавите се",
+        login: "Prijavite se",
+        register: "Napravite nalog",
+        demo: "Besplatna proba",
+        dashboard: "Moj prostor",
+        logout: "Odjavite se",
       },
       features: {
-        title: "Јога прилагођена вама",
+        title: "Joga prilagođena vama",
         understand: {
-          title: "Разумети",
-          desc: "Теорија, намере и дисање једноставно објашњени",
+          title: "Razumeti",
+          desc: "Teorija, namere i disanje objašnjeni jednostavno",
         },
         practice: {
-          title: "Вежбати",
-          desc: "Вођене сесије прилагођене вашем нивоу и времену",
+          title: "Vežbati",
+          desc: "Vođene sesije prilagođene vašem nivou i vremenu",
         },
         progress: {
-          title: "Напредовати",
-          desc: "Пратите своју редовност и прославите своје тренутке",
+          title: "Napredovati",
+          desc: "Pratite svoju redovnost i proslavite svoje trenutke",
         },
         feel: {
-          title: "Осетити",
-          desc: "Мир, самопоуздање и добробит на дохват руке",
+          title: "Osetiti",
+          desc: "Mir, samopouzdanje i blagostanje na dohvat ruke",
         },
       },
       sessions: {
-        title: "Популарне сесије",
-        viewAll: "Погледајте све сесије",
+        title: "Popularne sesije",
+        viewAll: "Pogledajte sve sesije",
       },
       cta: {
-        title: "Започните своје путовање данас",
+        title: "Započnite svoje putovanje danas",
         description:
-          "Придружите се хиљадама људи који су пронашли своју равнотежу",
-        button: "Направите бесплатан налог",
+          "Pridružite se hiljadama ljudi koji su pronašli svoju ravnotežu",
+        button: "Napravite besplatan nalog",
+      },
+      aiCoach: {
+        kicker: "Vaš lični AI trener",
+        title: "Vaš AI trener vas prati svakog dana",
+        subtitle:
+          "Dobijajte personalizovane preporuke za jogu prema vašem nivou, ciljevima, raspoloživom vremenu i trenutnoj energiji.",
+        cards: {
+          analysis: {
+            title: "Analiza vašeg nivoa",
+            desc: "Veštačka inteligencija procenjuje vaše iskustvo, fizičku spremu i preferencije kako bi vam predložila odgovarajuće sesije već od prvog dana.",
+          },
+          recommendations: {
+            title: "Personalizovane preporuke",
+            desc: "Svakog dana dobijajte sesije odabrane posebno za vas kako biste brže napredovali i ostali motivisani.",
+          },
+          tracking: {
+            title: "Pametno praćenje",
+            desc: "Pratite svoj napredak, navike vežbanja i rezultate kroz jasan i intuitivan kontrolni panel.",
+          },
+          adaptation: {
+            title: "Automatsko prilagođavanje",
+            desc: "Vaš program se automatski prilagođava vašem napretku, raspoloživom vremenu i ciljevima blagostanja.",
+          },
+        },
+        highlights: {
+          aria: "Prednosti AI",
+          title: "Šta AI menja za vas",
+          item1: "Više personalizacije",
+          item2: "Brži napredak",
+          item3: "Jača motivacija",
+          item4: "Jedinstveno iskustvo uz AI",
+        },
+        cta: "Otkrij moj personalizovani program",
       },
       newsletter: {
-        title: "Останите информисани",
-        description: "Примите наше савете за јогу и нове сесије сваке недеље",
-        placeholder: "Ваш имејл",
-        subscribe: "Пријавите се",
+        title: "Ostanite informisani",
+        description: "Primajte naše savete za jogu i nove sesije svake nedelje",
+        placeholder: "Vaš email",
+        subscribe: "Prijavite se",
       },
     },
 
@@ -401,27 +467,27 @@ const SITE_TRANSLATIONS = {
     footer: {
       brand: {
         title: "Yoga App",
-        tagline: "Ваш свакодневни пратилац у пракси",
+        tagline: "Vaš dnevni partner za vežbanje",
       },
       explore: {
-        title: "Истражите",
-        sessions: "Сесије",
-        breathing: "Дисање",
-        learning: "Учити",
+        title: "Istražite",
+        sessions: "Sesije",
+        breathing: "Disanje",
+        learning: "Učite",
       },
       account: {
-        title: "Налог",
-        login: "Пријава",
-        register: "Регистрација",
-        dashboard: "Мој простор",
+        title: "Nalog",
+        login: "Prijavite se",
+        register: "Registrujte se",
+        dashboard: "Moj prostor",
       },
       legal: {
-        title: "Правно",
-        privacy: "Приватност",
-        terms: "Услови коришћења",
-        contact: "Контакт",
+        title: "Pravni",
+        privacy: "Politika privatnosti",
+        terms: "Uslovi korišćenja",
+        contact: "Kontakt",
       },
-      copyright: "© 2026 Yoga App. Сва права задржана.",
+      copyright: "© 2026 Yoga App. Sva prava zadržana.",
     },
   },
 
@@ -586,6 +652,39 @@ const SITE_TRANSLATIONS = {
         title: "Start Your Journey Today",
         description: "Join thousands who have found their balance",
         button: "Create My Free Account",
+      },
+      aiCoach: {
+        kicker: "Your Personal AI Coach",
+        title: "Your AI coach supports you every day",
+        subtitle:
+          "Receive personalized yoga recommendations based on your level, your goals, your available time, and your current energy.",
+        cards: {
+          analysis: {
+            title: "Level analysis",
+            desc: "Artificial intelligence evaluates your experience, your physical condition, and your preferences to suggest suitable sessions from day one.",
+          },
+          recommendations: {
+            title: "Personalized recommendations",
+            desc: "Receive sessions selected especially for you every day so you can progress faster and stay motivated.",
+          },
+          tracking: {
+            title: "Smart tracking",
+            desc: "Visualize your progress, your practice habits, and your performance with a clear and intuitive dashboard.",
+          },
+          adaptation: {
+            title: "Automatic adaptation",
+            desc: "Your program evolves automatically according to your progress, your availability, and your wellness goals.",
+          },
+        },
+        highlights: {
+          aria: "AI benefits",
+          title: "What AI changes for you",
+          item1: "More personalization",
+          item2: "Faster progress",
+          item3: "Stronger motivation",
+          item4: "A unique AI-powered experience",
+        },
+        cta: "Discover my personalized program",
       },
       newsletter: {
         title: "Stay Informed",

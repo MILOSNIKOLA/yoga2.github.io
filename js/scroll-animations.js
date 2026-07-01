@@ -469,6 +469,213 @@ class LazyLoadImages {
 }
 
 /* ========================================
+   COACH AI PREMIUM EXPERIENCE
+   ======================================== */
+
+class CoachAiPremium {
+  constructor() {
+    this.section = document.querySelector(".coach-ai-section");
+    this.shell = document.querySelector(".coach-ai-shell");
+    this.dashboard = null;
+    this.rafScheduled = false;
+    this.lastScrollY = window.scrollY;
+    this.hasPlayedStats = false;
+
+    if (!this.section || !this.shell) return;
+
+    this.injectDashboard();
+    this.setupVisibility();
+    this.setupPointerEffects();
+    this.setupParallax();
+  }
+
+  injectDashboard() {
+    if (this.shell.querySelector(".coach-ai-dashboard")) {
+      this.dashboard = this.shell.querySelector(".coach-ai-dashboard");
+      return;
+    }
+
+    const dashboard = document.createElement("aside");
+    dashboard.className = "coach-ai-dashboard coach-ai-dashboard-floating";
+    dashboard.innerHTML = `
+      <p class="coach-ai-dashboard-greeting" data-i18n="home.aiCoach.dashboard.greeting">Bonjour Jean 👋</p>
+
+      <p class="coach-ai-dashboard-energy-label" data-i18n="home.aiCoach.dashboard.energyLabel">Votre énergie aujourd'hui</p>
+      <div class="coach-ai-dashboard-energy-row">
+        <span class="coach-ai-dashboard-energy-count" data-counter-value="82">0</span>
+        <span>%</span>
+      </div>
+      <div class="coach-ai-dashboard-energy-bar" aria-hidden="true">
+        <div class="coach-ai-dashboard-energy-fill"></div>
+      </div>
+
+      <div class="coach-ai-dashboard-grid">
+        <div class="coach-ai-dashboard-tile">
+          <p class="coach-ai-dashboard-meta-label" data-i18n="home.aiCoach.dashboard.recommendedLabel">Séance recommandée</p>
+          <strong data-i18n="home.aiCoach.dashboard.recommendedTitle">Yoga du matin</strong>
+          <strong data-i18n="home.aiCoach.dashboard.recommendedDuration">12 minutes</strong>
+        </div>
+
+        <div class="coach-ai-dashboard-tile">
+          <p class="coach-ai-dashboard-meta-label" data-i18n="home.aiCoach.dashboard.objectiveLabel">Objectif</p>
+          <strong data-i18n="home.aiCoach.dashboard.objectiveValue">Relaxation</strong>
+        </div>
+
+        <div class="coach-ai-dashboard-tile">
+          <p class="coach-ai-dashboard-meta-label" data-i18n="home.aiCoach.dashboard.progressLabel">Progression</p>
+          <strong><span>+</span><span data-counter-value="14">0</span><span>%</span></strong>
+        </div>
+
+        <div class="coach-ai-dashboard-tile">
+          <p class="coach-ai-dashboard-meta-label" data-i18n="home.aiCoach.dashboard.streakLabel">Streak</p>
+          <strong><span data-counter-value="16">0</span> <span data-i18n="home.aiCoach.dashboard.days">jours</span></strong>
+        </div>
+
+        <div class="coach-ai-dashboard-tile">
+          <p class="coach-ai-dashboard-meta-label" data-i18n="home.aiCoach.dashboard.caloriesLabel">Calories</p>
+          <strong><span data-counter-value="96">0</span> kcal</strong>
+        </div>
+
+        <div class="coach-ai-dashboard-tile">
+          <p class="coach-ai-dashboard-meta-label" data-i18n="home.aiCoach.dashboard.breathingLabel">Respiration</p>
+          <strong data-i18n="home.aiCoach.dashboard.breathingValue">Excellente</strong>
+        </div>
+      </div>
+
+      <div class="coach-ai-dashboard-progress-ring">
+        <svg viewBox="0 0 60 60" aria-hidden="true">
+          <circle class="coach-ai-dashboard-progress-ring-bg" cx="30" cy="30" r="25"></circle>
+          <circle class="coach-ai-dashboard-progress-ring-bar" cx="30" cy="30" r="25"></circle>
+        </svg>
+        <div class="coach-ai-dashboard-progress-text">
+          <span data-i18n="home.aiCoach.dashboard.globalScore">Score global</span>
+          <strong>82%</strong>
+        </div>
+      </div>
+    `;
+
+    this.shell.appendChild(dashboard);
+    this.dashboard = dashboard;
+
+    if (window.i18n && typeof window.i18n.applyTranslations === "function") {
+      window.i18n.applyTranslations();
+    }
+  }
+
+  setupVisibility() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          this.shell.classList.add("is-visible");
+          if (!this.hasPlayedStats) {
+            this.hasPlayedStats = true;
+            this.animateDashboardStats();
+          }
+          observer.unobserve(this.shell);
+        });
+      },
+      { threshold: 0.24 },
+    );
+
+    observer.observe(this.shell);
+  }
+
+  animateDashboardStats() {
+    if (!this.dashboard) return;
+
+    const counters = this.dashboard.querySelectorAll("[data-counter-value]");
+    counters.forEach((el) => {
+      const target = Number(el.getAttribute("data-counter-value"));
+      this.animateNumber(el, target, 1200);
+    });
+
+    const energyFill = this.dashboard.querySelector(
+      ".coach-ai-dashboard-energy-fill",
+    );
+    if (energyFill) {
+      requestAnimationFrame(() => {
+        energyFill.style.transition =
+          "width 1250ms cubic-bezier(0.16, 1, 0.3, 1)";
+        energyFill.style.width = "82%";
+      });
+    }
+
+    const progressRing = this.dashboard.querySelector(
+      ".coach-ai-dashboard-progress-ring-bar",
+    );
+    if (progressRing) {
+      const circumference = 2 * Math.PI * 25;
+      const targetOffset = circumference * (1 - 0.82);
+      progressRing.style.strokeDasharray = `${circumference}`;
+      progressRing.style.strokeDashoffset = `${circumference}`;
+      requestAnimationFrame(() => {
+        progressRing.style.transition =
+          "stroke-dashoffset 1400ms cubic-bezier(0.16, 1, 0.3, 1)";
+        progressRing.style.strokeDashoffset = `${targetOffset}`;
+      });
+    }
+  }
+
+  animateNumber(element, target, duration) {
+    const start = performance.now();
+    const from = 0;
+
+    const tick = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.round(from + (target - from) * eased);
+      element.textContent = `${value}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      }
+    };
+
+    requestAnimationFrame(tick);
+  }
+
+  setupPointerEffects() {
+    this.shell.addEventListener("mousemove", (event) => {
+      const rect = this.shell.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      this.shell.style.setProperty("--coach-mx", `${x}%`);
+      this.shell.style.setProperty("--coach-my", `${y}%`);
+    });
+  }
+
+  setupParallax() {
+    const onScroll = () => {
+      this.lastScrollY = window.scrollY;
+      if (this.rafScheduled) return;
+
+      this.rafScheduled = true;
+      requestAnimationFrame(() => {
+        this.rafScheduled = false;
+        this.updateParallax();
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    this.updateParallax();
+  }
+
+  updateParallax() {
+    const rect = this.section.getBoundingClientRect();
+    const viewport = window.innerHeight || 1;
+    const progress = Math.max(
+      -1,
+      Math.min(1, (rect.top + rect.height / 2 - viewport / 2) / viewport),
+    );
+    const shift = progress * -14;
+    this.section.style.setProperty("--coach-parallax", `${shift.toFixed(2)}px`);
+  }
+}
+
+/* ========================================
    INITIALIZE ON DOM READY
    ======================================== */
 
@@ -484,6 +691,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize lazy loading
   new LazyLoadImages();
+
+  // Coach AI premium experience (injected dashboard + advanced micro interactions)
+  new CoachAiPremium();
 });
 
 /* ========================================
@@ -494,6 +704,7 @@ if (typeof module !== "undefined" && module.exports) {
   module.exports = {
     ScrollAnimations,
     AdvancedScrollEffects,
+    CoachAiPremium,
     RevealTextOnScroll,
     LazyLoadImages,
   };

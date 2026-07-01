@@ -1585,3 +1585,661 @@
     transform: none;
   }
 }
+
+/* ========================================
+   AI COACH PREMIUM V2 (SAAS 2026 UPGRADE)
+   ======================================== */
+
+.coach-ai-section {
+  isolation: isolate;
+  --coach-mx: 50%;
+  --coach-my: 50%;
+  --coach-parallax: 0px;
+}
+
+.coach-ai-section::before,
+.coach-ai-section::after {
+  content: "";
+  position: absolute;
+  inset: -18% -8% auto;
+  height: 68%;
+  z-index: -2;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.coach-ai-section::before {
+  background:
+    radial-gradient(
+      circle at 12% 20%,
+      rgba(74, 222, 128, 0.24),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 88% 30%,
+      rgba(45, 212, 191, 0.2),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 50% 76%,
+      rgba(16, 185, 129, 0.16),
+      transparent 42%
+    );
+  animation: coachAuroraDrift 26s ease-in-out infinite alternate;
+}
+
+.coach-ai-section::after {
+  background:
+    radial-gradient(
+      circle at 70% 18%,
+      rgba(125, 211, 252, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 30% 76%,
+      rgba(74, 222, 128, 0.16),
+      transparent 34%
+    );
+  animation: coachAuroraDrift 32s ease-in-out infinite alternate-reverse;
+}
+
+.coach-ai-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.28fr) minmax(290px, 0.72fr);
+  grid-template-areas:
+    "header dashboard"
+    "cards dashboard"
+    "highlights dashboard"
+    "cta dashboard";
+  column-gap: clamp(1rem, 2vw, 1.6rem);
+  row-gap: 1rem;
+  transform: translate3d(0, 80px, 0) scale(0.965);
+  opacity: 0;
+  filter: blur(12px);
+  will-change: transform, opacity, filter;
+  transition:
+    transform 1100ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 480ms ease;
+  background:
+    radial-gradient(
+      circle at var(--coach-mx) var(--coach-my),
+      rgba(74, 222, 128, 0.16),
+      transparent 44%
+    ),
+    linear-gradient(150deg, rgba(16, 185, 129, 0.1), transparent 45%),
+    linear-gradient(145deg, rgba(6, 18, 24, 0.9), rgba(5, 14, 20, 0.95));
+}
+
+.coach-ai-shell.is-visible {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+  filter: blur(0);
+}
+
+.coach-ai-shell::before {
+  animation: coachHaloFloat 18s ease-in-out infinite;
+}
+
+.coach-ai-shell::after {
+  animation: coachHaloFloat 22s ease-in-out infinite reverse;
+}
+
+.coach-ai-shell .coach-ai-header {
+  grid-area: header;
+  text-align: left;
+  margin: 0;
+}
+
+.coach-ai-shell .coach-ai-grid {
+  grid-area: cards;
+  margin-top: 0.3rem;
+}
+
+.coach-ai-shell .coach-ai-highlights {
+  grid-area: highlights;
+  margin-top: 0.2rem;
+}
+
+.coach-ai-shell .coach-ai-cta-wrap {
+  grid-area: cta;
+  margin-top: 0.45rem;
+  text-align: left;
+}
+
+.coach-ai-kicker,
+.coach-ai-title,
+.coach-ai-subtitle,
+.coach-ai-highlights-title {
+  text-shadow: 0 0 0 rgba(74, 222, 128, 0);
+  transition: text-shadow 320ms ease;
+}
+
+.coach-ai-shell:hover .coach-ai-title,
+.coach-ai-shell:hover .coach-ai-highlights-title {
+  text-shadow: 0 0 20px rgba(74, 222, 128, 0.16);
+}
+
+.coach-ai-grid {
+  perspective: 1200px;
+}
+
+.coach-ai-card {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity, filter, box-shadow;
+  transition:
+    transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 350ms ease,
+    box-shadow 350ms ease,
+    background 350ms ease,
+    filter 350ms ease;
+}
+
+.coach-ai-card::before,
+.coach-ai-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.coach-ai-card::before {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.03) 32%,
+    transparent 56%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.75;
+}
+
+.coach-ai-card::after {
+  background: radial-gradient(
+    circle at 80% 0%,
+    rgba(74, 222, 128, 0.22),
+    transparent 44%
+  );
+  opacity: 0;
+  transition: opacity 350ms ease;
+}
+
+.coach-ai-card h3,
+.coach-ai-card p {
+  transition: color 350ms ease;
+}
+
+.coach-ai-card .coach-ai-icon {
+  animation:
+    coachIconBreathe 4.8s ease-in-out infinite,
+    coachIconRotate 24s linear infinite;
+  transition:
+    transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 350ms ease,
+    filter 350ms ease;
+  will-change: transform, filter;
+}
+
+.coach-ai-card .coach-ai-icon::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 18px;
+  border: 1px solid rgba(74, 222, 128, 0.24);
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 350ms ease,
+    transform 350ms ease;
+}
+
+.coach-ai-shell.is-visible .coach-ai-card:nth-child(1) {
+  animation: coachCardIn1 820ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.coach-ai-shell.is-visible .coach-ai-card:nth-child(2) {
+  animation: coachCardIn2 900ms cubic-bezier(0.16, 1, 0.3, 1) 90ms both;
+}
+
+.coach-ai-shell.is-visible .coach-ai-card:nth-child(3) {
+  animation: coachCardIn3 920ms cubic-bezier(0.16, 1, 0.3, 1) 170ms both;
+}
+
+.coach-ai-shell.is-visible .coach-ai-card:nth-child(4) {
+  animation: coachCardIn4 960ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both;
+}
+
+.coach-ai-shell.is-visible .coach-ai-card {
+  animation-composition: replace;
+}
+
+.coach-ai-card:hover {
+  transform: translate3d(0, -12px, 0) scale(1.03);
+  box-shadow:
+    0 24px 54px rgba(3, 20, 27, 0.5),
+    0 0 0 1px rgba(74, 222, 128, 0.35);
+  border-color: rgba(74, 222, 128, 0.42);
+  filter: saturate(1.06);
+}
+
+.coach-ai-card:hover::after {
+  opacity: 1;
+}
+
+.coach-ai-card:hover .coach-ai-icon {
+  transform: translate3d(0, -4px, 0) rotate(10deg) scale(1.12);
+  filter: drop-shadow(0 0 14px rgba(74, 222, 128, 0.4));
+}
+
+.coach-ai-card:hover .coach-ai-icon::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.coach-ai-card:hover h3 {
+  color: #ecfeff;
+}
+
+.coach-ai-card:hover p {
+  color: #d9f99d;
+}
+
+.coach-ai-highlights {
+  position: relative;
+  overflow: hidden;
+}
+
+.coach-ai-highlights::after {
+  content: "";
+  position: absolute;
+  left: -26%;
+  top: 0;
+  width: 38%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.14),
+    transparent
+  );
+  animation: coachSweep 8s ease-in-out infinite;
+}
+
+.coach-ai-cta.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background-size: 240% 240%;
+  animation:
+    coachCtaGradient 8s ease-in-out infinite,
+    coachCtaPulse 4.2s ease-in-out infinite;
+  box-shadow:
+    0 16px 38px rgba(74, 222, 128, 0.3),
+    0 0 0 0 rgba(74, 222, 128, 0.24);
+  will-change: transform, box-shadow;
+}
+
+.coach-ai-cta.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -140%;
+  width: 42%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  transform: skewX(-22deg);
+  animation: coachCtaShine 6s linear infinite;
+}
+
+.coach-ai-cta.btn-primary:hover {
+  transform: translate3d(0, -5px, 0) scale(1.015);
+  box-shadow:
+    0 24px 50px rgba(74, 222, 128, 0.38),
+    0 0 0 10px rgba(74, 222, 128, 0.08);
+}
+
+.coach-ai-dashboard {
+  grid-area: dashboard;
+  position: relative;
+  border-radius: 24px;
+  padding: 1.15rem;
+  border: 1px solid rgba(74, 222, 128, 0.24);
+  background:
+    linear-gradient(180deg, rgba(12, 32, 38, 0.72), rgba(8, 22, 28, 0.84)),
+    radial-gradient(circle at 100% 0%, rgba(74, 222, 128, 0.2), transparent 48%);
+  box-shadow:
+    0 22px 48px rgba(4, 20, 24, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transform: translate3d(0, calc(var(--coach-parallax) * 1), 0);
+  will-change: transform;
+}
+
+.coach-ai-dashboard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.1) 0.7px,
+    transparent 0.7px
+  );
+  background-size: 6px 6px;
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.coach-ai-dashboard-greeting {
+  margin: 0;
+  color: #ecfeff;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.coach-ai-dashboard-energy-label,
+.coach-ai-dashboard-meta-label {
+  margin: 0.55rem 0 0;
+  color: #a7f3d0;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.coach-ai-dashboard-energy-row {
+  margin-top: 0.2rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  font-weight: 800;
+  color: #ecfccb;
+}
+
+.coach-ai-dashboard-energy-count {
+  font-size: 1.58rem;
+}
+
+.coach-ai-dashboard-energy-bar {
+  margin-top: 0.55rem;
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.coach-ai-dashboard-energy-fill {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #34d399, #4ade80);
+  box-shadow: 0 0 18px rgba(74, 222, 128, 0.45);
+}
+
+.coach-ai-dashboard-grid {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.72rem;
+}
+
+.coach-ai-dashboard-tile {
+  border-radius: 14px;
+  padding: 0.6rem 0.62rem;
+  border: 1px solid rgba(74, 222, 128, 0.18);
+  background: rgba(6, 18, 22, 0.55);
+}
+
+.coach-ai-dashboard-tile strong {
+  display: block;
+  margin-top: 0.24rem;
+  color: #f0fdf4;
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.coach-ai-dashboard-progress-ring {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.coach-ai-dashboard-progress-ring svg {
+  width: 58px;
+  height: 58px;
+  transform: rotate(-90deg);
+}
+
+.coach-ai-dashboard-progress-ring-bg,
+.coach-ai-dashboard-progress-ring-bar {
+  fill: none;
+  stroke-width: 6;
+}
+
+.coach-ai-dashboard-progress-ring-bg {
+  stroke: rgba(255, 255, 255, 0.12);
+}
+
+.coach-ai-dashboard-progress-ring-bar {
+  stroke: #4ade80;
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(74, 222, 128, 0.45));
+}
+
+.coach-ai-dashboard-progress-text {
+  color: #a7f3d0;
+  font-size: 0.84rem;
+}
+
+.coach-ai-dashboard-progress-text strong {
+  display: block;
+  margin-top: 0.18rem;
+  color: #ecfccb;
+  font-size: 1.02rem;
+}
+
+.coach-ai-dashboard-floating {
+  animation: coachDashboardFloat 7s ease-in-out infinite;
+}
+
+@media (max-width: 1050px) {
+  .coach-ai-shell {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "cards"
+      "dashboard"
+      "highlights"
+      "cta";
+  }
+
+  .coach-ai-shell .coach-ai-header,
+  .coach-ai-shell .coach-ai-cta-wrap {
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .coach-ai-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-ai-card:hover {
+    transform: translate3d(0, -8px, 0) scale(1.015);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coach-ai-section::before,
+  .coach-ai-section::after,
+  .coach-ai-shell,
+  .coach-ai-card,
+  .coach-ai-card .coach-ai-icon,
+  .coach-ai-highlights::after,
+  .coach-ai-cta.btn-primary,
+  .coach-ai-cta.btn-primary::before,
+  .coach-ai-dashboard-floating {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .coach-ai-shell {
+    filter: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes coachAuroraDrift {
+  0% {
+    transform: translate3d(-2%, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(2%, -3%, 0) scale(1.05);
+  }
+}
+
+@keyframes coachHaloFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0) scale(1.06);
+  }
+}
+
+@keyframes coachCardIn1 {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 38px, 0) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes coachCardIn2 {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translate3d(0, 26px, 0) rotate(-4deg);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+@keyframes coachCardIn3 {
+  from {
+    opacity: 0;
+    transform: translate3d(34px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes coachCardIn4 {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.9) rotateX(-24deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes coachIconBreathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes coachIconRotate {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes coachSweep {
+  0%,
+  100% {
+    left: -36%;
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.9;
+  }
+  44% {
+    left: 114%;
+    opacity: 0;
+  }
+}
+
+@keyframes coachCtaGradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes coachCtaPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 16px 38px rgba(74, 222, 128, 0.3),
+      0 0 0 0 rgba(74, 222, 128, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 19px 45px rgba(74, 222, 128, 0.38),
+      0 0 0 8px rgba(74, 222, 128, 0.04);
+  }
+}
+
+@keyframes coachCtaShine {
+  0% {
+    left: -145%;
+  }
+  20%,
+  100% {
+    left: 165%;
+  }
+}
+
+@keyframes coachDashboardFloat {
+  0%,
+  100% {
+    transform: translate3d(0, calc(var(--coach-parallax) * 1), 0);
+  }
+  50% {
+    transform: translate3d(0, calc(var(--coach-parallax) * 1 - 8px), 0);
+  }
+}
