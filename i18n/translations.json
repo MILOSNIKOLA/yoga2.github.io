@@ -15,6 +15,7 @@
         "breathing": "Respiration",
         "progress": "Progression",
         "learning": "Apprentissage",
+        "exploreSessions": "Explorer les séances",
         "beginner": "Débutant",
         "dynamic": "Dynamique",
         "relaxation": "Relaxation",
@@ -120,10 +121,10 @@
       "kicker": "Parcours utilisateur",
       "heading": "Comment Yoga App AI fonctionne",
       "description": "Un parcours simple et guidé pour comprendre immédiatement comment découvrir, suivre et faire évoluer votre pratique.",
-      "step1": { "title": "Choisissez un programme", "desc": "Débutant, intermédiaire ou avancé selon votre niveau du moment." },
-      "step2": { "title": "Suivez vos séances", "desc": "Chaque séance est guidée pour vous aider à rester concentré." },
-      "step3": { "title": "Progressez à votre rythme", "desc": "La plateforme s'adapte à votre énergie et à votre régularité." },
-      "step4": { "title": "Retrouvez votre équilibre", "desc": "Installez une routine claire, durable et rassurante au quotidien." }
+      "step1": { "title": "Choisissez un programme avec le Coatch AI dédié", "desc": "Débutant, intermédiaire ou avancé selon votre niveau du moment." },
+      "step2": { "title": "Suivez vos séances avec le Coatch AI dédié", "desc": "Chaque séance est guidée pour vous aider à rester concentré." },
+      "step3": { "title": "Progressez à votre rythme avec le Coatch AI dédié", "desc": "La plateforme s'adapte à votre énergie et à votre régularité." },
+      "step4": { "title": "Retrouvez votre équilibre avec le Coatch AI dédié", "desc": "Installez une routine claire, durable et rassurante au quotidien." }
     },
     "features": {
       "title": "Un yoga fait pour vous",
@@ -146,7 +147,7 @@
     },
     "yoga": {
       "title": "Qu'est-ce que le yoga ?",
-      "intro": "Le yoga est une pratique ancienne qui unit le corps, l'esprit et la respiration",
+      "intro": "Le yoga est une pratique ancienne qui unit le corps, l'esprit et la respiration. Bien plus qu'une simple activité physique, il favorise l'équilibre intérieur, améliore la souplesse, renforce le corps et apaise le mental. Grâce à une combinaison de postures, d'exercices de respiration et de méditation, chacun peut progresser à son rythme et intégrer le yoga comme un véritable art de vivre au quotidien.",
       "benefit1": {
         "title": "Réduction du stress",
         "desc": "Apaisez votre esprit et trouvez la paix intérieure"
@@ -259,7 +260,7 @@
       "pageHeading": "Quatre portes d'entrée dans la pratique",
       "pageIntro": "Chaque carte de l'accueil ouvre ici une section dédiée. Cliquez sur un fondement pour aller directement au bon endroit.",
       "title": "Les fondements du yoga",
-      "intro": "Découvrez les principes essentiels qui sous-tendent la pratique du yoga",
+      "intro": "Découvrez les principes essentiels qui sous-tendent la pratique du yoga. Apprenez comment la respiration, les postures, la concentration et la pleine conscience s'unissent pour créer un équilibre durable entre le corps et l'esprit. Explorez les valeurs fondamentales du yoga et comprenez comment cette discipline ancestrale peut transformer votre bien-être physique, mental et émotionnel. Que vous débutiez ou souhaitiez approfondir votre pratique, ces bases vous accompagneront tout au long de votre progression.",
       "pillar1": {
         "title": "Équilibre",
         "desc": "Harmonie entre le corps et l'esprit",
@@ -656,7 +657,7 @@
       },
       "moreThanYoga": {
         "title": "Plus qu'une simple pratique du yoga",
-        "description": "Découvrez une approche complète du bien-être à travers des séances guidées adaptées à votre rythme."
+        "description": "Avec Coach IA, chaque séance est personnalisée selon votre niveau, votre énergie du jour et vos objectifs. Notre intelligence artificielle analyse votre progression et adapte automatiquement vos recommandations pour vous aider à évoluer en toute sérénité. Que vous soyez débutant ou pratiquant confirmé, votre programme s'ajuste à votre rythme, à votre niveau de fatigue, à vos envies et au temps dont vous disposez. Profitez d'un accompagnement intelligent qui vous motive, suit vos performances et vous propose les exercices les plus adaptés à chaque étape de votre parcours. Avancez plus efficacement, sans pression, avec un coach disponible à tout moment pour vous guider vers un bien-être durable."
       },
       "editorial": {
         "block1": {
@@ -928,6 +929,7 @@
         "breathing": "Breathing",
         "progress": "Progress",
         "learning": "Learning",
+        "exploreSessions": "Explore sessions",
         "beginner": "Beginner",
         "dynamic": "Dynamic",
         "relaxation": "Relaxation",
@@ -1033,10 +1035,10 @@
       "kicker": "User journey",
       "heading": "How Yoga App AI works",
       "description": "A simple, guided journey to immediately understand how to discover, follow and evolve your practice.",
-      "step1": { "title": "Choose a program", "desc": "Beginner, intermediate or advanced depending on your current level." },
-      "step2": { "title": "Follow your sessions", "desc": "Each session is guided to help you stay focused." },
-      "step3": { "title": "Progress at your own pace", "desc": "The platform adapts to your energy and your consistency." },
-      "step4": { "title": "Find your balance", "desc": "Build a clear, lasting and reassuring routine every day." }
+      "step1": { "title": "Choose a program with your dedicated AI Coatch", "desc": "Beginner, intermediate or advanced depending on your current level." },
+      "step2": { "title": "Follow your sessions with your dedicated AI Coatch", "desc": "Each session is guided to help you stay focused." },
+      "step3": { "title": "Progress at your own pace with your dedicated AI Coatch", "desc": "The platform adapts to your energy and your consistency." },
+      "step4": { "title": "Find your balance with your dedicated AI Coatch", "desc": "Build a clear, lasting and reassuring routine every day." }
     },
     "features": {
       "title": "Yoga made for you",
@@ -1059,7 +1061,7 @@
     },
     "yoga": {
       "title": "What is yoga?",
-      "intro": "Yoga is an ancient practice that unites body, mind and breath",
+      "intro": "Yoga is an ancient practice that unites the body, mind, and breath. Far more than simple physical activity, it supports inner balance, improves flexibility, strengthens the body, and calms the mind. Through a combination of postures, breathing exercises, and meditation, everyone can progress at their own pace and embrace yoga as a true daily way of life.",
       "benefit1": {
         "title": "Stress reduction",
         "desc": "Calm your mind and find inner peace"
@@ -1172,7 +1174,7 @@
       "pageHeading": "Four entry points into practice",
       "pageIntro": "Each card on the home page opens a dedicated section here. Click a foundation to jump straight to it.",
       "title": "The Foundations of Yoga",
-      "intro": "Discover the essential principles that underlie yoga practice",
+      "intro": "Discover the essential principles that underlie yoga practice. Learn how breathing, postures, concentration, and mindfulness come together to create lasting balance between body and mind. Explore the core values of yoga and understand how this ancestral discipline can transform your physical, mental, and emotional well-being. Whether you are just starting or looking to deepen your practice, these foundations will support you throughout your journey.",
       "pillar1": {
         "title": "Balance",
         "desc": "Harmony between body and mind",
@@ -1657,7 +1659,7 @@
       },
       "moreThanYoga": {
         "title": "More than just a yoga practice",
-        "description": "Discover a complete approach to well-being through guided sessions adapted to your pace."
+        "description": "With AI Coach, each session is personalized according to your level, your energy of the day, and your goals. Our artificial intelligence analyzes your progress and automatically adapts your recommendations to help you evolve with confidence and peace of mind. Whether you are a beginner or an experienced practitioner, your program adjusts to your pace, your fatigue level, your preferences, and the time you have available. Enjoy smart guidance that keeps you motivated, tracks your performance, and suggests the most suitable exercises at every stage of your journey. Progress more effectively, without pressure, with a coach available at any time to guide you toward lasting well-being."
       },
       "editorial": {
         "block1": {
@@ -1929,6 +1931,7 @@
         "breathing": "Disanje",
         "progress": "Napredak",
         "learning": "Učenje",
+        "exploreSessions": "Istraži sesije",
         "beginner": "Početnik",
         "dynamic": "Dinamično",
         "relaxation": "Opuštanje",
@@ -2034,10 +2037,10 @@
       "kicker": "Korisničko putovanje",
       "heading": "Kako Yoga App AI funkcioniše",
       "description": "Jednostavno i vođeno putovanje da odmah razumete kako da otkrijete, pratite i razvijate svoju praksu.",
-      "step1": { "title": "Izaberite program", "desc": "Početni, srednji ili napredni nivo prema vašem trenutnom stanju." },
-      "step2": { "title": "Pratite vaše sesije", "desc": "Svaka sesija je vođena da vam pomogne da ostanete fokusirani." },
-      "step3": { "title": "Napredujte svojim tempom", "desc": "Platforma se prilagođava vašoj energiji i vašoj redovnosti." },
-      "step4": { "title": "Pronađite svoju ravnotežu", "desc": "Izgradite jasnu, trajnu i smirujuću rutinu svakog dana." }
+      "step1": { "title": "Izaberite program uz posvećenog AI Coatch trenera", "desc": "Početni, srednji ili napredni nivo prema vašem trenutnom stanju." },
+      "step2": { "title": "Pratite vaše sesije uz posvećenog AI Coatch trenera", "desc": "Svaka sesija je vođena da vam pomogne da ostanete fokusirani." },
+      "step3": { "title": "Napredujte svojim tempom uz posvećenog AI Coatch trenera", "desc": "Platforma se prilagođava vašoj energiji i vašoj redovnosti." },
+      "step4": { "title": "Pronađite svoju ravnotežu uz posvećenog AI Coatch trenera", "desc": "Izgradite jasnu, trajnu i smirujuću rutinu svakog dana." }
     },
     "features": {
       "title": "Joga napravljena za vas",
@@ -2060,7 +2063,7 @@
     },
     "yoga": {
       "title": "Šta je joga?",
-      "intro": "Joga je drevna praksa koja ujedinjuje telo, um i disanje",
+      "intro": "Joga je drevna praksa koja ujedinjuje telo, um i disanje. Mnogo više od obične fizičke aktivnosti, podstiče unutrašnju ravnotežu, poboljšava fleksibilnost, jača telo i umiruje um. Kroz kombinaciju položaja, vežbi disanja i meditacije, svako može napredovati svojim tempom i usvojiti jogu kao pravi stil života u svakodnevici.",
       "benefit1": {
         "title": "Smanjenje stresa",
         "desc": "Umirujte svoj um i pronađite unutarnji mir"
@@ -2173,7 +2176,7 @@
       "pageHeading": "Četiri ulaza u praksu",
       "pageIntro": "Svaka kartica sa početne stranice otvara ovde posebnu sekciju. Kliknite na temelj da biste odmah prešli na njega.",
       "title": "Temelji joge",
-      "intro": "Otkrijte suštinske principe koji podržavaju jogu praksu",
+      "intro": "Otkrijte suštinske principe koji podržavaju jogu praksu. Naučite kako se disanje, položaji, koncentracija i puna svesnost spajaju da bi stvorili trajan balans između tela i uma. Istražite osnovne vrednosti joge i shvatite kako ova drevna disciplina može da unapredi vaše fizičko, mentalno i emocionalno blagostanje. Bilo da tek počinjete ili želite da produbite praksu, ovi temelji će vas pratiti kroz ceo vaš napredak.",
       "pillar1": {
         "title": "Ravnoteža",
         "desc": "Harmonija između tela i uma",
@@ -2658,7 +2661,7 @@
       },
       "moreThanYoga": {
         "title": "Više od obične joga prakse",
-        "description": "Otkrijte sveobuhvatan pristup blagostanju kroz vođene sesije prilagođene vašem tempu."
+        "description": "Uz AI trenera, svaka sesija je personalizovana prema vašem nivou, energiji tog dana i ciljevima. Naša veštačka inteligencija analizira vaš napredak i automatski prilagođava preporuke kako bi vam pomogla da napredujete mirno i sigurno. Bilo da ste početnik ili iskusan vežbač, vaš program se prilagođava vašem ritmu, nivou umora, željama i vremenu koje imate na raspolaganju. Uživajte u pametnom vođenju koje vas motiviše, prati vaše rezultate i predlaže najprikladnije vežbe u svakoj fazi vašeg puta. Napredujte efikasnije, bez pritiska, uz trenera koji je uvek dostupan da vas vodi ka trajnom blagostanju."
       },
       "editorial": {
         "block1": {

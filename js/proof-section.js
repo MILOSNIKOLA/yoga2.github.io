@@ -38,7 +38,7 @@
           <article class="journey-step" role="listitem" data-step="1">
             <span class="journey-step-index">1</span>
             <div class="journey-step-content">
-              <h3 data-i18n="journey.step1.title">Choisissez un programme</h3>
+              <h3 data-i18n="journey.step1.title">Choisissez un programme avec le Coatch AI dédié</h3>
               <p data-i18n="journey.step1.desc">Débutant, intermédiaire ou avancé selon votre niveau du moment.</p>
             </div>
           </article>
@@ -53,7 +53,7 @@
           <article class="journey-step" role="listitem" data-step="2">
             <span class="journey-step-index">2</span>
             <div class="journey-step-content">
-              <h3 data-i18n="journey.step2.title">Suivez vos séances</h3>
+              <h3 data-i18n="journey.step2.title">Suivez vos séances avec le Coatch AI dédié</h3>
               <p data-i18n="journey.step2.desc">Chaque séance est guidée pour vous aider à rester concentré.</p>
             </div>
           </article>
@@ -68,7 +68,7 @@
           <article class="journey-step" role="listitem" data-step="3">
             <span class="journey-step-index">3</span>
             <div class="journey-step-content">
-              <h3 data-i18n="journey.step3.title">Progressez à votre rythme</h3>
+              <h3 data-i18n="journey.step3.title">Progressez à votre rythme avec le Coatch AI dédié</h3>
               <p data-i18n="journey.step3.desc">La plateforme s'adapte à votre énergie et à votre régularité.</p>
             </div>
           </article>
@@ -83,7 +83,7 @@
           <article class="journey-step" role="listitem" data-step="4">
             <span class="journey-step-index">4</span>
             <div class="journey-step-content">
-              <h3 data-i18n="journey.step4.title">Retrouvez votre équilibre</h3>
+              <h3 data-i18n="journey.step4.title">Retrouvez votre équilibre avec le Coatch AI dédié</h3>
               <p data-i18n="journey.step4.desc">Installez une routine claire, durable et rassurante au quotidien.</p>
             </div>
           </article>
