@@ -63,24 +63,43 @@
         </a>
 
         <ul class="nav-links">
-          <li>
-            <a
-              href="sessions.html?filter=beginner"
-              data-i18n="common.nav.beginner"
-              >Débutant</a
+          <li class="nav-dropdown">
+            <button
+              id="explore-sessions-toggle"
+              type="button"
+              class="nav-dropdown-toggle"
+              data-i18n="common.nav.exploreSessions"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="explore-sessions-menu"
             >
-          </li>
-          <li>
-            <a
-              href="sessions.html?filter=dynamic"
-              data-i18n="common.nav.dynamic"
-              >Dynamique</a
+              Explorer les séances
+            </button>
+            <ul
+              id="explore-sessions-menu"
+              class="nav-dropdown-menu"
+              aria-labelledby="explore-sessions-toggle"
             >
-          </li>
-          <li>
-            <a href="respirer.html" data-i18n="common.nav.relaxation"
-              >Relaxation</a
-            >
+              <li>
+                <a
+                  href="sessions.html?filter=beginner"
+                  data-i18n="common.nav.beginner"
+                  >Débutant</a
+                >
+              </li>
+              <li>
+                <a
+                  href="sessions.html?filter=dynamic"
+                  data-i18n="common.nav.dynamic"
+                  >Dynamique</a
+                >
+              </li>
+              <li>
+                <a href="respirer.html" data-i18n="common.nav.relaxation"
+                  >Relaxation</a
+                >
+              </li>
+            </ul>
           </li>
           <li>
             <a
@@ -1951,6 +1970,7 @@
     <script defer src="js/premium-animations.js"></script>
     <script defer src="js/scroll-animations.js"></script>
     <script defer src="js/cta-background.js"></script>
+    <script defer src="js/nav-dropdown.js"></script>
     <script defer src="js/section-title-navigation.js"></script>
     <!-- Chatbot flottant premium Yoga2 -->
     <div class="y2-chatbot" aria-hidden="true">
