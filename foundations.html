@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Explorez les quatre fondements du yoga : équilibre, respiration, conscience et gratitude."
+      content="Explorez le fondement central du yoga : l'équilibre, mis en valeur au cœur de la page."
       data-i18n-attr-content="foundations.pageDescription"
     />
     <link rel="canonical" href="https://yoga2.app/foundations.html" />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Fondements du yoga - Yoga App"
+      content="Équilibre - Yoga App"
       data-i18n-attr-content="foundations.pageTitle"
     />
     <meta
       property="og:description"
-      content="Une page dédiée aux fondements du yoga, accessible depuis les cartes de l'accueil."
+      content="Explorez le fondement central du yoga : l'équilibre, mis en valeur au cœur de la page."
       data-i18n-attr-content="foundations.pageDescription"
     />
-    <title data-i18n="foundations.pageTitle">Fondements - Yoga App</title>
+    <title data-i18n="foundations.pageTitle">Équilibre - Yoga App</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/themes.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
@@ -62,15 +62,59 @@
       }
 
       .foundations-grid {
+        grid-template-columns: minmax(0, 760px);
+        justify-content: center;
         margin-top: 2rem;
       }
 
-      .foundation-card p {
-        max-width: 60ch;
+      .foundation-card {
+        transition:
+          transform 0.45s ease,
+          box-shadow 0.45s ease,
+          border-color 0.45s ease;
+        cursor: default;
+      }
+
+      .foundation-card-img {
+        transition:
+          height 0.55s ease,
+          filter 0.55s ease,
+          transform 0.55s ease;
+      }
+
+      .foundation-card:hover .foundation-card-img {
+        animation-play-state: paused;
+        transform: none;
+      }
+
+      .foundation-card-copy-toggle {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .foundation-card-copy-toggle:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 6px;
+        border-radius: 10px;
+      }
+
+      .foundation-card.is-expanded .foundation-card-copy {
+        display: block;
+        overflow: visible;
+        -webkit-line-clamp: initial;
+        max-height: none;
       }
 
       .foundation-card .foundation-note {
-        display: none;
+        display: block;
+        margin: 0 1rem 1.15rem;
+        color: var(--text-secondary);
+        font-size: 0.92rem;
       }
 
       @media (max-width: 768px) {
@@ -176,10 +220,11 @@
         <p class="foundations-kicker" data-i18n="foundations.title">
           Fondements du yoga
         </p>
-        <h1 data-i18n="foundations.pageHeading">Quatre portes d'entrée dans la pratique</h1>
+        <h1 data-i18n="foundations.pageHeading">
+          L'équilibre au centre de la pratique
+        </h1>
         <p data-i18n="foundations.pageIntro">
-          Chaque carte de l'accueil ouvre ici une section dédiée. Clique sur un
-          fondement pour aller directement au bon endroit.
+          Cliquez sur le texte d'équilibre pour déployer davantage de contenu.
         </p>
       </header>
 
@@ -196,60 +241,66 @@
             loading="lazy"
             data-i18n-attr-alt="foundations.pillar1.title"
           />
-          <h3 data-i18n="foundations.pillar1.title">Équilibre</h3>
-          <p data-i18n="foundations.pillar1.pageDesc">
-            Stabilité, ancrage et alignement. Cette base aide à rester présent
-            sans rigidité, dans une posture à la fois ferme et fluide.
+          <div
+            class="foundation-card-copy-toggle"
+            role="button"
+            tabindex="0"
+            aria-expanded="false"
+            aria-controls="equilibre-copy"
+            data-i18n-attr-aria-label="foundations.pillar1.toggleLabel"
+            aria-label="Développer le texte d'équilibre"
+          >
+            <h3 data-i18n="foundations.pillar1.title">Équilibre</h3>
+            <p
+              id="equilibre-copy"
+              class="foundation-card-copy"
+              data-i18n="foundations.pillar1.pageDesc"
+            >
+              L'équilibre au centre de la pratique n'est pas une pose figée.
+              C'est une manière de construire une stabilité vivante.
+              Il commence au sol.
+              Les pieds s'ancrent avec précision.
+              Les orteils s'ouvrent et respirent.
+              Les talons offrent une base calme.
+              Les chevilles apprennent la finesse.
+              Les genoux se relâchent sans s'effondrer.
+              Les hanches trouvent un axe juste.
+              Le bassin cesse de compenser.
+              La colonne s'élève sans rigidité.
+              La nuque garde de l'espace.
+              Les épaules descendent naturellement.
+              Le visage se détend.
+              Les mains cessent de chercher à contrôler.
+              Le souffle devient un guide discret.
+              Chaque inspiration installe la présence.
+              Chaque expiration relâche l'excès.
+              Le regard se pose.
+              Le mental ralentit.
+              La stabilité naît d'ajustements minuscules.
+              Elle n'exige pas l'immobilité.
+              Elle soutient le mouvement juste.
+              Dans une posture debout, elle révèle l'axe.
+              Dans un équilibre sur une jambe, elle révèle la précision.
+              Dans une transition, elle évite la précipitation.
+              Dans une torsion, elle protège l'orientation.
+              Dans une flexion, elle préserve l'espace.
+              Dans une inversion, elle cultive la confiance.
+              Dans l'effort, elle empêche la rigidité.
+              Dans la répétition, elle construit la mémoire du corps.
+              Dans le silence, elle affine l'écoute.
+              Dans la fatigue, elle rappelle la mesure.
+              Dans le doute, elle ramène au souffle.
+              Dans la dispersion, elle ramène à l'appui.
+              Dans l'émotion, elle apporte une base claire.
+              L'équilibre physique nourrit l'équilibre intérieur.
+              L'équilibre intérieur rend la pratique plus fluide.
+              Revenir à l'axe devient un geste simple.
+              C'est ainsi que la pratique prend racine, sans perdre sa légèreté.
+            </p>
+          </div>
+          <p class="foundation-note" data-i18n="foundations.pillar1.actionHint">
+            Cliquez sur le texte pour agrandir et développer le texte.
           </p>
-          <p class="foundation-note">Ancre d'accès: #equilibre</p>
-        </article>
-
-        <article class="foundation-card" id="respiration">
-          <img
-            src="img/The major foundations of yoga/2.jpg"
-            alt="Respiration"
-            class="foundation-card-img"
-            loading="lazy"
-            data-i18n-attr-alt="foundations.pillar2.title"
-          />
-          <h3 data-i18n="foundations.pillar2.title">Respiration</h3>
-          <p data-i18n="foundations.pillar2.pageDesc">
-            Le souffle guide le rythme de la pratique. Il soutient le mouvement,
-            apaise le système nerveux et ramène l'attention à l'instant.
-          </p>
-          <p class="foundation-note">Ancre d'accès: #respiration</p>
-        </article>
-
-        <article class="foundation-card" id="conscience">
-          <img
-            src="img/The major foundations of yoga/3.jpg"
-            alt="Conscience"
-            class="foundation-card-img"
-            loading="lazy"
-            data-i18n-attr-alt="foundations.pillar3.title"
-          />
-          <h3 data-i18n="foundations.pillar3.title">Conscience</h3>
-          <p data-i18n="foundations.pillar3.pageDesc">
-            Observer ce qui se passe dans le corps et dans l'esprit, sans
-            jugement, pour pratiquer avec plus de lucidité et de précision.
-          </p>
-          <p class="foundation-note">Ancre d'accès: #conscience</p>
-        </article>
-
-        <article class="foundation-card" id="gratitude">
-          <img
-            src="img/The major foundations of yoga/4.jpg"
-            alt="Gratitude"
-            class="foundation-card-img"
-            loading="lazy"
-            data-i18n-attr-alt="foundations.pillar4.title"
-          />
-          <h3 data-i18n="foundations.pillar4.title">Gratitude</h3>
-          <p data-i18n="foundations.pillar4.pageDesc">
-            Terminer la pratique avec reconnaissance et bienveillance donne du
-            sens à l'effort et nourrit une relation plus douce avec soi-même.
-          </p>
-          <p class="foundation-note">Ancre d'accès: #gratitude</p>
         </article>
       </section>
     </main>
@@ -262,5 +313,28 @@
     <script defer src="js/auth.js"></script>
     <script defer src="js/premium-animations.js"></script>
     <script defer src="js/scroll-animations.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const card = document.getElementById("equilibre");
+        const toggle = card?.querySelector(".foundation-card-copy-toggle");
+
+        if (!card || !toggle) return;
+
+        const updateState = (expanded) => {
+          card.classList.toggle("is-expanded", expanded);
+          toggle.setAttribute("aria-expanded", String(expanded));
+        };
+
+        toggle.addEventListener("click", () => {
+          updateState(!card.classList.contains("is-expanded"));
+        });
+
+        toggle.addEventListener("keydown", (event) => {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          updateState(!card.classList.contains("is-expanded"));
+        });
+      });
+    </script>
   </body>
 </html>
