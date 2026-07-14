@@ -2237,7 +2237,28 @@ a.btn {
 }
 
 .foundation-card p {
-  margin: 0 1rem 1.05rem;
+  margin: 1rem 1rem ;
+  padding:0;
+  text-align: justify;
+}
+
+.foundation-card .foundation-card-copy {
+  margin: 1rem 1rem;
+  max-width: none;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  /* white-space: pre-line; */
+  line-height: 1.78;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  max-height: calc(1.78em * 5);
+}
+
+.foundation-card p {
+  /* white-space: pre-line; */
 }
 
 @keyframes foundationImageDrift {

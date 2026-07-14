@@ -255,16 +255,18 @@
       }
     },
     "foundations": {
-      "pageTitle": "Fondements - Yoga App",
-      "pageDescription": "Explorez les quatre fondements du yoga : équilibre, respiration, conscience et gratitude.",
-      "pageHeading": "Quatre portes d'entrée dans la pratique",
-      "pageIntro": "Chaque carte de l'accueil ouvre ici une section dédiée. Cliquez sur un fondement pour aller directement au bon endroit.",
+      "pageTitle": "Équilibre - Yoga App",
+      "pageDescription": "Explorez le fondement central du yoga : l'équilibre, mis en valeur au cœur de la page.",
+      "pageHeading": "L'équilibre au centre de la pratique",
+      "pageIntro": "Cliquez sur le texte d'équilibre pour déployer davantage de contenu.",
       "title": "Les fondements du yoga",
       "intro": "Découvrez les principes essentiels qui sous-tendent la pratique du yoga. Apprenez comment la respiration, les postures, la concentration et la pleine conscience s'unissent pour créer un équilibre durable entre le corps et l'esprit. Explorez les valeurs fondamentales du yoga et comprenez comment cette discipline ancestrale peut transformer votre bien-être physique, mental et émotionnel. Que vous débutiez ou souhaitiez approfondir votre pratique, ces bases vous accompagneront tout au long de votre progression.",
       "pillar1": {
         "title": "Équilibre",
         "desc": "Harmonie entre le corps et l'esprit",
-        "pageDesc": "Stabilité, ancrage et alignement. Cette base aide à rester présent sans rigidité, dans une posture à la fois ferme et fluide."
+        "toggleLabel": "Développer le texte d'équilibre",
+        "actionHint": "Cliquez sur le texte pour agrandir et développer le texte.",
+        "pageDesc": "L'équilibre au centre de la pratique n'est pas une pose figée.\nC'est une manière de construire une stabilité vivante.\nIl commence au sol.\nLes pieds s'ancrent avec précision.\nLes orteils s'ouvrent et respirent.\nLes talons offrent une base calme.\nLes chevilles apprennent la finesse.\nLes genoux se relâchent sans s'effondrer.\nLes hanches trouvent un axe juste.\nLe bassin cesse de compenser.\nLa colonne s'élève sans rigidité.\nLa nuque garde de l'espace.\nLes épaules descendent naturellement.\nLe visage se détend.\nLes mains cessent de chercher à contrôler.\nLe souffle devient un guide discret.\nChaque inspiration installe la présence.\nChaque expiration relâche l'excès.\nLe regard se pose.\nLe mental ralentit.\nLa stabilité naît d'ajustements minuscules.\nElle n'exige pas l'immobilité.\nElle soutient le mouvement juste.\nDans une posture debout, elle révèle l'axe.\nDans un équilibre sur une jambe, elle révèle la précision.\nDans une transition, elle évite la précipitation.\nDans une torsion, elle protège l'orientation.\nDans une flexion, elle préserve l'espace.\nDans une inversion, elle cultive la confiance.\nDans l'effort, elle empêche la rigidité.\nDans la répétition, elle construit la mémoire du corps.\nDans le silence, elle affine l'écoute.\nDans la fatigue, elle rappelle la mesure.\nDans le doute, elle ramène au souffle.\nDans la dispersion, elle ramène à l'appui.\nDans l'émotion, elle apporte une base claire.\nL'équilibre physique nourrit l'équilibre intérieur.\nL'équilibre intérieur rend la pratique plus fluide.\nRevenir à l'axe devient un geste simple.\nC'est ainsi que la pratique prend racine, sans perdre sa légèreté."
       },
       "pillar2": {
         "title": "Respiration",
@@ -1169,16 +1171,18 @@
       }
     },
     "foundations": {
-      "pageTitle": "Foundations - Yoga App",
-      "pageDescription": "Explore the four foundations of yoga: balance, breathing, consciousness, and gratitude.",
-      "pageHeading": "Four entry points into practice",
-      "pageIntro": "Each card on the home page opens a dedicated section here. Click a foundation to jump straight to it.",
+      "pageTitle": "Balance - Yoga App",
+      "pageDescription": "Explore the central foundation of yoga: balance, highlighted at the center of the page.",
+      "pageHeading": "Balance at the center of practice",
+      "pageIntro": "Click the balance text to unfold more content.",
       "title": "The Foundations of Yoga",
       "intro": "Discover the essential principles that underlie yoga practice. Learn how breathing, postures, concentration, and mindfulness come together to create lasting balance between body and mind. Explore the core values of yoga and understand how this ancestral discipline can transform your physical, mental, and emotional well-being. Whether you are just starting or looking to deepen your practice, these foundations will support you throughout your journey.",
       "pillar1": {
         "title": "Balance",
         "desc": "Harmony between body and mind",
-        "pageDesc": "Stability, grounding and alignment. This base helps you stay present without rigidity, in a posture that is both firm and fluid."
+        "toggleLabel": "Expand the balance text",
+        "actionHint": "Click the text to enlarge it and expand the text.",
+        "pageDesc": "Balance at the center of practice is not a fixed pose.\nIt is a way of building living stability.\nIt begins on the ground.\nThe feet root with precision.\nThe toes open and breathe.\nThe heels offer a calm base.\nThe ankles learn subtlety.\nThe knees soften without collapsing.\nThe hips find the right axis.\nThe pelvis stops compensating.\nThe spine rises without stiffness.\nThe neck keeps space.\nThe shoulders lower naturally.\nThe face relaxes.\nThe hands stop trying to control.\nThe breath becomes a quiet guide.\nEach inhale installs presence.\nEach exhale releases excess.\nThe gaze settles.\nThe mind slows down.\nStability is born from tiny adjustments.\nIt does not demand stillness.\nIt supports the right movement.\nIn a standing posture, it reveals the axis.\nIn a one-legged balance, it reveals precision.\nIn a transition, it prevents rushing.\nIn a twist, it protects alignment.\nIn a forward fold, it preserves space.\nIn an inversion, it cultivates trust.\nIn effort, it prevents rigidity.\nIn repetition, it builds body memory.\nIn silence, it sharpens listening.\nIn fatigue, it recalls moderation.\nIn doubt, it brings you back to the breath.\nIn distraction, it brings you back to support.\nIn emotion, it offers a clear base.\nPhysical balance nourishes inner balance.\nInner balance makes practice more fluid.\nReturning to the axis becomes simple.\nPractice takes root without losing lightness."
       },
       "pillar2": {
         "title": "Breathing",
@@ -2171,16 +2175,18 @@
       }
     },
     "foundations": {
-      "pageTitle": "Temelji - Yoga App",
-      "pageDescription": "Istražite četiri temelja joge: ravnotežu, disanje, svest i zahvalnost.",
-      "pageHeading": "Četiri ulaza u praksu",
-      "pageIntro": "Svaka kartica sa početne stranice otvara ovde posebnu sekciju. Kliknite na temelj da biste odmah prešli na njega.",
+      "pageTitle": "Ravnoteža - Yoga App",
+      "pageDescription": "Istražite centralni temelj joge: ravnotežu, istaknutu u sredini stranice.",
+      "pageHeading": "Ravnoteža u centru prakse",
+      "pageIntro": "Kliknite tekst ravnoteže da otvorite više sadržaja.",
       "title": "Temelji joge",
       "intro": "Otkrijte suštinske principe koji podržavaju jogu praksu. Naučite kako se disanje, položaji, koncentracija i puna svesnost spajaju da bi stvorili trajan balans između tela i uma. Istražite osnovne vrednosti joge i shvatite kako ova drevna disciplina može da unapredi vaše fizičko, mentalno i emocionalno blagostanje. Bilo da tek počinjete ili želite da produbite praksu, ovi temelji će vas pratiti kroz ceo vaš napredak.",
       "pillar1": {
         "title": "Ravnoteža",
         "desc": "Harmonija između tela i uma",
-        "pageDesc": "Stabilnost, uzemljenje i poravnanje. Ova osnova pomaže da ostanete prisutni bez ukočenosti, u položaju koji je istovremeno čvrst i fluidan."
+        "toggleLabel": "Proširite tekst ravnoteže",
+        "actionHint": "Kliknite na tekst da ga uvećate i proširite.",
+        "pageDesc": "Ravnoteža u centru prakse nije ukočena poza.\nTo je način da se gradi živa stabilnost.\nPočinje na zemlji.\nStopala se precizno ukorenjuju.\nPrsti se otvaraju i dišu.\nPete nude mirnu osnovu.\nČlanci uče suptilnost.\nKolena omekšavaju bez propadanja.\nKukovi nalaze pravi oslonac.\nKarlica prestaje da kompenzuje.\nKičma se uzdiže bez ukočenosti.\nVrat čuva prostor.\nRamena prirodno padaju.\nLice se opušta.\nŠake prestaju da kontrolišu.\nDah postaje tihi vodič.\nSvaki udah uvodi prisustvo.\nSvaki izdah oslobađa višak.\nPogled se smiruje.\nUm usporava.\nStabilnost nastaje iz sitnih podešavanja.\nOna ne traži nepomičnost.\nOna podržava pravi pokret.\nU stojećem položaju otkriva osu.\nU balansu na jednoj nozi otkriva preciznost.\nU prelazu sprečava žurbu.\nU uvrtanju čuva poravnanje.\nU pregibu čuva prostor.\nU inverziji neguje poverenje.\nU naporu sprečava ukočenost.\nU ponavljanju gradi pamćenje tela.\nU tišini izoštrava slušanje.\nU umoru podseća na meru.\nU sumnji vraća na dah.\nU rasutosti vraća na oslonac.\nU emociji nudi jasnu osnovu.\nFizička ravnoteža hrani unutrašnju ravnotežu.\nUnutrašnja ravnoteža čini praksu fluidnijom.\nVraćanje u osu postaje jednostavan gest.\nTako praksa pušta korenje bez gubitka lakoće."
       },
       "pillar2": {
         "title": "Disanje",
