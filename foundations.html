@@ -123,6 +123,7 @@
         }
       }
     </style>
+    <link rel="stylesheet" href="css/foundations-premium.css" />
   </head>
   <body>
     <nav class="dashboard-navbar">
@@ -307,28 +308,6 @@
     <script defer src="js/auth.js"></script>
     <script defer src="js/premium-animations.js"></script>
     <script defer src="js/scroll-animations.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const card = document.getElementById("equilibre");
-        const toggle = card?.querySelector(".foundation-card-copy-toggle");
-
-        if (!card || !toggle) return;
-
-        const updateState = (expanded) => {
-          card.classList.toggle("is-expanded", expanded);
-          toggle.setAttribute("aria-expanded", String(expanded));
-        };
-
-        toggle.addEventListener("click", () => {
-          updateState(!card.classList.contains("is-expanded"));
-        });
-
-        toggle.addEventListener("keydown", (event) => {
-          if (event.key !== "Enter" && event.key !== " ") return;
-          event.preventDefault();
-          updateState(!card.classList.contains("is-expanded"));
-        });
-      });
-    </script>
+    <script defer src="js/foundations-premium.js"></script>
   </body>
 </html>
