@@ -22,6 +22,7 @@
         "programmes": "Programmes"
       },
       "back": "Retour",
+      "brand": "Yoga App",
       "userCount": "Une communauté d'utilisateurs satisfaits"
     },
     "player": {
@@ -264,14 +265,18 @@
       "pillar1": {
         "title": "Équilibre",
         "desc": "Harmonie entre le corps et l'esprit",
-        "toggleLabel": "Développer le texte d'équilibre",
+        "heading": "Équilibre du corps et de l'esprit",
+        "toggleLabel": "Développer le texte sur l'équilibre du corps et de l'esprit",
         "actionHint": "Cliquez sur le texte pour agrandir et développer le texte.",
-        "pageDesc": "L'équilibre au centre de la pratique n'est pas une pose figée.\nC'est une manière de construire une stabilité vivante.\nIl commence au sol.\nLes pieds s'ancrent avec précision.\nLes orteils s'ouvrent et respirent.\nLes talons offrent une base calme.\nLes chevilles apprennent la finesse.\nLes genoux se relâchent sans s'effondrer.\nLes hanches trouvent un axe juste.\nLe bassin cesse de compenser.\nLa colonne s'élève sans rigidité.\nLa nuque garde de l'espace.\nLes épaules descendent naturellement.\nLe visage se détend.\nLes mains cessent de chercher à contrôler.\nLe souffle devient un guide discret.\nChaque inspiration installe la présence.\nChaque expiration relâche l'excès.\nLe regard se pose.\nLe mental ralentit.\nLa stabilité naît d'ajustements minuscules.\nElle n'exige pas l'immobilité.\nElle soutient le mouvement juste.\nDans une posture debout, elle révèle l'axe.\nDans un équilibre sur une jambe, elle révèle la précision.\nDans une transition, elle évite la précipitation.\nDans une torsion, elle protège l'orientation.\nDans une flexion, elle préserve l'espace.\nDans une inversion, elle cultive la confiance.\nDans l'effort, elle empêche la rigidité.\nDans la répétition, elle construit la mémoire du corps.\nDans le silence, elle affine l'écoute.\nDans la fatigue, elle rappelle la mesure.\nDans le doute, elle ramène au souffle.\nDans la dispersion, elle ramène à l'appui.\nDans l'émotion, elle apporte une base claire.\nL'équilibre physique nourrit l'équilibre intérieur.\nL'équilibre intérieur rend la pratique plus fluide.\nRevenir à l'axe devient un geste simple.\nC'est ainsi que la pratique prend racine, sans perdre sa légèreté."
+        "pageDesc": "L'équilibre au centre de la pratique n'est pas une pose figée.\nC'est une manière de construire une stabilité vivante.\nIl commence au sol.\nLes pieds s'ancrent avec précision.\nLes orteils s'ouvrent et respirent.\nLes talons offrent une base calme.\nLes chevilles apprennent la finesse.\nLes genoux se relâchent sans s'effondrer.\nLes hanches trouvent un axe juste.\nLe bassin cesse de compenser.\nLa colonne s'élève sans rigidité.\nLa nuque garde de l'espace.\nLes épaules descendent naturellement.\nLe visage se détend.\nLes mains cessent de chercher à contrôler.\nLe souffle devient un guide discret.\nChaque inspiration installe la présence.\nChaque expiration relâche l'excès.\nLe regard se pose.\nLe mental ralentit.\nLa stabilité naît d'ajustements minuscules.\nElle n'exige pas l'immobilité.\nElle soutient le mouvement juste.\nDans une posture debout, elle révèle l'axe.\nDans un équilibre sur une jambe, elle révèle la précision.\nDans une transition, elle évite la précipitation.\nDans une torsion, elle protège l'orientation.\nDans une flexion, elle préserve l'espace.\nDans une inversion, elle cultive la confiance.\nDans l'effort, elle empêche la rigidité.\nDans la répétition, elle construit la mémoire du corps.\nDans le silence, elle affine l'écoute.\nDans la fatigue, elle rappelle la mesure.\nDans le doute, elle ramène au souffle.\nDans la dispersion, elle ramène à l'appui.\nDans l'émotion, elle apporte une base claire.\nL'équilibre physique nourrit l'équilibre intérieur.\nL'équilibre intérieur rend la pratique plus fluide.\nRevenir à l'axe devient un geste simple.\nC'est ainsi que la pratique prend racine, sans perdre sa légèreté.\nsource : wikipidia"
       },
       "pillar2": {
         "title": "Respiration",
         "desc": "Prana, l'énergie vitale respirée",
-        "pageDesc": "Le souffle guide le rythme de la pratique. Il soutient le mouvement, apaise le système nerveux et ramène l'attention à l'instant."
+        "heading": "Respiration et Prana",
+        "toggleLabel": "Développer le texte sur la respiration et le Prana",
+        "actionHint": "Cliquez sur le texte pour agrandir et développer le texte.",
+        "pageDesc": "La respiration est au cœur de la pratique du yoga.\nElle n'est pas un simple mécanisme physiologique.\nDans la philosophie du yoga, elle est la forme la plus directe du Prana.\nLe Prana est l'énergie vitale qui anime tout être vivant.\nIl circule dans le corps à travers des canaux subtils appelés nadis.\nLa maîtrise du souffle constitue le Pranayama, quatrième des huit branches du yoga selon Patanjali.\nLe Pranayama n'est pas une simple relaxation.\nC'est une discipline qui agit profondément sur le système nerveux et sur l'état de conscience.\nChaque inspiration active doucement le système nerveux sympathique.\nChaque expiration active le système parasympathique et invite au calme.\nUn cycle respiratoire long et régulier ramène l'organisme à l'équilibre.\nLe stress se révèle toujours dans la qualité du souffle.\nQuand l'anxiété monte, la respiration devient courte, haute et désordonnée.\nQuand on reprend conscience du souffle, le mental suit naturellement.\nDans le yoga, chaque posture est associée à un rythme respiratoire précis.\nLe souffle accompagne l'entrée dans la posture et guide aussi la sortie.\nIl protège les articulations en maintenant une pression interne équilibrée.\nIl soutient l'effort sans le forcer.\nLa respiration nasale filtre, réchauffe et humidifie l'air avant qu'il n'atteigne les poumons.\nElle favorise une attention plus fine et une présence plus stable dans le corps.\nUn souffle silencieux et régulier est souvent un signe de profondeur dans la pratique.\nUn souffle audible ou forcé indique une tension inutile qu'il convient de relâcher.\nAvec l'expérience, le souffle devient un guide intérieur discret et précis.\nIl signale les zones de résistance et de compensation dans le corps.\nIl indique quand une posture est juste et quand elle dépasse les limites saines.\nDans la méditation, la respiration sert de point d'ancrage principal pour l'attention.\nObserver le souffle sans le modifier est la base de nombreuses techniques de pleine conscience.\nLe lien entre respiration et émotions est immédiat et profond.\nUne émotion intense se traduit toujours par une modification du rythme respiratoire.\nReprendre conscience de ce souffle est souvent le premier pas vers la régulation émotionnelle.\nLe Pranayama propose plusieurs techniques distinctes.\nNadi Shodhana équilibre les deux hémisphères cérébraux par une respiration alternée.\nKapalabhati purifie le système respiratoire et tonifie le diaphragme.\nUjjayi crée une chaleur interne et maintient la concentration pendant les postures.\nChaque technique produit des effets distincts sur le corps, les émotions et l'état mental.\nUne pratique régulière du Pranayama transforme progressivement la qualité de la présence.\nLe souffle devient une ressource accessible à tout moment, même en dehors du tapis de yoga.\nIl est toujours disponible, discret et d'une efficacité remarquable.\nLe souffle est le lien entre le corps, l'esprit et la conscience.\nIl représente la base de toute progression dans la pratique du yoga.\nsource : Wikipédia (Yoga, Prana et Pranayama)"
       },
       "pillar3": {
         "title": "Conscience",
@@ -282,7 +287,51 @@
         "title": "Gratitude",
         "desc": "Reconnaissance et bienveillance envers soi",
         "pageDesc": "Terminer la pratique avec reconnaissance et bienveillance donne du sens à l'effort et nourrit une relation plus douce avec soi-même."
+      },
+      "quote": "« Le véritable équilibre ne consiste pas à rester immobile, mais à avancer avec stabilité. »",
+      "coach": {
+        "badge": "Coach IA",
+        "title": "💡 Conseil du Coach IA",
+        "description": "Le Coach IA vous recommande aujourd'hui un exercice adapté au thème de cette page. Aujourd'hui, prenez quelques minutes pour pratiquer la posture de l'Arbre afin d'améliorer votre équilibre, votre concentration et votre stabilité.",
+        "button": "Commencer cette séance"
+      },
+      "navigation": {
+        "label": "Navigation des fondements",
+        "previousEyebrow": "Fondement précédent",
+        "nextEyebrow": "Fondement suivant",
+        "previousAria": "Fondement précédent : Respiration",
+        "nextAria": "Fondement suivant : Conscience"
+      },
+      "readingProgress": {
+        "label": "Lecture",
+        "ariaLabel": "Progression de lecture"
+      },
+      "respiration": {
+        "hero": {
+          "eyebrow": "Respiration consciente",
+          "title": "Le souffle au cœur de la pratique",
+          "subtitle": "Un souffle régulier clarifie l'attention, stabilise le rythme intérieur et soutient chaque posture."
+        },
+        "introduction": "Dans le yoga, la respiration ne sert pas seulement à accompagner le mouvement. Elle en organise la qualité, la fluidité et le sens.",
+        "paragraph1": "Chaque inspiration ouvre l'espace et prépare le corps à recevoir le geste.",
+        "paragraph2": "Chaque expiration relâche l'excès, affine l'appui et invite à la détente.",
+        "paragraph3": "Quand le souffle s'allonge, le mental cesse de courir après le prochain instant.",
+        "paragraph4": "Quand il devient saccadé, la pratique nous signale qu'il faut revenir à la simplicité.",
+        "paragraph5": "Le pranayama apprend à observer sans brusquer, puis à orienter le souffle avec précision.",
+        "paragraph6": "Une respiration nasale favorise un rythme plus fin et une sensation de stabilité plus nette.",
+        "paragraph7": "Un souffle silencieux rend la présence plus subtile et plus vaste.",
+        "paragraph8": "Dans les postures debout, la respiration garde l'axe vivant et évite de durcir l'effort.",
+        "paragraph9": "Dans les transitions, elle offre un tempo sûr qui empêche la précipitation.",
+        "paragraph10": "Avec la répétition, le souffle devient un repère intime : il ramène à soi sans tension et sans démonstration.",
+        "conclusion": "Quand la respiration devient stable, la pratique gagne en clarté, en douceur et en profondeur.",
+        "source": "Source : enseignements traditionnels du pranayama"
       }
+    },
+    "respiration": {
+      "pageTitle": "Respiration — Yoga App",
+      "pageDescription": "Découvrez pourquoi la respiration constitue l'un des fondements essentiels du yoga et comment le Prana, l'énergie vitale, influence le corps, le mental et l'équilibre intérieur.",
+      "pageHeading": "Le souffle au cœur de la pratique",
+      "pageIntro": "Découvrez pourquoi la respiration constitue l'un des fondements essentiels du yoga et comment le Prana, l'énergie vitale, influence le corps, le mental et l'équilibre intérieur."
     },
     "breathing": {
       "pageTitle": "Respiration - Yoga App",
@@ -938,6 +987,7 @@
         "programmes": "Programs"
       },
       "back": "Back",
+      "brand": "Yoga App",
       "userCount": "A community of satisfied users"
     },
     "player": {
@@ -1180,14 +1230,18 @@
       "pillar1": {
         "title": "Balance",
         "desc": "Harmony between body and mind",
-        "toggleLabel": "Expand the balance text",
+        "heading": "Balance of Body and Mind",
+        "toggleLabel": "Expand the text about balance of body and mind",
         "actionHint": "Click the text to enlarge it and expand the text.",
-        "pageDesc": "Balance at the center of practice is not a fixed pose.\nIt is a way of building living stability.\nIt begins on the ground.\nThe feet root with precision.\nThe toes open and breathe.\nThe heels offer a calm base.\nThe ankles learn subtlety.\nThe knees soften without collapsing.\nThe hips find the right axis.\nThe pelvis stops compensating.\nThe spine rises without stiffness.\nThe neck keeps space.\nThe shoulders lower naturally.\nThe face relaxes.\nThe hands stop trying to control.\nThe breath becomes a quiet guide.\nEach inhale installs presence.\nEach exhale releases excess.\nThe gaze settles.\nThe mind slows down.\nStability is born from tiny adjustments.\nIt does not demand stillness.\nIt supports the right movement.\nIn a standing posture, it reveals the axis.\nIn a one-legged balance, it reveals precision.\nIn a transition, it prevents rushing.\nIn a twist, it protects alignment.\nIn a forward fold, it preserves space.\nIn an inversion, it cultivates trust.\nIn effort, it prevents rigidity.\nIn repetition, it builds body memory.\nIn silence, it sharpens listening.\nIn fatigue, it recalls moderation.\nIn doubt, it brings you back to the breath.\nIn distraction, it brings you back to support.\nIn emotion, it offers a clear base.\nPhysical balance nourishes inner balance.\nInner balance makes practice more fluid.\nReturning to the axis becomes simple.\nPractice takes root without losing lightness."
+        "pageDesc": "Balance at the center of practice is not a fixed pose.\nIt is a way of building living stability.\nIt begins on the ground.\nThe feet root with precision.\nThe toes open and breathe.\nThe heels offer a calm base.\nThe ankles learn subtlety.\nThe knees soften without collapsing.\nThe hips find the right axis.\nThe pelvis stops compensating.\nThe spine rises without stiffness.\nThe neck keeps space.\nThe shoulders lower naturally.\nThe face relaxes.\nThe hands stop trying to control.\nThe breath becomes a quiet guide.\nEach inhale installs presence.\nEach exhale releases excess.\nThe gaze settles.\nThe mind slows down.\nStability is born from tiny adjustments.\nIt does not demand stillness.\nIt supports the right movement.\nIn a standing posture, it reveals the axis.\nIn a one-legged balance, it reveals precision.\nIn a transition, it prevents rushing.\nIn a twist, it protects alignment.\nIn a forward fold, it preserves space.\nIn an inversion, it cultivates trust.\nIn effort, it prevents rigidity.\nIn repetition, it builds body memory.\nIn silence, it sharpens listening.\nIn fatigue, it recalls moderation.\nIn doubt, it brings you back to the breath.\nIn distraction, it brings you back to support.\nIn emotion, it offers a clear base.\nPhysical balance nourishes inner balance.\nInner balance makes practice more fluid.\nReturning to the axis becomes simple.\nPractice takes root without losing lightness.\nSource: Wikipedia"
       },
       "pillar2": {
         "title": "Breathing",
         "desc": "Prana, the vital energy breathed",
-        "pageDesc": "The breath guides the rhythm of practice. It supports movement, soothes the nervous system and brings attention back to the present moment."
+        "heading": "Breath and Prana",
+        "toggleLabel": "Expand the text about breath and Prana",
+        "actionHint": "Click the text to enlarge it and expand the text.",
+        "pageDesc": "Breath lies at the heart of yoga practice.\nIt is not a mere physiological mechanism.\nIn yogic philosophy, it is the most direct form of Prana.\nPrana is the vital energy that animates all living beings.\nIt flows through the body along subtle channels called nadis.\nThe mastery of breath is called Pranayama, the fourth of the eight limbs of yoga as defined by Patanjali.\nPranayama is not simple relaxation.\nIt is a discipline that acts deeply on the nervous system and the state of consciousness.\nEach inhale gently activates the sympathetic nervous system.\nEach exhale activates the parasympathetic system and invites calm.\nA long and regular breathing cycle restores the body to balance.\nStress always reveals itself in the quality of breath.\nWhen anxiety rises, breathing becomes short, shallow, and irregular.\nWhen one regains awareness of the breath, the mind follows naturally.\nIn yoga, every posture is paired with a precise breathing rhythm.\nBreath accompanies entry into the posture and also guides the exit.\nIt protects the joints by maintaining balanced internal pressure.\nIt supports effort without forcing it.\nNasal breathing filters, warms, and humidifies the air before it reaches the lungs.\nIt promotes finer attention and more stable bodily presence.\nA quiet and regular breath is often a sign of depth in practice.\nAudible or forced breathing signals unnecessary tension to be released.\nWith experience, breath becomes a quiet and precise inner guide.\nIt signals areas of resistance and compensation in the body.\nIt indicates when a posture is correct and when it exceeds healthy limits.\nIn meditation, breathing serves as the primary anchor point for attention.\nObserving the breath without changing it is the foundation of many mindfulness techniques.\nThe connection between breathing and emotions is immediate and deep.\nAn intense emotion always translates into a change in breathing rhythm.\nRegaining awareness of that breath is often the first step toward emotional regulation.\nPranayama offers several distinct techniques.\nNadi Shodhana balances both cerebral hemispheres through alternate breathing.\nKapalabhati purifies the respiratory system and tones the diaphragm.\nUjjayi creates internal heat and maintains concentration during postures.\nEach technique produces distinct effects on body, emotions, and mental state.\nRegular Pranayama practice gradually transforms the quality of presence.\nBreath becomes a resource available at any moment, even off the mat.\nIt is always there, quiet and remarkably effective.\nBreath is the link between body, mind, and consciousness.\nIt is the foundation of all progress in yoga practice.\nSource: Wikipedia (Yoga, Prana and Pranayama)"
       },
       "pillar3": {
         "title": "Consciousness",
@@ -1198,7 +1252,51 @@
         "title": "Gratitude",
         "desc": "Recognition and kindness toward oneself",
         "pageDesc": "Ending practice with gratitude and kindness gives meaning to effort and nurtures a gentler relationship with yourself."
+      },
+      "quote": "“True balance is not about staying still, but about moving forward with stability.”",
+      "coach": {
+        "badge": "AI Coach",
+        "title": "💡 Advice from the AI Coach",
+        "description": "The AI Coach recommends an exercise suited to this page's theme today. Today, take a few minutes to practice Tree Pose to improve your balance, concentration, and stability.",
+        "button": "Start this session"
+      },
+      "navigation": {
+        "label": "Foundations navigation",
+        "previousEyebrow": "Previous foundation",
+        "nextEyebrow": "Next foundation",
+        "previousAria": "Previous foundation: Breathing",
+        "nextAria": "Next foundation: Consciousness"
+      },
+      "readingProgress": {
+        "label": "Reading",
+        "ariaLabel": "Reading progress"
+      },
+      "respiration": {
+        "hero": {
+          "eyebrow": "Conscious breathing",
+          "title": "Breath at the heart of practice",
+          "subtitle": "A steady breath sharpens awareness, steadies inner rhythm, and supports every posture."
+        },
+        "introduction": "In yoga, breathing does more than accompany movement. It shapes the quality, fluidity, and meaning of practice.",
+        "paragraph1": "Each inhale opens space and prepares the body to receive the gesture.",
+        "paragraph2": "Each exhale releases excess, refines support, and invites ease.",
+        "paragraph3": "As the breath lengthens, the mind stops racing toward the next moment.",
+        "paragraph4": "When the breath becomes choppy, practice is telling us to return to simplicity.",
+        "paragraph5": "Pranayama teaches us to observe without forcing, then guide the breath with precision.",
+        "paragraph6": "Nasal breathing encourages a finer rhythm and a clearer sense of stability.",
+        "paragraph7": "A quiet breath makes presence feel more subtle and more spacious.",
+        "paragraph8": "In standing poses, the breath keeps the axis alive and prevents effort from hardening.",
+        "paragraph9": "In transitions, it offers a steady tempo that prevents rushing.",
+        "paragraph10": "With repetition, the breath becomes an intimate reference point: it brings you back to yourself without strain or performance.",
+        "conclusion": "When breathing becomes steady, practice gains clarity, softness, and depth.",
+        "source": "Source: traditional pranayama teachings"
       }
+    },
+    "respiration": {
+      "pageTitle": "Breathing — Yoga App",
+      "pageDescription": "Discover why breath is one of the essential foundations of yoga and how Prana, the vital energy, influences the body, the mind, and inner balance.",
+      "pageHeading": "Breath at the heart of practice",
+      "pageIntro": "Discover why breath is one of the essential foundations of yoga and how Prana, the vital energy, influences the body, the mind, and inner balance."
     },
     "breathing": {
       "pageTitle": "Breathing - Yoga App",
@@ -1942,6 +2040,7 @@
         "programmes": "Programi"
       },
       "back": "Nazad",
+      "brand": "Yoga App",
       "userCount": "Zajednica zadovoljnih korisnika"
     },
     "player": {
@@ -2184,14 +2283,18 @@
       "pillar1": {
         "title": "Ravnoteža",
         "desc": "Harmonija između tela i uma",
-        "toggleLabel": "Proširite tekst ravnoteže",
+        "heading": "Ravnoteža tela i uma",
+        "toggleLabel": "Proširite tekst o ravnoteži tela i uma",
         "actionHint": "Kliknite na tekst da ga uvećate i proširite.",
-        "pageDesc": "Ravnoteža u centru prakse nije ukočena poza.\nTo je način da se gradi živa stabilnost.\nPočinje na zemlji.\nStopala se precizno ukorenjuju.\nPrsti se otvaraju i dišu.\nPete nude mirnu osnovu.\nČlanci uče suptilnost.\nKolena omekšavaju bez propadanja.\nKukovi nalaze pravi oslonac.\nKarlica prestaje da kompenzuje.\nKičma se uzdiže bez ukočenosti.\nVrat čuva prostor.\nRamena prirodno padaju.\nLice se opušta.\nŠake prestaju da kontrolišu.\nDah postaje tihi vodič.\nSvaki udah uvodi prisustvo.\nSvaki izdah oslobađa višak.\nPogled se smiruje.\nUm usporava.\nStabilnost nastaje iz sitnih podešavanja.\nOna ne traži nepomičnost.\nOna podržava pravi pokret.\nU stojećem položaju otkriva osu.\nU balansu na jednoj nozi otkriva preciznost.\nU prelazu sprečava žurbu.\nU uvrtanju čuva poravnanje.\nU pregibu čuva prostor.\nU inverziji neguje poverenje.\nU naporu sprečava ukočenost.\nU ponavljanju gradi pamćenje tela.\nU tišini izoštrava slušanje.\nU umoru podseća na meru.\nU sumnji vraća na dah.\nU rasutosti vraća na oslonac.\nU emociji nudi jasnu osnovu.\nFizička ravnoteža hrani unutrašnju ravnotežu.\nUnutrašnja ravnoteža čini praksu fluidnijom.\nVraćanje u osu postaje jednostavan gest.\nTako praksa pušta korenje bez gubitka lakoće."
+        "pageDesc": "Ravnoteža u centru prakse nije ukočena poza.\nTo je način da se gradi živa stabilnost.\nPočinje na zemlji.\nStopala se precizno ukorenjuju.\nPrsti se otvaraju i dišu.\nPete nude mirnu osnovu.\nČlanci uče suptilnost.\nKolena omekšavaju bez propadanja.\nKukovi nalaze pravi oslonac.\nKarlica prestaje da kompenzuje.\nKičma se uzdiže bez ukočenosti.\nVrat čuva prostor.\nRamena prirodno padaju.\nLice se opušta.\nŠake prestaju da kontrolišu.\nDah postaje tihi vodič.\nSvaki udah uvodi prisustvo.\nSvaki izdah oslobađa višak.\nPogled se smiruje.\nUm usporava.\nStabilnost nastaje iz sitnih podešavanja.\nOna ne traži nepomičnost.\nOna podržava pravi pokret.\nU stojećem položaju otkriva osu.\nU balansu na jednoj nozi otkriva preciznost.\nU prelazu sprečava žurbu.\nU uvrtanju čuva poravnanje.\nU pregibu čuva prostor.\nU inverziji neguje poverenje.\nU naporu sprečava ukočenost.\nU ponavljanju gradi pamćenje tela.\nU tišini izoštrava slušanje.\nU umoru podseća na meru.\nU sumnji vraća na dah.\nU rasutosti vraća na oslonac.\nU emociji nudi jasnu osnovu.\nFizička ravnoteža hrani unutrašnju ravnotežu.\nUnutrašnja ravnoteža čini praksu fluidnijom.\nVraćanje u osu postaje jednostavan gest.\nTako praksa pušta korenje bez gubitka lakoće.\nIzvor: Wikipedija"
       },
       "pillar2": {
         "title": "Disanje",
         "desc": "Prana, vitalna energija koja se diše",
-        "pageDesc": "Dah vodi ritam prakse. Podržava pokret, smiruje nervni sistem i vraća pažnju u sadašnji trenutak."
+        "heading": "Disanje i Prana",
+        "toggleLabel": "Proširite tekst o disanju i Prani",
+        "actionHint": "Kliknite na tekst da ga uvećate i proširite.",
+        "pageDesc": "Dah je u srcu joga prakse.\nNije samo fiziološki mehanizam.\nU joga filozofiji, to je najdirektiniji oblik Prane.\nPrana je vitalna energija koja oživljava sva živa bića.\nTeče kroz telo duž suptilnih kanala koji se zovu nadiji.\nKontrola daha naziva se Pranajama, četvrti od osam ogranaka joge prema Patandzaliju.\nPranajama nije obično opuštanje.\nTo je disciplina koja deluje duboko na nervni sistem i na stanje svesti.\nSvaki udah blago aktivira simpatički nervni sistem.\nSvaki izdah aktivira parasimpatički sistem i poziva na smirenje.\nDug i pravilan ciklus disanja vraća organizam u ravnotežu.\nStres se uvek otkriva u kvalitetu daha.\nKad anksioznost raste, disanje postaje kratko, visoko i neuredino.\nKad se ponovo postanemo svesni daha, um prirodno prati.\nU jogi, svaki položaj je povezan s preciznim ritmom disanja.\nDah prati ulazak u položaj i vodi izlazak iz njega.\nStiti zglobove održavanjem uravnoteženog unutrašnjeg pritiska.\nPodržava napor bez forsiranja.\nDisanje kroz nos filtrira, zagreva i ovlažuje vazduh pre nego što dospe do pluća.\nPodstiče finiju pažnju i stabilnije prisustvo u telu.\nTihi i pravilan dah često je znak dubine u praksi.\nGlasno ili forsirano disanje ukazuje na nepotrebnu napetost koju treba osloboditi.\nS iskustvom, dah postaje tih i precizan unutrašnji vodič.\nSignalizira zone otpora i kompenzacije u telu.\nUkazuje kada je položaj ispravan i kada premašuje zdrave granice.\nU meditaciji, disanje služi kao glavni oslonac za pažnju.\nPosmatranje daha bez menjanja osnova je brojnih tehnika punog prisustva.\nVeza između disanja i emocija je neposredna i duboka.\nIntenzivna emocija uvek se prevodi u promenu ritma disanja.\nPovratak svesti o dahu često je prvi korak ka emocionalnoj regulaciji.\nPranajama nudi nekoliko različitih tehnika.\nNadi Šodhana uravnotežuje obe moždane hemisfere naizmeničnim disanjem.\nKapalabhati pročišćava respiratorni sistem i tonizira dijafragmu.\nUdžaji stvara unutrašnju toplotu i održava koncentraciju tokom položaja.\nSvaka tehnika ima različite efekte na telo, emocije i mentalno stanje.\nRedovna Pranajama praksa postepeno menja kvalitet prisustva.\nDah postaje resurs dostupan u svakom trenutku, čak i van prostirke.\nUvek je tu, tih i izuzetno efikasan.\nDah je veza između tela, uma i svesti.\nOn je osnova svakog napretka u joga praksi.\nIzvor: Vikipedija (Joga, Prana i Pranajama)"
       },
       "pillar3": {
         "title": "Svesnost",
@@ -2202,7 +2305,51 @@
         "title": "Zahvalnost",
         "desc": "Priznanje i dobrota prema sebi",
         "pageDesc": "Završavanje prakse sa zahvalnošću i blagošću daje smisao naporu i neguje nežniji odnos prema sebi."
+      },
+      "quote": "„Prava ravnoteža ne znači ostati nepomičan, već napredovati sa stabilnošću.”",
+      "coach": {
+        "badge": "AI trener",
+        "title": "💡 Savet AI trenera",
+        "description": "AI trener vam danas preporučuje vežbu prilagođenu temi ove stranice. Danas odvojite nekoliko minuta da vežbate položaj drveta kako biste poboljšali ravnotežu, koncentraciju i stabilnost.",
+        "button": "Započni ovu sesiju"
+      },
+      "navigation": {
+        "label": "Navigacija temelja",
+        "previousEyebrow": "Prethodni temelj",
+        "nextEyebrow": "Sledeći temelj",
+        "previousAria": "Prethodni temelj: Disanje",
+        "nextAria": "Sledeći temelj: Svesnost"
+      },
+      "readingProgress": {
+        "label": "Čitanje",
+        "ariaLabel": "Napredak čitanja"
+      },
+      "respiration": {
+        "hero": {
+          "eyebrow": "Svesno disanje",
+          "title": "Dah u srcu prakse",
+          "subtitle": "Stalan dah izoštrava pažnju, smiruje unutrašnji ritam i podržava svaki položaj."
+        },
+        "imageAlt": "Glavne osnove joge: disanje kao centralni stub",
+        "iaragraph1": "Svaki udah otvara prostor i priprema telo da primi pokret.",
+        "paragraph2": "Svaki izdah oslobađa višak, precizira oslonac i poziva na opuštanje.",
+        "paragraph3": "Kako dah postaje duži, um prestaje da juri ka sledećem trenutku.",
+        "paragraph4": "Kada dah postane isprekidan, praksa nam pokazuje da treba da se vratimo jednostavnosti.",
+        "paragraph5": "Pranajama nas uči da posmatramo bez forsiranja, a zatim da usmerimo dah precizno.",
+        "paragraph6": "Disanje kroz nos podstiče finiji ritam i jasniji osećaj stabilnosti.",
+        "paragraph7": "Tiho disanje čini prisustvo suptilnijim i prostranijim.",
+        "paragraph8": "U stojećim položajima dah čuva osu živom i sprečava da napor otvrdne.",
+        "paragraph9": "U prelazima daje praksi siguran tempo i sprečava žurbu.",
+        "paragraph10": "Vremenom, dah postaje intimna referenca: vraća nas sebi bez napetosti i bez dokazivanja.",
+        "conclusion": "Kada disanje postane stabilno, praksa dobija jasnoću, mekoću i dubinu.",
+        "source": "Izvor: tradicionalna učenja pranajame"
       }
+    },
+    "respiration": {
+      "pageTitle": "Disanje — Yoga App",
+      "pageDescription": "Otkrijte zašto je disanje jedan od suštinskih temelja joge i kako Prana, vitalna energija, utiče na telo, um i unutrašnji balans.",
+      "pageHeading": "Dah u srcu prakse",
+      "pageIntro": "Otkrijte zašto je disanje jedan od suštinskih temelja joge i kako Prana, vitalna energija, utiče na telo, um i unutrašnji balans."
     },
     "breathing": {
       "pageTitle": "Disanje - Yoga App",
