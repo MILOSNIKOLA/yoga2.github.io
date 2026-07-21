@@ -1,30 +1,68 @@
 (() => {
-  const KEYWORDS = [
-    "Équilibre",
-    "Respiration",
-    "Conscience",
-    "Souplesse",
-    "Concentration",
-    "Confiance",
-  ];
+  const KEYWORDS_BY_LANGUAGE = {
+    fr: [
+      "Équilibre",
+      "Respiration",
+      "Conscience",
+      "Souplesse",
+      "Concentration",
+      "Confiance",
+    ],
+    en: [
+      "Balance",
+      "Breathing",
+      "Breath",
+      "Consciousness",
+      "Mindfulness",
+      "Awareness",
+      "Flexibility",
+      "Concentration",
+      "Trust",
+      "Confidence",
+    ],
+    sr: [
+      "Ravnoteža",
+      "Disanje",
+      "Dah",
+      "Svesnost",
+      "Svest",
+      "Fleksibilnost",
+      "Koncentracija",
+      "Poverenje",
+    ],
+  };
 
-  const COACH_TEXT =
-    "Le Coach IA vous recommande aujourd'hui un exercice adapté au thème de cette page. Aujourd'hui, prenez quelques minutes pour pratiquer la posture de l'Arbre afin d'améliorer votre équilibre, votre concentration et votre stabilité.";
-
-  const QUOTE_TEXT =
-    "« Le véritable équilibre ne consiste pas à rester immobile, mais à avancer avec stabilité. »";
+  const FALLBACK_COPY = {
+    quote:
+      "« Le véritable équilibre ne consiste pas à rester immobile, mais à avancer avec stabilité. »",
+    coachBadge: "Coach IA",
+    coachTitle: "💡 Conseil du Coach IA",
+    coachDescription:
+      "Le Coach IA vous recommande aujourd'hui un exercice adapté au thème de cette page. Aujourd'hui, prenez quelques minutes pour pratiquer la posture de l'Arbre afin d'améliorer votre équilibre, votre concentration et votre stabilité.",
+    coachButton: "Commencer cette séance",
+    navLabel: "Navigation des fondements",
+    previousEyebrow: "Fondement précédent",
+    nextEyebrow: "Fondement suivant",
+    previousAria: "Fondement précédent : Respiration",
+    nextAria: "Fondement suivant : Conscience",
+    progressLabel: "Lecture",
+    progressAria: "Progression de lecture",
+  };
 
   const state = {
     revealObserver: null,
     main: null,
     hero: null,
     card: null,
+    premiumBlock: null,
     progressRoot: null,
     progressFill: null,
     progressValue: null,
     progressMilestones: [],
     motionRaf: 0,
     parallaxRaf: 0,
+    hashSyncRaf: 0,
+    hashSynced: false,
     reducedMotion: false,
   };
 
@@ -40,21 +78,53 @@
     return Math.min(max, Math.max(min, value));
   }
 
+  function getCurrentLanguage() {
+    return (
+      window.i18n?.getCurrentLanguage?.() ||
+      document.documentElement.lang ||
+      "fr"
+    );
+  }
+
+  function translate(key, fallback = "") {
+    const value = window.i18n?.getTranslation?.(key);
+    return typeof value === "string" && value.length > 0 ? value : fallback;
+  }
+
+  function getKeywords(lang = getCurrentLanguage()) {
+    return KEYWORDS_BY_LANGUAGE[lang] || KEYWORDS_BY_LANGUAGE.fr;
+  }
+
   function escapeRegExp(value) {
     return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
-  function buildKeywordRegex() {
-    const group = KEYWORDS.map(escapeRegExp).join("|");
+  function buildKeywordRegex(keywords) {
+    const uniqueKeywords = Array.from(new Set(keywords.filter(Boolean))).sort(
+      (left, right) => right.length - left.length,
+    );
+    const group = uniqueKeywords.map(escapeRegExp).join("|");
 
     try {
-      return new RegExp(`(?<![\\p{L}\\p{N}])(${group})(?![\\p{L}\\p{N}])`, "giu");
+      return new RegExp(
+        `(?<![\\p{L}\\p{N}])(${group})(?![\\p{L}\\p{N}])`,
+        "giu",
+      );
     } catch {
-      return new RegExp(`(^|[^A-Za-zÀ-ÿ])(${group})(?=$|[^A-Za-zÀ-ÿ])`, "gi");
+      return new RegExp(
+        `(^|[^A-Za-zÀ-ÖØ-öø-ÿĐđČčĆćŠšŽž])(${group})(?=$|[^A-Za-zÀ-ÖØ-öø-ÿĐđČčĆćŠšŽž])`,
+        "gi",
+      );
     }
   }
 
-  const KEYWORD_REGEX = buildKeywordRegex();
+  function clearKeywordHighlights(scope) {
+    scope.querySelectorAll(".foundation-keyword").forEach((node) => {
+      node.replaceWith(document.createTextNode(node.textContent || ""));
+    });
+
+    scope.normalize();
+  }
 
   function ensureRevealObserver() {
     if (state.revealObserver || !("IntersectionObserver" in window)) return;
@@ -109,7 +179,11 @@
     const heroTitle = state.hero?.querySelector("h1");
     if (!heroTitle) return;
 
-    const source = (heroTitle.textContent || heroTitle.dataset.foundationSource || "").trim();
+    const source = (
+      heroTitle.textContent ||
+      heroTitle.dataset.foundationSource ||
+      ""
+    ).trim();
     if (!source) return;
 
     heroTitle.dataset.foundationSource = source;
@@ -131,10 +205,17 @@
 
   function splitCardCopy() {
     const copy = state.card?.querySelector(".foundation-card-copy");
-    if (!copy || copy.dataset.foundationLinesReady === "true") return;
+    if (!copy) return;
 
     const source = (copy.textContent || "").trim();
     if (!source) return;
+
+    if (
+      copy.dataset.foundationSource === source &&
+      copy.dataset.foundationLinesReady === "true"
+    ) {
+      return;
+    }
 
     copy.dataset.foundationSource = source;
     copy.dataset.foundationLinesReady = "true";
@@ -161,18 +242,21 @@
   }
 
   function injectHeroDecor() {
-    if (!state.hero || state.hero.querySelector(".foundation-hero-decor")) return;
+    if (!state.hero || state.hero.querySelector(".foundation-hero-decor"))
+      return;
 
     const decor = document.createElement("div");
     decor.className = "foundation-hero-decor";
     decor.setAttribute("aria-hidden", "true");
     decor.innerHTML = `
-      <span class="foundation-hero-orb" style="left:6%; top:18%; width:14px; height:14px; animation-duration:28s; animation-delay:-4s;"></span>
-      <span class="foundation-hero-orb" style="left:14%; top:62%; width:10px; height:10px; animation-duration:34s; animation-delay:-16s;"></span>
-      <span class="foundation-hero-orb" style="left:33%; top:14%; width:8px; height:8px; animation-duration:30s; animation-delay:-8s;"></span>
-      <span class="foundation-hero-orb" style="left:62%; top:20%; width:12px; height:12px; animation-duration:36s; animation-delay:-20s;"></span>
-      <span class="foundation-hero-orb" style="left:79%; top:54%; width:9px; height:9px; animation-duration:32s; animation-delay:-12s;"></span>
-      <span class="foundation-hero-orb" style="left:90%; top:28%; width:7px; height:7px; animation-duration:40s; animation-delay:-24s;"></span>
+      <span class="foundation-hero-orb" style="left:6%; top:18%; width:14px; height:14px; animation-duration:30s; animation-delay:-4s;"></span>
+      <span class="foundation-hero-orb" style="left:14%; top:62%; width:10px; height:10px; animation-duration:36s; animation-delay:-16s;"></span>
+      <span class="foundation-hero-orb" style="left:33%; top:14%; width:8px; height:8px; animation-duration:34s; animation-delay:-8s;"></span>
+      <span class="foundation-hero-orb" style="left:48%; top:40%; width:16px; height:16px; animation-duration:46s; animation-delay:-26s;"></span>
+      <span class="foundation-hero-orb" style="left:62%; top:20%; width:12px; height:12px; animation-duration:40s; animation-delay:-20s;"></span>
+      <span class="foundation-hero-orb" style="left:79%; top:54%; width:9px; height:9px; animation-duration:38s; animation-delay:-12s;"></span>
+      <span class="foundation-hero-orb" style="left:90%; top:28%; width:7px; height:7px; animation-duration:44s; animation-delay:-24s;"></span>
+      <span class="foundation-hero-orb" style="left:84%; top:78%; width:6px; height:6px; animation-duration:52s; animation-delay:-18s;"></span>
     `;
 
     state.hero.appendChild(decor);
@@ -232,8 +316,170 @@
     });
   }
 
+  function localizePremiumBlocks() {
+    const wrapper =
+      state.premiumBlock ||
+      state.main?.querySelector("[data-foundation-premium-block='true']");
+
+    if (!wrapper) return;
+
+    state.premiumBlock = wrapper;
+
+    const quote = wrapper.querySelector(".foundation-quote p");
+    if (quote) {
+      quote.textContent = translate("foundations.quote", FALLBACK_COPY.quote);
+    }
+
+    const coachBadge = wrapper.querySelector(".foundation-coach__badge");
+    if (coachBadge) {
+      coachBadge.textContent = translate(
+        "foundations.coach.badge",
+        FALLBACK_COPY.coachBadge,
+      );
+    }
+
+    const coachTitle = wrapper.querySelector("#foundation-coach-title");
+    if (coachTitle) {
+      coachTitle.textContent = translate(
+        "foundations.coach.title",
+        FALLBACK_COPY.coachTitle,
+      );
+    }
+
+    const coachText = wrapper.querySelector(".foundation-coach p");
+    if (coachText) {
+      coachText.textContent = translate(
+        "foundations.coach.description",
+        FALLBACK_COPY.coachDescription,
+      );
+    }
+
+    const coachButton = wrapper.querySelector(".foundation-coach__btn");
+    if (coachButton) {
+      coachButton.textContent = translate(
+        "foundations.coach.button",
+        FALLBACK_COPY.coachButton,
+      );
+    }
+
+    const nav = wrapper.querySelector(".foundation-bottom-nav");
+    if (nav) {
+      nav.setAttribute(
+        "aria-label",
+        translate("foundations.navigation.label", FALLBACK_COPY.navLabel),
+      );
+    }
+
+    const previousCard = wrapper.querySelector(
+      '.foundation-nav-card[href="respirer.html"]',
+    );
+    if (previousCard) {
+      previousCard.setAttribute(
+        "aria-label",
+        translate(
+          "foundations.navigation.previousAria",
+          FALLBACK_COPY.previousAria,
+        ),
+      );
+
+      const eyebrow = previousCard.querySelector(
+        ".foundation-nav-card__eyebrow",
+      );
+      if (eyebrow) {
+        eyebrow.textContent = translate(
+          "foundations.navigation.previousEyebrow",
+          FALLBACK_COPY.previousEyebrow,
+        );
+      }
+
+      const title = previousCard.querySelector(".foundation-nav-card__title");
+      if (title) {
+        title.textContent = translate(
+          "foundations.pillar2.title",
+          "Respiration",
+        );
+      }
+
+      const desc = previousCard.querySelector(".foundation-nav-card__desc");
+      if (desc) {
+        desc.textContent = translate(
+          "foundations.pillar2.desc",
+          "Prana, l'énergie vitale respirée",
+        );
+      }
+
+      const image = previousCard.querySelector("img");
+      if (image) {
+        image.alt = translate("foundations.pillar2.title", "Respiration");
+      }
+    }
+
+    const nextCard = wrapper.querySelector(
+      '.foundation-nav-card[href="learning.html"]',
+    );
+    if (nextCard) {
+      nextCard.setAttribute(
+        "aria-label",
+        translate("foundations.navigation.nextAria", FALLBACK_COPY.nextAria),
+      );
+
+      const eyebrow = nextCard.querySelector(".foundation-nav-card__eyebrow");
+      if (eyebrow) {
+        eyebrow.textContent = translate(
+          "foundations.navigation.nextEyebrow",
+          FALLBACK_COPY.nextEyebrow,
+        );
+      }
+
+      const title = nextCard.querySelector(".foundation-nav-card__title");
+      if (title) {
+        title.textContent = translate(
+          "foundations.pillar3.title",
+          "Conscience",
+        );
+      }
+
+      const desc = nextCard.querySelector(".foundation-nav-card__desc");
+      if (desc) {
+        desc.textContent = translate(
+          "foundations.pillar3.desc",
+          "Présence et attention à chaque instant",
+        );
+      }
+
+      const image = nextCard.querySelector("img");
+      if (image) {
+        image.alt = translate("foundations.pillar3.title", "Conscience");
+      }
+    }
+
+    if (state.progressRoot) {
+      state.progressRoot.setAttribute(
+        "aria-label",
+        translate(
+          "foundations.readingProgress.ariaLabel",
+          FALLBACK_COPY.progressAria,
+        ),
+      );
+
+      const label = state.progressRoot.querySelector(
+        ".foundation-reading-progress__label",
+      );
+      if (label) {
+        label.textContent = translate(
+          "foundations.readingProgress.label",
+          FALLBACK_COPY.progressLabel,
+        );
+      }
+    }
+  }
+
   function createPremiumBlocks() {
-    if (!state.main || state.main.querySelector("[data-foundation-premium-block='true']")) return;
+    if (
+      !state.main ||
+      state.main.querySelector("[data-foundation-premium-block='true']")
+    )
+      return;
 
     const wrapper = document.createElement("div");
     wrapper.className = "foundation-premium-block";
@@ -241,39 +487,39 @@
 
     wrapper.innerHTML = `
       <blockquote class="foundation-quote" data-foundation-reveal>
-        <p>${QUOTE_TEXT}</p>
+        <p data-i18n="foundations.quote"></p>
       </blockquote>
 
       <section class="foundation-coach" data-foundation-reveal aria-labelledby="foundation-coach-title">
-        <div class="foundation-coach__badge">Coach IA</div>
-        <h2 id="foundation-coach-title">💡 Conseil du Coach IA</h2>
-        <p>${COACH_TEXT}</p>
+        <div class="foundation-coach__badge" data-i18n="foundations.coach.badge"></div>
+        <h2 id="foundation-coach-title" data-i18n="foundations.coach.title"></h2>
+        <p data-i18n="foundations.coach.description"></p>
         <div class="foundation-coach__actions">
-          <a class="foundation-coach__btn" href="sessions.html?filter=beginner">Commencer cette séance</a>
+          <a class="foundation-coach__btn" href="sessions.html?filter=beginner" data-i18n="foundations.coach.button"></a>
         </div>
       </section>
 
-      <section class="foundation-bottom-nav" data-foundation-reveal aria-label="Navigation des fondements">
-        <a class="foundation-nav-card" href="respirer.html" aria-label="Fondement précédent : Respiration" data-foundation-reveal>
+      <section class="foundation-bottom-nav" data-foundation-reveal data-i18n-attr-aria-label="foundations.navigation.label" aria-label="">
+        <a class="foundation-nav-card" href="respirer.html" aria-label="" data-foundation-reveal data-i18n-aria-label="foundations.navigation.previousAria">
           <div class="foundation-nav-card__media">
-            <img src="img/The major foundations of yoga/2.jpg" alt="Respiration" loading="lazy" decoding="async" />
+            <img src="img/The major foundations of yoga/2.jpg" alt="" loading="lazy" decoding="async" data-i18n-attr-alt="foundations.pillar2.title" />
           </div>
           <div class="foundation-nav-card__body">
-            <span class="foundation-nav-card__eyebrow">Fondement précédent</span>
-            <span class="foundation-nav-card__title">Respiration</span>
-            <span class="foundation-nav-card__desc">Prana, l'énergie vitale respirée</span>
+            <span class="foundation-nav-card__eyebrow" data-i18n="foundations.navigation.previousEyebrow"></span>
+            <span class="foundation-nav-card__title" data-i18n="foundations.pillar2.title"></span>
+            <span class="foundation-nav-card__desc" data-i18n="foundations.pillar2.desc"></span>
           </div>
           <span class="foundation-nav-card__arrow">←</span>
         </a>
 
-        <a class="foundation-nav-card" href="learning.html" aria-label="Fondement suivant : Conscience" data-foundation-reveal>
+        <a class="foundation-nav-card" href="learning.html" aria-label="" data-foundation-reveal data-i18n-aria-label="foundations.navigation.nextAria">
           <div class="foundation-nav-card__media">
-            <img src="img/The major foundations of yoga/3.jpg" alt="Conscience" loading="lazy" decoding="async" />
+            <img src="img/The major foundations of yoga/3.jpg" alt="" loading="lazy" decoding="async" data-i18n-attr-alt="foundations.pillar3.title" />
           </div>
           <div class="foundation-nav-card__body">
-            <span class="foundation-nav-card__eyebrow">Fondement suivant</span>
-            <span class="foundation-nav-card__title">Conscience</span>
-            <span class="foundation-nav-card__desc">Présence et attention à chaque instant</span>
+            <span class="foundation-nav-card__eyebrow" data-i18n="foundations.navigation.nextEyebrow"></span>
+            <span class="foundation-nav-card__title" data-i18n="foundations.pillar3.title"></span>
+            <span class="foundation-nav-card__desc" data-i18n="foundations.pillar3.desc"></span>
           </div>
           <span class="foundation-nav-card__arrow">→</span>
         </a>
@@ -281,6 +527,8 @@
     `;
 
     state.main.appendChild(wrapper);
+    state.premiumBlock = wrapper;
+    window.i18n?.applyTranslations?.();
 
     const quote = wrapper.querySelector(".foundation-quote");
     const coach = wrapper.querySelector(".foundation-coach");
@@ -303,12 +551,16 @@
     const rail = document.createElement("aside");
     rail.className = "foundation-reading-progress";
     rail.setAttribute("role", "progressbar");
-    rail.setAttribute("aria-label", "Lecture");
+    rail.setAttribute("aria-label", "");
+    rail.setAttribute(
+      "data-i18n-aria-label",
+      "foundations.readingProgress.ariaLabel",
+    );
     rail.setAttribute("aria-valuemin", "0");
     rail.setAttribute("aria-valuemax", "100");
     rail.setAttribute("aria-valuenow", "0");
     rail.innerHTML = `
-      <span class="foundation-reading-progress__label">Lecture</span>
+      <span class="foundation-reading-progress__label" data-i18n="foundations.readingProgress.label"></span>
       <div class="foundation-reading-progress__rail" aria-hidden="true">
         <div class="foundation-reading-progress__fill"></div>
       </div>
@@ -322,15 +574,57 @@
 
     document.body.appendChild(rail);
     state.progressRoot = rail;
-    state.progressFill = rail.querySelector(".foundation-reading-progress__fill");
-    state.progressValue = rail.querySelector(".foundation-reading-progress__value");
+    state.progressFill = rail.querySelector(
+      ".foundation-reading-progress__fill",
+    );
+    state.progressValue = rail.querySelector(
+      ".foundation-reading-progress__value",
+    );
     state.progressMilestones = Array.from(
       rail.querySelectorAll(".foundation-reading-progress__milestone"),
     );
+    window.i18n?.applyTranslations?.();
+  }
+
+  function syncHashTarget() {
+    const hash = window.location.hash;
+    if (!hash || hash === "#") return;
+
+    const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+    if (!target) return;
+
+    state.hashSynced = true;
+    target.scrollIntoView({
+      behavior: state.reducedMotion ? "auto" : "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  }
+
+  function scheduleHashTarget() {
+    if (state.hashSynced) return;
+
+    const hash = window.location.hash;
+    if (!hash || hash === "#") return;
+
+    if (state.hashSyncRaf) {
+      window.cancelAnimationFrame(state.hashSyncRaf);
+    }
+
+    state.hashSyncRaf = window.requestAnimationFrame(() => {
+      state.hashSyncRaf = 0;
+      syncHashTarget();
+    });
   }
 
   function updateProgress() {
-    if (!state.main || !state.progressFill || !state.progressValue || !state.progressRoot) return;
+    if (
+      !state.main ||
+      !state.progressFill ||
+      !state.progressValue ||
+      !state.progressRoot
+    )
+      return;
 
     const scrollTop = window.scrollY || window.pageYOffset || 0;
     const viewport = window.innerHeight || 1;
@@ -345,6 +639,10 @@
     state.progressFill.style.transform = `scaleY(${progress})`;
     state.progressValue.textContent = `${percentage} %`;
     state.progressRoot.setAttribute("aria-valuenow", String(percentage));
+    state.progressRoot.setAttribute(
+      "aria-valuetext",
+      `${translate("foundations.readingProgress.label", FALLBACK_COPY.progressLabel)} ${percentage} %`,
+    );
 
     const thresholds = [23, 58, 100];
     state.progressMilestones.forEach((milestone, index) => {
@@ -360,11 +658,15 @@
 
     const rect = state.card.getBoundingClientRect();
     const viewport = window.innerHeight || 1;
-    const centerOffset = (rect.top + rect.height * 0.45 - viewport * 0.5) / viewport;
+    const centerOffset =
+      (rect.top + rect.height * 0.45 - viewport * 0.5) / viewport;
     const shift = clamp(centerOffset * -26, -18, 18);
     const scale = 1.02 + Math.sin((window.scrollY + viewport) / 850) * 0.012;
 
-    image.style.setProperty("--foundation-image-shift", `${shift.toFixed(2)}px`);
+    image.style.setProperty(
+      "--foundation-image-shift",
+      `${shift.toFixed(2)}px`,
+    );
     image.style.setProperty("--foundation-image-scale", scale.toFixed(4));
   }
 
@@ -409,16 +711,29 @@
   }
 
   function highlightKeywords(scope) {
+    if (!scope) return;
+
+    clearKeywordHighlights(scope);
+
+    const keywords = getKeywords();
+    if (!keywords.length) return;
+
+    const keywordRegex = buildKeywordRegex(keywords);
+
     const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
         const value = node.nodeValue || "";
         if (!value.trim()) return NodeFilter.FILTER_REJECT;
         const parent = node.parentElement;
         if (!parent) return NodeFilter.FILTER_REJECT;
-        if (parent.closest(".foundation-keyword")) return NodeFilter.FILTER_REJECT;
-        if (parent.closest("script, style, noscript")) return NodeFilter.FILTER_REJECT;
-        KEYWORD_REGEX.lastIndex = 0;
-        return KEYWORD_REGEX.test(value) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        if (parent.closest(".foundation-keyword"))
+          return NodeFilter.FILTER_REJECT;
+        if (parent.closest("script, style, noscript"))
+          return NodeFilter.FILTER_REJECT;
+        keywordRegex.lastIndex = 0;
+        return keywordRegex.test(value)
+          ? NodeFilter.FILTER_ACCEPT
+          : NodeFilter.FILTER_REJECT;
       },
     });
 
@@ -429,21 +744,27 @@
 
     nodes.forEach((node) => {
       const text = node.nodeValue || "";
-      KEYWORD_REGEX.lastIndex = 0;
+      keywordRegex.lastIndex = 0;
 
       const fragment = document.createDocumentFragment();
       let lastIndex = 0;
       let match;
 
-      while ((match = KEYWORD_REGEX.exec(text)) !== null) {
+      while ((match = keywordRegex.exec(text)) !== null) {
         const usesFallback = typeof match[2] !== "undefined";
         const prefix = usesFallback ? match[1] || "" : "";
-        const keyword = usesFallback ? match[2] || match[0] : match[1] || match[0];
-        const keywordStart = usesFallback ? match.index + prefix.length : match.index;
+        const keyword = usesFallback
+          ? match[2] || match[0]
+          : match[1] || match[0];
+        const keywordStart = usesFallback
+          ? match.index + prefix.length
+          : match.index;
         const end = match.index + match[0].length;
 
         if (keywordStart > lastIndex) {
-          fragment.appendChild(document.createTextNode(text.slice(lastIndex, keywordStart)));
+          fragment.appendChild(
+            document.createTextNode(text.slice(lastIndex, keywordStart)),
+          );
         }
 
         const span = document.createElement("span");
@@ -465,23 +786,28 @@
   function prepareFoundationsPage() {
     state.main = document.querySelector(".foundations-page");
     state.hero = document.querySelector(".foundations-hero");
-    state.card = document.getElementById("equilibre");
-    state.reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    state.card =
+      document.getElementById("equilibre") ||
+      document.querySelector(".foundations-page .foundation-card");
+    state.reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     if (!state.main || !state.hero || !state.card) return;
 
     injectHeroDecor();
     prepareRevealTargets();
     prepareCardToggle();
-    splitHeroTitle();
-    splitCardCopy();
     createPremiumBlocks();
     createReadingProgress();
+    splitHeroTitle();
+    splitCardCopy();
     highlightKeywords(state.main);
     observeReveals(state.main);
     updateProgress();
     updateParallax();
     startMotionLoop();
+    scheduleHashTarget();
   }
 
   function refreshTranslatedText() {
@@ -492,8 +818,10 @@
       splitHeroTitle();
     }
 
+    splitCardCopy();
     highlightKeywords(state.main);
     observeReveals(state.main);
+    scheduleHashTarget();
   }
 
   onReady(prepareFoundationsPage);
