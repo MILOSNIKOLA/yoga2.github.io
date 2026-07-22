@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content=""
+      data-i18n-attr-content="conscience.pageDescription"
+    />
+    <link rel="canonical" href="https://yoga2.app/conscience.html" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content=""
+      data-i18n-attr-content="conscience.pageTitle"
+    />
+    <meta
+      property="og:description"
+      content=""
+      data-i18n-attr-content="conscience.pageDescription"
+    />
+    <title data-i18n="conscience.pageTitle"></title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/premium-design-system.css" />
+    <link rel="stylesheet" href="css/animations-premium.css" />
+    <link rel="stylesheet" href="css/layout-premium.css" />
+    <link rel="stylesheet" href="css/mobile-premium.css" />
+    <link rel="stylesheet" href="css/conscience.css" />
+    <link rel="stylesheet" href="css/foundations-premium.css" />
+    <link rel="icon" href="favicon-48x481.png" type="image/x-icon" />
+  </head>
+  <body>
+    <nav class="dashboard-navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">
+          <span class="logo-icon">&#x1F9D8;</span>
+          <span class="logo-text" data-i18n="common.brand"></span>
+        </a>
+
+        <div class="navbar-menu">
+          <a
+            href="index.html"
+            class="navbar-link"
+            data-i18n="common.nav.home"
+          ></a>
+          <a
+            href="foundations.html"
+            class="navbar-link active"
+            data-i18n="common.nav.foundations"
+          ></a>
+          <a
+            href="learning.html"
+            class="navbar-link"
+            data-i18n="common.nav.learning"
+          ></a>
+          <a
+            href="sessions.html"
+            class="navbar-link"
+            data-i18n="common.nav.sessions"
+          ></a>
+          <a
+            href="respirer.html"
+            class="navbar-link"
+            data-i18n="common.nav.breathing"
+          ></a>
+        </div>
+
+        <div class="navbar-actions">
+          <button
+            id="language-toggle"
+            class="language-toggle"
+            data-i18n-aria-label="common.aria.language"
+            aria-label=""
+          >
+            <svg
+              class="flag-icon"
+              data-lang="fr"
+              width="32"
+              height="24"
+              viewBox="0 0 32 24"
+              aria-hidden="true"
+            >
+              <rect width="10.67" height="24" fill="#002395" />
+              <rect x="10.67" width="10.67" height="24" fill="#FFFFFF" />
+              <rect x="21.33" width="10.67" height="24" fill="#ED2939" />
+            </svg>
+          </button>
+          <button
+            id="theme-toggle"
+            class="theme-toggle-nav"
+            data-i18n-aria-label="common.aria.theme"
+            aria-label=""
+          >
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon hidden"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="foundations-page">
+      <header class="foundations-hero">
+        <p class="foundations-kicker" data-i18n="foundations.title"></p>
+        <h1 data-i18n="conscience.pageHeading"></h1>
+        <p data-i18n="conscience.pageIntro"></p>
+      </header>
+
+      <section
+        class="foundations-grid"
+        aria-label=""
+        data-i18n-attr-aria-label="foundations.title"
+      >
+        <article class="foundation-card" id="conscience">
+          <img
+            src="img/The major foundations of yoga/3.jpg"
+            alt=""
+            data-i18n-attr-alt="foundations.pillar3.heading"
+            class="foundation-card-img"
+            loading="lazy"
+          />
+          <div
+            class="foundation-card-copy-toggle"
+            role="button"
+            tabindex="0"
+            aria-expanded="false"
+            aria-controls="conscience-copy"
+            aria-label=""
+            data-i18n-aria-label="foundations.pillar3.toggleLabel"
+          >
+            <h3 data-i18n="foundations.pillar3.heading"></h3>
+            <p
+              id="conscience-copy"
+              class="foundation-card-copy"
+              data-i18n="foundations.pillar3.pageDesc"
+            ></p>
+          </div>
+          <p
+            class="foundation-note"
+            data-i18n="foundations.pillar3.actionHint"
+          ></p>
+        </article>
+      </section>
+    </main>
+
+    <script defer src="js/i18n-manager.js"></script>
+    <script defer src="js/theme.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/premium-animations.js"></script>
+    <script defer src="js/scroll-animations.js"></script>
+    <script defer src="js/foundations-premium.js"></script>
+  </body>
+</html>
