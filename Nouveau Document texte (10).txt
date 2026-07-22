@@ -1,0 +1,306 @@
+Je souhaite transformer la section .coach-ai-shell en une véritable expérience Premium digne d'une application SaaS 2026.
+
+IMPORTANT
+
+Ne modifie ni le HTML existant ni les classes déjà utilisées.
+
+Améliore uniquement l'expérience visuelle avec du CSS moderne et du JavaScript léger.
+
+Respecte totalement le design actuel du site :
+
+• même palette verte
+• même typographie
+• mêmes espacements
+• mêmes boutons
+• même identité graphique
+• même design system
+• même philosophie zen et premium
+
+L'objectif est de donner l'impression que cette section provient d'une application Apple, Calm ou Headspace.
+
+=====================================
+
+ANIMATIONS
+
+Créer des animations beaucoup plus poussées.
+
+Lorsque la section apparaît :
+
+• léger zoom de toute la section
+• apparition progressive
+• blur vers net
+• montée de 80px
+• effet d'accélération puis ralentissement
+
+Chaque carte apparaît avec un délai différent.
+
+Carte 1
+
+fade
+translateY
+scale
+
+Carte 2
+
+rotation légère
+blur
+fade
+
+Carte 3
+
+slide horizontal
+opacity
+
+Carte 4
+
+scale
+rotateX
+opacity
+
+Les animations doivent être très fluides.
+
+Utiliser :
+
+cubic-bezier
+
+transform:translate3d()
+
+opacity
+
+scale()
+
+rotate()
+
+filter:blur()
+
+will-change
+
+GPU acceleration.
+
+=====================================
+
+EFFETS PREMIUM
+
+Créer :
+
+glassmorphism
+
+background blur
+
+border lumineux
+
+ombre dynamique
+
+reflets lumineux
+
+halo vert très léger
+
+gradient animé très discret
+
+noise texture légère
+
+=====================================
+
+SURVOL DES CARTES
+
+Au hover :
+
+la carte se soulève
+
+translateY(-12px)
+
+scale(1.03)
+
+l'ombre augmente
+
+la bordure devient lumineuse
+
+l'icône tourne légèrement
+
+le fond s'illumine
+
+le texte devient plus contrasté
+
+animation de 350ms.
+
+=====================================
+
+ICÔNES
+
+Les icônes doivent vivre.
+
+Créer :
+
+pulse
+
+respiration
+
+rotation lente
+
+glow
+
+halo lumineux
+
+au hover
+
+petite rotation
+
+scale
+
+rebond léger.
+
+=====================================
+
+FOND
+
+Le fond ne doit jamais être statique.
+
+Créer un arrière-plan animé :
+
+dégradé vivant
+
+lumières flottantes
+
+particules très discrètes
+
+cercles flous
+
+effet Aurora
+
+parallax au scroll
+
+sans nuire aux performances.
+
+=====================================
+
+MICRO INTERACTIONS
+
+Au passage de la souris :
+
+les boutons respirent
+
+les cartes réagissent
+
+les titres ont un léger glow
+
+les séparateurs s'animent
+
+les icônes réagissent
+
+les statistiques comptent progressivement.
+
+=====================================
+
+CTA
+
+Le bouton principal doit devenir l'élément le plus visible.
+
+Créer :
+
+gradient animé
+
+ombre vivante
+
+halo pulsant
+
+brillance qui traverse le bouton toutes les 6 secondes
+
+scale très léger
+
+hover premium.
+
+=====================================
+
+AJOUTER UNE PRÉVISUALISATION IA
+
+À droite de la section.
+
+Créer une fausse interface d'intelligence artificielle.
+
+Une grande carte style Dashboard.
+
+Contenu :
+
+Bonjour Jean 👋
+
+Votre énergie aujourd'hui
+
+82 %
+
+██████████
+
+Séance recommandée
+
+Yoga du matin
+
+12 minutes
+
+Objectif
+
+Relaxation
+
+Progression
+
++14 %
+
+Streak
+
+16 jours
+
+Calories
+
+96 kcal
+
+Respiration
+
+Excellente
+
+La carte doit sembler vivante.
+
+Les chiffres montent progressivement.
+
+Les barres se remplissent.
+
+Le cercle de progression s'anime.
+
+=====================================
+
+SCROLL
+
+Lorsque l'utilisateur descend :
+
+les cartes flottent légèrement.
+
+Le dashboard IA suit un petit effet parallax.
+
+Les halos lumineux bougent très lentement.
+
+=====================================
+
+RESPONSIVE
+
+Conserver exactement la même qualité sur mobile.
+
+Toutes les animations doivent être adaptées.
+
+Aucun décalage.
+
+Aucun débordement.
+
+=====================================
+
+PERFORMANCES
+
+Animations 60 FPS.
+
+Utiliser requestAnimationFrame lorsque nécessaire.
+
+IntersectionObserver.
+
+CSS Transform uniquement.
+
+Éviter les recalculs de layout.
+
+=====================================
+
+Le résultat final doit donner l'impression d'un composant Premium développé par une équipe UI/UX senior pour une application SaaS haut de gamme. et dans index.html dans :,  ,je veux que tu applique la traduction fr/en/serbe dès que je change la langue dans mon siteweb avec .language-toggle

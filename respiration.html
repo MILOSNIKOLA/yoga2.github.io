@@ -86,15 +86,27 @@
       }
 
       .foundation-card-img {
+        width: 100%;
+        height: clamp(250px, 35vw, 360px);
+        object-fit: cover;
+        object-position: center 0%;
+        display: block;
+        animation: foundationImageDrift 9s ease-in-out infinite;
+        filter: saturate(1.03) contrast(1.03);
+        border-radius: 0;
+        transform: translate3d(0, var(--foundation-image-shift, 0px), 0)
+          scale(var(--foundation-image-scale, 1.02));
         transition:
-          height 0.55s ease,
-          filter 0.55s ease,
-          transform 0.55s ease;
+          filter 380ms ease,
+          transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform, filter;
       }
 
       .foundation-card:hover .foundation-card-img {
+        --foundation-image-scale: 1.03;
         animation-play-state: paused;
-        transform: none;
+        filter: saturate(1.08) contrast(1.05)
+          drop-shadow(0 0 18px rgba(72, 187, 120, 0.14));
       }
 
       .foundation-card-copy-toggle {
@@ -125,6 +137,22 @@
         margin: 0 1rem 1.15rem;
         color: var(--text-secondary);
         font-size: 0.92rem;
+      }
+
+      .foundation-premium-block {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+      }
+
+      .foundation-quote,
+      .foundation-coach {
+        width: 100%;
+      }
+
+      .foundation-bottom-nav {
+        width: 100%;
       }
 
       @media (max-width: 768px) {
@@ -249,7 +277,6 @@
             data-i18n-attr-alt="foundations.pillar2.heading"
             class="foundation-card-img"
             loading="lazy"
-            style="object-position: 0%;"
           />
           <div
             class="foundation-card-copy-toggle"
