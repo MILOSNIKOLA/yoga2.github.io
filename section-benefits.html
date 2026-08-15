@@ -16,19 +16,26 @@
     />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
   </head>
   <body>
-    <main class="section-details-page">
+    <main class="section-details-page section-article-page">
       <div class="container">
-        <a href="index.html" class="btn btn-secondary">Retour</a>
-        <h1 class="section-title section-details-title" id="details-title">
-          Articles de yoga
-        </h1>
+        <a href="index.html" class="btn btn-secondary page-back-link">Retour</a>
+        <div class="section-hero">
+          <span class="section-kicker">Navigation du menu</span>
+          <h1 class="section-title section-details-title" id="details-title">
+            Articles de yoga
+          </h1>
+          <p id="details-subtitle" class="section-details-subtitle"></p>
+        </div>
         <div class="yoga-benefits" id="details-benefits"></div>
       </div>
     </main>
 
     <script defer src="js/theme.js"></script>
+    <script defer src="js/i18n-manager.js"></script>
+    <script defer src="js/dashboard-navbar-loader.js"></script>
     <script defer src="js/section-benefits-page.js"></script>
   </body>
 </html>
