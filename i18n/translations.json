@@ -19,11 +19,44 @@
         "beginner": "Débutant",
         "dynamic": "Dynamique",
         "relaxation": "Relaxation",
-        "programmes": "Programmes"
+        "programmes": "Programmes",
+        "discoverYogaAppAi": "Découvrir le Yoga App AI",
+        "whatIsYoga": "Qu'est-ce que le yoga ?",
+        "beginYoga": "Débuter le yoga",
+        "historyOrigins": "Histoire et origines",
+        "mainPrinciples": "Les grands principes",
+        "beginnerFaq": "FAQ débutants"
       },
       "back": "Retour",
       "brand": "Yoga App",
       "userCount": "Une communauté d'utilisateurs satisfaits"
+    },
+    "topicDetails": {
+      "what-is-yoga": {
+        "title": "Qu'est-ce que le yoga ?",
+        "subtitle": "Une vue d'ensemble claire pour comprendre la pratique.",
+        "sections": [{"title": "Une pratique globale", "paragraphs": ["Le yoga relie respiration, mouvement et attention dans une pratique utile au quotidien.", "Il permet de développer présence, mobilité et calme à son propre rythme."]}, {"title": "Une lecture fluide", "paragraphs": ["Les repères restent simples : respirer, bouger avec conscience et écouter ses sensations.", "Chaque séance peut ainsi devenir un moment accessible et cohérent."]}]
+      },
+      "begin-yoga": {
+        "title": "Débuter le yoga",
+        "subtitle": "Un guide pratique pour commencer sans pression.",
+        "sections": [{"title": "Commencer simplement", "paragraphs": ["Une séance courte, une respiration calme et des postures simples suffisent pour commencer.", "La progression peut se faire sans recherche de performance."]}, {"title": "Construire un rythme", "paragraphs": ["Choisissez un créneau facile à tenir et répétez-le régulièrement.", "La constance compte plus que l'intensité, surtout au début."]}]
+      },
+      "history-origins": {
+        "title": "Histoire et origines",
+        "subtitle": "Le yoga dans une histoire longue et vivante.",
+        "sections": [{"title": "Des racines anciennes", "paragraphs": ["Le yoga vient d'une tradition ancienne où le corps, la respiration et l'attention occupent une place centrale.", "Cette histoire donne du sens à la pratique contemporaine."]}, {"title": "Une évolution continue", "paragraphs": ["Au fil des siècles, le yoga s'est adapté à de nouveaux contextes sans perdre son intention profonde.", "Il reste une pratique vivante, capable de se renouveler."]}]
+      },
+      "main-principles": {
+        "title": "Les grands principes",
+        "subtitle": "Les repères essentiels qui structurent la pratique.",
+        "sections": [{"title": "Respiration et présence", "paragraphs": ["Respirer avec conscience, rester stable et garder une attention présente sont des repères fondamentaux.", "Ils donnent un fil conducteur à chaque séance."]}, {"title": "L'écoute du ressenti", "paragraphs": ["Le ressenti aide à adapter les postures, la respiration et le rythme.", "Cette écoute rend la pratique plus durable et plus juste."]}]
+      },
+      "beginner-faq": {
+        "title": "FAQ débutants",
+        "subtitle": "Les réponses utiles avant de commencer.",
+        "faq": [{"q": "Faut-il être souple pour commencer ?", "a": "Non. Le yoga aide justement à développer la souplesse progressivement."}, {"q": "Combien de temps faut-il pratiquer ?", "a": "Quelques minutes régulières suffisent pour démarrer."}, {"q": "Quel matériel est nécessaire ?", "a": "Un tapis suffit pour commencer ; le reste dépend de votre confort."}, {"q": "Peut-on pratiquer à la maison ?", "a": "Oui. Une routine simple à la maison est un très bon point de départ."}, {"q": "Le yoga sert-il à se détendre ?", "a": "Oui. La respiration et les postures douces aident à réduire la tension."}, {"q": "Que faire si une posture gêne ?", "a": "Arrêtez, ajustez ou remplacez la posture : confort et sécurité passent avant tout."}]
+      }
     },
     "player": {
       "loading": "Chargement...",
@@ -281,12 +314,17 @@
       "pillar3": {
         "title": "Conscience",
         "desc": "Présence et attention à chaque instant",
-        "pageDesc": "Observer ce qui se passe dans le corps et dans l'esprit, sans jugement, pour pratiquer avec plus de lucidité et de précision."
+        "heading": "Conscience et présence",
+        "toggleLabel": "Développer le texte sur la conscience et la présence",
+        "actionHint": "Cliquez sur le texte pour agrandir et développer le texte.",
+        "pageDesc": "La conscience est le pilier silencieux de la pratique du yoga.\nElle ne se voit pas, mais elle transforme tout ce qu'elle touche.\nDans le yoga, la conscience désigne la capacité à être pleinement présent à ce qui se passe, ici et maintenant.\nCette qualité d'attention est connue en sanskrit sous le nom de sati, ou de pratyahara dans les textes classiques.\nElle est l'une des branches fondamentales du yoga selon Patanjali.\nSans conscience, une posture n'est qu'un exercice physique.\nAvec elle, chaque geste devient une exploration intérieure.\nLa conscience commence par observer le corps.\nOù s'accumule la tension ? Où se cache la résistance ?\nOù le mouvement est-il fluide, et où est-il contraint ?\nCes questions ne demandent pas de réponse immédiate.\nElles invitent simplement à regarder, sans juger, sans corriger trop vite.\nDans la pleine conscience, on apprend à distinguer la sensation de l'interprétation que l'on en fait.\nOn observe une douleur légère sans la dramatiser.\nOn reconnaît un effort sans s'y perdre.\nOn remarque une pensée sans la suivre aveuglément.\nCette aptitude à observer sans réagir automatiquement est au cœur de la méditation de pleine conscience.\nElle s'entraîne, comme un muscle, par la pratique régulière.\nDans le yoga, la conscience s'applique également au souffle.\nObserver l'inspiration sans la modifier est déjà un acte de présence profonde.\nPuis peu à peu, cette présence se déplace vers les émotions.\nOn remarque l'irritation avant qu'elle ne devienne une réaction.\nOn perçoit l'inquiétude avant qu'elle ne prenne toute la place.\nLa conscience crée un espace entre le stimulus et la réponse.\nCet espace est précieux : c'est là que réside la liberté intérieure.\nLa pratique régulière développe ce que les enseignants de yoga appellent le témoin intérieur.\nCe témoin n'est pas indifférent : il est attentif, bienveillant, patient.\nIl ne juge pas la posture comme réussie ou ratée.\nIl observe simplement ce qui est, avec intérêt et sans attachement.\nAvec le temps, cette qualité de conscience déborde du tapis.\nElle s'invite dans les conversations, dans les décisions, dans les moments difficiles.\nElle permet de répondre avec discernement plutôt que de réagir par habitude.\nLa pleine conscience transforme les actes ordinaires en pratique spirituelle.\nManger en pleine conscience. Marcher en pleine conscience. Écouter en pleine conscience.\nChaque instant devient une opportunité de présence.\nLe yoga enseigne que la conscience est notre nature profonde.\nTout ce que nous cherchons à l'extérieur se trouve dans cet espace silencieux et lumineux au-dedans de soi.\nsource : Wikipédia (Yoga, Pleine conscience et Pratyahara)"
       },
       "pillar4": {
         "title": "Gratitude",
         "desc": "Reconnaissance et bienveillance envers soi",
-        "pageDesc": "Terminer la pratique avec reconnaissance et bienveillance donne du sens à l'effort et nourrit une relation plus douce avec soi-même."
+        "pageDesc": "Terminer la pratique avec reconnaissance et bienveillance donne du sens à l'effort et nourrit une relation plus douce avec soi-même.",
+        "toggleLabel": "Développer le texte sur la gratitude",
+        "actionHint": "Cliquez sur le texte pour agrandir et développer le texte."
       },
       "quote": "« Le véritable équilibre ne consiste pas à rester immobile, mais à avancer avec stabilité. »",
       "coach": {
@@ -327,11 +365,23 @@
         "source": "Source : enseignements traditionnels du pranayama"
       }
     },
+    "conscience": {
+      "pageTitle": "Conscience — Yoga App",
+      "pageDescription": "Découvrez comment la conscience et la pleine présence constituent un fondement essentiel du yoga, et comment le témoin intérieur transforme la pratique.",
+      "pageHeading": "La conscience au cœur de la pratique",
+      "pageIntro": "Découvrez comment la conscience et la pleine présence constituent un fondement essentiel du yoga, et comment le témoin intérieur transforme la pratique."
+    },
     "respiration": {
       "pageTitle": "Respiration — Yoga App",
       "pageDescription": "Découvrez pourquoi la respiration constitue l'un des fondements essentiels du yoga et comment le Prana, l'énergie vitale, influence le corps, le mental et l'équilibre intérieur.",
       "pageHeading": "Le souffle au cœur de la pratique",
       "pageIntro": "Découvrez pourquoi la respiration constitue l'un des fondements essentiels du yoga et comment le Prana, l'énergie vitale, influence le corps, le mental et l'équilibre intérieur."
+    },
+    "gratitude": {
+      "pageTitle": "Gratitude — Yoga App",
+      "pageDescription": "Découvrez comment la gratitude nourrit une pratique plus douce, ancrée dans la reconnaissance et la bienveillance envers soi.",
+      "pageHeading": "Gratitude",
+      "pageIntro": "Reconnaissance et bienveillance envers soi."
     },
     "breathing": {
       "pageTitle": "Respiration - Yoga App",
@@ -984,11 +1034,44 @@
         "beginner": "Beginner",
         "dynamic": "Dynamic",
         "relaxation": "Relaxation",
-        "programmes": "Programs"
+        "programmes": "Programs",
+        "discoverYogaAppAi": "Discover Yoga App AI",
+        "whatIsYoga": "What is yoga?",
+        "beginYoga": "Starting yoga",
+        "historyOrigins": "History and origins",
+        "mainPrinciples": "Core principles",
+        "beginnerFaq": "Beginner FAQ"
       },
       "back": "Back",
       "brand": "Yoga App",
       "userCount": "A community of satisfied users"
+    },
+    "topicDetails": {
+      "what-is-yoga": {
+        "title": "What is yoga?",
+        "subtitle": "A clear overview to understand the practice.",
+        "sections": [{"title": "A whole-person practice", "paragraphs": ["Yoga brings breathing, movement and attention together in a practice that supports everyday life.", "It helps develop presence, mobility and calm at your own pace."]}, {"title": "Simple guidance", "paragraphs": ["The key ideas stay simple: breathe, move mindfully and listen to your body.", "Every session can become an accessible, coherent moment."]}]
+      },
+      "begin-yoga": {
+        "title": "Starting yoga",
+        "subtitle": "A practical guide to begin without pressure.",
+        "sections": [{"title": "Start simply", "paragraphs": ["A short session, calm breathing and simple postures are enough to get started.", "Progress does not require a focus on performance."]}, {"title": "Build a rhythm", "paragraphs": ["Choose a time that is easy to keep and repeat it regularly.", "Consistency matters more than intensity, especially at first."]}]
+      },
+      "history-origins": {
+        "title": "History and origins",
+        "subtitle": "Yoga within a long and living history.",
+        "sections": [{"title": "Ancient roots", "paragraphs": ["Yoga comes from an ancient tradition in which body, breath and attention are central.", "This history brings meaning to contemporary practice."]}, {"title": "Continuous evolution", "paragraphs": ["Over centuries, yoga has adapted to new contexts without losing its deeper intention.", "It remains a living practice that can keep evolving."]}]
+      },
+      "main-principles": {
+        "title": "Core principles",
+        "subtitle": "The essential reference points that shape practice.",
+        "sections": [{"title": "Breath and presence", "paragraphs": ["Breathing consciously, staying steady and keeping attention present are fundamental guides.", "They provide a thread through every session."]}, {"title": "Listening to yourself", "paragraphs": ["Your sensations help you adapt postures, breathing and pace.", "This attention makes practice more sustainable and appropriate."]}]
+      },
+      "beginner-faq": {
+        "title": "Beginner FAQ",
+        "subtitle": "Helpful answers before you begin.",
+        "faq": [{"q": "Do I need to be flexible to start?", "a": "No. Yoga helps you gradually develop flexibility."}, {"q": "How long should I practise?", "a": "A few regular minutes are enough to get started."}, {"q": "What equipment do I need?", "a": "A mat is enough to begin; the rest depends on your comfort."}, {"q": "Can I practise at home?", "a": "Yes. A simple routine at home is a great starting point."}, {"q": "Does yoga help with relaxation?", "a": "Yes. Breathing and gentle postures help reduce tension."}, {"q": "What if a posture feels uncomfortable?", "a": "Stop, adjust or replace it: comfort and safety come first."}]
+      }
     },
     "player": {
       "loading": "Loading...",
@@ -1246,12 +1329,17 @@
       "pillar3": {
         "title": "Consciousness",
         "desc": "Presence and attention at every moment",
-        "pageDesc": "Observe what is happening in body and mind without judgment, so you can practice with more clarity and precision."
+        "heading": "Consciousness and presence",
+        "toggleLabel": "Expand the text about consciousness and presence",
+        "actionHint": "Click the text to enlarge it and expand the text.",
+        "pageDesc": "Consciousness is the silent pillar of yoga practice.\nIt cannot be seen, but it transforms everything it touches.\nIn yoga, consciousness refers to the capacity to be fully present to what is happening, here and now.\nThis quality of attention is known in Sanskrit as sati, or pratyahara in classical texts.\nIt is one of the fundamental branches of yoga according to Patanjali.\nWithout consciousness, a posture is merely a physical exercise.\nWith it, every gesture becomes an inner exploration.\nConsciousness begins by observing the body.\nWhere does tension gather? Where does resistance hide?\nWhere does movement flow freely, and where is it constrained?\nThese questions do not demand an immediate answer.\nThey simply invite one to look, without judging, without correcting too quickly.\nIn mindfulness practice, one learns to distinguish sensation from the interpretation we make of it.\nOne observes a mild discomfort without dramatizing it.\nOne acknowledges effort without becoming lost in it.\nOne notices a thought without following it blindly.\nThis ability to observe without reacting automatically lies at the heart of mindfulness meditation.\nIt is trained, like a muscle, through regular practice.\nIn yoga, consciousness also applies to breath.\nObserving the inhale without modifying it is already an act of deep presence.\nThen, gradually, this presence extends to emotions.\nOne notices irritation before it becomes a reaction.\nOne perceives worry before it takes over entirely.\nConsciousness creates a space between the stimulus and the response.\nThis space is precious: it is where inner freedom resides.\nRegular practice develops what yoga teachers call the inner witness.\nThis witness is not indifferent: it is attentive, kind, patient.\nIt does not judge a posture as a success or failure.\nIt simply observes what is, with interest and without attachment.\nOver time, this quality of awareness spills beyond the mat.\nIt enters conversations, decisions, and difficult moments.\nIt allows one to respond with discernment rather than react out of habit.\nMindfulness transforms ordinary acts into spiritual practice.\nEating with awareness. Walking with awareness. Listening with awareness.\nEvery moment becomes an opportunity for presence.\nYoga teaches that consciousness is our deepest nature.\nEverything we seek outwardly can be found in that silent, luminous space within.\nSource: Wikipedia (Yoga, Mindfulness and Pratyahara)"
       },
       "pillar4": {
         "title": "Gratitude",
         "desc": "Recognition and kindness toward oneself",
-        "pageDesc": "Ending practice with gratitude and kindness gives meaning to effort and nurtures a gentler relationship with yourself."
+        "pageDesc": "Ending practice with gratitude and kindness gives meaning to effort and nurtures a gentler relationship with yourself.",
+        "toggleLabel": "Expand the text about gratitude",
+        "actionHint": "Click the text to enlarge it and expand the text."
       },
       "quote": "“True balance is not about staying still, but about moving forward with stability.”",
       "coach": {
@@ -1292,11 +1380,23 @@
         "source": "Source: traditional pranayama teachings"
       }
     },
+    "conscience": {
+      "pageTitle": "Consciousness — Yoga App",
+      "pageDescription": "Discover how consciousness and full presence form an essential foundation of yoga, and how the inner witness transforms practice.",
+      "pageHeading": "Consciousness at the heart of practice",
+      "pageIntro": "Discover how consciousness and full presence form an essential foundation of yoga, and how the inner witness transforms practice."
+    },
     "respiration": {
       "pageTitle": "Breathing — Yoga App",
       "pageDescription": "Discover why breath is one of the essential foundations of yoga and how Prana, the vital energy, influences the body, the mind, and inner balance.",
       "pageHeading": "Breath at the heart of practice",
       "pageIntro": "Discover why breath is one of the essential foundations of yoga and how Prana, the vital energy, influences the body, the mind, and inner balance."
+    },
+    "gratitude": {
+      "pageTitle": "Gratitude — Yoga App",
+      "pageDescription": "Discover how gratitude nurtures a gentler practice rooted in recognition and kindness toward yourself.",
+      "pageHeading": "Gratitude",
+      "pageIntro": "Recognition and kindness toward yourself."
     },
     "breathing": {
       "pageTitle": "Breathing - Yoga App",
@@ -2037,11 +2137,44 @@
         "beginner": "Početnik",
         "dynamic": "Dinamično",
         "relaxation": "Opuštanje",
-        "programmes": "Programi"
+        "programmes": "Programi",
+        "discoverYogaAppAi": "Otkrijte Yoga App AI",
+        "whatIsYoga": "Šta je joga?",
+        "beginYoga": "Početak joge",
+        "historyOrigins": "Istorija i poreklo",
+        "mainPrinciples": "Glavni principi",
+        "beginnerFaq": "FAQ za početnike"
       },
       "back": "Nazad",
       "brand": "Yoga App",
       "userCount": "Zajednica zadovoljnih korisnika"
+    },
+    "topicDetails": {
+      "what-is-yoga": {
+        "title": "Šta je joga?",
+        "subtitle": "Jasan pregled za razumevanje prakse.",
+        "sections": [{"title": "Celovita praksa", "paragraphs": ["Joga povezuje disanje, pokret i pažnju u praksi korisnoj u svakodnevnom životu.", "Pomaže da razvijete prisutnost, pokretljivost i mir sopstvenim ritmom."]}, {"title": "Jednostavni smerovi", "paragraphs": ["Osnovne smernice su jednostavne: dišite, krećite se svesno i slušajte svoje telo.", "Svaka sesija tako može postati pristupačan i skladan trenutak."]}]
+      },
+      "begin-yoga": {
+        "title": "Početak joge",
+        "subtitle": "Praktičan vodič za početak bez pritiska.",
+        "sections": [{"title": "Počnite jednostavno", "paragraphs": ["Kratka sesija, mirno disanje i jednostavni položaji dovoljni su za početak.", "Napredak ne zahteva usmerenost na performanse."]}, {"title": "Izgradite ritam", "paragraphs": ["Izaberite termin koji je lako održati i ponavljajte ga redovno.", "Doslednost je važnija od intenziteta, posebno na početku."]}]
+      },
+      "history-origins": {
+        "title": "Istorija i poreklo",
+        "subtitle": "Joga u dugoj i živoj istoriji.",
+        "sections": [{"title": "Drevni koreni", "paragraphs": ["Joga potiče iz drevne tradicije u kojoj telo, disanje i pažnja imaju centralno mesto.", "Ta istorija daje smisao savremenoj praksi."]}, {"title": "Stalni razvoj", "paragraphs": ["Tokom vekova joga se prilagođavala novim okolnostima bez gubitka svoje dublje namere.", "Ostaje živa praksa koja može da se razvija."]}]
+      },
+      "main-principles": {
+        "title": "Glavni principi",
+        "subtitle": "Osnovne smernice koje oblikuju praksu.",
+        "sections": [{"title": "Disanje i prisutnost", "paragraphs": ["Svesno disanje, stabilnost i prisutna pažnja osnovne su smernice.", "One daju nit svakoj sesiji."]}, {"title": "Slušanje sopstvenog osećaja", "paragraphs": ["Osećaji pomažu da prilagodite položaje, disanje i ritam.", "Ta pažnja čini praksu održivijom i prikladnijom."]}]
+      },
+      "beginner-faq": {
+        "title": "FAQ za početnike",
+        "subtitle": "Korisni odgovori pre početka.",
+        "faq": [{"q": "Da li moram biti savit da bih počeo?", "a": "Ne. Joga postepeno razvija savitljivost."}, {"q": "Koliko dugo treba vežbati?", "a": "Nekoliko redovnih minuta dovoljno je za početak."}, {"q": "Koja oprema mi je potrebna?", "a": "Prostirka je dovoljna za početak; ostalo zavisi od vaše udobnosti."}, {"q": "Mogu li vežbati kod kuće?", "a": "Da. Jednostavna rutina kod kuće je odličan početak."}, {"q": "Da li joga pomaže opuštanju?", "a": "Da. Disanje i blagi položaji pomažu da se smanji napetost."}, {"q": "Šta ako mi je položaj neprijatan?", "a": "Stanite, prilagodite ili zamenite položaj: udobnost i sigurnost su na prvom mestu."}]
+      }
     },
     "player": {
       "loading": "Učitavanje...",
@@ -2299,12 +2432,17 @@
       "pillar3": {
         "title": "Svesnost",
         "desc": "Prisustvo i pažnja u svakom trenutku",
-        "pageDesc": "Posmatrajte šta se dešava u telu i umu bez osuđivanja, kako biste vežbali sa više jasnoće i preciznosti."
+        "heading": "Svesnost i prisustvo",
+        "toggleLabel": "Proširite tekst o svesnosti i prisustvu",
+        "actionHint": "Kliknite na tekst da ga uvećate i proširite.",
+        "pageDesc": "Svesnost je tihi stub joga prakse.\nNe može se videti, ali transformiše sve čega se dotakne.\nU jogi, svesnost označava sposobnost da budemo potpuno prisutni onome što se događa, ovde i sada.\nOvaj kvalitet pažnje poznat je na sanskritu kao sati, ili pratyahara u klasičnim tekstovima.\nTo je jedna od temeljnih grana joge prema Patandzaliju.\nBez svesnosti, položaj je samo fizička vežba.\nSa njom, svaki pokret postaje unutrašnje istraživanje.\nSvesnost počinje posmatranjem tela.\nGde se skuplja napetost? Gde se krije otpor?\nGde pokret slobodno teče, a gde je ograničen?\nOva pitanja ne traže trenutni odgovor.\nOna jednostavno pozivaju da se gleda, bez suđenja, bez brzog ispravljanja.\nU praksi punog prisustva, uči se da se razlikuje osećaj od tumačenja koje mu pridajemo.\nPosmatra se blaga nelagodnost bez dramatizacije.\nPrepoznaje se napor bez gubljenja u njemu.\nPrimećuje se misao bez slednog praćenja.\nOva sposobnost posmatranja bez automatskog reagovanja u srcu je meditacije punog prisustva.\nTrenira se, kao mišić, redovnom praksom.\nU jogi, svesnost se primenjuje i na dah.\nPosmatranje udaha bez menjanja već je čin duboke prisutnosti.\nZatim, postepeno, ova prisutnost se širi na emocije.\nPrimećuje se razdražljivost pre nego što postane reakcija.\nOseća se zabrinutost pre nego što preuzme ceo prostor.\nSvesnost stvara prostor između podsticaja i odgovora.\nTaj prostor je dragocen: tu leži unutrašnja sloboda.\nRedovna praksa razvija ono što učitelji joge nazivaju unutrašnjim svedokom.\nTaj svedok nije ravnodušan: pažljiv je, blag, strpljiv.\nNe ocenjuje položaj kao uspeh ili neuspeh.\nJednostavno posmatra što jeste, sa zanimanjem i bez prianjanja.\nS vremenom, ovaj kvalitet svesnosti prelazi granicu prostirke.\nUlazi u razgovore, odluke i teške trenutke.\nOmogućava da se odgovori s razlučivanjem umesto da se reaguje po navici.\nPuno prisustvo transformiše obične radnje u duhovnu praksu.\nJesti s punom prisutnošću. Hodati s punom prisutnošću. Slušati s punom prisutnošću.\nSvaki trenutak postaje prilika za prisutnost.\nJoga uči da je svesnost naša najdublja priroda.\nSve što tražimo spolja može se naći u tom tihom, svetlom prostoru unutar nas.\nIzvor: Vikipedija (Joga, Puno prisustvo i Pratyahara)"
       },
       "pillar4": {
         "title": "Zahvalnost",
         "desc": "Priznanje i dobrota prema sebi",
-        "pageDesc": "Završavanje prakse sa zahvalnošću i blagošću daje smisao naporu i neguje nežniji odnos prema sebi."
+        "pageDesc": "Završavanje prakse sa zahvalnošću i blagošću daje smisao naporu i neguje nežniji odnos prema sebi.",
+        "toggleLabel": "Proširite tekst o zahvalnosti",
+        "actionHint": "Kliknite na tekst da ga uvećate i proširite."
       },
       "quote": "„Prava ravnoteža ne znači ostati nepomičan, već napredovati sa stabilnošću.”",
       "coach": {
@@ -2345,11 +2483,23 @@
         "source": "Izvor: tradicionalna učenja pranajame"
       }
     },
+    "conscience": {
+      "pageTitle": "Svesnost — Yoga App",
+      "pageDescription": "Otkrijte kako svesnost i potpuno prisustvo čine suštinski temelj joge i kako unutrašnji svedok transformiše praksu.",
+      "pageHeading": "Svesnost u srcu prakse",
+      "pageIntro": "Otkrijte kako svesnost i potpuno prisustvo čine suštinski temelj joge i kako unutrašnji svedok transformiše praksu."
+    },
     "respiration": {
       "pageTitle": "Disanje — Yoga App",
       "pageDescription": "Otkrijte zašto je disanje jedan od suštinskih temelja joge i kako Prana, vitalna energija, utiče na telo, um i unutrašnji balans.",
       "pageHeading": "Dah u srcu prakse",
       "pageIntro": "Otkrijte zašto je disanje jedan od suštinskih temelja joge i kako Prana, vitalna energija, utiče na telo, um i unutrašnji balans."
+    },
+    "gratitude": {
+      "pageTitle": "Zahvalnost — Yoga App",
+      "pageDescription": "Otkrijte kako zahvalnost neguje nežniju praksu zasnovanu na prepoznavanju i dobroti prema sebi.",
+      "pageHeading": "Zahvalnost",
+      "pageIntro": "Prepoznavanje i dobrota prema sebi."
     },
     "breathing": {
       "pageTitle": "Disanje - Yoga App",
