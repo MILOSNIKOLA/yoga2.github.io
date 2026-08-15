@@ -1,61 +1,75 @@
 (function () {
   function initNavDropdown() {
-    const dropdown = document.querySelector(".nav-dropdown");
-    if (!dropdown) {
+    const dropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
+    if (dropdowns.length === 0) {
       return;
     }
 
-    const toggle = dropdown.querySelector(".nav-dropdown-toggle");
-    const menu = dropdown.querySelector(".nav-dropdown-menu");
+    const closeAll = (except = null) => {
+      dropdowns.forEach((dropdown) => {
+        if (dropdown === except) return;
 
-    if (!toggle || !menu) {
-      return;
-    }
-
-    const setOpen = (isOpen) => {
-      dropdown.classList.toggle("is-open", isOpen);
-      toggle.setAttribute("aria-expanded", String(isOpen));
+        dropdown.classList.remove("is-open");
+        dropdown
+          .querySelector(".nav-dropdown-toggle")
+          ?.setAttribute("aria-expanded", "false");
+      });
     };
 
-    toggle.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      setOpen(!dropdown.classList.contains("is-open"));
-    });
+    dropdowns.forEach((dropdown) => {
+      const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+      const menu = dropdown.querySelector(".nav-dropdown-menu");
 
-    dropdown.addEventListener("mouseenter", () => {
-      setOpen(true);
-    });
+      if (!toggle || !menu) return;
 
-    dropdown.addEventListener("mouseleave", () => {
-      setOpen(false);
-    });
+      const setOpen = (isOpen) => {
+        if (isOpen) closeAll(dropdown);
 
-    dropdown.addEventListener("focusin", () => {
-      setOpen(true);
-    });
+        dropdown.classList.toggle("is-open", isOpen);
+        toggle.setAttribute("aria-expanded", String(isOpen));
+      };
 
-    dropdown.addEventListener("focusout", (event) => {
-      if (!dropdown.contains(event.relatedTarget)) {
+      toggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        setOpen(!dropdown.classList.contains("is-open"));
+      });
+
+      dropdown.addEventListener("mouseenter", () => {
+        setOpen(true);
+      });
+
+      dropdown.addEventListener("mouseleave", () => {
         setOpen(false);
-      }
+      });
+
+      dropdown.addEventListener("focusin", () => {
+        setOpen(true);
+      });
+
+      dropdown.addEventListener("focusout", (event) => {
+        if (!dropdown.contains(event.relatedTarget)) {
+          setOpen(false);
+        }
+      });
     });
 
     document.addEventListener("click", (event) => {
-      if (!dropdown.contains(event.target)) {
-        setOpen(false);
-      }
+      if (!dropdowns.some((dropdown) => dropdown.contains(event.target)))
+        closeAll();
     });
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
-        setOpen(false);
+        closeAll();
       }
     });
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initNavDropdown, { once: true });
+    document.addEventListener("DOMContentLoaded", initNavDropdown, {
+      once: true,
+    });
   } else {
     initNavDropdown();
   }

@@ -2,6 +2,7 @@
   const CLICKED_STORAGE_KEY = "clickedSectionTitles";
   const PAYLOAD_STORAGE_KEY = "selectedYogaBenefitsPayload";
   const TARGET_PAGE = "section-benefits.html";
+  const MENU_SELECTOR = "a[data-benefits-topic]";
 
   const sectionTitles = Array.from(
     document.querySelectorAll(".yoga-section h2.section-title"),
@@ -34,6 +35,24 @@
     );
   }
 
+  function getCurrentLanguage() {
+    return (
+      window.i18n?.currentLanguage ||
+      localStorage.getItem("yogaAppLanguage") ||
+      localStorage.getItem("site_language") ||
+      "fr"
+    );
+  }
+
+  function syncMenuLinks() {
+    const lang = getCurrentLanguage();
+    document.querySelectorAll(MENU_SELECTOR).forEach((link) => {
+      const topic = link.getAttribute("data-benefits-topic");
+      if (!topic) return;
+      link.href = `${TARGET_PAGE}?topic=${encodeURIComponent(topic)}&lang=${encodeURIComponent(lang)}`;
+    });
+  }
+
   function findArticlesForTitle(titleElement) {
     const section = titleElement.closest("section");
     let articles = [];
@@ -52,6 +71,7 @@
   }
 
   const clickedKeys = readClickedKeys();
+  syncMenuLinks();
 
   sectionTitles.forEach((title) => {
     const key = getTitleKey(title);
@@ -89,4 +109,6 @@
       }
     });
   });
+
+  document.addEventListener("languageChanged", syncMenuLinks);
 })();

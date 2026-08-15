@@ -1355,6 +1355,7 @@ function updateResultsCount(count) {
 function getCurrentLanguage() {
   return (
     window.i18n?.currentLanguage ||
+    localStorage.getItem("yogaAppLanguage") ||
     localStorage.getItem("site_language") ||
     document.documentElement.lang ||
     "fr"

@@ -11,7 +11,8 @@ class I18nSystem {
     this.currentLanguage = "fr";
     this.translations = {};
     this.supportedLanguages = ["fr", "en", "sr"];
-    this.storageKey = "site_language";
+    this.storageKey = "yogaAppLanguage";
+    this.legacyStorageKeys = ["site_language", "language"];
     this.DEBUG = false; // Logs i18n désactivés par défaut en usage normal
   }
 
@@ -88,7 +89,9 @@ class I18nSystem {
    */
   restoreLanguage() {
     const savedLang = localStorage.getItem(this.storageKey);
-    const legacyLang = localStorage.getItem("language");
+    const legacyLang = this.legacyStorageKeys
+      .map((key) => localStorage.getItem(key))
+      .find((value) => this.supportedLanguages.includes(value));
 
     // Utiliser la langue sauvegardée ou le français par défaut
     if (savedLang && this.supportedLanguages.includes(savedLang)) {
@@ -157,6 +160,7 @@ class I18nSystem {
 
     // Sauvegarder dans localStorage
     localStorage.setItem(this.storageKey, lang);
+    this.legacyStorageKeys.forEach((key) => localStorage.removeItem(key));
 
     // Mettre à jour l'attribut lang du document
     document.documentElement.lang = lang;
@@ -276,6 +280,14 @@ class I18nSystem {
    * Exemple: "hero.title", "features.understand.desc"
    */
   getTranslation(key) {
+    const value = this.getTranslationData(key);
+    return typeof value === "string" ? value : null;
+  }
+
+  /**
+   * Récupérer une valeur de traduction, y compris les données structurées.
+   */
+  getTranslationData(key) {
     if (!key || typeof key !== "string") return null;
 
     const translation = this.translations[this.currentLanguage];
@@ -298,7 +310,7 @@ class I18nSystem {
       }
     }
 
-    return typeof value === "string" ? value : null;
+    return value ?? null;
   }
 
   /**
@@ -401,6 +413,50 @@ class I18nSystem {
                 }
               }
 
+              if (
+                node.hasAttribute &&
+                node.hasAttribute("data-i18n-placeholder")
+              ) {
+                const key = node.getAttribute("data-i18n-placeholder");
+                const text = this.getTranslation(key);
+                if (text !== null) {
+                  node.placeholder = text;
+                }
+              }
+
+              if (
+                node.hasAttribute &&
+                node.hasAttribute("data-i18n-aria-label")
+              ) {
+                const key = node.getAttribute("data-i18n-aria-label");
+                const text = this.getTranslation(key);
+                if (text !== null) {
+                  node.setAttribute("aria-label", text);
+                }
+              }
+
+              if (node.hasAttribute && node.hasAttribute("data-i18n-title")) {
+                const key = node.getAttribute("data-i18n-title");
+                const text = this.getTranslation(key);
+                if (text !== null) {
+                  node.title = text;
+                }
+              }
+
+              if (node.getAttributeNames) {
+                node
+                  .getAttributeNames()
+                  .filter((attrName) => attrName.startsWith("data-i18n-attr-"))
+                  .forEach((attrName) => {
+                    const targetAttr = attrName.replace("data-i18n-attr-", "");
+                    const key = node.getAttribute(attrName);
+                    const text = this.getTranslation(key);
+                    if (text !== null) {
+                      node.setAttribute(targetAttr, text);
+                    }
+                  });
+              }
+
               // Vérifier tous les descendants qui ont data-i18n
               if (node.querySelectorAll) {
                 node.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -418,6 +474,44 @@ class I18nSystem {
                     el.innerHTML = text;
                   }
                 });
+
+                node
+                  .querySelectorAll("[data-i18n-placeholder]")
+                  .forEach((el) => {
+                    const key = el.getAttribute("data-i18n-placeholder");
+                    const text = this.getTranslation(key);
+                    if (text !== null) {
+                      el.placeholder = text;
+                    }
+                  });
+
+                node
+                  .querySelectorAll("[data-i18n-aria-label]")
+                  .forEach((el) => {
+                    const key = el.getAttribute("data-i18n-aria-label");
+                    const text = this.getTranslation(key);
+                    if (text !== null) {
+                      el.setAttribute("aria-label", text);
+                    }
+                  });
+
+                node.querySelectorAll("[data-i18n-title]").forEach((el) => {
+                  const key = el.getAttribute("data-i18n-title");
+                  const text = this.getTranslation(key);
+                  if (text !== null) {
+                    el.title = text;
+                  }
+                });
+
+                node
+                  .querySelectorAll("[data-i18n-attr-aria-label]")
+                  .forEach((el) => {
+                    const key = el.getAttribute("data-i18n-attr-aria-label");
+                    const text = this.getTranslation(key);
+                    if (text !== null) {
+                      el.setAttribute("aria-label", text);
+                    }
+                  });
               }
             }
           });
