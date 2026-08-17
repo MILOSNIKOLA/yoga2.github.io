@@ -28,6 +28,8 @@
         target.insertBefore(navbar, target.firstChild);
         document.body.classList.add("has-sticky-navbar");
 
+        window.themeManager?.setupToggle(navbar.querySelector("#theme-toggle"));
+
         const configureI18n = () => {
           if (!window.i18n || !Object.keys(window.i18n.translations).length) {
             return;

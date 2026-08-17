@@ -273,11 +273,12 @@
   function renderFaq(payload) {
     titleElement.textContent = payload.title;
     subtitleElement.textContent = payload.subtitle;
+    benefitsContainer.classList.add("faq-grid");
     benefitsContainer.innerHTML = payload.faq
       .map(
         (item, index) => `
           <article class="faq-item" style="animation-delay:${index * 0.08}s">
-            <button class="faq-question" type="button" data-faq-question="${index}">
+            <button class="faq-question" type="button" data-faq-question="${index}" aria-expanded="false" aria-controls="faq-answer-${index}">
               <span class="faq-question-label">${escapeHtml(item.q)}</span>
               <span class="faq-question-icon" aria-hidden="true">+</span>
             </button>
@@ -303,20 +304,25 @@
             otherCard.classList.remove("is-open");
             otherCard.querySelector(".faq-answer")?.setAttribute("hidden", "");
             otherCard.querySelector(".faq-question-icon").textContent = "+";
+            otherCard
+              .querySelector(".faq-question")
+              ?.setAttribute("aria-expanded", "false");
           }
         });
 
         if (!isOpen) {
           card.classList.add("is-open");
           answer?.removeAttribute("hidden");
+          button?.setAttribute("aria-expanded", "true");
           if (icon) icon.textContent = "−";
           clearTimeout(timer);
           timer = window.setTimeout(() => {
             answer?.scrollIntoView({ behavior: "smooth", block: "center" });
-          }, 3000);
+          }, 2000);
         } else {
           card.classList.remove("is-open");
           answer?.setAttribute("hidden", "");
+          button?.setAttribute("aria-expanded", "false");
           if (icon) icon.textContent = "+";
           clearTimeout(timer);
         }
@@ -352,7 +358,7 @@
     return true;
   }
 
-  if (sessionPayload?.articlesHtml?.length) {
+  if (!topic && sessionPayload?.articlesHtml?.length) {
     titleElement.textContent =
       typeof sessionPayload.titleText === "string" &&
       sessionPayload.titleText.trim()
@@ -366,12 +372,10 @@
 
   if (topic && topics[topic]) {
     const renderWhenI18nIsReady = () => {
-      if (!renderCurrentTopic()) {
-        render(topic === "beginner-faq" ? topics[topic] : topics[topic]);
-      }
+      renderCurrentTopic();
     };
 
-    if (window.i18n?.initialized) {
+    if (Object.keys(window.i18n?.translations || {}).length > 0) {
       renderWhenI18nIsReady();
     } else {
       document.addEventListener("i18nReady", renderWhenI18nIsReady, {

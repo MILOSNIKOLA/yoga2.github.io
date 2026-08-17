@@ -4,15 +4,39 @@
 
 class ThemeManager {
   constructor() {
-    this.themeToggleBtn = document.getElementById("theme-toggle");
+    this.themeToggleBtn = null;
     this.currentTheme = localStorage.getItem("theme") || "dark";
 
     // Initialize theme
     this.applyTheme(this.currentTheme);
 
-    // Setup event listeners
-    if (this.themeToggleBtn) {
-      this.themeToggleBtn.addEventListener("click", () => this.toggleTheme());
+    this.setupToggle(document.getElementById("theme-toggle"));
+  }
+
+  setupToggle(toggle) {
+    if (!toggle || toggle === this.themeToggleBtn) return;
+
+    this.themeToggleBtn = toggle;
+    this.themeToggleBtn.addEventListener("click", () => this.toggleTheme());
+    this.updateToggleIcons();
+  }
+
+  updateToggleIcons() {
+    if (!this.themeToggleBtn) return;
+
+    const sunIcon = this.themeToggleBtn.querySelector(".sun-icon");
+    const moonIcon = this.themeToggleBtn.querySelector(".moon-icon");
+
+    if (this.currentTheme === "dark") {
+      sunIcon?.classList.remove("hidden");
+      moonIcon?.classList.add("hidden");
+      this.themeToggleBtn.setAttribute("aria-label", "Passer au mode jour");
+      this.themeToggleBtn.setAttribute("title", "Passer au mode jour");
+    } else {
+      sunIcon?.classList.add("hidden");
+      moonIcon?.classList.remove("hidden");
+      this.themeToggleBtn.setAttribute("aria-label", "Passer au mode sombre");
+      this.themeToggleBtn.setAttribute("title", "Passer au mode sombre");
     }
   }
 
@@ -21,19 +45,7 @@ class ThemeManager {
     this.currentTheme = theme;
     localStorage.setItem("theme", theme);
 
-    // Update toggle button icons
-    if (this.themeToggleBtn) {
-      const sunIcon = this.themeToggleBtn.querySelector(".sun-icon");
-      const moonIcon = this.themeToggleBtn.querySelector(".moon-icon");
-
-      if (theme === "dark") {
-        sunIcon?.classList.add("hidden");
-        moonIcon?.classList.remove("hidden");
-      } else {
-        sunIcon?.classList.remove("hidden");
-        moonIcon?.classList.add("hidden");
-      }
-    }
+    this.updateToggleIcons();
   }
 
   toggleTheme() {
