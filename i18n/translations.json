@@ -25,7 +25,13 @@
         "beginYoga": "Débuter le yoga",
         "historyOrigins": "Histoire et origines",
         "mainPrinciples": "Les grands principes",
-        "beginnerFaq": "FAQ débutants"
+        "beginnerFaq": "FAQ débutants",
+        "yogaBenefits": "Les bénéfices du yoga",
+        "fluidBreathing": "Respiration fluide",
+        "selfMastery": "Maîtrise",
+        "flexibility": "Souplesse",
+        "stressRelief": "Anti-stress",
+        "betterEnergy": "Énergie"
       },
       "back": "Retour",
       "brand": "Yoga App",
@@ -376,6 +382,19 @@
       "pageDescription": "Découvrez pourquoi la respiration constitue l'un des fondements essentiels du yoga et comment le Prana, l'énergie vitale, influence le corps, le mental et l'équilibre intérieur.",
       "pageHeading": "Le souffle au cœur de la pratique",
       "pageIntro": "Découvrez pourquoi la respiration constitue l'un des fondements essentiels du yoga et comment le Prana, l'énergie vitale, influence le corps, le mental et l'équilibre intérieur."
+    },
+    "energy": {
+      "pageTitle": "Énergie — Yoga App",
+      "pageDescription": "Découvrez comment le yoga aide à réveiller une énergie stable, disponible et adaptée à votre rythme.",
+      "eyebrow": "Bénéfice du yoga",
+      "heading": "Retrouver une énergie durable",
+      "intro": "Le yoga ne cherche pas à créer une agitation de plus : il aide à mobiliser le corps, clarifier l'attention et préserver l'énergie au fil de la journée.",
+      "section1Title": "Mettre le corps en mouvement",
+      "section1Text": "Des enchaînements simples réveillent progressivement les muscles et relancent la circulation sans épuiser les réserves.",
+      "section2Title": "Trouver le bon rythme",
+      "section2Text": "Un souffle régulier et des transitions maîtrisées permettent d'agir avec plus de présence et moins de dispersion.",
+      "section3Title": "Préserver son élan",
+      "section3Text": "Quelques minutes de pratique suffisent pour créer une pause active, retrouver de la clarté et repartir avec une énergie plus juste."
     },
     "gratitude": {
       "pageTitle": "Gratitude — Yoga App",
@@ -1040,7 +1059,13 @@
         "beginYoga": "Starting yoga",
         "historyOrigins": "History and origins",
         "mainPrinciples": "Core principles",
-        "beginnerFaq": "Beginner FAQ"
+        "beginnerFaq": "Beginner FAQ",
+        "yogaBenefits": "Benefits of yoga",
+        "fluidBreathing": "Fluent breathing",
+        "selfMastery": "Self-mastery",
+        "flexibility": "Flexibility",
+        "stressRelief": "Stress relief",
+        "betterEnergy": "Energy"
       },
       "back": "Back",
       "brand": "Yoga App",
@@ -1391,6 +1416,19 @@
       "pageDescription": "Discover why breath is one of the essential foundations of yoga and how Prana, the vital energy, influences the body, the mind, and inner balance.",
       "pageHeading": "Breath at the heart of practice",
       "pageIntro": "Discover why breath is one of the essential foundations of yoga and how Prana, the vital energy, influences the body, the mind, and inner balance."
+    },
+    "energy": {
+      "pageTitle": "Energy — Yoga App",
+      "pageDescription": "Discover how yoga helps awaken steady, available energy that fits your own rhythm.",
+      "eyebrow": "Yoga benefit",
+      "heading": "Restore lasting energy",
+      "intro": "Yoga does not aim to create more agitation: it helps mobilise the body, clear attention and preserve energy throughout the day.",
+      "section1Title": "Move the body",
+      "section1Text": "Simple sequences gradually wake up the muscles and support circulation without draining your reserves.",
+      "section2Title": "Find the right rhythm",
+      "section2Text": "A steady breath and controlled transitions help you act with more presence and less scattered attention.",
+      "section3Title": "Protect your momentum",
+      "section3Text": "A few minutes of practice can create an active pause, restore clarity and help you continue with more balanced energy."
     },
     "gratitude": {
       "pageTitle": "Gratitude — Yoga App",
@@ -2143,7 +2181,13 @@
         "beginYoga": "Početak joge",
         "historyOrigins": "Istorija i poreklo",
         "mainPrinciples": "Glavni principi",
-        "beginnerFaq": "FAQ za početnike"
+        "beginnerFaq": "FAQ za početnike",
+        "yogaBenefits": "Prednosti joge",
+        "fluidBreathing": "Disanje",
+        "selfMastery": "Samokontrola",
+        "flexibility": "Gipkost",
+        "stressRelief": "Protiv stresa",
+        "betterEnergy": "Energija"
       },
       "back": "Nazad",
       "brand": "Yoga App",
@@ -2494,6 +2538,19 @@
       "pageDescription": "Otkrijte zašto je disanje jedan od suštinskih temelja joge i kako Prana, vitalna energija, utiče na telo, um i unutrašnji balans.",
       "pageHeading": "Dah u srcu prakse",
       "pageIntro": "Otkrijte zašto je disanje jedan od suštinskih temelja joge i kako Prana, vitalna energija, utiče na telo, um i unutrašnji balans."
+    },
+    "energy": {
+      "pageTitle": "Energija — Yoga App",
+      "pageDescription": "Otkrijte kako joga pomaže da probudite stabilnu energiju prilagođenu vašem ritmu.",
+      "eyebrow": "Dobrobit joge",
+      "heading": "Vratite trajnu energiju",
+      "intro": "Joga ne želi da stvori još više nemira: ona pokreće telo, razbistrava pažnju i čuva energiju tokom dana.",
+      "section1Title": "Pokrenite telo",
+      "section1Text": "Jednostavni nizovi postepeno bude mišiće i podstiču cirkulaciju bez iscrpljivanja rezervi.",
+      "section2Title": "Pronađite pravi ritam",
+      "section2Text": "Stalan dah i kontrolisani prelazi pomažu da delujete prisutnije i sa manje rasute pažnje.",
+      "section3Title": "Sačuvajte svoj zamah",
+      "section3Text": "Nekoliko minuta prakse može stvoriti aktivnu pauzu, vratiti jasnoću i pomoći vam da nastavite sa uravnoteženijom energijom."
     },
     "gratitude": {
       "pageTitle": "Zahvalnost — Yoga App",
