@@ -1,5 +1,15 @@
 .energy-page .section-hero {
   margin: 1rem auto 2rem;
+  padding: 4rem 2rem;
+  color: #ffffff;
+  background:
+    linear-gradient(rgba(23, 32, 51, 0.56), rgba(23, 32, 51, 0.56)),
+    url("../img/energie/energie.jpg") center / cover no-repeat;
+  border-radius: 8px;
+}
+
+.energy-page .section-hero .section-details-subtitle {
+  color: #ffffff;
 }
 
 .energy-page .section-details-subtitle {
